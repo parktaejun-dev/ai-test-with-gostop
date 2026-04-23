@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>고스톱 AI 시뮬레이션 뷰어</title>
+    <script>
+      const query = new URLSearchParams(window.location.search);
+      if (!query.has("run")) {
+        query.set("run", "paper_study_baselines");
+      }
+      const suffix = query.toString() ? `?${query.toString()}` : "";
+      const target = "/dashboard/viewer.html" + suffix + window.location.hash;
+      window.location.replace(target);
+    </script>
+  </head>
+  <body>
+    <p><a href="/dashboard/viewer.html">고스톱 AI 시뮬레이션 뷰어</a></p>
+  </body>
+</html>

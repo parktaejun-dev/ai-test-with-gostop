@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OpenRouter 에이전트 설정</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <style>
+      .settings-page .content {
+        padding-top: 1.5rem;
+      }
+
+      .settings-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 22rem) minmax(0, 1fr);
+        gap: 1rem;
+      }
+
+      .settings-panel {
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.4);
+        padding: 1rem;
+      }
+
+      .settings-stack {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .settings-field {
+        display: grid;
+        gap: 0.42rem;
+      }
+
+      .settings-field label,
+      .settings-subtitle {
+        font-size: 0.84rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      .settings-field input,
+      .settings-field select,
+      .settings-field textarea {
+        width: 100%;
+        border: 1px solid var(--line-strong);
+        background: rgba(255, 255, 255, 0.78);
+        color: var(--text);
+        padding: 0.72rem 0.78rem;
+      }
+
+      .settings-field textarea {
+        min-height: 7.5rem;
+        resize: vertical;
+        font-family: var(--mono);
+      }
+
+      .settings-hint {
+        color: var(--muted);
+        font-size: 0.82rem;
+      }
+
+      .settings-row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+        gap: 0.8rem;
+      }
+
+      .settings-mode {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+      }
+
+      .settings-mode label {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.55rem 0.7rem;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.4);
+        font-size: 0.9rem;
+      }
+
+      .settings-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+      }
+
+      .run-banner {
+        display: grid;
+        gap: 0.25rem;
+        padding: 0.9rem 1rem;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.72);
+      }
+
+      .run-banner__title {
+        font-size: 1rem;
+        font-weight: 700;
+      }
+
+      .run-banner__meta {
+        color: var(--muted);
+        font-size: 0.82rem;
+      }
+
+      .player-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.8rem;
+      }
+
+      .player-card {
+        display: grid;
+        gap: 0.75rem;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.58);
+        padding: 0.85rem;
+      }
+
+      .player-card__head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 0.75rem;
+      }
+
+      .player-card__label {
+        display: grid;
+        gap: 0.15rem;
+      }
+
+      .player-card__seat {
+        font-size: 0.76rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--accent);
+        font-weight: 700;
+      }
+
+      .player-card__title {
+        font-size: 1rem;
+        font-weight: 700;
+      }
+
+      .player-card__meta {
+        color: var(--muted);
+        font-size: 0.82rem;
+      }
+
+      .player-card select {
+        width: 100%;
+        min-height: 2.7rem;
+        border: 1px solid var(--line-strong);
+        background: rgba(255, 255, 255, 0.78);
+        color: var(--text);
+        padding: 0 0.75rem;
+      }
+
+      .player-card__actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .settings-actions button,
+      .command-actions button {
+        min-height: 2.5rem;
+        border: 1px solid var(--line);
+        background: #161616;
+        color: #fff;
+        padding: 0 0.9rem;
+      }
+
+      .settings-actions button.secondary,
+      .command-actions button.secondary {
+        background: rgba(255, 255, 255, 0.8);
+        color: var(--text);
+      }
+
+      .token-note {
+        padding: 0.75rem 0.85rem;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.55);
+        color: var(--muted);
+        font-size: 0.82rem;
+      }
+
+      .model-pool,
+      .selection-panel,
+      .command-panel {
+        display: grid;
+        gap: 0.9rem;
+      }
+
+      .chip-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.55rem;
+      }
+
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        padding: 0.48rem 0.7rem;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.55);
+        cursor: pointer;
+        user-select: none;
+      }
+
+      .chip.is-selected {
+        background: #161616;
+        color: #fff;
+      }
+
+      .chip__index {
+        font-family: var(--mono);
+        color: var(--muted);
+        font-size: 0.8rem;
+      }
+
+      .chip.is-selected .chip__index {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .list-box,
+      .code-box,
+      .preview-box {
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.55);
+      }
+
+      .list-box {
+        min-height: 10rem;
+        max-height: 18rem;
+        overflow: auto;
+        padding: 0.9rem;
+      }
+
+      .list-box ol,
+      .list-box ul {
+        margin: 0;
+        padding-left: 1.2rem;
+      }
+
+      .list-box li + li {
+        margin-top: 0.35rem;
+      }
+
+      .code-box,
+      .preview-box {
+        padding: 0.9rem;
+        font-family: var(--mono);
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+      }
+
+      .command-actions {
+        display: flex;
+        gap: 0.6rem;
+        flex-wrap: wrap;
+      }
+
+      .command-actions button.primary {
+        background: #161616;
+        color: #fff;
+      }
+
+      .status-line {
+        padding: 0.78rem 0.9rem;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.55);
+        font-size: 0.92rem;
+      }
+
+      .status-line[data-tone="error"] {
+        color: var(--negative);
+      }
+
+      .status-line[data-tone="ok"] {
+        color: var(--positive);
+      }
+
+      @media (max-width: 980px) {
+        .settings-grid,
+        .settings-row,
+        .player-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body class="settings-page">
+    <div class="shell">
+      <aside class="rail">
+        <a class="rail__intro rail__intro--link" href="index.html" aria-label="메인 화면으로 이동">
+          <p class="eyebrow">OpenRouter Settings</p>
+          <h1>모델 설정</h1>
+          <p class="rail__summary">free 모델 4개를 자동으로 채워 바로 돌린다.</p>
+        </a>
+
+        <nav class="section-nav" aria-label="설정 섹션">
+          <a href="#auth">연결</a>
+          <a href="#pool">후보</a>
+          <a href="#selection">선택</a>
+          <a href="#command">명령</a>
+          <a href="index.html" target="_blank" rel="noreferrer">대시보드</a>
+          <a href="viewer.html" target="_blank" rel="noreferrer">시뮬레이션 뷰어</a>
+        </nav>
+
+        <section class="rail-block">
+          <h2>실행 모드</h2>
+          <div class="settings-mode" id="mode-switch">
+            <label><input type="radio" name="mode" value="series" checked /> 같은 시리즈 4</label>
+            <label><input type="radio" name="mode" value="factorial" /> 고정 factorial 4x4</label>
+            <label><input type="radio" name="mode" value="random" /> 랜덤 대결</label>
+            <label><input type="radio" name="mode" value="manual" /> 직접 지정</label>
+          </div>
+          <div class="token-note">기본값: 10만원 / 점당 100원 / 2명 오링까지</div>
+        </section>
+
+        <section class="rail-block">
+          <h2>상태</h2>
+          <div class="status-line" id="status-line">준비 중</div>
+        </section>
+      </aside>
+
+      <main class="content">
+        <section class="section" id="auth">
+          <div class="section__heading">
+            <p class="eyebrow">연결</p>
+            <h3>API / Selector</h3>
+          </div>
+          <div class="settings-grid">
+            <div class="settings-panel settings-stack">
+              <div class="settings-field">
+                <label for="api-key">OPENROUTER_API_KEY</label>
+                <input id="api-key" type="password" placeholder="sk-or-..." />
+              </div>
+              <div class="settings-field">
+                <label for="base-url">OPENROUTER_BASE_URL</label>
+                <input id="base-url" type="text" value="https://openrouter.ai/api/v1" />
+              </div>
+              <div class="settings-field">
+                <label for="referer">OPENROUTER_HTTP_REFERER</label>
+                <input id="referer" type="text" value="https://godori.dahanda.dev" />
+              </div>
+              <div class="settings-field">
+                <label for="app-title">OPENROUTER_APP_TITLE</label>
+                <input id="app-title" type="text" value="godori-eval" />
+              </div>
+            </div>
+            <div class="settings-panel settings-stack">
+              <div class="settings-field">
+                <label for="selector-url">OPENROUTER_SELECTOR_URL</label>
+                <input id="selector-url" type="text" placeholder="https://selector.example.com/models" />
+              </div>
+              <div class="settings-field">
+                <label for="selector-token">OPENROUTER_SELECTOR_TOKEN</label>
+                <input id="selector-token" type="password" placeholder="selector token" />
+              </div>
+              <div class="token-note">토큰은 브라우저 로컬 저장소에만 저장한다.</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="pool">
+          <div class="section__heading">
+            <p class="eyebrow">후보</p>
+            <h3>free 모델 4개</h3>
+          </div>
+          <div class="settings-grid">
+            <div class="settings-panel settings-stack">
+              <div class="settings-row">
+                <div class="settings-field">
+                  <label for="family">시리즈</label>
+                  <input id="family" type="text" value="gemma" />
+                </div>
+                <div class="settings-actions" style="align-self: end;">
+                  <button id="fetch-selector" type="button">4개 불러오기</button>
+                  <button id="normalize-manual" class="secondary" type="button">정리</button>
+                </div>
+              </div>
+              <div class="settings-field" id="manual-models-field">
+                <label for="manual-models">직접 입력</label>
+                <textarea id="manual-models" placeholder="google/gemma-3n-e2b-it:free, google/gemma-3n-e4b-it:free, google/gemma-4-26b-a4b-it:free, google/gemma-4-31b-it:free"></textarea>
+              </div>
+              <div class="token-note">selector가 있으면 자동으로 4개를 채운다.</div>
+              <div class="chip-grid" id="candidate-chip-grid"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="selection">
+          <div class="section__heading">
+            <p class="eyebrow">배치</p>
+            <h3>플레이어 모델</h3>
+          </div>
+          <div class="settings-grid">
+            <div class="settings-panel settings-stack">
+              <div class="settings-actions">
+                <button id="random-pick" type="button">랜덤 채우기</button>
+                <button id="fill-from-pool" class="secondary" type="button">자동 채우기</button>
+                <button id="clear-selection" class="secondary" type="button">비우기</button>
+              </div>
+              <div class="player-grid" id="player-grid"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="command">
+          <div class="section__heading">
+            <p class="eyebrow">실행</p>
+            <h3>명령 만들기</h3>
+          </div>
+          <div class="settings-grid">
+            <div class="settings-panel command-panel">
+              <div class="run-banner">
+                <div class="run-banner__title">4명 · 10만원 · 100원 · 2명 오링까지</div>
+                <div class="run-banner__meta">기본값은 자동으로 넣는다.</div>
+              </div>
+              <div class="settings-actions">
+                <button id="run-now" class="primary" type="button">실행</button>
+                <button id="copy-command" type="button">명령 복사</button>
+              </div>
+              <details class="preview-toggle">
+                <summary>세부 정보</summary>
+                <div class="settings-grid">
+                  <div class="settings-panel settings-stack">
+                    <p class="settings-subtitle">환경변수</p>
+                    <div class="code-box" id="env-block"></div>
+                    <div class="command-actions">
+                      <button id="copy-env" type="button">복사</button>
+                    </div>
+                  </div>
+                  <div class="settings-panel settings-stack">
+                    <p class="settings-subtitle">명령</p>
+                    <div class="code-box" id="command-block"></div>
+                    <div class="command-actions">
+                      <button id="copy-all" class="secondary" type="button">전체 복사</button>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      const STORAGE_KEY = "godori-settings-public";
+      const SECRET_STORAGE_KEY = "godori-settings-secret";
+      const INTERNAL_SEED = 7;
+
+      const DEFAULTS = {
+        mode: "series",
+        baseUrl: "https://openrouter.ai/api/v1",
+        referer: "https://godori.dahanda.dev",
+        appTitle: "godori-eval",
+        selectorUrl: "",
+        family: "gemma",
+        manualModels: [
+          "google/gemma-3n-e2b-it:free",
+          "google/gemma-3n-e4b-it:free",
+          "google/gemma-4-26b-a4b-it:free",
+          "google/gemma-4-31b-it:free",
+        ].join("\n"),
+      };
+
+      const SECRET_DEFAULTS = {
+        apiKey: "",
+        selectorToken: "",
+      };
+
+      const FAMILY_FALLBACKS = {
+        "gemma": [
+          "google/gemma-3n-e2b-it:free",
+          "google/gemma-3n-e4b-it:free",
+          "google/gemma-4-26b-a4b-it:free",
+          "google/gemma-4-31b-it:free",
+        ],
+        "gemma-4": [
+          "google/gemma-4-26b-a4b-it:free",
+          "google/gemma-4-31b-it:free",
+        ],
+        "gemma-3": [
+          "google/gemma-3-4b-it:free",
+          "google/gemma-3-12b-it:free",
+          "google/gemma-3-27b-it:free",
+        ],
+      };
+
+      const state = {
+        candidateModels: [],
+        selectedModels: [],
+        seatOrderModels: [],
+        seatOrderKey: "",
+        activeJobId: "",
+        pollTimer: null,
+      };
+
+      const dom = {};
+
+      document.addEventListener("DOMContentLoaded", async () => {
+        bindDom();
+        hydrate();
+        bindEvents();
+        syncUi();
+        await primeModels();
+      });
+
+      function bindDom() {
+        dom.modeInputs = Array.from(document.querySelectorAll('input[name="mode"]'));
+        dom.statusLine = document.querySelector("#status-line");
+        dom.apiKey = document.querySelector("#api-key");
+        dom.baseUrl = document.querySelector("#base-url");
+        dom.referer = document.querySelector("#referer");
+        dom.appTitle = document.querySelector("#app-title");
+        dom.selectorUrl = document.querySelector("#selector-url");
+        dom.selectorToken = document.querySelector("#selector-token");
+        dom.family = document.querySelector("#family");
+        dom.manualModels = document.querySelector("#manual-models");
+        dom.fetchSelector = document.querySelector("#fetch-selector");
+        dom.normalizeManual = document.querySelector("#normalize-manual");
+        dom.randomPick = document.querySelector("#random-pick");
+        dom.fillFromPool = document.querySelector("#fill-from-pool");
+        dom.clearSelection = document.querySelector("#clear-selection");
+        dom.runNow = document.querySelector("#run-now");
+        dom.candidateChipGrid = document.querySelector("#candidate-chip-grid");
+        dom.playerGrid = document.querySelector("#player-grid");
+        dom.envBlock = document.querySelector("#env-block");
+        dom.commandBlock = document.querySelector("#command-block");
+        dom.copyEnv = document.querySelector("#copy-env");
+        dom.copyCommand = document.querySelector("#copy-command");
+        dom.copyAll = document.querySelector("#copy-all");
+      }
+
+      function hydrate() {
+        const saved = parseJson(localStorage.getItem(STORAGE_KEY), DEFAULTS);
+        const secrets = parseJson(localStorage.getItem(SECRET_STORAGE_KEY), SECRET_DEFAULTS);
+        const merged = { ...DEFAULTS, ...saved };
+        const mode = normalizeMode(merged.mode);
+        dom.modeInputs.forEach((input) => {
+          input.checked = input.value === mode;
+        });
+        dom.baseUrl.value = merged.baseUrl;
+        dom.referer.value = merged.referer;
+        dom.appTitle.value = merged.appTitle;
+        dom.selectorUrl.value = merged.selectorUrl;
+        dom.family.value = merged.family;
+        dom.manualModels.value = merged.manualModels;
+        dom.apiKey.value = secrets.apiKey ?? "";
+        dom.selectorToken.value = secrets.selectorToken ?? "";
+
+        const initial = completeModelPool(uniqueModels(parseModels(merged.manualModels)), merged.family);
+        state.candidateModels = initial;
+        state.selectedModels = Array.isArray(saved.selectedModels) ? saved.selectedModels.slice(0, 4) : [];
+        if (!state.selectedModels.length && initial.length) {
+          state.selectedModels = cycleModels(initial, 4).slice(0, 4);
+        }
+        state.seatOrderModels = [];
+        state.seatOrderKey = "";
+      }
+
+      function bindEvents() {
+        dom.modeInputs.forEach((input) => input.addEventListener("change", syncUi));
+
+        [
+          dom.baseUrl,
+          dom.referer,
+          dom.appTitle,
+          dom.selectorUrl,
+          dom.manualModels,
+        ].forEach((element) => element.addEventListener("input", syncUi));
+
+        dom.family.addEventListener("input", async () => {
+          state.candidateModels = [];
+          state.selectedModels = [];
+          state.seatOrderModels = [];
+          state.seatOrderKey = "";
+          await primeModels();
+        });
+
+        [dom.apiKey, dom.selectorToken].forEach((element) =>
+          element.addEventListener("input", syncUi)
+        );
+
+        dom.normalizeManual.addEventListener("click", () => {
+          state.candidateModels = completeModelPool(uniqueModels(parseModels(dom.manualModels.value)), dom.family.value.trim() || "gemma");
+          setStatus(`수동 입력에서 ${state.candidateModels.length}개 모델을 정리했다.`, "ok");
+          syncUi();
+        });
+
+        dom.fillFromPool.addEventListener("click", () => {
+          const mode = currentMode();
+          state.selectedModels = mode === "random"
+            ? pickRandomPlayers()
+            : cycleModels(state.candidateModels, 4).slice(0, 4);
+          state.seatOrderKey = "";
+          state.seatOrderModels = [];
+          setStatus("후보군 기준으로 4개 모델을 채웠다.", "ok");
+          syncUi();
+        });
+
+        dom.clearSelection.addEventListener("click", () => {
+          state.selectedModels = [];
+          state.seatOrderKey = "";
+          state.seatOrderModels = [];
+          setStatus("플레이어 모델 선택을 비웠다.", "ok");
+          syncUi();
+        });
+
+        dom.randomPick.addEventListener("click", () => {
+          state.selectedModels = pickRandomPlayers();
+          state.seatOrderKey = "";
+          state.seatOrderModels = [];
+          setStatus("랜덤으로 4개 플레이어 모델을 선택했다.", "ok");
+          syncUi();
+        });
+
+        dom.fetchSelector.addEventListener("click", fetchFromSelector);
+        dom.runNow.addEventListener("click", runCommand);
+
+        dom.copyEnv.addEventListener("click", () => copyText(dom.envBlock.textContent));
+        dom.copyCommand.addEventListener("click", () => copyText(dom.commandBlock.textContent));
+        dom.copyAll.addEventListener("click", () =>
+          copyText(`${dom.envBlock.textContent}\n\n${dom.commandBlock.textContent}`)
+        );
+      }
+
+      async function primeModels() {
+        if (dom.selectorUrl.value.trim()) {
+          await fetchFromSelector({ silent: true });
+          return;
+        }
+        state.candidateModels = completeModelPool(
+          uniqueModels(parseModels(dom.manualModels.value)),
+          dom.family.value.trim() || "gemma"
+        );
+        const mode = currentMode();
+        if (mode === "random") {
+          state.selectedModels = pickRandomPlayers();
+        } else if (mode !== "manual" && !state.selectedModels.length) {
+          state.selectedModels = cycleModels(state.candidateModels, 4).slice(0, 4);
+        }
+        syncUi();
+      }
+
+      async function fetchFromSelector({ silent = false } = {}) {
+        const selectorUrl = dom.selectorUrl.value.trim();
+        if (!selectorUrl) {
+          state.candidateModels = completeModelPool(
+            uniqueModels(parseModels(dom.manualModels.value)),
+            dom.family.value.trim() || "gemma"
+          );
+          if (currentMode() === "random") {
+            state.selectedModels = pickRandomPlayers();
+          } else if (currentMode() !== "manual" && !state.selectedModels.length) {
+            state.selectedModels = cycleModels(state.candidateModels, 4).slice(0, 4);
+          }
+          if (!silent) {
+            setStatus("기본 free 모델 4개를 채웠다.", "ok");
+          }
+          syncUi();
+          return;
+        }
+        const body = buildSelectorBody();
+
+        try {
+          const headers = { "Content-Type": "application/json" };
+          const token = dom.selectorToken.value.trim();
+          if (token) {
+            headers["Authorization"] = `Bearer ${token}`;
+          }
+          const response = await fetch(selectorUrl, {
+            method: "POST",
+            headers,
+            body: JSON.stringify(body),
+          });
+          if (!response.ok) {
+            throw new Error(`selector ${response.status}`);
+          }
+          const payload = await response.json();
+          const models = normalizeSelectorModels(payload);
+          if (!models.length) {
+            throw new Error("selector가 빈 목록을 반환했다");
+          }
+          state.candidateModels = completeModelPool(models, dom.family.value.trim() || "gemma");
+          const mode = currentMode();
+          if (mode === "series") {
+            state.selectedModels = cycleModels(state.candidateModels, 4).slice(0, 4);
+          } else if (mode === "random") {
+            state.selectedModels = pickRandomPlayers();
+          } else if (mode !== "manual" && !state.selectedModels.length) {
+            state.selectedModels = cycleModels(state.candidateModels, 4).slice(0, 4);
+          }
+          setStatus(`selector에서 ${models.length}개 모델을 불러왔다.`, "ok");
+          syncUi();
+        } catch (error) {
+          state.candidateModels = completeModelPool(
+            uniqueModels(parseModels(dom.manualModels.value)),
+            dom.family.value.trim() || "gemma"
+          );
+          if (currentMode() === "random") {
+            state.selectedModels = pickRandomPlayers();
+          } else if (currentMode() !== "manual" && !state.selectedModels.length) {
+            state.selectedModels = cycleModels(state.candidateModels, 4).slice(0, 4);
+          }
+          if (!silent) {
+            setStatus(`selector 실패, fallback 4개를 쓴다.`, "ok");
+          }
+          syncUi();
+        }
+      }
+
+      function syncUi() {
+        persist();
+        applyModeVisibility();
+        if (!state.candidateModels.length) {
+          state.candidateModels = completeModelPool(uniqueModels(parseModels(dom.manualModels.value)), dom.family.value.trim() || "gemma");
+        }
+        if (!state.selectedModels.length && state.candidateModels.length && currentMode() !== "manual") {
+          state.selectedModels = cycleModels(state.candidateModels, 4).slice(0, 4);
+        }
+        ensureSeatOrder();
+        renderCandidates();
+        renderPlayerSlots();
+        dom.envBlock.textContent = buildEnvBlock();
+        dom.commandBlock.textContent = buildCommandBlock();
+        if (!dom.statusLine.textContent || dom.statusLine.textContent === "설정 로드 중") {
+          setStatus("설정 페이지 준비 완료", "ok");
+        }
+      }
+
+      function applyModeVisibility() {
+        const mode = currentMode();
+        const familyField = dom.family.closest(".settings-field");
+        const manualField = dom.manualModels.closest(".settings-field");
+        if (familyField) {
+          familyField.style.display = mode === "series" ? "" : "none";
+        }
+        if (manualField) {
+          manualField.style.display = mode === "manual" ? "" : "none";
+        }
+      }
+
+      function renderCandidates() {
+        if (!state.candidateModels.length) {
+          dom.candidateChipGrid.innerHTML = '<div class="settings-hint">후보 모델이 없다. selector에서 불러오거나 수동 입력을 정리해라.</div>';
+          return;
+        }
+
+        dom.candidateChipGrid.innerHTML = state.candidateModels
+          .map((model, index) => {
+            const selected = state.selectedModels.includes(model) ? " is-selected" : "";
+            return `<div class="chip${selected}" data-model="${escapeAttr(model)}">
+              <span class="chip__index">${String(index + 1).padStart(2, "0")}</span>
+              <span>${escapeHtml(model)}</span>
+            </div>`;
+          })
+          .join("");
+      }
+
+      function renderPlayerSlots() {
+        const models = getPlayerModels();
+        dom.playerGrid.innerHTML = Array.from({ length: 4 }, (_, index) => {
+          const current = models[index] ?? "";
+          const options = state.candidateModels.length
+            ? state.candidateModels
+                .map(
+                  (model) =>
+                    `<option value="${escapeAttr(model)}"${model === current ? " selected" : ""}>${escapeHtml(model)}</option>`
+                )
+                .join("")
+            : '<option value="">후보 모델이 없음</option>';
+          return `
+            <article class="player-card">
+              <div class="player-card__head">
+                <div class="player-card__label">
+                  <div class="player-card__seat">Player ${index + 1}</div>
+                  <div class="player-card__title">모델 슬롯</div>
+                </div>
+                <button type="button" class="secondary" data-player-random="${index}">랜덤</button>
+              </div>
+              <select data-player-select="${index}">
+                <option value="">모델 선택</option>
+                ${options}
+              </select>
+              <div class="player-card__meta">좌석은 시작 시 1회만 배정되고 그 게임 동안 유지된다.</div>
+            </article>
+          `;
+        }).join("");
+
+        dom.playerGrid.querySelectorAll("[data-player-select]").forEach((select) => {
+          select.addEventListener("change", () => {
+            const index = Number(select.dataset.playerSelect);
+            const next = getPlayerModels();
+            next[index] = select.value;
+            state.selectedModels = next;
+            syncUi();
+          });
+        });
+
+        dom.playerGrid.querySelectorAll("[data-player-random]").forEach((button) => {
+          button.addEventListener("click", () => {
+            const index = Number(button.dataset.playerRandom);
+            const pool = state.candidateModels.length ? state.candidateModels : uniqueModels(parseModels(dom.manualModels.value));
+            if (!pool.length) {
+              setStatus("랜덤 선택할 후보 모델이 없다.", "error");
+              return;
+            }
+            const next = getPlayerModels();
+            next[index] = pickRandomModelForSeat(pool, index, INTERNAL_SEED);
+            state.selectedModels = next;
+            syncUi();
+          });
+        });
+      }
+
+      function buildEnvBlock() {
+        const lines = [];
+        if (dom.apiKey.value.trim()) {
+          lines.push(`export OPENROUTER_API_KEY=${shellQuote(dom.apiKey.value.trim())}`);
+        } else {
+          lines.push("export OPENROUTER_API_KEY=...");
+        }
+        lines.push(`export OPENROUTER_BASE_URL=${shellQuote(dom.baseUrl.value.trim() || DEFAULTS.baseUrl)}`);
+        lines.push(`export OPENROUTER_HTTP_REFERER=${shellQuote(dom.referer.value.trim() || DEFAULTS.referer)}`);
+        lines.push(`export OPENROUTER_APP_TITLE=${shellQuote(dom.appTitle.value.trim() || DEFAULTS.appTitle)}`);
+        if (dom.selectorUrl.value.trim()) {
+          lines.push(`export OPENROUTER_SELECTOR_URL=${shellQuote(dom.selectorUrl.value.trim())}`);
+        }
+        if (dom.selectorToken.value.trim()) {
+          lines.push(`export OPENROUTER_SELECTOR_TOKEN=${shellQuote(dom.selectorToken.value.trim())}`);
+        }
+        return lines.join("\n");
+      }
+
+      function buildCommandBlock() {
+        const mode = currentMode();
+        if (mode === "factorial") {
+          return "python3 -m experiments.openrouter_factorial_study";
+        }
+        if (mode === "series") {
+          return `python3 -m experiments.openrouter_family_eval --family ${shellQuote(dom.family.value.trim() || "gemma")}`;
+        }
+
+        const models = buildPlayerModelsForCommand();
+
+        if (!models.length) {
+          return "# 플레이어 모델이 없다. selector에서 불러오거나 수동 입력을 정리해야 한다.";
+        }
+
+        return `python3 -m experiments.openrouter_player_eval --seat-models ${shellQuote(models.join(","))}`;
+      }
+
+      function buildSelectorBody() {
+        const mode = currentMode();
+        if (mode === "factorial") {
+          return {
+            count: 4,
+            free_only: true,
+            same_family_only: false,
+            strategy: "fixed_factorial_panel",
+          };
+        }
+        if (mode === "random") {
+          return {
+            count: 4,
+            free_only: true,
+            same_family_only: false,
+            strategy: "random_battle",
+          };
+        }
+        if (mode === "manual") {
+          return {
+            count: 4,
+            free_only: true,
+            same_family_only: false,
+            strategy: "manual_fill",
+          };
+        }
+        return {
+          count: 4,
+          family: dom.family.value.trim() || "gemma",
+          free_only: true,
+          same_family_only: true,
+          strategy: "parameter_sweep",
+        };
+      }
+
+      function currentMode() {
+        return normalizeMode(dom.modeInputs.find((input) => input.checked)?.value || "series");
+      }
+
+      function normalizeMode(mode) {
+        if (mode === "fixed") return "manual";
+        if (mode === "sweep") return "series";
+        if (mode === "random" || mode === "series" || mode === "manual" || mode === "factorial") return mode;
+        return "series";
+      }
+
+      function persist() {
+        const payload = {
+          mode: currentMode(),
+          baseUrl: dom.baseUrl.value,
+          referer: dom.referer.value,
+          appTitle: dom.appTitle.value,
+          selectorUrl: dom.selectorUrl.value,
+          family: dom.family.value,
+          manualModels: dom.manualModels.value,
+          selectedModels: state.selectedModels,
+        };
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+        localStorage.setItem(
+          SECRET_STORAGE_KEY,
+          JSON.stringify({
+            apiKey: dom.apiKey.value,
+            selectorToken: dom.selectorToken.value,
+          })
+        );
+      }
+
+      function normalizeSelectorModels(payload) {
+        let items = [];
+        if (Array.isArray(payload)) {
+          items = payload;
+        } else if (payload && typeof payload === "object") {
+          items = payload.models || payload.model_ids || payload.items || [];
+        }
+        return uniqueModels(
+          items
+            .map((item) => {
+              if (typeof item === "string") return item;
+              if (item && typeof item === "object") {
+                return item.id || item.model_id || item.name || "";
+              }
+              return "";
+            })
+            .filter(Boolean)
+        );
+      }
+
+      function parseModels(raw) {
+        return raw
+          .split(/[\n,]/g)
+          .map((item) => item.trim())
+          .filter(Boolean);
+      }
+
+      function uniqueModels(items) {
+        return Array.from(new Set(items));
+      }
+
+      function completeModelPool(items, family) {
+        const fallback = FAMILY_FALLBACKS[family] ?? [];
+        return uniqueModels([...items, ...fallback]);
+      }
+
+      function cycleModels(items, count) {
+        if (!items.length || count <= 0) {
+          return [];
+        }
+        return Array.from({ length: count }, (_, index) => items[index % items.length]);
+      }
+
+      function sampleDeterministic(items, count, seed) {
+        const pool = [...items];
+        const rng = mulberry32(hashSeed(seed));
+        for (let index = pool.length - 1; index > 0; index -= 1) {
+          const target = Math.floor(rng() * (index + 1));
+          [pool[index], pool[target]] = [pool[target], pool[index]];
+        }
+        return pool.slice(0, Math.min(count, pool.length));
+      }
+
+      function pickRandomPlayers() {
+        const pool = state.candidateModels.length ? state.candidateModels : uniqueModels(parseModels(dom.manualModels.value));
+        if (!pool.length) {
+          return [];
+        }
+        if (pool.length >= 4) {
+          return sampleDeterministic(pool, 4, INTERNAL_SEED);
+        }
+        const rng = mulberry32(hashSeed(`${INTERNAL_SEED}:${pool.join("|")}`));
+        return Array.from({ length: 4 }, () => pool[Math.floor(rng() * pool.length)]);
+      }
+
+      function getPlayerModels() {
+        if (state.selectedModels.length) {
+          const models = state.selectedModels.slice(0, 4);
+          if (models.length === 4) {
+            return models;
+          }
+          return cycleModels(models.filter(Boolean), 4);
+        }
+        if (currentMode() === "manual") {
+          return [];
+        }
+        const fallback = state.candidateModels.length ? state.candidateModels : uniqueModels(parseModels(dom.manualModels.value));
+        return cycleModels(fallback, 4);
+      }
+
+      function buildPlayerModelsForCommand() {
+        if (!getPlayerModels().filter(Boolean).length) {
+          return [];
+        }
+        return ensureSeatOrder();
+      }
+
+      async function runCommand() {
+        syncUi();
+        const payload = buildRunPayload();
+        if (!payload) {
+          return;
+        }
+        dom.runNow.disabled = true;
+        setStatus("실행 요청을 보내는 중", "");
+        try {
+          const response = await fetch("/api/run", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(payload),
+          });
+          const result = await response.json();
+          if (!response.ok) {
+            if (response.status === 409 && result.job_id) {
+              state.activeJobId = result.job_id;
+              pollJobStatus();
+            }
+            throw new Error(result.error || `실행 요청 실패 (${response.status})`);
+          }
+          state.activeJobId = result.job_id;
+          setStatus(`실행을 시작했다. run=${result.run_name}`, "ok");
+          pollJobStatus();
+        } catch (error) {
+          dom.runNow.disabled = false;
+          setStatus(error.message || "실행 요청에 실패했다.", "error");
+        }
+      }
+
+      function buildRunPayload() {
+        const payload = {
+          mode: currentMode(),
+          api_key: dom.apiKey.value.trim(),
+          base_url: dom.baseUrl.value.trim() || DEFAULTS.baseUrl,
+          referer: dom.referer.value.trim() || DEFAULTS.referer,
+          app_title: dom.appTitle.value.trim() || DEFAULTS.appTitle,
+          selector_url: dom.selectorUrl.value.trim(),
+          selector_token: dom.selectorToken.value.trim(),
+          family: dom.family.value.trim() || "gemma",
+          seat_models: buildPlayerModelsForCommand(),
+        };
+
+        if (payload.mode === "factorial") {
+          payload.family = "";
+          payload.seat_models = [];
+          return payload;
+        }
+
+        if (payload.mode !== "series" && payload.seat_models.length !== 4) {
+          setStatus("플레이어 모델 4개를 먼저 확정해라.", "error");
+          return null;
+        }
+        return payload;
+      }
+
+      async function pollJobStatus() {
+        if (!state.activeJobId) {
+          return;
+        }
+        if (state.pollTimer) {
+          clearTimeout(state.pollTimer);
+          state.pollTimer = null;
+        }
+        try {
+          const response = await fetch(`/api/jobs/${encodeURIComponent(state.activeJobId)}`, {
+            cache: "no-store",
+          });
+          const result = await response.json();
+          if (!response.ok) {
+            throw new Error(result.error || `상태 조회 실패 (${response.status})`);
+          }
+          if (result.status === "queued") {
+            setStatus("실행 대기 중", "");
+            dom.runNow.disabled = true;
+            state.pollTimer = window.setTimeout(pollJobStatus, 1500);
+            return;
+          }
+          if (result.status === "running") {
+            setStatus(`실행 중: ${result.request?.run_name || result.id}`, "");
+            dom.runNow.disabled = true;
+            state.pollTimer = window.setTimeout(pollJobStatus, 2500);
+            return;
+          }
+          if (result.status === "completed") {
+            dom.runNow.disabled = false;
+            state.activeJobId = "";
+            setStatus(`실행 완료. ${result.request?.run_name || ""}`, "ok");
+            window.location.href = result.dashboard_url || `/index.html?run=${encodeURIComponent(result.request?.run_name || "")}`;
+            return;
+          }
+          dom.runNow.disabled = false;
+          state.activeJobId = "";
+          setStatus(result.error || "실행이 실패했다.", "error");
+        } catch (error) {
+          dom.runNow.disabled = false;
+          setStatus(error.message || "상태 조회에 실패했다.", "error");
+        }
+      }
+
+      function randomizeSeatOrder(models) {
+        const pool = [...models];
+        const rng = mulberry32(hashSeed(`${INTERNAL_SEED}:${pool.join("|")}`));
+        for (let index = pool.length - 1; index > 0; index -= 1) {
+          const target = Math.floor(rng() * (index + 1));
+          [pool[index], pool[target]] = [pool[target], pool[index]];
+        }
+        return pool;
+      }
+
+      function ensureSeatOrder() {
+        const models = getPlayerModels().filter(Boolean);
+        if (!models.length) {
+          state.seatOrderModels = [];
+          state.seatOrderKey = "";
+          return [];
+        }
+        const key = `${INTERNAL_SEED}:${models.join("|")}`;
+        if (state.seatOrderKey !== key || state.seatOrderModels.length !== models.length) {
+          state.seatOrderModels = randomizeSeatOrder(models);
+          state.seatOrderKey = key;
+        }
+        return state.seatOrderModels.slice();
+      }
+
+      function pickRandomModelForSeat(pool, index, seed) {
+        const rng = mulberry32(hashSeed(`${seed}:${index}:${pool.join("|")}`));
+        return pool[Math.floor(rng() * pool.length)];
+      }
+
+      function mulberry32(seed) {
+        let current = seed >>> 0;
+        return () => {
+          current += 0x6d2b79f5;
+          let value = Math.imul(current ^ (current >>> 15), current | 1);
+          value ^= value + Math.imul(value ^ (value >>> 7), value | 61);
+          return ((value ^ (value >>> 14)) >>> 0) / 4294967296;
+        };
+      }
+
+      function hashSeed(value) {
+        const text = String(value);
+        let hash = 2166136261;
+        for (let index = 0; index < text.length; index += 1) {
+          hash ^= text.charCodeAt(index);
+          hash = Math.imul(hash, 16777619);
+        }
+        return hash >>> 0;
+      }
+
+      function clampInt(value, min, max) {
+        const parsed = Number.parseInt(value, 10);
+        if (!Number.isFinite(parsed)) return min;
+        return Math.min(max, Math.max(min, parsed));
+      }
+
+      function setStatus(message, tone = "") {
+        dom.statusLine.textContent = message;
+        if (tone) {
+          dom.statusLine.dataset.tone = tone;
+        } else {
+          delete dom.statusLine.dataset.tone;
+        }
+      }
+
+      async function copyText(text) {
+        try {
+          await navigator.clipboard.writeText(text);
+          setStatus("클립보드에 복사했다.", "ok");
+        } catch (_error) {
+          setStatus("클립보드 복사에 실패했다.", "error");
+        }
+      }
+
+      function parseJson(raw, fallback) {
+        try {
+          return raw ? JSON.parse(raw) : fallback;
+        } catch (_error) {
+          return fallback;
+        }
+      }
+
+      function escapeHtml(value) {
+        return String(value)
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#39;");
+      }
+
+      function escapeAttr(value) {
+        return escapeHtml(value);
+      }
+
+      function shellQuote(value) {
+        return `'${String(value).replaceAll("'", `'\"'\"'`)}'`;
+      }
+    </script>
+  </body>
+</html>

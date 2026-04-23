@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Go-Stop AI Evaluation</title>
+    <script>
+      const query = new URLSearchParams(window.location.search);
+      if (!query.has("run")) {
+        query.set("run", "paper_study_baselines");
+      }
+      const suffix = query.toString() ? `?${query.toString()}` : "";
+      const target = "/dashboard/index.html" + suffix + window.location.hash;
+      window.location.replace(target);
+    </script>
+  </head>
+  <body>
+    <p><a href="/dashboard/index.html">Go-Stop AI Evaluation</a></p>
+  </body>
+</html>

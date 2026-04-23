@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>논문 아카이브 | Go-Stop AI Evaluation</title>
+    <link rel="stylesheet" href="./paper.css" />
+  </head>
+  <body class="archive-page">
+    <header class="topbar">
+      <div class="topbar__brand">
+        <p class="eyebrow">ARCHIVE VIEWER</p>
+        <a class="brand" href="index.html">Go-Stop AI Evaluation</a>
+      </div>
+      <div class="topbar__meta">
+        <p class="status" id="load-status" aria-live="polite">Loading archive...</p>
+        <nav class="topbar__links" aria-label="빠른 이동">
+          <a data-nav="dashboard" href="index.html">대시보드</a>
+          <a data-nav="latex" href="../paper/arxiv_main.tex">LaTeX</a>
+          <a data-nav="summary" href="../paper/bilingual_summary.md">KR / EN</a>
+          <a data-nav="report" href="../paper/artifacts/main/report.json">report.json</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="archive-layout">
+      <aside class="archive-side">
+        <section class="side-block">
+          <p class="side-label">Record</p>
+          <dl class="fact-list" id="record-facts"></dl>
+        </section>
+
+        <section class="side-block">
+          <p class="side-label">Index</p>
+          <a href="#abstract">Abstract / 초록</a>
+          <a href="#findings">Findings / 핵심 결과</a>
+          <a href="#figures">Figures / 그림</a>
+          <a href="#artifacts">Artifacts / 아티팩트</a>
+          <a href="#sources">Sources / 원본</a>
+        </section>
+
+        <section class="side-block">
+          <p class="side-label">Invocation</p>
+          <p class="side-copy" id="invocation-text"></p>
+        </section>
+
+        <section class="side-block">
+          <p class="side-label">Source files</p>
+          <ul class="source-list" id="source-files"></ul>
+        </section>
+      </aside>
+
+      <article class="archive-doc">
+        <header class="record-head">
+          <p class="record-kicker">PAPER BUNDLE / 논문 묶음</p>
+          <h1>Go-Stop AI evaluation archive</h1>
+          <p class="record-lede">
+            A plain archive view of the generated paper bundle. The summary, figures, and source
+            trail stay visible without hero treatment.
+          </p>
+          <div class="meta-strip" id="record-meta"></div>
+        </header>
+
+        <section class="section-block" id="abstract">
+          <div class="section-head">
+            <p class="eyebrow">Abstract / 초록</p>
+            <h2>Research summary</h2>
+          </div>
+          <div class="text-columns">
+            <article>
+              <h3>English</h3>
+              <p id="abstract-en"></p>
+            </article>
+            <article>
+              <h3>한국어</h3>
+              <p id="abstract-kr"></p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section-block" id="findings">
+          <div class="section-head">
+            <p class="eyebrow">Findings / 핵심 결과</p>
+            <h2>Ordered observations</h2>
+          </div>
+          <div class="finding-lines" id="finding-lines"></div>
+          <div class="table-wrap">
+            <table class="data-table" id="agent-table">
+              <thead></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="section-block" id="figures">
+          <div class="section-head">
+            <p class="eyebrow">Figures / 그림</p>
+            <h2>Result views from the bundle</h2>
+          </div>
+          <div class="figure-grid" id="figure-grid"></div>
+        </section>
+
+        <section class="section-block" id="artifacts">
+          <div class="section-head">
+            <p class="eyebrow">Artifacts / 아티팩트</p>
+            <h2>Paper bundle contents</h2>
+          </div>
+          <div class="artifact-list" id="artifact-grid"></div>
+        </section>
+
+        <section class="section-block" id="sources">
+          <div class="section-head">
+            <p class="eyebrow">Sources / 원본</p>
+            <h2>Files behind the page</h2>
+          </div>
+          <div class="source-grid">
+            <a href="../paper/arxiv_main.tex">arxiv_main.tex</a>
+            <a href="../paper/refs.bib">refs.bib</a>
+            <a href="../paper/ARTIFACTS.md">ARTIFACTS.md</a>
+            <a href="../paper/bilingual_summary.md">bilingual_summary.md</a>
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <section class="archive-error hidden" id="archive-error" aria-live="polite">
+      <p class="side-label">Load error</p>
+      <p id="error-text"></p>
+    </section>
+
+    <script src="./paper.js" defer></script>
+  </body>
+</html>

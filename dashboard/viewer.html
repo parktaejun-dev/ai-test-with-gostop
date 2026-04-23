@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>고스톱 AI 시뮬레이션 뷰어</title>
+  <style>
+    :root {
+      --board-color: #2e6f40; /* Felt green */
+      --text-glow: rgba(0, 0, 0, 0.5);
+      --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+    }
+    body, html {
+      margin: 0; padding: 0; width: 100%; height: 100%;
+      background-color: #121212;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      overflow: hidden;
+      color: white;
+    }
+    .top-bar {
+      position: absolute; top: 0; left: 0; width: 100%; height: 60px;
+      background: rgba(0,0,0,0.8);
+      display: flex; align-items: center; padding: 0 20px;
+      box-sizing: border-box; z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+    .top-bar h1 { margin: 0; font-size: 1.2rem; margin-right: auto; }
+    .top-brand {
+      margin: 0;
+      font-size: 1.2rem;
+      margin-right: auto;
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .top-brand:hover,
+    .top-brand:focus-visible {
+      text-decoration: underline;
+    }
+    .controls { display: flex; gap: 10px; align-items: center; }
+    button, select {
+      background: #444; color: white; border: 1px solid #666;
+      padding: 6px 12px; border-radius: 4px; cursor: pointer;
+      font-size: 0.9rem;
+    }
+    button:hover { background: #555; }
+    
+    #board {
+      position: absolute; top: 60px; left: 0; right: 0; bottom: 0;
+      background: var(--board-color);
+      display: flex; justify-content: center; align-items: center;
+      perspective: 1000px;
+      overflow: hidden;
+    }
+
+    /* Table layout */
+    .table-center {
+      width: 200px; height: 150px;
+      border: 2px dashed rgba(255,255,255,0.2);
+      border-radius: 20px;
+      position: relative;
+      display: flex; justify-content: center; align-items: center;
+    }
+    
+    .hwatu-deck-img {
+      width: 100px; height: 100px;
+      object-fit: cover; border-radius: 12px;
+      filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.5));
+    }
+
+    /* Avatars */
+    .agent-slot {
+      position: absolute;
+      width: 140px; height: 160px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      transition: all 0.3s ease;
+    }
+    .agent-slot .avatar {
+      width: 80px; height: 80px; background: #333;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      margin-bottom: 10px;
+      border: 3px solid #555;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      position: relative;
+      overflow: hidden;
+    }
+    .agent-slot .avatar img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .agent-slot .name {
+      background: rgba(0,0,0,0.6); padding: 4px 8px;
+      border-radius: 12px; font-size: 0.8rem; text-align: center;
+      white-space: nowrap; max-width: 100%; overflow: hidden; text-overflow: ellipsis;
+    }
+
+    /* Positions */
+    #seat-0 { bottom: 20px; left: 50%; transform: translateX(-50%); }
+    #seat-1 { right: 40px; top: 50%; transform: translateY(-50%); }
+    #seat-2 { top: 60px; left: 50%; transform: translateX(-50%); }
+    #seat-3 { left: 40px; top: 50%; transform: translateY(-50%); }
+
+    .bankroll {
+      margin-top: 4px; background: rgba(0,0,0,0.8);
+      color: #ffd700; padding: 2px 8px; border-radius: 4px;
+      font-size: 0.85rem; font-family: var(--font-mono);
+      font-weight: bold; border: 1px solid #ffd700;
+      white-space: nowrap;
+    }
+    
+    .fake-card {
+      position: absolute; font-size: 1.5rem; filter: drop-shadow(1px 2px 2px rgba(0,0,0,0.5));
+      transition: all 0.3s; z-index: 5;
+    }
+    
+    .payout-text {
+      position: absolute; top: 60px; left: 50%; transform: translateX(-50%);
+      font-weight: 900; font-size: 1.2rem; pointer-events: none;
+      animation: floatUp 2s forwards; text-shadow: 1px 1px 2px #000;
+      white-space: nowrap; z-index: 20; opacity: 0;
+    }
+    .payout-positive { color: #00ff00; }
+    .payout-negative { color: #ff3333; }
+    
+    @keyframes floatUp {
+      0% { opacity: 0; transform: translateX(-50%) translateY(0); }
+      20% { opacity: 1; transform: translateX(-50%) translateY(-20px); }
+      80% { opacity: 1; transform: translateX(-50%) translateY(-40px); }
+      100% { opacity: 0; transform: translateX(-50%) translateY(-50px); }
+    }
+
+    /* Animations & effects */
+    .speech-bubble {
+      position: absolute; top: -40px; left: 50%; transform: translateX(-50%) translateY(10px) scale(0.8);
+      background: white; color: black; padding: 6px 12px; border-radius: 18px;
+      font-size: 1rem; font-weight: bold; white-space: nowrap;
+      opacity: 0; pointer-events: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      z-index: 10;
+    }
+    .speech-bubble::after {
+      content: ''; position: absolute; bottom: -6px; left: 50%; transform: translateX(-50%);
+      border-width: 6px 6px 0; border-style: solid; border-color: white transparent transparent transparent;
+    }
+    
+    @keyframes popBubble {
+      0% { opacity: 0; transform: translateX(-50%) translateY(10px) scale(0.8); }
+      20% { opacity: 1; transform: translateX(-50%) translateY(0) scale(1.1); }
+      30% { transform: translateX(-50%) translateY(0) scale(1); }
+      80% { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); }
+      100% { opacity: 0; transform: translateX(-50%) translateY(-10px) scale(0.9); }
+    }
+    @keyframes shake {
+      0% { transform: translate(1px, 1px) rotate(0deg); }
+      10% { transform: translate(-1px, -2px) rotate(-1deg); }
+      20% { transform: translate(-3px, 0px) rotate(1deg); }
+      30% { transform: translate(3px, 2px) rotate(0deg); }
+      40% { transform: translate(1px, -1px) rotate(1deg); }
+      50% { transform: translate(-1px, 2px) rotate(-1deg); }
+      60% { transform: translate(-3px, 1px) rotate(0deg); }
+      70% { transform: translate(3px, 1px) rotate(-1deg); }
+      80% { transform: translate(-1px, -1px) rotate(1deg); }
+      90% { transform: translate(1px, 2px) rotate(0deg); }
+      100% { transform: translate(1px, -2px) rotate(-1deg); }
+    }
+    @keyframes flash {
+      0% { background-color: white; }
+      100% { background-color: var(--board-color); }
+    }
+
+    .anim-popBubble { animation: popBubble 1.5s forwards; }
+    .anim-shake { animation: shake 0.5s; }
+    .board-flash { animation: flash 0.3s forwards; }
+    
+    .status-overlay {
+      position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%);
+      font-size: 4rem; font-weight: 900; color: #ffd700;
+      text-shadow: 0 0 20px rgba(255,0,0,0.8), 2px 4px 0 rgba(0,0,0,1);
+      opacity: 0; pointer-events: none; z-index: 50; text-align: center;
+    }
+    @keyframes centerPopup {
+      0% { opacity: 0; transform: translate(-50%, -40%) scale(0.5); }
+      20% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+      30% { transform: translate(-50%, -50%) scale(1); }
+      80% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+      100% { opacity: 0; transform: translate(-50%, -60%) scale(1.1); }
+    }
+    .anim-centerPopup { animation: centerPopup 2s forwards; }
+
+    /* Action Log */
+    .log-panel {
+      position: absolute; bottom: 20px; left: 20px; width: 300px; height: 180px;
+      background: rgba(0,0,0,0.6); border-radius: 8px; padding: 10px;
+      box-sizing: border-box; overflow-y: auto; font-family: var(--font-mono);
+      font-size: 0.8rem;
+    }
+    .log-panel p { margin: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 4px; }
+    .log-panel p:last-child { border-bottom: none; }
+    .event-type { color: #88ccff; }
+
+    /* Highlight states */
+    .state-die .avatar { filter: grayscale(100%); opacity: 0.5; border-color: #333; }
+    .state-go .avatar { border-color: #ffaa00; box-shadow: 0 0 15px #ffaa00; }
+    .state-stop .avatar { border-color: #ff3333; box-shadow: 0 0 15px #ff3333; }
+    
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <a class="top-brand" href="index.html" aria-label="메인 화면으로 이동">고스톱 AI 시뮬레이션 뷰어</a>
+    <div class="controls">
+      <a href="paper.html" target="_blank" style="color: #f7d8c5; text-decoration: none; font-weight: 700;">논문 보기</a>
+      <select id="run-select"></select>
+      <button id="btn-load">불러오기</button>
+      <button id="btn-play" disabled>▶ 재생</button>
+      <select id="speed-select">
+        <option value="1000">1x (보통)</option>
+        <option value="400">2x (빠름)</option>
+        <option value="100">5x (매우빠름)</option>
+        <option value="10">Max</option>
+      </select>
+    </div>
+  </div>
+
+  <div id="board">
+    <div class="table-center">
+      <img src="assets/hwatu.png" alt="Hwatu Deck" class="hwatu-deck-img" />
+    </div>
+
+    <!-- Agent Slots -->
+    <div id="seat-0" class="agent-slot">
+      <div class="speech-bubble"></div>
+      <div class="avatar"><img src="assets/bot0.png" alt="Male 1"></div>
+      <div class="name">Seat 0</div>
+      <div class="bankroll" id="bankroll-0">100,000원</div>
+    </div>
+    <div id="seat-1" class="agent-slot">
+      <div class="speech-bubble"></div>
+      <div class="avatar"><img src="assets/bot1.png" alt="Female 1"></div>
+      <div class="name">Seat 1</div>
+      <div class="bankroll" id="bankroll-1">100,000원</div>
+    </div>
+    <div id="seat-2" class="agent-slot">
+      <div class="speech-bubble"></div>
+      <div class="avatar"><img src="assets/bot2.png" alt="Male 2"></div>
+      <div class="name">Seat 2</div>
+      <div class="bankroll" id="bankroll-2">100,000원</div>
+    </div>
+    <div id="seat-3" class="agent-slot">
+      <div class="speech-bubble"></div>
+      <div class="avatar"><img src="assets/bot3.png" alt="Female 2"></div>
+      <div class="name">Seat 3</div>
+      <div class="bankroll" id="bankroll-3">100,000원</div>
+    </div>
+
+    <!-- Central Alerts -->
+    <div id="center-alert" class="status-overlay"></div>
+  </div>
+
+  <div class="log-panel" id="log-panel"></div>
+
+  <script>
+    let currentLogs = [];
+    let isPlaying = false;
+    let playIndex = 0;
+    let playTimer = null;
+    let currentLayout = [];
+    let currentLayoutId = null;
+    let bankrolls = [100000, 100000, 100000, 100000];
+    const PRICE_PER_POINT = 100;
+
+    function formatWon(val) { return val.toLocaleString() + "원"; }
+
+    function applyPayout(seatIndex, amount, logMsg) {
+       bankrolls[seatIndex] += amount;
+       document.getElementById(`bankroll-${seatIndex}`).textContent = formatWon(bankrolls[seatIndex]);
+       
+       const slot = document.getElementById(`seat-${seatIndex}`);
+       const pt = document.createElement('div');
+       pt.className = 'payout-text ' + (amount >= 0 ? 'payout-positive' : 'payout-negative');
+       pt.textContent = (amount >= 0 ? '+' : '') + amount.toLocaleString();
+       slot.appendChild(pt);
+       setTimeout(() => pt.remove(), 2000);
+       
+       if(logMsg) addLog("정산", `[${currentLayout[seatIndex]}] ${logMsg}`);
+    }
+
+    const RUN_OPTIONS = [
+      { value: "paper_study_baselines", label: "paper_study_baselines" },
+      { value: "paper_run_v2", label: "paper_run_v2" },
+      { value: "paper_run", label: "paper_run" },
+      { value: "paper_baseline", label: "paper_baseline" },
+    ];
+    const RUN_BASE = "./data/runs";
+
+    const UI = {
+      runSelect: document.getElementById('run-select'),
+      btnLoad: document.getElementById('btn-load'),
+      btnPlay: document.getElementById('btn-play'),
+      speedSelect: document.getElementById('speed-select'),
+      logPanel: document.getElementById('log-panel'),
+      board: document.getElementById('board'),
+      centerAlert: document.getElementById('center-alert')
+    };
+
+    function init() {
+      // Setup options
+      UI.runSelect.innerHTML = RUN_OPTIONS.map(r => `<option value="${r.value}">${r.label}</option>`).join("");
+      
+      const params = new URLSearchParams(window.location.search);
+      if(params.get('run')) UI.runSelect.value = params.get('run');
+
+      UI.btnLoad.addEventListener('click', () => loadRun(UI.runSelect.value));
+      UI.btnPlay.addEventListener('click', togglePlay);
+      UI.speedSelect.addEventListener('change', () => {
+        if(isPlaying) {
+          clearTimeout(playTimer);
+          nextStep();
+        }
+      });
+      
+      // Load initially
+      loadRun(UI.runSelect.value);
+    }
+
+    async function loadRun(runName) {
+      stopPlay();
+      addLog("시스템", `데이터 불러오는 중... (${runName})`);
+      UI.btnPlay.disabled = true;
+      try {
+        const res = await fetch(`${RUN_BASE}/${runName}/session_logs.jsonl`, { cache: "no-store" });
+        if(!res.ok) throw new Error("File not found");
+        const text = await res.text();
+        const lines = text.split("\n").filter(Boolean);
+        currentLogs = lines.map(l => JSON.parse(l));
+        
+        addLog("시스템", `완료! 총 ${currentLogs.length}개의 이벤트. 재생을 눌러주세요.`);
+        UI.btnPlay.disabled = false;
+        playIndex = 0;
+        resetTable();
+      } catch (err) {
+        addLog("오류", `로그를 불러올 수 없습니다. (${err.message})`);
+        if (runName !== "paper_study_baselines") {
+          addLog("시스템", "기준 런으로 다시 시도합니다.");
+          await loadRun("paper_study_baselines");
+        }
+      }
+    }
+
+    function togglePlay() {
+      if(isPlaying) {
+        stopPlay();
+      } else {
+        if(playIndex >= currentLogs.length) playIndex = 0;
+        isPlaying = true;
+        UI.btnPlay.textContent = "⏸ 일시정지";
+        nextStep();
+      }
+    }
+
+    function stopPlay() {
+      isPlaying = false;
+      UI.btnPlay.textContent = "▶ 재생";
+      clearTimeout(playTimer);
+    }
+
+    function resetTable() {
+      for(let i=0; i<4; i++) {
+        const slot = document.getElementById(`seat-${i}`);
+        slot.className = "agent-slot";
+        slot.querySelector('.name').textContent = `Seat ${i}`;
+        slot.querySelector('.speech-bubble').classList.remove('anim-popBubble');
+        slot.querySelectorAll('.fake-card').forEach(e => e.remove());
+      }
+      currentLayout = [];
+      bankrolls = [100000, 100000, 100000, 100000];
+      for(let i=0; i<4; i++) {
+         document.getElementById(`bankroll-${i}`).textContent = formatWon(bankrolls[i]);
+      }
+      currentLayoutId = null;
+    }
+
+    function normalizeLayout(layout) {
+      if (!layout) return [];
+      if (Array.isArray(layout)) return layout;
+      return Array.from(layout);
+    }
+
+    function updateLayout(layout) {
+      if(!layout || layout.length === 0) return;
+      if(JSON.stringify(layout) !== JSON.stringify(currentLayout)) {
+        currentLayout = layout;
+        layout.forEach((agentName, idx) => {
+          const slot = document.getElementById(`seat-${idx}`);
+          if(slot) {
+            slot.querySelector('.name').textContent = agentName;
+            slot.className = "agent-slot"; // reset states
+          }
+        });
+        addLog("시스템", `새 핸드 시작 (배치 변경됨)`);
+        for(let i=0; i<4; i++) {
+           const s = document.getElementById(`seat-${i}`);
+           if(s) s.querySelectorAll('.fake-card').forEach(e => e.remove());
+        }
+      }
+    }
+
+    function maybeStartNewSession(entry) {
+      const nextLayoutId = entry && entry.layout_id != null ? String(entry.layout_id) : null;
+      const nextLayout = normalizeLayout(entry && entry.layout);
+      if (nextLayoutId !== null) {
+        if(nextLayoutId !== currentLayoutId) {
+          resetTable();
+          currentLayoutId = nextLayoutId;
+          currentLayout = [];
+          updateLayout(nextLayout);
+          addLog(
+            "시스템",
+            `세션 시작 (layout_id=${nextLayoutId}, repeat=${entry.layout_repeat ?? 0}, seat=layout:${nextLayout.join(" / ")})`
+          );
+        }
+      } else {
+        updateLayout(nextLayout);
+      }
+    }
+
+    function nextStep() {
+      if(!isPlaying || playIndex >= currentLogs.length) {
+        stopPlay();
+        if(playIndex >= currentLogs.length) addLog("시스템", "시뮬레이션 종료");
+        return;
+      }
+
+      const entry = currentLogs[playIndex];
+      playIndex++;
+      
+      processEvent(entry);
+
+      const speed = parseInt(UI.speedSelect.value, 10);
+      playTimer = setTimeout(nextStep, speed);
+    }
+
+    function processEvent(entry) {
+      maybeStartNewSession(entry);
+      
+      const evtFull = entry.event || "UNKNOWN";
+      const evt = evtFull.replace("EventType.", "");
+      const seat = entry.seat;
+      
+      if(seat !== undefined && Math.random() > 0.4) {
+         const agentEl = document.getElementById(`seat-${seat}`);
+         if(agentEl) {
+           const card = document.createElement('div');
+           card.className = "fake-card"; card.textContent = "🎴";
+           card.style.left = (Math.random()*60 - 30) + "px";
+           card.style.top = (Math.random()*40 + 60) + "px";
+           const rot = Math.random()*40 - 20;
+           card.style.transform = `rotate(${rot}deg)`;
+           agentEl.appendChild(card);
+         }
+      }
+      
+      let msg = "";
+      let bubbleText = "";
+      let doShake = false;
+      let centerText = "";
+
+      switch(evt) {
+        case "BOMB": 
+          msg = "폭탄!"; bubbleText = "폭탄! 💣"; doShake = true; centerText = "💣 BOOM!";
+          break;
+        case "CHONGTONG":
+          msg = "총통!"; bubbleText = "총통!! 🎉"; centerText = "✨ 총통 ✨"; doShake = true;
+          if(entry.payout_deltas && typeof entry.payout_deltas === "object") {
+            Object.entries(entry.payout_deltas).forEach(([rawSeat, delta]) => {
+              const i = Number(rawSeat);
+              if(!Number.isInteger(i) || delta === 0) return;
+              applyPayout(i, Number(delta), i === seat ? `총통 승리!` : false);
+            });
+          }
+          break;
+        case "DIE":
+          msg = "다이"; bubbleText = "다이...";
+          document.getElementById(`seat-${seat}`)?.classList.add('state-die');
+          break;
+        case "FLOOR_JOKER":
+          msg = "바닥 조커"; bubbleText = "조커 획득!";
+          break;
+        case "FORCED_GWANG_SELL":
+          msg = "광팔기"; bubbleText = "광팔기 ☀️";
+          break;
+        case "GO":
+          msg = "고!"; bubbleText = "고! 🚀";
+          document.getElementById(`seat-${seat}`)?.classList.add('state-go');
+          document.getElementById(`seat-${seat}`)?.classList.remove('state-stop');
+          doShake = true; centerText = "GO!";
+          break;
+        case "NAGARI":
+          msg = "나가리"; centerText = "💨 나가리 💨";
+          resetTableStates();
+          break;
+        case "REDEAL":
+          msg = "패 돌리기 (리딜)"; centerText = "🔄 패 돌리기";
+          break;
+        case "RESPONSIBILITY_DOKBAK":
+          msg = "독박"; bubbleText = "독박 😭";
+          break;
+        case "SHAKE":
+          msg = "흔들기"; bubbleText = "흔들기 👋";
+          break;
+        case "SHOWDOWN_PROPOSED":
+          msg = "쇼당 제안"; bubbleText = "쇼당! ⚔️";
+          break;
+        case "SHOWDOWN_ACCEPTED":
+          msg = "쇼당 콜"; bubbleText = "콜! 👍";
+          break;
+        case "SHOWDOWN_REJECTED":
+          msg = "쇼당 거절"; bubbleText = "노! 🙅‍♂️";
+          break;
+        case "SHOWDOWN_EVAL":
+          msg = `쇼당 결과 (EV: ${entry.ev_gain ?? 0})`;
+          break;
+        case "STOP":
+          msg = "스탑!"; bubbleText = "스탑! 🛑";
+          document.getElementById(`seat-${seat}`)?.classList.add('state-stop');
+          document.getElementById(`seat-${seat}`)?.classList.remove('state-go');
+          centerText = "STOP!"; doShake = true;
+
+          const payoutDeltas = entry.payout_deltas;
+          if(payoutDeltas && typeof payoutDeltas === "object") {
+            Object.entries(payoutDeltas).forEach(([rawSeat, rawDelta]) => {
+              const i = Number(rawSeat);
+              const delta = Number(rawDelta || 0);
+              if(!Number.isInteger(i) || delta === 0) return;
+              applyPayout(i, delta, i === seat ? `${entry.final_points || entry.score}점 정산 ${delta >= 0 ? "+" : ""}${delta.toLocaleString()}원` : false);
+            });
+          }
+          break;
+      }
+
+      // Action Log
+      const agentName = seat !== undefined ? currentLayout[seat] || `Seat ${seat}` : "System";
+      addLog(evt, `[${agentName}] ${msg}`);
+
+      // Bubble UI
+      if(seat !== undefined && bubbleText) {
+        showBubble(seat, bubbleText);
+      }
+
+      // Center UI
+      if(centerText) {
+        showCenter(centerText);
+      }
+
+      // Global FX
+      if(doShake) {
+        UI.board.classList.remove('anim-shake', 'board-flash');
+        void UI.board.offsetWidth; // trigger reflow
+        UI.board.classList.add('anim-shake');
+        if(evt === 'BOMB') UI.board.classList.add('board-flash');
+      }
+      
+      // Cleanup visual state mapping
+      if(['STOP', 'NAGARI', 'REDEAL'].includes(evt)) {
+        setTimeout(resetTableStates, parseInt(UI.speedSelect.value, 10));
+      }
+    }
+
+    function showBubble(seat, text) {
+      const bubble = document.querySelector(`#seat-${seat} .speech-bubble`);
+      if(!bubble) return;
+      bubble.textContent = text;
+      bubble.classList.remove('anim-popBubble');
+      void bubble.offsetWidth;
+      bubble.classList.add('anim-popBubble');
+    }
+
+    function showCenter(text) {
+      UI.centerAlert.textContent = text;
+      UI.centerAlert.classList.remove('anim-centerPopup');
+      void UI.centerAlert.offsetWidth;
+      UI.centerAlert.classList.add('anim-centerPopup');
+    }
+
+    function addLog(type, message) {
+      const p = document.createElement('p');
+      p.innerHTML = `<span class="event-type">[${type}]</span> ${message}`;
+      UI.logPanel.appendChild(p);
+      UI.logPanel.scrollTop = UI.logPanel.scrollHeight;
+      
+      // limit logs
+      while(UI.logPanel.children.length > 50) {
+        UI.logPanel.removeChild(UI.logPanel.firstChild);
+      }
+    }
+
+    function resetTableStates() {
+      for(let i=0; i<4; i++) {
+        const slot = document.getElementById(`seat-${i}`);
+        if(slot) {
+          slot.classList.remove('state-die', 'state-go', 'state-stop');
+        }
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", init);
+  </script>
+</body>
+</html>

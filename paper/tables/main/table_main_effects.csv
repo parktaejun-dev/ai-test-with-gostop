@@ -1,0 +1,4 @@
+term,df,sum_squares,mean_square,f_statistic,partial_eta_squared
+model,3,80000.0,26666.666666666668,,1.0
+strategy,3,0.0,0.0,,0.0
+interaction,9,0.0,0.0,,0.0
