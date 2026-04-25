@@ -106,6 +106,82 @@ export OPENROUTER_SELECTOR_TOKEN=...
 
 응답은 문자열 배열 또는 `models`/`model_ids`/`items` 필드에 모델 ID 목록을 담으면 된다.
 
+`DashScopeModelAgent`는 Alibaba Cloud Model Studio의 OpenAI 호환 `chat/completions`를 직접 호출한다.
+Singapore 리전 기본 엔드포인트는 `https://dashscope-intl.aliyuncs.com/compatible-mode/v1`이다.
+API 키는 리전별로 다르므로 Model Studio의 같은 리전에서 발급한 키를 써야 한다.
+무료 쿼터만 사용할 때는 Model Studio의 Free Quota 페이지에서 잔여량이 있는 모델 ID만 넣고,
+`--session-hands`, `--layout-repetitions`, `--remote-eval-hands`를 작게 둔다.
+
+필수 환경 변수:
+```bash
+export DASHSCOPE_API_KEY=...
+```
+
+선택 환경 변수:
+```bash
+export DASHSCOPE_BASE_URL=https://dashscope-intl.aliyuncs.com/compatible-mode/v1
+```
+
+4석 DashScope 모델 평가:
+```bash
+python3 scripts/run_dashscope_player_eval.py \
+  --seat-models qwen-plus,qwen-turbo,qwen-max,qwen-plus \
+  --session-hands 10 \
+  --layout-repetitions 1 \
+  --remote-eval-hands 10 \
+  --output-dir results/dashscope_player_qwen
+```
+
+공식 문서:
+- https://www.alibabacloud.com/help/en/model-studio/get-api-key
+- https://www.alibabacloud.com/help/en/model-studio/qwen-api-via-openai-chat-completions
+
+동일 Qwen 패밀리 안에서 파라미터 규모 차이를 보려면 30B/122B/397B/480B Qwen 패널을 쓴다.
+기본 실행량은 무료 쿼터 점검용으로 작게 잡혀 있다.
+```bash
+export DASHSCOPE_API_KEY=...
+python3 scripts/run_dashscope_qwen_parameter_sweep.py \
+  --session-hands 10 \
+  --layout-repetitions 1 \
+  --remote-eval-hands 10 \
+  --decoding max_tokens=64 \
+  --decoding temperature=0 \
+  --decoding enable_thinking=false \
+  --output-dir results/dashscope_qwen_parameter
+```
+
+NVIDIA Build NIM은 OpenAI 호환 `chat/completions`를 직접 호출한다.
+기본 엔드포인트는 `https://integrate.api.nvidia.com/v1`이다.
+
+필수 환경 변수:
+```bash
+export NVIDIA_API_KEY=...
+```
+
+선택 환경 변수:
+```bash
+export NVIDIA_BASE_URL=https://integrate.api.nvidia.com/v1
+```
+
+동일 120B 전후 파라미터 규모에서 패밀리 차이를 보려면 NVIDIA 120B cross-family 패널을 쓴다.
+기본 모델은 `qwen/qwen3.5-122b-a10b`, `mistralai/mistral-small-4-119b-2603`,
+`nvidia/nemotron-3-super-120b-a12b`, `stockmark/stockmark-2-100b-instruct`이다.
+```bash
+export NVIDIA_API_KEY=...
+python3 scripts/run_nvidia_same_size_family_eval.py \
+  --session-hands 10 \
+  --layout-repetitions 1 \
+  --remote-eval-hands 10 \
+  --max-remote-calls-per-agent 1 \
+  --decoding max_tokens=64 \
+  --decoding temperature=0 \
+  --output-dir results/nvidia_120b_family
+```
+
+공식 문서:
+- https://docs.api.nvidia.com/nim/reference/create_chat_completion_v1_chat_completions_post
+- https://docs.api.nvidia.com/nim/reference/llm-apis
+
 대시보드 데이터 번들 생성:
 ```bash
 python3 scripts/build_dashboard_data.py \

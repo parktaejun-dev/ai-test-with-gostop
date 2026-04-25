@@ -15,6 +15,8 @@ from agents.base import Agent
 
 RESPONSES_RESERVED_DECODING_FIELDS = frozenset({"model", "input", "text"})
 OPENROUTER_RESERVED_DECODING_FIELDS = frozenset({"model", "messages", "response_format"})
+DASHSCOPE_RESERVED_DECODING_FIELDS = frozenset({"model", "messages", "response_format"})
+NVIDIA_RESERVED_DECODING_FIELDS = frozenset({"model", "messages", "response_format"})
 
 
 def _state_key(state) -> str:
@@ -229,6 +231,16 @@ def _post_with_retries(url: str, payload: bytes, headers: dict[str, str], *, max
             if attempt >= max_attempts or exc.code not in {408, 429, 500, 502, 503, 504}:
                 raise RuntimeError(f"API request failed: {exc.code} {detail}") from exc
             backoff = 2 ** (attempt - 1) * 0.5
+            if exc.code == 429:
+                try:
+                    retry_after = float(exc.headers.get("Retry-After", "0"))
+                except (TypeError, ValueError):
+                    retry_after = 0.0
+                try:
+                    rate_limit_backoff = float(os.environ.get("API_RATE_LIMIT_BACKOFF_SECONDS", "5"))
+                except ValueError:
+                    rate_limit_backoff = 5.0
+                backoff = max(backoff, retry_after, rate_limit_backoff)
             time.sleep(backoff)
         except (error.URLError, TimeoutError, socket.timeout, IncompleteRead) as exc:
             if attempt >= max_attempts:
@@ -357,23 +369,31 @@ def _should_fallback_openrouter_json_mode(detail: str) -> bool:
     return False
 
 
-def _openrouter_api_responder(prompt_template: str, state, model_id: str, decoding: dict) -> dict:
-    api_key = os.environ.get("OPENROUTER_API_KEY")
+def _chat_completions_api_responder(
+    prompt_template: str,
+    state,
+    model_id: str,
+    decoding: dict,
+    *,
+    api_key_env: str,
+    base_url_env: str,
+    default_base_url: str,
+    provider_name: str,
+    reserved_fields: frozenset[str],
+    extra_headers: Callable[[], dict[str, str]] | None = None,
+) -> dict:
+    api_key = os.environ.get(api_key_env)
     if not api_key:
-        raise RuntimeError("OPENROUTER_API_KEY is not set")
-    base_url = os.environ.get("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1").rstrip("/")
+        raise RuntimeError(f"{api_key_env} is not set")
+    base_url = os.environ.get(base_url_env, default_base_url).rstrip("/")
     decoding_options = _coerce_decoding(decoding)
-    _validate_decoding_keys(decoding_options, OPENROUTER_RESERVED_DECODING_FIELDS)
+    _validate_decoding_keys(decoding_options, reserved_fields)
     headers = {
         "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json",
     }
-    http_referer = os.environ.get("OPENROUTER_HTTP_REFERER")
-    app_title = os.environ.get("OPENROUTER_APP_TITLE")
-    if http_referer:
-        headers["HTTP-Referer"] = http_referer
-    if app_title:
-        headers["X-Title"] = app_title
+    if extra_headers:
+        headers.update(extra_headers())
 
     def _request_with_messages(messages: list[dict[str, str]], *, response_format_mode: str | None) -> str:
         body = {
@@ -447,15 +467,74 @@ def _openrouter_api_responder(prompt_template: str, state, model_id: str, decodi
             if _should_fallback_openrouter_role(detail):
                 variants.append((fallback_messages, response_format_mode))
             if _should_fallback_openrouter_json_mode(detail):
-                variants.append((messages, "json_schema"))
                 variants.append((messages, None))
+                variants.append((messages, "json_schema"))
     else:
         if last_exc is not None:
             raise last_exc
-        raise RuntimeError("OpenRouter request failed without a specific exception")
+        raise RuntimeError(f"{provider_name} request failed without a specific exception")
 
     parsed = json.loads(raw)
     return {"choice_index": _chat_choice_index(parsed)}
+
+
+def _openrouter_api_responder(prompt_template: str, state, model_id: str, decoding: dict) -> dict:
+    def _openrouter_headers() -> dict[str, str]:
+        headers = {}
+        http_referer = os.environ.get("OPENROUTER_HTTP_REFERER")
+        app_title = os.environ.get("OPENROUTER_APP_TITLE")
+        if http_referer:
+            headers["HTTP-Referer"] = http_referer
+        if app_title:
+            headers["X-Title"] = app_title
+        return headers
+
+    return _chat_completions_api_responder(
+        prompt_template,
+        state,
+        model_id,
+        decoding,
+        api_key_env="OPENROUTER_API_KEY",
+        base_url_env="OPENROUTER_BASE_URL",
+        default_base_url="https://openrouter.ai/api/v1",
+        provider_name="OpenRouter",
+        reserved_fields=OPENROUTER_RESERVED_DECODING_FIELDS,
+        extra_headers=_openrouter_headers,
+    )
+
+
+def _dashscope_api_responder(prompt_template: str, state, model_id: str, decoding: dict) -> dict:
+    return _chat_completions_api_responder(
+        prompt_template,
+        state,
+        model_id,
+        decoding,
+        api_key_env="DASHSCOPE_API_KEY",
+        base_url_env="DASHSCOPE_BASE_URL",
+        default_base_url="https://dashscope-intl.aliyuncs.com/compatible-mode/v1",
+        provider_name="DashScope",
+        reserved_fields=DASHSCOPE_RESERVED_DECODING_FIELDS,
+    )
+
+
+def _nvidia_api_responder(prompt_template: str, state, model_id: str, decoding: dict) -> dict:
+    try:
+        request_delay = float(os.environ.get("NVIDIA_REQUEST_DELAY_SECONDS", "0"))
+    except ValueError:
+        request_delay = 0.0
+    if request_delay > 0:
+        time.sleep(request_delay)
+    return _chat_completions_api_responder(
+        prompt_template,
+        state,
+        model_id,
+        decoding,
+        api_key_env="NVIDIA_API_KEY",
+        base_url_env="NVIDIA_BASE_URL",
+        default_base_url="https://integrate.api.nvidia.com/v1",
+        provider_name="NVIDIA",
+        reserved_fields=NVIDIA_RESERVED_DECODING_FIELDS,
+    )
 
 
 @dataclass(frozen=True, slots=True)
@@ -514,6 +593,67 @@ class OpenRouterModelAgent(Agent):
             return state.legal_actions[cache[key]]
         responder = self.responder or _openrouter_api_responder
         try:
+            response = responder(self.prompt_template, state, self.model_id, dict(self.decoding))
+            choice_index = _extract_choice_index(response)
+            choice_index = _validated_choice_index(choice_index, len(state.legal_actions))
+        except Exception:
+            return state.legal_actions[0]
+        cache[key] = choice_index
+        return state.legal_actions[choice_index]
+
+
+@dataclass(frozen=True, slots=True)
+class DashScopeModelAgent(Agent):
+    model_id: str
+    prompt_template: str
+    decoding: tuple[tuple[str, str], ...] = ()
+    responder: Callable | None = None
+    _cache: dict[str, int] = field(default_factory=dict, init=False, repr=False, compare=False)
+
+    def __post_init__(self):
+        _validate_decoding_keys(dict(self.decoding), DASHSCOPE_RESERVED_DECODING_FIELDS)
+
+    def select_action(self, state):
+        key = _state_key(state)
+        cache = object.__getattribute__(self, "_cache")
+        if key in cache:
+            return state.legal_actions[cache[key]]
+        responder = self.responder or _dashscope_api_responder
+        try:
+            response = responder(self.prompt_template, state, self.model_id, dict(self.decoding))
+            choice_index = _extract_choice_index(response)
+            choice_index = _validated_choice_index(choice_index, len(state.legal_actions))
+        except Exception:
+            return state.legal_actions[0]
+        cache[key] = choice_index
+        return state.legal_actions[choice_index]
+
+
+@dataclass(frozen=True, slots=True)
+class NvidiaModelAgent(Agent):
+    model_id: str
+    prompt_template: str
+    decoding: tuple[tuple[str, str], ...] = ()
+    max_calls: int | None = None
+    responder: Callable | None = None
+    _cache: dict[str, int] = field(default_factory=dict, init=False, repr=False, compare=False)
+    _call_count: int = field(default=0, init=False, repr=False, compare=False)
+
+    def __post_init__(self):
+        _validate_decoding_keys(dict(self.decoding), NVIDIA_RESERVED_DECODING_FIELDS)
+
+    def select_action(self, state):
+        key = _state_key(state)
+        cache = object.__getattribute__(self, "_cache")
+        if key in cache:
+            return state.legal_actions[cache[key]]
+        max_calls = object.__getattribute__(self, "max_calls")
+        call_count = object.__getattribute__(self, "_call_count")
+        if max_calls is not None and max_calls >= 0 and call_count >= max_calls:
+            return state.legal_actions[0]
+        responder = self.responder or _nvidia_api_responder
+        try:
+            object.__setattr__(self, "_call_count", call_count + 1)
             response = responder(self.prompt_template, state, self.model_id, dict(self.decoding))
             choice_index = _extract_choice_index(response)
             choice_index = _validated_choice_index(choice_index, len(state.legal_actions))

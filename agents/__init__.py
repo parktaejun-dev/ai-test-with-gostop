@@ -1,4 +1,10 @@
-from agents.adapters import OpenRouterModelAgent, RemoteModelAgent, ReplayPolicyAgent
+from agents.adapters import (
+    DashScopeModelAgent,
+    NvidiaModelAgent,
+    OpenRouterModelAgent,
+    RemoteModelAgent,
+    ReplayPolicyAgent,
+)
 from agents.base import Agent
 from agents.baselines import GreedyProfitAgent, RandomAgent, RuleBasedAgent, SurvivalAgent
 
@@ -10,5 +16,7 @@ __all__ = [
     "SurvivalAgent",
     "RemoteModelAgent",
     "OpenRouterModelAgent",
+    "DashScopeModelAgent",
+    "NvidiaModelAgent",
     "ReplayPolicyAgent",
 ]

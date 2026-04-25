@@ -1,132 +1,192 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>논문 아카이브 | Go-Stop AI Evaluation</title>
+    <title>arXiv view | Go-Stop AI Evaluation</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23b31b1b'/%3E%3Cpath d='M3 8h10M8 3v10M4.5 4.5l7 7M11.5 4.5l-7 7' stroke='white' stroke-width='1.2'/%3E%3C/svg%3E" />
     <link rel="stylesheet" href="./paper.css" />
   </head>
-  <body class="archive-page">
-    <header class="topbar">
-      <div class="topbar__brand">
-        <p class="eyebrow">ARCHIVE VIEWER</p>
-        <a class="brand" href="index.html">Go-Stop AI Evaluation</a>
-      </div>
-      <div class="topbar__meta">
-        <p class="status" id="load-status" aria-live="polite">Loading archive...</p>
-        <nav class="topbar__links" aria-label="빠른 이동">
-          <a data-nav="dashboard" href="index.html">대시보드</a>
-          <a data-nav="latex" href="../paper/arxiv_main.tex">LaTeX</a>
-          <a data-nav="summary" href="../paper/bilingual_summary.md">KR / EN</a>
-          <a data-nav="report" href="../paper/artifacts/main/report.json">report.json</a>
-        </nav>
-      </div>
+  <body>
+    <header class="site-note" aria-label="repository notice">
+      <a href="index.html" class="cornell-mark">Go-Stop AI Evaluation</a>
+      <a href="../paper/ARTIFACTS.md">artifact guide</a>
     </header>
 
-    <main class="archive-layout">
-      <aside class="archive-side">
-        <section class="side-block">
-          <p class="side-label">Record</p>
-          <dl class="fact-list" id="record-facts"></dl>
-        </section>
+    <header class="arxiv-bar" aria-label="arXiv style navigation">
+      <div class="arxiv-crumb">
+        <a class="arxiv-logo" href="./paper.html" aria-label="arXiv style paper page">arXiv</a>
+        <span>&gt;</span>
+        <a href="index.html">cs.AI</a>
+        <span>&gt;</span>
+        <span>arXiv:gostop-ai-eval</span>
+      </div>
+      <form class="search" action="./paper.html" role="search">
+        <input type="search" name="q" placeholder="Search..." aria-label="Search term" />
+        <select aria-label="Search field">
+          <option>All fields</option>
+          <option>Title</option>
+          <option>Author</option>
+          <option>Abstract</option>
+        </select>
+        <button type="submit">Search</button>
+      </form>
+    </header>
 
-        <section class="side-block">
-          <p class="side-label">Index</p>
-          <a href="#abstract">Abstract / 초록</a>
-          <a href="#findings">Findings / 핵심 결과</a>
-          <a href="#figures">Figures / 그림</a>
-          <a href="#artifacts">Artifacts / 아티팩트</a>
-          <a href="#sources">Sources / 원본</a>
-        </section>
+    <main id="content" class="paper-shell">
+      <article class="abs" aria-labelledby="paper-title">
+        <div class="subject-line">Computer Science &gt; Artificial Intelligence</div>
 
-        <section class="side-block">
-          <p class="side-label">Invocation</p>
-          <p class="side-copy" id="invocation-text"></p>
-        </section>
+        <p class="dateline">[Submitted as local arXiv manuscript package; updated from completed remote-model runs]</p>
+        <h1 id="paper-title">Parameter Scale and Model-Family Effects in Fixed-Policy LLM Play for Four-Player Go-Stop</h1>
+        <p class="authors">
+          <a href="../paper/arxiv_main.tex">Go-Stop AI Evaluation Harness</a>
+        </p>
 
-        <section class="side-block">
-          <p class="side-label">Source files</p>
-          <ul class="source-list" id="source-files"></ul>
-        </section>
-      </aside>
+        <blockquote class="abstract">
+          <span class="descriptor">Abstract:</span>
+          We evaluate fixed-policy large language model play in four-player Go-Stop, a Korean card game with stochastic deals, seat-order nuisance effects, multi-agent interaction, and risk-sensitive payoffs. The study asks whether performance within a Qwen panel improves monotonically with parameter scale, and whether model family still matters among roughly same-scale models served through NVIDIA Build. The Qwen result is non-monotonic: the 397B model leads mean profit and CVaR, while the larger 480B Coder model underperforms it. In the NVIDIA panel, Nemotron has the strongest mean-profit and tail-risk profile. The results support a constrained paper claim: Go-Stop policy quality is not explained by parameter count alone.
+        </blockquote>
 
-      <article class="archive-doc">
-        <header class="record-head">
-          <p class="record-kicker">PAPER BUNDLE / 논문 묶음</p>
-          <h1>Go-Stop AI evaluation archive</h1>
-          <p class="record-lede">
-            A plain archive view of the generated paper bundle. The summary, figures, and source
-            trail stay visible without hero treatment.
+        <table class="metadata" aria-label="paper metadata">
+          <tbody>
+            <tr>
+              <th>Comments:</th>
+              <td>Manuscript source and reproducible result artifacts are stored in this repository. LaTeX PDF compilation was not locally verified because TeX tooling is unavailable on this machine.</td>
+            </tr>
+            <tr>
+              <th>Subjects:</th>
+              <td>Artificial Intelligence (cs.AI); Machine Learning (cs.LG); Multiagent Systems</td>
+            </tr>
+            <tr>
+              <th>Cite as:</th>
+              <td><a href="../paper/arxiv_main.tex">arXiv:gostop-ai-eval [cs.AI]</a></td>
+            </tr>
+            <tr>
+              <th>Code:</th>
+              <td><a href="../paper/ARTIFACTS.md">Artifact guide</a>, <a href="../paper/remote_model_results.md">result note</a>, <a href="index.html">experiment dashboard</a></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <section class="paper-section" aria-labelledby="rq-title">
+          <h2 id="rq-title">Research Questions</h2>
+          <ol class="rq-list">
+            <li><strong>RQ1.</strong> Within a Qwen panel, does Go-Stop performance improve monotonically with parameter scale?</li>
+            <li><strong>RQ2.</strong> Among roughly same-scale NVIDIA Build models, does model family affect Go-Stop performance?</li>
+          </ol>
+          <p>
+            RQ1 is answered negatively in this panel. RQ2 is answered positively under the constrained NVIDIA panel. These are panel-specific findings under fixed prompts, fixed seat permutations, short horizons, and remote-API budget constraints.
           </p>
-          <div class="meta-strip" id="record-meta"></div>
-        </header>
-
-        <section class="section-block" id="abstract">
-          <div class="section-head">
-            <p class="eyebrow">Abstract / 초록</p>
-            <h2>Research summary</h2>
-          </div>
-          <div class="text-columns">
-            <article>
-              <h3>English</h3>
-              <p id="abstract-en"></p>
-            </article>
-            <article>
-              <h3>한국어</h3>
-              <p id="abstract-kr"></p>
-            </article>
-          </div>
         </section>
 
-        <section class="section-block" id="findings">
-          <div class="section-head">
-            <p class="eyebrow">Findings / 핵심 결과</p>
-            <h2>Ordered observations</h2>
-          </div>
-          <div class="finding-lines" id="finding-lines"></div>
-          <div class="table-wrap">
-            <table class="data-table" id="agent-table">
-              <thead></thead>
+        <section class="paper-section" aria-labelledby="qwen-title">
+          <h2 id="qwen-title">Qwen Parameter-Scale Panel</h2>
+          <p>
+            Provider: Alibaba DashScope. Path:
+            <a href="../results/paper_qwen_4model_param_2h_2rep/report.json">results/paper_qwen_4model_param_2h_2rep</a>.
+            Each model has 48 samples; <code>cvar_5_low_support=false</code>.
+          </p>
+          <div class="table-scroll">
+            <table class="result-table" id="qwen-table">
+              <thead>
+                <tr>
+                  <th>Model</th>
+                  <th>Params</th>
+                  <th>Mean profit</th>
+                  <th>CVaR 5%</th>
+                  <th>Win rate</th>
+                  <th>Samples</th>
+                </tr>
+              </thead>
               <tbody></tbody>
             </table>
           </div>
         </section>
 
-        <section class="section-block" id="figures">
-          <div class="section-head">
-            <p class="eyebrow">Figures / 그림</p>
-            <h2>Result views from the bundle</h2>
+        <section class="paper-section" aria-labelledby="nvidia-title">
+          <h2 id="nvidia-title">NVIDIA Same-Scale Family Panel</h2>
+          <p>
+            Provider: NVIDIA Build NIM. Path:
+            <a href="../results/paper_nvidia_120b_4model_family_1h_2rep_budget1/report.json">results/paper_nvidia_120b_4model_family_1h_2rep_budget1</a>.
+            Each model has 48 samples; <code>max_remote_calls_per_agent=1</code>; <code>cvar_5_low_support=false</code>.
+          </p>
+          <div class="table-scroll">
+            <table class="result-table" id="nvidia-table">
+              <thead>
+                <tr>
+                  <th>Model</th>
+                  <th>Scale</th>
+                  <th>Mean profit</th>
+                  <th>CVaR 5%</th>
+                  <th>Win rate</th>
+                  <th>Samples</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
           </div>
-          <div class="figure-grid" id="figure-grid"></div>
         </section>
 
-        <section class="section-block" id="artifacts">
-          <div class="section-head">
-            <p class="eyebrow">Artifacts / 아티팩트</p>
-            <h2>Paper bundle contents</h2>
-          </div>
-          <div class="artifact-list" id="artifact-grid"></div>
+        <section class="paper-section" aria-labelledby="limits-title">
+          <h2 id="limits-title">Limitations</h2>
+          <p>
+            The model panels are convenience samples from available remote APIs. The Qwen comparison mixes Coder and Qwen3.5 variants, so parameter scale is partly confounded with specialization. The NVIDIA run measures constrained first-decision behavior more than full-game autonomous play because only one remote call per agent was permitted in each session.
+          </p>
         </section>
 
-        <section class="section-block" id="sources">
-          <div class="section-head">
-            <p class="eyebrow">Sources / 원본</p>
-            <h2>Files behind the page</h2>
-          </div>
-          <div class="source-grid">
-            <a href="../paper/arxiv_main.tex">arxiv_main.tex</a>
-            <a href="../paper/refs.bib">refs.bib</a>
-            <a href="../paper/ARTIFACTS.md">ARTIFACTS.md</a>
-            <a href="../paper/bilingual_summary.md">bilingual_summary.md</a>
-          </div>
+        <section class="paper-section" aria-labelledby="history-title">
+          <h2 id="history-title">Submission History</h2>
+          <p>
+            <strong>[v1]</strong> Generated from completed Qwen and NVIDIA remote-model result bundles. Last page render:
+            <span id="render-date">local</span>.
+          </p>
         </section>
       </article>
+
+      <aside class="side-panel" aria-label="paper access links">
+        <section>
+          <h2>Access Paper:</h2>
+          <ul>
+            <li><a href="../paper/arxiv_main.tex">TeX Source</a></li>
+            <li><a href="../paper/remote_model_results.md">HTML (experimental)</a></li>
+            <li><a href="../paper/refs.bib">References</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Current browse context:</h3>
+          <p><strong>cs.AI</strong></p>
+          <p><a href="#qwen-title">&lt; Qwen</a> | <a href="#nvidia-title">NVIDIA &gt;</a></p>
+        </section>
+
+        <section>
+          <h3>References &amp; Data</h3>
+          <ul>
+            <li><a href="../paper/ARTIFACTS.md">Artifact guide</a></li>
+            <li><a href="../results/paper_qwen_4model_param_2h_2rep/agent_performance_table.csv">Qwen CSV</a></li>
+            <li><a href="../results/paper_nvidia_120b_4model_family_1h_2rep_budget1/agent_performance_table.csv">NVIDIA CSV</a></li>
+            <li><a href="../results/paper_qwen_4model_param_2h_2rep/manifest.json">Qwen manifest</a></li>
+            <li><a href="../results/paper_nvidia_120b_4model_family_1h_2rep_budget1/manifest.json">NVIDIA manifest</a></li>
+          </ul>
+        </section>
+
+        <section class="citation">
+          <h3>export BibTeX citation</h3>
+          <pre id="bibtex">@misc{gostop_ai_eval_2026,
+  title = {Parameter Scale and Model-Family Effects in Fixed-Policy LLM Play for Four-Player Go-Stop},
+  year = {2026}
+}</pre>
+        </section>
+      </aside>
     </main>
 
-    <section class="archive-error hidden" id="archive-error" aria-live="polite">
-      <p class="side-label">Load error</p>
-      <p id="error-text"></p>
-    </section>
+    <footer class="arxiv-footer">
+      <a href="index.html">Dashboard</a>
+      <a href="../paper/ARTIFACTS.md">Artifacts</a>
+      <a href="../paper/arxiv_main.tex">LaTeX</a>
+      <a href="../paper/remote_model_results.md">Results</a>
+    </footer>
 
     <script src="./paper.js" defer></script>
   </body>

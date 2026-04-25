@@ -1,66 +1,60 @@
 # Artifact Guide
 
-This paper package now publishes two separate bundles.
+This paper package now centers two remote-model result bundles.
 
-## Main bundle
-- Path roots:
-  - `paper/artifacts/main/`
-  - `paper/figures/main/`
-  - `paper/tables/main/`
-- Purpose:
-  - factorial main paper bundle
-  - consumed by `paper/arxiv_main.tex`
-  - consumed by `dashboard/paper.html?bundle=main`
+## Main manuscript
+- Source: `paper/arxiv_main.tex`
+- Summary: `paper/remote_model_results.md`
+- Bibliography: `paper/refs.bib`
+
+## Qwen parameter-scale bundle
+- Path: `results/paper_qwen_4model_param_2h_2rep/`
+- Purpose: Qwen-family parameter-scale comparison.
+- Models:
+  - `qwen3-coder-30b-a3b-instruct`
+  - `qwen3.5-122b-a10b`
+  - `qwen3.5-397b-a17b`
+  - `qwen3-coder-480b-a35b-instruct`
+- Configuration:
+  - `session_hands=2`
+  - `layout_repetitions=2`
+  - `remote_eval_hands=2`
+  - `sample_count=48` per model
 - Required files:
-  - `report.json`
   - `manifest.json`
+  - `report.json`
   - `agent_performance_table.csv`
   - `session_observations.csv`
   - `session_logs.jsonl`
   - `cross_play_results.json`
-  - `paper_assets_manifest.json`
-- Published figures:
-  - `figure_factorial_interaction.png`
-  - `figure_factorial_effect_sizes.png`
-  - `figure_factorial_risk.png`
-- Published tables:
-  - `table_main_effects.csv`
-  - `table_main_effects.tex`
-- Extra reproducibility files:
-  - `model_panel.json`
-  - `prompt_strategies.json`
-  - `prompts/*.txt`
 
-## Appendix bundle
-- Path roots:
-  - `paper/artifacts/appendix/`
-  - `paper/figures/appendix/`
-  - `paper/tables/appendix/`
-- Purpose:
-  - heuristic baseline calibration bundle
-  - consumed by `dashboard/paper.html?bundle=appendix`
-- Published figures:
-  - `figure_profit_ci.png`
-  - `figure_risk_summary.png`
-  - `figure_seat_heatmap.png`
-- Published tables:
-  - `table_main_metrics.csv`
-  - `table_main_metrics.tex`
+## NVIDIA same-scale family bundle
+- Path: `results/paper_nvidia_120b_4model_family_1h_2rep_budget1/`
+- Purpose: Same-scale cross-family comparison on NVIDIA Build NIM.
+- Models:
+  - `qwen/qwen3.5-122b-a10b`
+  - `mistralai/mistral-small-4-119b-2603`
+  - `nvidia/nemotron-3-super-120b-a12b`
+  - `stockmark/stockmark-2-100b-instruct`
+- Configuration:
+  - `session_hands=1`
+  - `layout_repetitions=2`
+  - `remote_eval_hands=1`
+  - `max_remote_calls_per_agent=1`
+  - `sample_count=48` per model
+- Required files:
+  - `manifest.json`
+  - `report.json`
+  - `agent_performance_table.csv`
+  - `session_observations.csv`
+  - `session_logs.jsonl`
+  - `cross_play_results.json`
 
-## Bundle index
-- `paper/bundles/index.json` is the canonical registry for the paper viewer.
-- It declares the default bundle, report path, manifest path, asset manifest path, and linked dashboard run.
+## arXiv packaging note
+Do not include full result directories or large JSONL logs in the arXiv TeX source package.
+The arXiv source package should contain only files needed to compile the manuscript:
 
-## Join keys
-- `session_observations.csv` is the main re-analysis table for the factorial bundle.
-- Factorial-only columns:
-  - `model_id`
-  - `strategy_id`
-  - `strategy_label`
-  - `prompt_sha256`
-  - `factorial_block_id`
-- `factorial_block_id` aligns repeated-layout initial conditions across strategies.
+- `arxiv_main.tex`
+- `refs.bib` or a generated `arxiv_main.bbl`
 
-## Checked-in status
-- The repository currently ships `results/factorial_smoke` as the published main bundle because live OpenRouter credentials are not bundled.
-- The same publishing path is used for real runs. Replacing the smoke bundle with a live pinned run does not require changing the paper or viewer contract.
+The result directories should be referenced as repository artifacts, not bundled into arXiv source.

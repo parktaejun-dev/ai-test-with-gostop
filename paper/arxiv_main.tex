@@ -7,7 +7,7 @@
 \usepackage{hyperref}
 \usepackage{url}
 
-\title{Model Identity or Prompt Strategy? A Blocked Factorial Go-Stop Evaluation Harness with an Artifact-Complete Paper Bundle}
+\title{Parameter Scale and Model-Family Effects in Fixed-Policy LLM Play for Four-Player Go-Stop}
 \author{Anonymous}
 \date{April 2026}
 
@@ -15,144 +15,157 @@
 \maketitle
 
 \begin{abstract}
-We study a blocked factorial question for four-player Go-Stop: in fixed-policy language-model play, does more variance come from model identity or from explicit prompt strategy? The repository implements a reproducible \texttt{4-model $\times$ 4-strategy} OpenRouter evaluation harness with repeated-layout blocking, session-level export, and effect-size-based reporting. The main report decomposes mean session profit into model, strategy, and interaction terms, and keeps CVaR$_{0.05}$ and ruin probability as secondary robustness metrics. Unlike the earlier heuristic-only benchmark, the main paper bundle is organized around \texttt{rq\_model\_vs\_strategy}. Because live OpenRouter credentials are not checked into the repository, the checked-in main bundle is a deterministic factorial smoke bundle used to validate the full paper, dashboard, and artifact path end to end. In that bundle, the model term dominates mean-profit variance (partial $\eta^2 = 1.00$), while strategy and interaction are zero. We therefore present the repository as an artifact-complete blocked factorial evaluation system whose checked-in bundle verifies the reporting contract and whose live empirical run can be reproduced by executing the pinned study definition.
+We evaluate fixed-policy large language model play in four-player Go-Stop, a Korean card game with stochastic deals, seat-order nuisance effects, multi-agent interaction, and risk-sensitive payoffs. The study asks two constrained empirical questions: whether performance within a Qwen model family increases monotonically with parameter scale, and whether model family still matters when models are compared at roughly similar parameter scale. We run two remote-API panels with exhaustive seat permutations and repeated layouts. The Qwen panel compares four DashScope models spanning 30B, 122B, 397B, and 480B total parameters. The NVIDIA Build panel compares four roughly 100B--122B models from Qwen, Mistral, Nemotron, and Stockmark. Each panel yields 48 session samples per model and 192 model-session observations. The Qwen results are non-monotonic: \texttt{qwen3.5-397b-a17b} obtains the highest mean profit and best CVaR$_{0.05}$, while the larger \texttt{qwen3-coder-480b-a35b-instruct} underperforms it. In the NVIDIA panel, \texttt{nvidia/nemotron-3-super-120b-a12b} has the strongest mean-profit and tail-risk profile. These results suggest that Go-Stop policy quality is not explained by parameter count alone; model family, specialization, and decision style remain important experimental factors. We release the evaluation harness, manifests, logs, and result tables as reproducible artifacts.
 \end{abstract}
 
 \section{Introduction}
-This paper is about evaluation, not training. The repository measures fixed Go-Stop policies under replayable conditions and asks a factorial question: when large language models play Go-Stop under frozen prompting regimes, how much performance variation is attributable to model identity and how much to prompt strategy?
+This paper is about evaluation, not training. We study fixed language-model policies in four-player Go-Stop, where agents must choose among legal game actions under partial information, stochastic deals, seat-order effects, and heavy-tailed settlements. The goal is not to build a strong Go-Stop player, but to ask whether remote LLM policies exhibit measurable differences under a reproducible game harness.
 
-That question matters because prompt-based policy induction is cheap while model substitution is expensive. If prompt strategy dominates, smaller or cheaper models can remain competitive once they are given stronger behavioral scaffolding. If model identity dominates, prompt design has limited leverage in this domain. If the interaction is large, neither factor can be discussed in isolation.
+The motivating claim is simple: model scale is an incomplete proxy for game-playing policy quality. Larger models often have stronger general capabilities, but a multi-agent, risk-sensitive game can expose differences in action selection, risk tolerance, and instruction following that are not captured by parameter count alone. Conversely, comparing only unrelated model families can confound architecture, training mixture, alignment, tool policy, and provider behavior. We therefore separate two questions.
 
-The repository therefore moves beyond a heuristic sanity-check benchmark and centers a blocked factorial LLM study. The earlier four-heuristic benchmark remains in the repository as appendix calibration. It establishes that the environment is deterministic, repeated layouts reveal seat effects, and the harness detects stable policy differences before the factorial LLM study is run.
-
-The paper asks three questions.
 \begin{itemize}
-    \item \textbf{RQ1}: Which factor explains more variance in mean session profit, model identity or prompt strategy?
-    \item \textbf{RQ2}: Are model and strategy differences robust on tail risk and ruin?
-    \item \textbf{RQ3}: Is there a meaningful model-by-strategy interaction?
+    \item \textbf{RQ1}: Within a Qwen panel, does Go-Stop performance improve monotonically with parameter scale?
+    \item \textbf{RQ2}: Among roughly same-scale models served through NVIDIA Build, does model family affect Go-Stop performance?
 \end{itemize}
 
-The repository contribution is threefold. First, it defines a reproducible blocked factorial evaluation harness for four-player Go-Stop. Second, it freezes both the model panel and the prompt strategy set so that factorial comparisons are implementation-stable and artifact-complete. Third, it ships a paper bundle, dashboard path, and archive viewer that consume the factorial report structure rather than the older baseline-only report shape.
+The answer to RQ1 is negative in this panel. The 397B Qwen model dominates the 480B Qwen Coder model on both mean profit and CVaR$_{0.05}$. The answer to RQ2 is positive under the constrained NVIDIA panel: the Nemotron model outperforms the Qwen, Mistral, and Stockmark models on mean profit and tail risk. These are not universal model rankings. They are panel-specific findings under a fixed harness, fixed prompt, and explicit remote-API constraints.
 
 \section{Related Work}
-The closest systems reference is OpenSpiel, which treats games as controlled experimental environments rather than as ad hoc demos \citep{lanctot2019openspiel, openspiel_repo}. Our setting differs in two ways: Go-Stop has strong seat-order nuisance variation, and the primary competitors are not trained RL agents but frozen heuristic or prompted LLM policies.
+Game environments are useful because they make policy differences observable under controlled stochasticity. OpenSpiel is the canonical reference for game evaluation infrastructure \citep{lanctot2019openspiel, openspiel_repo}. Our setting is narrower and more applied: we implement a Go-Stop harness rather than a general game suite, and our agents are frozen remote LLM policies rather than trained reinforcement-learning policies.
 
-The evaluation question also overlaps with zero-shot and ad hoc coordination work, where fixed behavioral diversity and policy mismatch are part of the experimental object \citep{hu2020otherplay, anyplay2022, behavioral2023, fewshot2023}. Risk-sensitive analysis matters because Go-Stop rewards are heavy-tailed at the session level; we therefore keep CVaR and ruin probability alongside mean profit \citep{riskbayes2022, rsrlcvar2023}. For uncertainty summaries we rely on bootstrap-style reporting and exact finite-sample interval conventions already standard in the repository tooling \citep{efron1994introduction, good2005permutation, wilson1927probable}.
+The multi-agent aspect connects to zero-shot coordination and ad hoc teamplay work, where fixed policy diversity and behavioral mismatch become the object of study \citep{hu2020otherplay, anyplay2022, behavioral2023, fewshot2023}. The risk-sensitive aspect matters because Go-Stop settlements can be asymmetric and heavy-tailed. We therefore report CVaR$_{0.05}$ and ruin probability alongside mean profit \citep{riskbayes2022, rsrlcvar2023}. For finite-sample summaries, the repository uses explicit manifests, sample counts, and empirical tail-support flags rather than hiding uncertainty behind point estimates.
 
 \section{Methods}
-\subsection{Environment Scope}
-The harness evaluates fixed policies only. Learning, online adaptation, and log-based policy updates are disallowed. The benchmark uses a four-player start, eight floor cards, seven cards per player, and a three-active-player main game after participation decisions. Two jokers are included. \texttt{ChooseMatch} is modeled as an explicit action when multiple same-month floor cards exist. Showdown proposals are limited to one per player per hand, and showdown evaluation is defined as the difference between actual settlement and a no-showdown counterfactual at proposal time.
+\subsection{Environment}
+The harness evaluates fixed policies only. There is no online learning, self-play training, or log-based policy update. The implemented game starts with four players and proceeds to a three-active-player main game after participation decisions. The engine includes jokers, same-month match choices, scoring categories, Go/Stop decisions, voluntary exit, forced gwang sell, showdown proposals, and carryover multipliers. Each agent receives a public game-state serialization and must return one legal action index.
 
-\subsection{Blocked Factorial Design}
-The main study is a blocked factorial experiment over a fixed \texttt{4-model $\times$ 4-strategy} grid. Factor A is model identity, implemented as a pinned four-model OpenRouter panel recorded in repo-tracked configuration and manifest metadata. Factor B is prompt strategy, implemented as four frozen English prompt files: \texttt{Balanced}, \texttt{Analytic}, \texttt{Conservative}, and \texttt{Aggressive}.
+\subsection{Policy Interface}
+Remote models are called through OpenAI-compatible chat-completion APIs. The policy prompt is fixed:
+\begin{quote}
+\small
+\texttt{You are a fixed Go-Stop evaluation policy. Choose one legal action index only. Optimize long-run profit with risk control. Do not explain.}
+\end{quote}
+At each decision, the model is instructed to return JSON with a single \texttt{choice\_index}. Invalid, unparsable, or out-of-range responses fall back to the first legal action. Repeated public states are cached by hash.
 
-For each strategy, we evaluate the same four models under exhaustive seat-order permutations. We enumerate all $4! = 24$ seat layouts, repeat each layout across deterministic seeds, and keep the paper defaults of 300 hands, initial bankroll 1000, and stake per point 1. Each repeated-layout condition becomes a nuisance block identified by
-\[
-\texttt{factorial\_block\_id} = \texttt{base\_seed} \times \texttt{layout} \times \texttt{layout\_repeat}.
-\]
-Because the same block is replayed under each prompt strategy, model and strategy effects can be separated while holding the initial-condition block fixed.
-
-\subsection{Estimands and Exports}
-The primary estimand is mean session profit. Let $P_{m,s,b}$ denote terminal profit for model $m$ under strategy $s$ in block $b$. The factorial report decomposes the variance of $P_{m,s,b}$ across the \texttt{model}, \texttt{strategy}, and \texttt{model $\times$ strategy} terms. Secondary metrics remain empirical CVaR$_{0.05}$ and ruin probability.
-
-The execution path \texttt{scripts/run\_openrouter\_factorial\_study.py} exports the same artifact family as the earlier baseline scripts:\texttt{report.json}, \texttt{manifest.json}, \texttt{agent\_performance\_table.csv}, \texttt{session\_observations.csv}, \texttt{session\_logs.jsonl}, and \texttt{cross\_play\_results.json}. The key addition is \texttt{rq\_model\_vs\_strategy} inside \texttt{report.json}. It records effect decomposition, dominant-effect comparison, cell means for the interaction plot, and model/strategy-marginal secondary metrics.
-
-\section{Checked-In Main Bundle}
-The repository does not contain live OpenRouter credentials. For that reason, the checked-in main bundle is a deterministic factorial smoke bundle published from \texttt{results/factorial\_smoke}. This bundle is not the intended final empirical submission run. Instead, it verifies that the repository now supports an end-to-end factorial artifact path: execution result, paper figures, paper tables, dashboard rendering, archive viewer rendering, and appendix separation.
-
-The checked-in smoke bundle has the following configuration.
+\subsection{Panel A: Qwen Parameter-Scale Study}
+The Qwen study uses Alibaba DashScope and compares four Qwen-family models:
 \begin{itemize}
-    \item Model panel: \texttt{google/gemma-3-27b-it:free}, \texttt{meta-llama/llama-3.1-8b-instruct:free}, \texttt{mistralai/mistral-7b-instruct:free}, \texttt{qwen/qwen-2.5-7b-instruct:free}
-    \item Strategy panel: \texttt{Balanced}, \texttt{Analytic}, \texttt{Conservative}, \texttt{Aggressive}
-    \item Base seeds: \texttt{7}
-    \item Session horizon: \texttt{2} hands
-    \item Layout repetitions: \texttt{1}
-    \item Complete factorial blocks: \texttt{1}
-    \item Session observations: \texttt{16}
+    \item \texttt{qwen3-coder-30b-a3b-instruct}
+    \item \texttt{qwen3.5-122b-a10b}
+    \item \texttt{qwen3.5-397b-a17b}
+    \item \texttt{qwen3-coder-480b-a35b-instruct}
 \end{itemize}
+The total parameter counts are 30B, 122B, 397B, and 480B. The active parameter counts recorded in the manifest are 3B, 10B, 17B, and 35B. We enumerate all $4! = 24$ seat permutations and repeat each layout twice, producing 48 session samples per model and 192 model-session observations. Each session has a two-hand horizon. Decoding is fixed at \texttt{temperature=0}, \texttt{max\_tokens=64}, and \texttt{enable\_thinking=false}.
+
+\subsection{Panel B: NVIDIA Same-Scale Family Study}
+The NVIDIA study uses NVIDIA Build NIM and compares four roughly 100B--122B models:
+\begin{itemize}
+    \item \texttt{qwen/qwen3.5-122b-a10b}
+    \item \texttt{mistralai/mistral-small-4-119b-2603}
+    \item \texttt{nvidia/nemotron-3-super-120b-a12b}
+    \item \texttt{stockmark/stockmark-2-100b-instruct}
+\end{itemize}
+The recorded parameter counts are 122B, 119B, 120B, and 100B. We again enumerate all 24 seat permutations and repeat each layout twice, producing 48 session samples per model and 192 model-session observations. Because NVIDIA rate limits were binding in live execution, this panel uses a one-hand horizon and \texttt{max\_remote\_calls\_per\_agent=1}; after each agent's one remote call budget is exhausted, the harness uses the same first-legal-action fallback used for other remote-call limits. This makes the NVIDIA study a constrained first-decision-policy comparison rather than a full-horizon autonomous-play comparison.
+
+\subsection{Metrics}
+The primary metric is terminal session profit relative to the initial bankroll. We also report empirical CVaR$_{0.05}$, win rate, ruin probability, and sample count. CVaR is computed over session profits. The artifact table records \texttt{cvar\_5\_low\_support}; in both completed panels, this flag is false for all models, with a tail support count of 3 and an effective 5\% sample size of 2.4 per model.
 
 \section{Results}
-\subsection{RQ1: Main-effect dominance}
-The checked-in bundle answers RQ1 mechanically and unambiguously. Figure~\ref{fig:interaction} shows flat strategy lines: every strategy induces the same cell means for every model. Table~\ref{tab:main-effects} and Figure~\ref{fig:effects} therefore place all explained mean-profit variance on the model term. The model main effect has partial $\eta^2 = 1.00$, while both the strategy main effect and the interaction term are $0.00$.
-
-In the same bundle, model-marginal mean profits are $120.0$, $-20.0$, $-40.0$, and $-60.0$ for Gemma-3-27B, Llama-3.1-8B, Mistral-7B, and Qwen-2.5-7B respectively. The dominant main effect is therefore \emph{model identity}. Under the checked-in smoke configuration, prompt strategy contributes no additional variance.
-
-\begin{figure}[t]
-    \centering
-    \includegraphics[width=0.95\linewidth]{figures/main/figure_factorial_interaction.png}
-    \caption{Model-by-strategy cell means on mean session profit for the checked-in factorial smoke bundle. The lines are parallel because the checked-in bundle contains no strategy effect.}
-    \label{fig:interaction}
-\end{figure}
-
-\begin{figure}[t]
-    \centering
-    \includegraphics[width=0.78\linewidth]{figures/main/figure_factorial_effect_sizes.png}
-    \caption{Partial eta-squared comparison for the three factorial terms. In the checked-in bundle the model term explains all reportable mean-profit variance.}
-    \label{fig:effects}
-\end{figure}
+\subsection{RQ1: Qwen Parameter Scale}
+Table~\ref{tab:qwen} summarizes the Qwen panel. The best model by mean profit and CVaR$_{0.05}$ is \texttt{qwen3.5-397b-a17b}. It achieves mean profit 996.25 and CVaR$_{0.05}$ of -1850.08. The 480B Qwen Coder model does not dominate the smaller models: it has mean profit -198.92 and CVaR$_{0.05}$ of -5084.75. The 122B model has the highest win rate, 0.3542, but its mean profit and tail-risk profile are weaker than the 397B model.
 
 \begin{table}[t]
     \centering
-    \caption{Main-effect decomposition for the checked-in factorial smoke bundle.}
-    \label{tab:main-effects}
-    \input{tables/main/table_main_effects.tex}
+    \caption{Qwen parameter-scale panel. Each model has 48 session samples. CVaR low support is false for all rows.}
+    \label{tab:qwen}
+    \resizebox{\linewidth}{!}{%
+    \begin{tabular}{lrrrrr}
+    \toprule
+    Model & Total params (B) & Active params (B) & Mean profit & CVaR$_{0.05}$ & Win rate \\
+    \midrule
+    \texttt{qwen3.5-397b-a17b} & 397 & 17 & 996.25 & -1850.08 & 0.3021 \\
+    \texttt{qwen3.5-122b-a10b} & 122 & 10 & -51.75 & -4145.33 & 0.3542 \\
+    \texttt{qwen3-coder-480b-a35b-instruct} & 480 & 35 & -198.92 & -5084.75 & 0.2396 \\
+    \texttt{qwen3-coder-30b-a3b-instruct} & 30 & 3 & -745.58 & -5269.25 & 0.1042 \\
+    \bottomrule
+    \end{tabular}}
 \end{table}
 
-\subsection{RQ2: Tail risk and ruin}
-Figure~\ref{fig:risk} summarizes the secondary metrics. The model-marginal CVaR$_{0.05}$ ordering matches the mean-profit ordering: Gemma-3-27B is best at $120.0$, followed by Llama-3.1-8B at $-20.0$, Mistral-7B at $-40.0$, and Qwen-2.5-7B at $-60.0$. Strategy-marginal mean profit is $0.0$ for all four prompt strategies, and strategy-marginal ruin probability is $0.0$ for all four prompt strategies. Model-marginal ruin probability is also $0.0$ across the board in this smoke configuration.
+The result is non-monotonic. A larger parameter count is not sufficient to predict stronger Go-Stop performance in this panel. This is especially clear from the contrast between the 397B Qwen3.5 model and the 480B Qwen Coder model. The panel therefore supports a narrower conclusion: scale may matter, but it interacts with model variant and specialization.
 
-These values show that the checked-in bundle is internally consistent: the same factor that dominates mean-profit variance also dominates the risk summaries. But because ruin never occurs and the bundle contains a single complete block, this should be read as a contract-verification result rather than a substantive risk conclusion about real LLM play.
+\subsection{RQ2: NVIDIA Same-Scale Family Effects}
+Table~\ref{tab:nvidia} summarizes the NVIDIA panel. The strongest model is \texttt{nvidia/nemotron-3-super-120b-a12b}, with mean profit 500.65 and CVaR$_{0.05}$ of -1384.17. Mistral has the highest win rate, 0.2917, but its mean profit and tail risk are substantially weaker than Nemotron's. Qwen and Stockmark are both negative on mean profit in this constrained panel.
 
-\begin{figure}[t]
+\begin{table}[t]
     \centering
-    \includegraphics[width=0.95\linewidth]{figures/main/figure_factorial_risk.png}
-    \caption{Model-marginal and strategy-marginal CVaR$_{0.05}$ and ruin summaries. The checked-in bundle is a smoke run, so strategy differences collapse to zero and ruin never occurs.}
-    \label{fig:risk}
-\end{figure}
+    \caption{NVIDIA same-scale family panel. Each model has 48 session samples. CVaR low support is false for all rows. The run uses \texttt{max\_remote\_calls\_per\_agent=1}.}
+    \label{tab:nvidia}
+    \resizebox{\linewidth}{!}{%
+    \begin{tabular}{lrrrr}
+    \toprule
+    Model & Params (B) & Mean profit & CVaR$_{0.05}$ & Win rate \\
+    \midrule
+    \texttt{nvidia/nemotron-3-super-120b-a12b} & 120 & 500.65 & -1384.17 & 0.2708 \\
+    \texttt{mistralai/mistral-small-4-119b-2603} & 119 & -73.19 & -4150.00 & 0.2917 \\
+    \texttt{qwen/qwen3.5-122b-a10b} & 122 & -172.85 & -3350.42 & 0.1875 \\
+    \texttt{stockmark/stockmark-2-100b-instruct} & 100 & -254.60 & -4267.08 & 0.2500 \\
+    \bottomrule
+    \end{tabular}}
+\end{table}
 
-\subsection{RQ3: Interaction}
-The model-by-strategy interaction term is $0.00$ in partial $\eta^2$ and $0.0$ in sum of squares. In the checked-in bundle there is therefore no evidence that any model benefits disproportionately from any prompt strategy. Again, this is a statement about the smoke bundle shipped with the repository, not a claim that real OpenRouter runs will have negligible interaction.
+This supports a family-effect interpretation under the run constraints. The compared models are close in nominal scale, but their risk-sensitive policy outcomes differ. The strongest result is not merely a higher win rate; Nemotron combines positive mean profit with the least severe empirical lower tail.
 
 \section{Discussion}
-The important repository change is not that the smoke bundle happens to favor the model term. The important change is that the factorial question can now be asked and answered with a self-consistent artifact path. Before this reframe, the repository could run baseline heuristics and some OpenRouter comparisons, but the paper bundle, dashboard, archive viewer, and execution UI were all still tied to the old baseline report shape. The current version removes that mismatch.
+The two panels agree on the central point: fixed-policy Go-Stop performance is not a simple function of parameter count. In the Qwen panel, the best result comes from the 397B model rather than the 480B model. In the NVIDIA panel, models of roughly similar scale separate by family, with Nemotron producing the strongest profit and tail-risk profile.
 
-This matters for two reasons. First, the factorial result path is now explicit: \texttt{session\_observations.csv} carries \texttt{model\_id}, \texttt{strategy\_id}, \texttt{strategy\_label}, \texttt{prompt\_sha256}, and \texttt{factorial\_block\_id}. Second, the same bundle can now be read by the main dashboard, the archive viewer, and the manuscript asset tree without silently falling back to the appendix-only baseline contract.
+These outcomes fit the game domain. Go-Stop requires local tactical choices, risk control, settlement awareness, and disciplined JSON action selection. General language-model scale can help, but the observed policy is also shaped by model specialization, instruction following, decoding behavior, and provider-level serving constraints. The 480B Qwen Coder result is a useful warning: a larger or more code-specialized model is not automatically a better game policy under a compact action-index prompt.
 
 \section{Limitations}
-The checked-in main bundle is intentionally limited.
+The results should be stated with explicit boundaries.
 \begin{itemize}
-    \item It is a smoke bundle, not the intended final empirical run.
-    \item It contains a single complete factorial block and a two-hand horizon, so it is not statistically adequate for real model-vs-strategy claims.
-    \item Live OpenRouter execution still requires external credentials and model availability outside the repository.
+    \item The model panels are convenience samples from currently callable remote APIs.
+    \item The Qwen scale panel mixes Qwen3.5 and Qwen Coder variants, so parameter scale is confounded with model specialization.
+    \item The NVIDIA panel is constrained by rate limits and uses \texttt{max\_remote\_calls\_per\_agent=1}; it measures constrained first-decision-policy behavior more than full-game autonomous play.
+    \item The horizons are short: two hands for Qwen and one hand for NVIDIA.
+    \item The sample count is adequate for the reported empirical summaries but not for universal model ranking claims.
 \end{itemize}
 
-Accordingly, the manuscript should be read as an artifact-complete paper package plus a verified factorial report path. The substantive empirical submission still requires a pinned live factorial run to replace the smoke bundle under the same bundle-publishing path.
-
 \section{Conclusion}
-The repository now supports the question it set out to ask: whether model identity or prompt strategy is the larger driver of Go-Stop performance variation. In the checked-in factorial smoke bundle, model identity dominates and both strategy and interaction vanish. More importantly, the repository now ships an end-to-end paper path that is aligned with that question: factorial execution, factorial statistics, factorial figures, factorial dashboard rendering, and appendix separation all consume the same report contract.
+In a reproducible four-player Go-Stop evaluation harness, Qwen parameter scale does not produce monotonic performance gains, and same-scale NVIDIA Build models differ substantially by family. The strongest Qwen result comes from \texttt{qwen3.5-397b-a17b}; the strongest NVIDIA result comes from \texttt{nvidia/nemotron-3-super-120b-a12b}. The main implication is methodological: multi-agent, risk-sensitive card-game evaluation should report model identity, parameter scale, family, serving constraints, and tail-risk metrics together rather than reducing model quality to size alone.
 
 \section*{Code and Artifact Availability}
-The manuscript source lives under \texttt{paper/}. The blocked factorial study is executed with \texttt{scripts/run\_openrouter\_factorial\_study.py}. The checked-in main bundle is published under \texttt{paper/artifacts/main/}, \texttt{paper/figures/main/}, and \texttt{paper/tables/main/}. The appendix calibration bundle is published separately under \texttt{paper/artifacts/appendix/}, \texttt{paper/figures/appendix/}, and \texttt{paper/tables/appendix/}. Figure and table provenance are documented in \texttt{paper/ARTIFACTS.md}.
+The manuscript source is under \texttt{paper/}. The Qwen run is stored in \texttt{results/paper\_qwen\_4model\_param\_2h\_2rep}. The NVIDIA run is stored in \texttt{results/paper\_nvidia\_120b\_4model\_family\_1h\_2rep\_budget1}. Each directory includes \texttt{manifest.json}, \texttt{report.json}, \texttt{agent\_performance\_table.csv}, \texttt{session\_observations.csv}, \texttt{session\_logs.jsonl}, and \texttt{cross\_play\_results.json}. A compact result summary is provided in \texttt{paper/remote\_model\_results.md}.
 
 \bibliographystyle{plainnat}
 \bibliography{refs}
 
 \appendix
-\section{Pinned Study Definition}
-\begin{itemize}
-    \item Fixed model panel ID: \texttt{openrouter\_cross\_vendor\_panel\_v1}
-    \item Fixed strategy panel: \texttt{Balanced}, \texttt{Analytic}, \texttt{Conservative}, \texttt{Aggressive}
-    \item Block definition: \texttt{base\_seed}$\times$\texttt{layout}$\times$\texttt{layout\_repeat}
-    \item Default live-run seeds: 7, 11, 13, 17, 19
-    \item Default live-run horizon: 300 hands
-    \item Default bankroll: 1000
-    \item Default stake per point: 1
-\end{itemize}
+\section{Reproducibility Commands}
+The Qwen panel was run with:
+\begin{verbatim}
+python3 scripts/run_dashscope_qwen_parameter_sweep.py \
+  --session-hands 2 \
+  --layout-repetitions 2 \
+  --remote-eval-hands 2 \
+  --decoding max_tokens=64 \
+  --decoding temperature=0 \
+  --decoding enable_thinking=false \
+  --output-dir results/paper_qwen_4model_param_2h_2rep
+\end{verbatim}
 
-\section{Prompt and Model Provenance in the Checked-In Bundle}
-The checked-in \texttt{paper/artifacts/main/manifest.json} records the model panel, the panel SHA-256, the prompt strategy SHA-256 values, and the original prompt file paths. The publishing step also copies the prompt texts into \texttt{paper/artifacts/main/prompts/} so that the paper package is self-contained at the artifact level even when the live API run is not bundled.
+The NVIDIA panel was run with:
+\begin{verbatim}
+python3 scripts/run_nvidia_same_size_family_eval.py \
+  --session-hands 1 \
+  --layout-repetitions 2 \
+  --remote-eval-hands 1 \
+  --max-remote-calls-per-agent 1 \
+  --decoding max_tokens=64 \
+  --decoding temperature=0 \
+  --output-dir results/paper_nvidia_120b_4model_family_1h_2rep_budget1
+\end{verbatim}
 
-\section{Appendix Calibration Bundle}
-The baseline calibration bundle remains available under \texttt{paper/artifacts/appendix/}. It contains the original heuristic study and is what the earlier baseline paper view consumed before the factorial reframe.
+\section{Artifact Integrity}
+Both completed result directories record SHA-256 hashes for the main exported artifacts in \texttt{manifest.json}. The Qwen run has \texttt{lineup\_count=48} and \texttt{session\_observation\_count=192}. The NVIDIA run has \texttt{lineup\_count=48} and \texttt{session\_observation\_count=192}.
 
 \end{document}

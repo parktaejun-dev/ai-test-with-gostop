@@ -8,7 +8,14 @@ import unittest
 from unittest.mock import patch
 from urllib import error
 
-from agents.adapters import OpenRouterModelAgent, RemoteModelAgent, _serialize_state, _state_key
+from agents.adapters import (
+    DashScopeModelAgent,
+    NvidiaModelAgent,
+    OpenRouterModelAgent,
+    RemoteModelAgent,
+    _serialize_state,
+    _state_key,
+)
 from engine.game import GameEngine
 from engine.actions import Action, ActionType
 from engine.cards import build_deck
@@ -98,6 +105,47 @@ class RemoteAgentTests(unittest.TestCase):
         self.assertTrue(request_obj.full_url.endswith("/chat/completions"))
         body = json.loads(request_obj.data.decode("utf-8"))
         self.assertEqual(body["model"], "google/gemma-3-4b-it:free")
+        self.assertEqual(body["response_format"]["type"], "json_object")
+
+    @patch.dict(os.environ, {"DASHSCOPE_API_KEY": "test-key"}, clear=False)
+    @patch("agents.adapters.request.urlopen")
+    def test_dashscope_agent_uses_singapore_chat_completions(self, mock_urlopen):
+        mock_urlopen.return_value = _FakeHTTPResponse(
+            {"choices": [{"message": {"content": "{\"choice_index\": 1}"}}]}
+        )
+        agent = DashScopeModelAgent(
+            name="dashscope",
+            model_id="qwen-plus",
+            prompt_template="Choose best action.",
+        )
+        action = agent.select_action(self._state())
+        self.assertEqual(action, self._state().legal_actions[1])
+        request_obj = mock_urlopen.call_args.args[0]
+        self.assertEqual(
+            request_obj.full_url,
+            "https://dashscope-intl.aliyuncs.com/compatible-mode/v1/chat/completions",
+        )
+        body = json.loads(request_obj.data.decode("utf-8"))
+        self.assertEqual(body["model"], "qwen-plus")
+        self.assertEqual(body["response_format"]["type"], "json_object")
+
+    @patch.dict(os.environ, {"NVIDIA_API_KEY": "test-key"}, clear=False)
+    @patch("agents.adapters.request.urlopen")
+    def test_nvidia_agent_uses_integrate_chat_completions(self, mock_urlopen):
+        mock_urlopen.return_value = _FakeHTTPResponse(
+            {"choices": [{"message": {"content": "{\"choice_index\": 1}"}}]}
+        )
+        agent = NvidiaModelAgent(
+            name="nvidia",
+            model_id="qwen/qwen3.5-122b-a10b",
+            prompt_template="Choose best action.",
+        )
+        action = agent.select_action(self._state())
+        self.assertEqual(action, self._state().legal_actions[1])
+        request_obj = mock_urlopen.call_args.args[0]
+        self.assertEqual(request_obj.full_url, "https://integrate.api.nvidia.com/v1/chat/completions")
+        body = json.loads(request_obj.data.decode("utf-8"))
+        self.assertEqual(body["model"], "qwen/qwen3.5-122b-a10b")
         self.assertEqual(body["response_format"]["type"], "json_object")
 
     @patch.dict(os.environ, {"OPENAI_API_KEY": "test-key"}, clear=False)
@@ -195,6 +243,52 @@ class RemoteAgentTests(unittest.TestCase):
 
         self.assertEqual(action, legal_actions[0])
 
+        dashscope_agent = DashScopeModelAgent(
+            name="dashscope",
+            model_id="qwen-plus",
+            prompt_template="Choose",
+            responder=lambda *args, **kwargs: (_ for _ in ()).throw(AssertionError("responder should not be called")),
+        )
+        action = engine._choose_action(
+            agent=dashscope_agent,
+            seats=seats,
+            seat_id=0,
+            phase=Phase.TURN_START,
+            dealer=0,
+            hand_id=1,
+            current_turn=0,
+            table_cards=[],
+            carryover_multiplier=1,
+            legal_actions=legal_actions,
+            decision_seed=11,
+            exited_seat=3,
+        )
+
+        self.assertEqual(action, legal_actions[0])
+
+        nvidia_agent = NvidiaModelAgent(
+            name="nvidia",
+            model_id="qwen/qwen3.5-122b-a10b",
+            prompt_template="Choose",
+            responder=lambda *args, **kwargs: (_ for _ in ()).throw(AssertionError("responder should not be called")),
+        )
+        action = engine._choose_action(
+            agent=nvidia_agent,
+            seats=seats,
+            seat_id=0,
+            phase=Phase.TURN_START,
+            dealer=0,
+            hand_id=1,
+            current_turn=0,
+            table_cards=[],
+            carryover_multiplier=1,
+            legal_actions=legal_actions,
+            decision_seed=11,
+            exited_seat=3,
+        )
+
+        self.assertEqual(action, legal_actions[0])
+
     def test_remote_agent_rejects_reserved_decoding_keys(self):
         with self.assertRaises(ValueError):
             RemoteModelAgent(
@@ -212,6 +306,64 @@ class RemoteAgentTests(unittest.TestCase):
                 prompt_template="Choose best action.",
                 decoding=(("response_format", "override"),),
             )
+
+    def test_dashscope_agent_rejects_reserved_decoding_keys(self):
+        with self.assertRaises(ValueError):
+            DashScopeModelAgent(
+                name="dashscope",
+                model_id="qwen-plus",
+                prompt_template="Choose best action.",
+                decoding=(("messages", "override"),),
+            )
+
+    def test_nvidia_agent_rejects_reserved_decoding_keys(self):
+        with self.assertRaises(ValueError):
+            NvidiaModelAgent(
+                name="nvidia",
+                model_id="qwen/qwen3.5-122b-a10b",
+                prompt_template="Choose best action.",
+                decoding=(("response_format", "override"),),
+            )
+
+    def test_nvidia_agent_respects_max_calls_budget(self):
+        calls = []
+
+        def responder(*args, **kwargs):
+            calls.append(args)
+            return {"choice_index": 1}
+
+        agent = NvidiaModelAgent(
+            name="nvidia",
+            model_id="qwen/qwen3.5-122b-a10b",
+            prompt_template="Choose best action.",
+            max_calls=1,
+            responder=responder,
+        )
+        state = self._state()
+        self.assertEqual(agent.select_action(state), state.legal_actions[1])
+        other_state = PublicGameState(
+            phase=state.phase,
+            hand_id=state.hand_id + 1,
+            seat_id=state.seat_id,
+            dealer_seat=state.dealer_seat,
+            current_turn=state.current_turn,
+            alive_seats=state.alive_seats,
+            exited_seat=state.exited_seat,
+            hand_cards=state.hand_cards,
+            table_cards=state.table_cards,
+            captured_cards_public=state.captured_cards_public,
+            scores_public=state.scores_public,
+            go_counts_public=state.go_counts_public,
+            bankrolls_public=state.bankrolls_public,
+            carryover_multiplier=state.carryover_multiplier,
+            showdown_pending=state.showdown_pending,
+            showdown_proposer=state.showdown_proposer,
+            showdown_responses=state.showdown_responses,
+            legal_actions=state.legal_actions,
+            decision_seed=state.decision_seed,
+        )
+        self.assertEqual(agent.select_action(other_state), state.legal_actions[0])
+        self.assertEqual(len(calls), 1)
 
     def test_serialize_state_includes_captured_cards_public(self):
         state = self._state()

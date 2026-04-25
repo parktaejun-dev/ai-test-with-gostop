@@ -919,7 +919,12 @@ class GameEngine:
         return action
 
     def _is_remote_agent(self, agent) -> bool:
-        return type(agent).__name__ in {"RemoteModelAgent", "OpenRouterModelAgent"}
+        return type(agent).__name__ in {
+            "RemoteModelAgent",
+            "OpenRouterModelAgent",
+            "DashScopeModelAgent",
+            "NvidiaModelAgent",
+        }
 
     def _cached_remote_action(self, agent, public_state):
         cache = getattr(agent, "_cache", None)
