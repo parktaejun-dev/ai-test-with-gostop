@@ -4,6 +4,7 @@ This paper package now centers two remote-model result bundles.
 
 ## Main manuscript
 - Source: `paper/arxiv_main.tex`
+- Public PDF: `paper/gostop_ai_evaluation_paper.pdf`
 - Summary: `paper/remote_model_results.md`
 - Bibliography: `paper/refs.bib`
 
