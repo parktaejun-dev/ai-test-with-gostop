@@ -2,6 +2,14 @@
 
 이 저장소는 고스톱 게임 서비스가 아니라, **고정 AI 정책의 장기 수익성과 리스크를 비교하는 평가 하네스**다.
 
+## 공개 논문 링크
+- 웹 논문 페이지: https://godori.dahanda.dev/dashboard/paper.html
+- PDF 논문 파일: [`paper/gostop_ai_evaluation_paper.pdf`](paper/gostop_ai_evaluation_paper.pdf)
+- LaTeX 원문: [`paper/arxiv_main.tex`](paper/arxiv_main.tex)
+- 결과 요약: [`paper/remote_model_results.md`](paper/remote_model_results.md)
+- Qwen 결과 번들: [`results/paper_qwen_4model_param_2h_2rep`](results/paper_qwen_4model_param_2h_2rep)
+- NVIDIA 결과 번들: [`results/paper_nvidia_120b_4model_family_1h_2rep_budget1`](results/paper_nvidia_120b_4model_family_1h_2rep_budget1)
+
 ## 포함 범위
 - 4인 시작, 참여 결정 단계 후 3인 활성 본게임
 - 죽기, 연사 금지, 광팔이
