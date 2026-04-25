@@ -35,12 +35,101 @@ python3 main.py --output-dir results/paper_run
 - `cross_play_results.json`
 - `session_logs.jsonl`
 
-## 논문용 재현 절차
-1. 동일 Python 버전에서 실행한다. 현재 확인 버전은 `Python 3.13.5`.
-2. 동일 seed와 동일 결과 폴더를 사용한다.
-3. `results/<run_name>/manifest.json`을 방법론 부록에 첨부한다.
-4. 논문 표는 `agent_performance_table.csv`를 기준으로 작성한다.
-5. 사건 분석은 `session_logs.jsonl`을 기준으로 수행한다.
+## 현재 논문 실험셋
+
+공개 논문은 아래 5개 실험군을 기준으로 한다.
+
+| 구분 | 경로 | 모델당 표본 | 규칙 |
+|---|---|---:|---|
+| Qwen 파라미터 규모 주 실험 | `results/paper_qwen_4model_param_2h_2rep` | 48 | `session_hands=2`, `layout_repetitions=2`, `remote_eval_hands=2` |
+| NVIDIA 120B급 계열 주 실험 | `results/paper_nvidia_120b_4model_family_1h_2rep_budget1` | 48 | `session_hands=1`, `layout_repetitions=2`, `remote_eval_hands=1`, `max_remote_calls_per_agent=1` |
+| NVIDIA 초소형 보조 실험 | `results/tiny_nvidia_4model_1h_2rep_budget1_20260425_075542` | 48 | `session_hands=1`, `layout_repetitions=2`, `remote_eval_hands=1`, `max_remote_calls_per_agent=1` |
+| Qwen 소형 정책 보조 실험 | `results/policy_screen_qwen_tiny_*_1h_1rep_20260425_102731` | 24 | `session_hands=1`, `layout_repetitions=1`, `remote_eval_hands=1` |
+| NVIDIA 정책 보조 실험 | `results/policy_screen_nvidia_*_1h_1rep_20260425_075542` | 24 | `session_hands=1`, `layout_repetitions=1`, `remote_eval_hands=1`, `max_remote_calls_per_agent=1` |
+
+해석 규칙:
+- 주 실험은 논문 본문 근거다.
+- 정책 보조 실험은 탐색적 근거다.
+- 모든 순위는 해당 하네스와 호출 제약 안의 기술통계다.
+- `cvar_5`는 표본 수가 작으므로 확증 지표가 아니라 하방 위험 요약이다.
+- 키, 서버 주소, 비공개 배포 정보는 공개 문서에 기록하지 않는다.
+
+## 논문용 재현 명령
+
+동일 Python 버전에서 실행한다. 현재 확인 버전은 `Python 3.13.5`다.
+
+Qwen 파라미터 규모 주 실험:
+```bash
+export DASHSCOPE_API_KEY=...
+python3 scripts/run_dashscope_qwen_parameter_sweep.py \
+  --session-hands 2 \
+  --layout-repetitions 2 \
+  --remote-eval-hands 2 \
+  --decoding max_tokens=64 \
+  --decoding temperature=0 \
+  --decoding enable_thinking=false \
+  --output-dir results/paper_qwen_4model_param_2h_2rep
+```
+
+NVIDIA 120B급 계열 주 실험:
+```bash
+export NVIDIA_API_KEY=...
+python3 scripts/run_nvidia_same_size_family_eval.py \
+  --session-hands 1 \
+  --layout-repetitions 2 \
+  --remote-eval-hands 1 \
+  --max-remote-calls-per-agent 1 \
+  --decoding max_tokens=64 \
+  --decoding temperature=0 \
+  --output-dir results/paper_nvidia_120b_4model_family_1h_2rep_budget1
+```
+
+NVIDIA 초소형 보조 실험:
+```bash
+export NVIDIA_API_KEY=...
+python3 scripts/run_nvidia_same_size_family_eval.py \
+  --models meta/llama-3.2-1b-instruct,google/gemma-2-2b-it,ibm/granite-3.0-3b-a800m-instruct,microsoft/phi-4-mini-instruct \
+  --session-hands 1 \
+  --layout-repetitions 2 \
+  --remote-eval-hands 1 \
+  --max-remote-calls-per-agent 1 \
+  --decoding max_tokens=64 \
+  --decoding temperature=0 \
+  --output-dir results/tiny_nvidia_4model_1h_2rep_budget1_20260425_075542
+```
+
+Qwen 소형 정책 보조 실험은 정책별 prompt 파일을 바꿔 실행한다.
+```bash
+export DASHSCOPE_API_KEY=...
+python3 scripts/run_dashscope_qwen_parameter_sweep.py \
+  --models qwen3-1.7b,qwen3-4b,qwen3-8b,qwen3-14b \
+  --session-hands 1 \
+  --layout-repetitions 1 \
+  --remote-eval-hands 1 \
+  --prompt-file experiments/prompts/factorial/balanced.txt \
+  --decoding max_tokens=64 \
+  --decoding temperature=0 \
+  --decoding enable_thinking=false \
+  --output-dir results/policy_screen_qwen_tiny_balanced_1h_1rep_20260425_102731
+```
+
+NVIDIA 정책 보조 실험도 정책별 prompt 파일을 바꿔 실행한다.
+```bash
+export NVIDIA_API_KEY=...
+python3 scripts/run_nvidia_same_size_family_eval.py \
+  --session-hands 1 \
+  --layout-repetitions 1 \
+  --remote-eval-hands 1 \
+  --max-remote-calls-per-agent 1 \
+  --prompt-file experiments/prompts/factorial/balanced.txt \
+  --decoding max_tokens=64 \
+  --decoding temperature=0 \
+  --output-dir results/policy_screen_nvidia_balanced_1h_1rep_20260425_075542
+```
+
+`balanced.txt` 대신 `analytic.txt`, `conservative.txt`, `aggressive.txt`를 쓰면 각 정책 보조 실험을 재현한다.
+
+논문 표는 `agent_performance_table.csv`를 기준으로 작성한다. 사건 분석은 `session_logs.jsonl`, 전체 집계는 `report.json`, 실행 규칙 검증은 `manifest.json`을 기준으로 한다.
 
 ## 핵심 지표
 - `mean_profit`
@@ -58,7 +147,7 @@ python3 main.py --output-dir results/paper_run
 - `showdown_misplay_rate`
 
 ## 원격 모델 평가
-`RemoteModelAgent`는 OpenAI Responses API를 직접 호출한다.
+OpenAI 전용 `RemoteModelAgent`는 Responses API를 직접 호출한다.
 
 필수 환경 변수:
 ```bash
@@ -148,7 +237,7 @@ python3 scripts/run_dashscope_player_eval.py \
 - https://www.alibabacloud.com/help/en/model-studio/qwen-api-via-openai-chat-completions
 
 동일 Qwen 패밀리 안에서 파라미터 규모 차이를 보려면 30B/122B/397B/480B Qwen 패널을 쓴다.
-기본 실행량은 무료 쿼터 점검용으로 작게 잡혀 있다.
+논문 본문 재현 명령은 위 `논문용 재현 명령` 절을 따른다. 아래는 새 실험용 예시다.
 ```bash
 export DASHSCOPE_API_KEY=...
 python3 scripts/run_dashscope_qwen_parameter_sweep.py \
@@ -177,6 +266,7 @@ export NVIDIA_BASE_URL=https://integrate.api.nvidia.com/v1
 동일 120B 전후 파라미터 규모에서 패밀리 차이를 보려면 NVIDIA 120B cross-family 패널을 쓴다.
 기본 모델은 `qwen/qwen3.5-122b-a10b`, `mistralai/mistral-small-4-119b-2603`,
 `nvidia/nemotron-3-super-120b-a12b`, `stockmark/stockmark-2-100b-instruct`이다.
+논문 본문 재현 명령은 위 `논문용 재현 명령` 절을 따른다. 아래는 새 실험용 예시다.
 ```bash
 export NVIDIA_API_KEY=...
 python3 scripts/run_nvidia_same_size_family_eval.py \
