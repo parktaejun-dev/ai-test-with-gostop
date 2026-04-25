@@ -4,13 +4,17 @@ This paper package now centers two remote-model result bundles.
 
 ## Main manuscript
 - Source: `paper/arxiv_main.tex`
-- Public PDF: `paper/gostop_ai_evaluation_paper.pdf`
+- LaTeX PDF: `paper/arxiv_main.pdf`
+- Generated bibliography: `paper/arxiv_main.bbl`
+- Generated PDF, if present: `paper/gostop_ai_evaluation_paper.pdf` (regenerate after manuscript edits)
 - Summary: `paper/remote_model_results.md`
 - Bibliography: `paper/refs.bib`
+- Main result bundles live under `results/`, not `paper/artifacts/`.
+- `paper/artifacts/` may contain older heuristic calibration bundles and is not the current main-result source.
 
 ## Qwen parameter-scale bundle
 - Path: `results/paper_qwen_4model_param_2h_2rep/`
-- Purpose: Qwen-family parameter-scale comparison.
+- Purpose: Qwen-labeled parameter-scale comparison.
 - Models:
   - `qwen3-coder-30b-a3b-instruct`
   - `qwen3.5-122b-a10b`
@@ -21,6 +25,7 @@ This paper package now centers two remote-model result bundles.
   - `layout_repetitions=2`
   - `remote_eval_hands=2`
   - `sample_count=48` per model
+  - CVaR effective 5% tail mass is 2.4 sessions per model
 - Required files:
   - `manifest.json`
   - `report.json`
@@ -29,9 +34,9 @@ This paper package now centers two remote-model result bundles.
   - `session_logs.jsonl`
   - `cross_play_results.json`
 
-## NVIDIA same-scale family bundle
+## NVIDIA constrained same-scale family bundle
 - Path: `results/paper_nvidia_120b_4model_family_1h_2rep_budget1/`
-- Purpose: Same-scale cross-family comparison on NVIDIA Build NIM.
+- Purpose: Rate-limited roughly same-scale cross-family comparison on NVIDIA Build NIM.
 - Models:
   - `qwen/qwen3.5-122b-a10b`
   - `mistralai/mistral-small-4-119b-2603`
@@ -43,6 +48,7 @@ This paper package now centers two remote-model result bundles.
   - `remote_eval_hands=1`
   - `max_remote_calls_per_agent=1`
   - `sample_count=48` per model
+  - CVaR effective 5% tail mass is 2.4 sessions per model
 - Required files:
   - `manifest.json`
   - `report.json`

@@ -38,14 +38,14 @@
         <div class="subject-line">Computer Science &gt; Artificial Intelligence</div>
 
         <p class="dateline">[Submitted as local arXiv manuscript package; updated from completed remote-model runs]</p>
-        <h1 id="paper-title">Parameter Scale and Model-Family Effects in Fixed-Policy LLM Play for Four-Player Go-Stop</h1>
+        <h1 id="paper-title">Descriptive Qwen and NVIDIA Remote-Model Panels for Fixed-Policy LLM Play in Four-Player Go-Stop</h1>
         <p class="authors">
           <a href="../paper/arxiv_main.tex">Go-Stop AI Evaluation Harness</a>
         </p>
 
         <blockquote class="abstract">
           <span class="descriptor">Abstract:</span>
-          We evaluate fixed-policy large language model play in four-player Go-Stop, a Korean card game with stochastic deals, seat-order nuisance effects, multi-agent interaction, and risk-sensitive payoffs. The study asks whether performance within a Qwen panel improves monotonically with parameter scale, and whether model family still matters among roughly same-scale models served through NVIDIA Build. The Qwen result is non-monotonic: the 397B model leads mean profit and CVaR, while the larger 480B Coder model underperforms it. In the NVIDIA panel, Nemotron has the strongest mean-profit and tail-risk profile. The results support a constrained paper claim: Go-Stop policy quality is not explained by parameter count alone.
+          We evaluate fixed-policy large language model play in four-player Go-Stop, a Korean card game with stochastic deals, seat-order nuisance effects, multi-agent interaction, and risk-sensitive payoffs. The study asks whether observed performance across a Qwen-labeled remote-model panel is monotone in nominal parameter scale, and whether cross-family differences are visible in a rate-limited, roughly same-scale NVIDIA Build panel. The Qwen descriptive ranking is non-monotonic: the 397B Qwen3.5 model has the highest mean profit and least severe empirical CVaR, while the larger 480B Qwen Coder model ranks lower. In the constrained NVIDIA panel, Nemotron has the highest descriptive mean profit and least severe empirical CVaR. These results are descriptive, not universal model rankings.
         </blockquote>
 
         <table class="metadata" aria-label="paper metadata">
@@ -72,11 +72,11 @@
         <section class="paper-section" aria-labelledby="rq-title">
           <h2 id="rq-title">Research Questions</h2>
           <ol class="rq-list">
-            <li><strong>RQ1.</strong> Within a Qwen panel, does Go-Stop performance improve monotonically with parameter scale?</li>
-            <li><strong>RQ2.</strong> Among roughly same-scale NVIDIA Build models, does model family affect Go-Stop performance?</li>
+            <li><strong>RQ1.</strong> In a Qwen-labeled DashScope panel, is observed Go-Stop performance monotone in nominal parameter scale?</li>
+            <li><strong>RQ2.</strong> In a rate-limited NVIDIA Build panel of roughly same-scale models, are cross-family differences visible in descriptive profit and risk summaries?</li>
           </ol>
           <p>
-            RQ1 is answered negatively in this panel. RQ2 is answered positively under the constrained NVIDIA panel. These are panel-specific findings under fixed prompts, fixed seat permutations, short horizons, and remote-API budget constraints.
+            RQ1 is descriptively negative in this panel. RQ2 shows visible descriptive differences under the constrained NVIDIA panel. These are panel-specific findings under fixed prompts, fixed seat permutations, short horizons, and remote-API budget constraints.
           </p>
         </section>
 
@@ -85,7 +85,7 @@
           <p>
             Provider: Alibaba DashScope. Path:
             <a href="https://github.com/parktaejun-dev/ai-test-with-gostop/tree/main/results/paper_qwen_4model_param_2h_2rep">results/paper_qwen_4model_param_2h_2rep</a>.
-            Each model has 48 samples; <code>cvar_5_low_support=false</code>.
+            Each model has 48 samples. The CVaR low-support flag is false, but the effective 5% tail mass is 2.4 sessions, so CVaR is descriptive.
           </p>
           <div class="table-scroll">
             <table class="result-table" id="qwen-table">
@@ -105,11 +105,11 @@
         </section>
 
         <section class="paper-section" aria-labelledby="nvidia-title">
-          <h2 id="nvidia-title">NVIDIA Same-Scale Family Panel</h2>
+          <h2 id="nvidia-title">NVIDIA Constrained Same-Scale Family Panel</h2>
           <p>
             Provider: NVIDIA Build NIM. Path:
             <a href="https://github.com/parktaejun-dev/ai-test-with-gostop/tree/main/results/paper_nvidia_120b_4model_family_1h_2rep_budget1">results/paper_nvidia_120b_4model_family_1h_2rep_budget1</a>.
-            Each model has 48 samples; <code>max_remote_calls_per_agent=1</code>; <code>cvar_5_low_support=false</code>.
+            Each model has 48 samples; <code>max_remote_calls_per_agent=1</code>. The CVaR low-support flag is false, but the effective 5% tail mass is 2.4 sessions.
           </p>
           <div class="table-scroll">
             <table class="result-table" id="nvidia-table">
@@ -175,7 +175,7 @@
         <section class="citation">
           <h3>export BibTeX citation</h3>
           <pre id="bibtex">@misc{gostop_ai_eval_2026,
-  title = {Parameter Scale and Model-Family Effects in Fixed-Policy LLM Play for Four-Player Go-Stop},
+  title = {Descriptive Qwen and NVIDIA Remote-Model Panels for Fixed-Policy LLM Play in Four-Player Go-Stop},
   year = {2026}
 }</pre>
         </section>

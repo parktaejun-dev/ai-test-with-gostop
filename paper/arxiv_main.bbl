@@ -1,0 +1,56 @@
+\begin{thebibliography}{8}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[DeepMind(2019)]{openspiel_repo}
+Google DeepMind.
+\newblock Openspiel repository.
+\newblock \url{https://github.com/google-deepmind/open_spiel}, 2019.
+\newblock GitHub repository, accessed 2026-04-21.
+
+\bibitem[Eriksson et~al.(2022)Eriksson, Basu, Alibeigi, and
+  Dimitrakakis]{riskbayes2022}
+Hannes Eriksson, Debabrota Basu, Mina Alibeigi, and Christos Dimitrakakis.
+\newblock Risk-sensitive bayesian games for multi-agent reinforcement learning
+  under policy uncertainty.
+\newblock \emph{arXiv preprint arXiv:2203.10045}, 2022.
+
+\bibitem[Hu et~al.(2020)Hu, Lerer, Peysakhovich, and Foerster]{hu2020otherplay}
+Hengyuan Hu, Adam Lerer, Alex Peysakhovich, and Jakob~N. Foerster.
+\newblock Other-play for zero-shot coordination.
+\newblock \emph{arXiv preprint arXiv:2003.02979}, 2020.
+
+\bibitem[Jeon and Kim(2023)]{behavioral2023}
+Hyeonchang Jeon and Kyung-Joong Kim.
+\newblock Behavioral differences is the key of ad-hoc team cooperation in
+  multiplayer games hanabi.
+\newblock \emph{arXiv preprint arXiv:2303.06775}, 2023.
+
+\bibitem[Lanctot et~al.(2019)Lanctot, Lockhart, Lespiau, Zambaldi, Kale,
+  Perolat, Tuyls, Munos, and Bowling]{lanctot2019openspiel}
+Marc Lanctot, Edward Lockhart, Jean-Baptiste Lespiau, Vin{\'\i}cius Zambaldi,
+  Satyen Kale, Julien Perolat, Karl Tuyls, Remi Munos, and Michael Bowling.
+\newblock Openspiel: A framework for reinforcement learning in games.
+\newblock \emph{arXiv preprint arXiv:1908.09453}, 2019.
+
+\bibitem[Lucas and Allen(2022)]{anyplay2022}
+Keane Lucas and Ross~E. Allen.
+\newblock Any-play: An intrinsic augmentation for zero-shot coordination.
+\newblock \emph{arXiv preprint arXiv:2201.12436}, 2022.
+
+\bibitem[Nekoei et~al.(2023)Nekoei, Zhao, Rajendran, Liu, and
+  Chandar]{fewshot2023}
+Hadi Nekoei, Xutong Zhao, Janarthanan Rajendran, Miao Liu, and Sarath Chandar.
+\newblock Towards few-shot coordination: Revisiting ad-hoc teamplay challenge
+  in the game of hanabi.
+\newblock \emph{arXiv preprint arXiv:2308.10284}, 2023.
+
+\bibitem[Wang et~al.(2023)Wang, Kallus, and Sun]{rsrlcvar2023}
+Kaiwen Wang, Nathan Kallus, and Wen Sun.
+\newblock Near-minimax-optimal risk-sensitive reinforcement learning with cvar.
+\newblock \emph{arXiv preprint arXiv:2302.03201}, 2023.
+
+\end{thebibliography}
