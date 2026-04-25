@@ -178,6 +178,14 @@ h1 {
   line-height: 1.18;
 }
 
+.english-title {
+  max-width: 960px;
+  margin: -2px 0 10px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.35;
+}
+
 h2 {
   margin: 0 0 8px;
   font-size: 19px;
@@ -206,6 +214,13 @@ h3 {
 
 .descriptor {
   font-weight: 700;
+}
+
+.abstract-en,
+.english-copy {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
 }
 
 .metadata {

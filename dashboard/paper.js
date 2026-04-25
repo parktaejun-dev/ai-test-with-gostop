@@ -107,33 +107,33 @@ const tinyNvidiaRows = [
 ];
 
 const qwenPolicyRows = [
-  { policy: "Balanced", model: "qwen3-4b", meanProfit: 224.88, cvar5: -1166.67 },
-  { policy: "Analytic", model: "qwen3-4b", meanProfit: 412.33, cvar5: -2566.83 },
-  { policy: "Conservative", model: "qwen3-8b", meanProfit: 238.08, cvar5: -1301.67 },
-  { policy: "Aggressive", model: "qwen3-14b", meanProfit: 254.08, cvar5: -1284.33 },
+  { policy: "균형 / Balanced", model: "qwen3-4b", meanProfit: 224.88, cvar5: -1166.67 },
+  { policy: "분석 / Analytic", model: "qwen3-4b", meanProfit: 412.33, cvar5: -2566.83 },
+  { policy: "보수 / Conservative", model: "qwen3-8b", meanProfit: 238.08, cvar5: -1301.67 },
+  { policy: "공격 / Aggressive", model: "qwen3-14b", meanProfit: 254.08, cvar5: -1284.33 },
 ];
 
 const nvidiaPolicyRows = [
   {
-    policy: "Balanced",
+    policy: "균형 / Balanced",
     model: "nvidia/nemotron-3-super-120b-a12b",
     meanProfit: 645.17,
     cvar5: -2067.0,
   },
   {
-    policy: "Analytic",
+    policy: "분석 / Analytic",
     model: "nvidia/nemotron-3-super-120b-a12b",
     meanProfit: 598.92,
     cvar5: -2067.0,
   },
   {
-    policy: "Conservative",
+    policy: "보수 / Conservative",
     model: "nvidia/nemotron-3-super-120b-a12b",
     meanProfit: 416.67,
     cvar5: -1850.0,
   },
   {
-    policy: "Aggressive",
+    policy: "공격 / Aggressive",
     model: "nvidia/nemotron-3-super-120b-a12b",
     meanProfit: 598.83,
     cvar5: -3701.67,
@@ -146,7 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderRows("tiny-nvidia-table", tinyNvidiaRows, "scale");
   renderPolicyRows("qwen-policy-table", qwenPolicyRows);
   renderPolicyRows("nvidia-policy-table", nvidiaPolicyRows);
-  document.querySelector("#render-date").textContent = new Intl.DateTimeFormat("en", {
+  document.querySelector("#render-date").textContent = new Intl.DateTimeFormat("ko-KR", {
     year: "numeric",
     month: "short",
     day: "2-digit",
