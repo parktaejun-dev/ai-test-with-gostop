@@ -1,0 +1,103 @@
+{
+  "agents": [
+    "qwen3-1.7b",
+    "qwen3-14b",
+    "qwen3-4b",
+    "qwen3-8b"
+  ],
+  "artifacts": {
+    "agent_table_csv": {
+      "path": "results/policy_screen_qwen_tiny_conservative_1h_1rep_20260425_102731/agent_performance_table.csv",
+      "sha256": "b2b7bdbc4f7b53e7f5e3d535adf2dcd5bb5c8a84a541e08764601dc7f3ce77a7"
+    },
+    "cross_play_json": {
+      "path": "results/policy_screen_qwen_tiny_conservative_1h_1rep_20260425_102731/cross_play_results.json",
+      "sha256": "ab35ed71eaab6493a3bafa34facbf0fb9db98ea720db7ba7aa5edc2a5e143c8e"
+    },
+    "manifest": {
+      "path": "results/policy_screen_qwen_tiny_conservative_1h_1rep_20260425_102731/manifest.json",
+      "sha256": null
+    },
+    "report": {
+      "path": "results/policy_screen_qwen_tiny_conservative_1h_1rep_20260425_102731/report.json",
+      "sha256": "7b1561616a7b328b53ccf9fc4e2f4386bf7dd213842c5ebd972553cc6814b177"
+    },
+    "session_logs_jsonl": {
+      "path": "results/policy_screen_qwen_tiny_conservative_1h_1rep_20260425_102731/session_logs.jsonl",
+      "sha256": "a305ba37906c17f2cc86ef8f3f050551a7518bbab910e18a6cb20526ce8702e1"
+    },
+    "session_observations_csv": {
+      "path": "results/policy_screen_qwen_tiny_conservative_1h_1rep_20260425_102731/session_observations.csv",
+      "sha256": "b4d1eba0443e52b065d3aa251fc1ece76614c0a3625443412e4495b99aa118bc"
+    }
+  },
+  "config": {
+    "base_seed": 7,
+    "bust_stop_count": 2,
+    "confirmatory_baseline": "qwen3-1.7b",
+    "decoding": [
+      [
+        "max_tokens",
+        "64"
+      ],
+      [
+        "temperature",
+        "0"
+      ],
+      [
+        "enable_thinking",
+        "false"
+      ]
+    ],
+    "experiment": "dashscope_qwen_parameter_sweep",
+    "family": "qwen",
+    "gwang_sell_unit": 3,
+    "initial_bankroll": 100000,
+    "layout_repetitions": 1,
+    "max_carryover_multiplier": 64,
+    "max_session_hands": 10000,
+    "min_eval_hands": 10000,
+    "prompt_signature": {
+      "length": "257",
+      "sha256": "ad4c48ffe051c2f6e865c89e83f1cddc7f1a02ed2d972b68912c3eb5a39758b1"
+    },
+    "remote_eval_hands": 1,
+    "resolved_model_metadata": [
+      {
+        "active_parameter_size_b": 0.0,
+        "model_id": "qwen3-1.7b",
+        "parameter_size_b": 1.7
+      },
+      {
+        "active_parameter_size_b": 0.0,
+        "model_id": "qwen3-4b",
+        "parameter_size_b": 4.0
+      },
+      {
+        "active_parameter_size_b": 0.0,
+        "model_id": "qwen3-8b",
+        "parameter_size_b": 8.0
+      },
+      {
+        "active_parameter_size_b": 0.0,
+        "model_id": "qwen3-14b",
+        "parameter_size_b": 14.0
+      }
+    ],
+    "resolved_models": [
+      "qwen3-1.7b",
+      "qwen3-4b",
+      "qwen3-8b",
+      "qwen3-14b"
+    ],
+    "session_hands": 1,
+    "showdown_requires_unanimous": true,
+    "stake_per_point": 100
+  },
+  "environment": {
+    "platform": "Linux-6.8.0-1047-oracle-aarch64-with-glibc2.35",
+    "python_version": "3.10.12 (main, Mar  3 2026, 11:56:32) [GCC 11.4.0]"
+  },
+  "lineup_count": 24,
+  "session_observation_count": 96
+}

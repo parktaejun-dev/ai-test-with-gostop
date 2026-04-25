@@ -1,0 +1,2430 @@
+{
+  "agent_performance_table": {
+    "mistralai__mistral-small-4-119b-2603": {
+      "accept_rate": 0.0,
+      "cvar_5": -5566.666666666666,
+      "cvar_5_effective_sample_size": 1.2000000000000002,
+      "cvar_5_is_fallback": true,
+      "cvar_5_low_support": true,
+      "cvar_5_method": "empirical_expected_shortfall",
+      "cvar_5_tail_size": 2,
+      "early_exit_rate": 0.25,
+      "forced_gwang_sell_rate": 0.0,
+      "hands_survived": 0.75,
+      "mean_profit": 16.666666666666668,
+      "profit_per_hand": 16.666666666666668,
+      "proposal_rate": 0.0,
+      "reject_rate": 0.0,
+      "ruin_event_count": 0,
+      "ruin_probability": 0.0,
+      "sample_count": 24,
+      "session_completed_rate": 0.75,
+      "showdown_ev_gain": 0.0,
+      "showdown_frequency": 0.0,
+      "showdown_misplay_rate": 0.0,
+      "variance": 4182318.84057971,
+      "win_rate": 0.25
+    },
+    "nvidia__nemotron-3-super-120b-a12b": {
+      "accept_rate": 0.0,
+      "cvar_5": -1849.9999999999998,
+      "cvar_5_effective_sample_size": 1.2000000000000002,
+      "cvar_5_is_fallback": true,
+      "cvar_5_low_support": true,
+      "cvar_5_method": "empirical_expected_shortfall",
+      "cvar_5_tail_size": 2,
+      "early_exit_rate": 0.5,
+      "forced_gwang_sell_rate": 0.041666666666666664,
+      "hands_survived": 0.5,
+      "mean_profit": 416.6666666666667,
+      "profit_per_hand": 416.6666666666667,
+      "proposal_rate": 0.0,
+      "reject_rate": 0.0,
+      "ruin_event_count": 0,
+      "ruin_probability": 0.0,
+      "sample_count": 24,
+      "session_completed_rate": 0.5,
+      "showdown_ev_gain": 0.0,
+      "showdown_frequency": 0.0,
+      "showdown_misplay_rate": 0.0,
+      "variance": 7464927.536231884,
+      "win_rate": 0.16666666666666666
+    },
+    "qwen__qwen3.5-122b-a10b": {
+      "accept_rate": 0.0,
+      "cvar_5": -2333.3333333333335,
+      "cvar_5_effective_sample_size": 1.2000000000000002,
+      "cvar_5_is_fallback": true,
+      "cvar_5_low_support": true,
+      "cvar_5_method": "empirical_expected_shortfall",
+      "cvar_5_tail_size": 2,
+      "early_exit_rate": 0.125,
+      "forced_gwang_sell_rate": 0.0,
+      "hands_survived": 0.875,
+      "mean_profit": -133.33333333333334,
+      "profit_per_hand": -133.33333333333334,
+      "proposal_rate": 0.0,
+      "reject_rate": 0.0,
+      "ruin_event_count": 0,
+      "ruin_probability": 0.0,
+      "sample_count": 24,
+      "session_completed_rate": 0.875,
+      "showdown_ev_gain": 0.0,
+      "showdown_frequency": 0.0,
+      "showdown_misplay_rate": 0.0,
+      "variance": 1642318.8405797102,
+      "win_rate": 0.25
+    },
+    "stockmark__stockmark-2-100b-instruct": {
+      "accept_rate": 0.0,
+      "cvar_5": -5733.333333333332,
+      "cvar_5_effective_sample_size": 1.2000000000000002,
+      "cvar_5_is_fallback": true,
+      "cvar_5_low_support": true,
+      "cvar_5_method": "empirical_expected_shortfall",
+      "cvar_5_tail_size": 2,
+      "early_exit_rate": 0.08333333333333333,
+      "forced_gwang_sell_rate": 0.0,
+      "hands_survived": 0.9166666666666666,
+      "mean_profit": -300.0,
+      "profit_per_hand": -300.0,
+      "proposal_rate": 0.0,
+      "reject_rate": 0.0,
+      "ruin_event_count": 0,
+      "ruin_probability": 0.0,
+      "sample_count": 24,
+      "session_completed_rate": 0.9166666666666666,
+      "showdown_ev_gain": 0.0,
+      "showdown_frequency": 0.0,
+      "showdown_misplay_rate": 0.0,
+      "variance": 3589565.217391304,
+      "win_rate": 0.3333333333333333
+    }
+  },
+  "confirmatory_assessment": {
+    "baseline": "qwen/qwen3.5-122b-a10b",
+    "familywise_alpha": 0.05,
+    "gatekeeping_rule": "mean_profit_supported and cvar_5_noninferior and ruin_probability_noninferior",
+    "metric_count": 3,
+    "pairwise_agent_count": 4,
+    "per_agent": {
+      "mistralai__mistral-small-4-119b-2603": {
+        "claim_supported": false,
+        "cvar_5": null,
+        "cvar_5_noninferior": false,
+        "mean_profit": null,
+        "mean_profit_supported": false,
+        "ruin_probability": null,
+        "ruin_probability_noninferior": false
+      },
+      "nvidia__nemotron-3-super-120b-a12b": {
+        "claim_supported": false,
+        "cvar_5": null,
+        "cvar_5_noninferior": false,
+        "mean_profit": null,
+        "mean_profit_supported": false,
+        "ruin_probability": null,
+        "ruin_probability_noninferior": false
+      },
+      "qwen__qwen3.5-122b-a10b": {
+        "claim_supported": false,
+        "cvar_5": null,
+        "cvar_5_noninferior": false,
+        "mean_profit": null,
+        "mean_profit_supported": false,
+        "ruin_probability": null,
+        "ruin_probability_noninferior": false
+      },
+      "stockmark__stockmark-2-100b-instruct": {
+        "claim_supported": false,
+        "cvar_5": null,
+        "cvar_5_noninferior": false,
+        "mean_profit": null,
+        "mean_profit_supported": false,
+        "ruin_probability": null,
+        "ruin_probability_noninferior": false
+      }
+    },
+    "per_metric_alpha": 0.016666666666666666,
+    "per_pair_alpha_for_interval_checks": 0.004166666666666667
+  },
+  "confirmatory_baseline": "qwen/qwen3.5-122b-a10b",
+  "cross_play_results": {
+    "('mistralai/mistral-small-4-119b-2603', 'nvidia/nemotron-3-super-120b-a12b', 'qwen/qwen3.5-122b-a10b', 'stockmark/stockmark-2-100b-instruct')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 1,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "mistralai/mistral-small-4-119b-2603",
+        "nvidia/nemotron-3-super-120b-a12b",
+        "qwen/qwen3.5-122b-a10b",
+        "stockmark/stockmark-2-100b-instruct"
+      ],
+      "layout_id": 0,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": 4000,
+        "1": 0,
+        "2": -2000,
+        "3": -2000
+      },
+      "seat_to_name": {
+        "0": "mistralai__mistral-small-4-119b-2603",
+        "1": "nvidia__nemotron-3-super-120b-a12b",
+        "2": "qwen__qwen3.5-122b-a10b",
+        "3": "stockmark__stockmark-2-100b-instruct"
+      },
+      "seed": 100864515,
+      "session_id": 0,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      }
+    },
+    "('mistralai/mistral-small-4-119b-2603', 'nvidia/nemotron-3-super-120b-a12b', 'stockmark/stockmark-2-100b-instruct', 'qwen/qwen3.5-122b-a10b')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "mistralai/mistral-small-4-119b-2603",
+        "nvidia/nemotron-3-super-120b-a12b",
+        "stockmark/stockmark-2-100b-instruct",
+        "qwen/qwen3.5-122b-a10b"
+      ],
+      "layout_id": 1,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": 0,
+        "1": -400,
+        "2": 800,
+        "3": -400
+      },
+      "seat_to_name": {
+        "0": "mistralai__mistral-small-4-119b-2603",
+        "1": "nvidia__nemotron-3-super-120b-a12b",
+        "2": "stockmark__stockmark-2-100b-instruct",
+        "3": "qwen__qwen3.5-122b-a10b"
+      },
+      "seed": 1466961175,
+      "session_id": 1,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 0,
+        "2": 1,
+        "3": 0
+      }
+    },
+    "('mistralai/mistral-small-4-119b-2603', 'qwen/qwen3.5-122b-a10b', 'nvidia/nemotron-3-super-120b-a12b', 'stockmark/stockmark-2-100b-instruct')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 1,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "mistralai/mistral-small-4-119b-2603",
+        "qwen/qwen3.5-122b-a10b",
+        "nvidia/nemotron-3-super-120b-a12b",
+        "stockmark/stockmark-2-100b-instruct"
+      ],
+      "layout_id": 2,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": 4800,
+        "1": -2400,
+        "2": 0,
+        "3": -2400
+      },
+      "seat_to_name": {
+        "0": "mistralai__mistral-small-4-119b-2603",
+        "1": "qwen__qwen3.5-122b-a10b",
+        "2": "nvidia__nemotron-3-super-120b-a12b",
+        "3": "stockmark__stockmark-2-100b-instruct"
+      },
+      "seed": 1432699275,
+      "session_id": 2,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      }
+    },
+    "('mistralai/mistral-small-4-119b-2603', 'qwen/qwen3.5-122b-a10b', 'stockmark/stockmark-2-100b-instruct', 'nvidia/nemotron-3-super-120b-a12b')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 1
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "mistralai/mistral-small-4-119b-2603",
+        "qwen/qwen3.5-122b-a10b",
+        "stockmark/stockmark-2-100b-instruct",
+        "nvidia/nemotron-3-super-120b-a12b"
+      ],
+      "layout_id": 3,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": -1200,
+        "1": 2400,
+        "2": -1200,
+        "3": 0
+      },
+      "seat_to_name": {
+        "0": "mistralai__mistral-small-4-119b-2603",
+        "1": "qwen__qwen3.5-122b-a10b",
+        "2": "stockmark__stockmark-2-100b-instruct",
+        "3": "nvidia__nemotron-3-super-120b-a12b"
+      },
+      "seed": 697595024,
+      "session_id": 3,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 1,
+        "2": 0,
+        "3": 0
+      }
+    },
+    "('mistralai/mistral-small-4-119b-2603', 'stockmark/stockmark-2-100b-instruct', 'nvidia/nemotron-3-super-120b-a12b', 'qwen/qwen3.5-122b-a10b')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 1
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "mistralai/mistral-small-4-119b-2603",
+        "stockmark/stockmark-2-100b-instruct",
+        "nvidia/nemotron-3-super-120b-a12b",
+        "qwen/qwen3.5-122b-a10b"
+      ],
+      "layout_id": 4,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": 2200,
+        "1": -1100,
+        "2": -1100,
+        "3": 0
+      },
+      "seat_to_name": {
+        "0": "mistralai__mistral-small-4-119b-2603",
+        "1": "stockmark__stockmark-2-100b-instruct",
+        "2": "nvidia__nemotron-3-super-120b-a12b",
+        "3": "qwen__qwen3.5-122b-a10b"
+      },
+      "seed": 1799327180,
+      "session_id": 4,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      }
+    },
+    "('mistralai/mistral-small-4-119b-2603', 'stockmark/stockmark-2-100b-instruct', 'qwen/qwen3.5-122b-a10b', 'nvidia/nemotron-3-super-120b-a12b')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 1
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "mistralai/mistral-small-4-119b-2603",
+        "stockmark/stockmark-2-100b-instruct",
+        "qwen/qwen3.5-122b-a10b",
+        "nvidia/nemotron-3-super-120b-a12b"
+      ],
+      "layout_id": 5,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": -400,
+        "1": 800,
+        "2": -400,
+        "3": 0
+      },
+      "seat_to_name": {
+        "0": "mistralai__mistral-small-4-119b-2603",
+        "1": "stockmark__stockmark-2-100b-instruct",
+        "2": "qwen__qwen3.5-122b-a10b",
+        "3": "nvidia__nemotron-3-super-120b-a12b"
+      },
+      "seed": 1738713278,
+      "session_id": 5,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 1,
+        "2": 0,
+        "3": 0
+      }
+    },
+    "('nvidia/nemotron-3-super-120b-a12b', 'mistralai/mistral-small-4-119b-2603', 'qwen/qwen3.5-122b-a10b', 'stockmark/stockmark-2-100b-instruct')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 1,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "nvidia/nemotron-3-super-120b-a12b",
+        "mistralai/mistral-small-4-119b-2603",
+        "qwen/qwen3.5-122b-a10b",
+        "stockmark/stockmark-2-100b-instruct"
+      ],
+      "layout_id": 6,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": 1000,
+        "1": 0,
+        "2": -500,
+        "3": -500
+      },
+      "seat_to_name": {
+        "0": "nvidia__nemotron-3-super-120b-a12b",
+        "1": "mistralai__mistral-small-4-119b-2603",
+        "2": "qwen__qwen3.5-122b-a10b",
+        "3": "stockmark__stockmark-2-100b-instruct"
+      },
+      "seed": 615827681,
+      "session_id": 6,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      }
+    },
+    "('nvidia/nemotron-3-super-120b-a12b', 'mistralai/mistral-small-4-119b-2603', 'stockmark/stockmark-2-100b-instruct', 'qwen/qwen3.5-122b-a10b')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "nvidia/nemotron-3-super-120b-a12b",
+        "mistralai/mistral-small-4-119b-2603",
+        "stockmark/stockmark-2-100b-instruct",
+        "qwen/qwen3.5-122b-a10b"
+      ],
+      "layout_id": 7,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": 0,
+        "1": -700,
+        "2": 1400,
+        "3": -700
+      },
+      "seat_to_name": {
+        "0": "nvidia__nemotron-3-super-120b-a12b",
+        "1": "mistralai__mistral-small-4-119b-2603",
+        "2": "stockmark__stockmark-2-100b-instruct",
+        "3": "qwen__qwen3.5-122b-a10b"
+      },
+      "seed": 1897570070,
+      "session_id": 7,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 0,
+        "2": 1,
+        "3": 0
+      }
+    },
+    "('nvidia/nemotron-3-super-120b-a12b', 'qwen/qwen3.5-122b-a10b', 'mistralai/mistral-small-4-119b-2603', 'stockmark/stockmark-2-100b-instruct')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "nvidia/nemotron-3-super-120b-a12b",
+        "qwen/qwen3.5-122b-a10b",
+        "mistralai/mistral-small-4-119b-2603",
+        "stockmark/stockmark-2-100b-instruct"
+      ],
+      "layout_id": 8,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": 0,
+        "1": 2800,
+        "2": -1400,
+        "3": -1400
+      },
+      "seat_to_name": {
+        "0": "nvidia__nemotron-3-super-120b-a12b",
+        "1": "qwen__qwen3.5-122b-a10b",
+        "2": "mistralai__mistral-small-4-119b-2603",
+        "3": "stockmark__stockmark-2-100b-instruct"
+      },
+      "seed": 1174254657,
+      "session_id": 8,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 1,
+        "2": 0,
+        "3": 0
+      }
+    },
+    "('nvidia/nemotron-3-super-120b-a12b', 'qwen/qwen3.5-122b-a10b', 'stockmark/stockmark-2-100b-instruct', 'mistralai/mistral-small-4-119b-2603')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 1
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "nvidia/nemotron-3-super-120b-a12b",
+        "qwen/qwen3.5-122b-a10b",
+        "stockmark/stockmark-2-100b-instruct",
+        "mistralai/mistral-small-4-119b-2603"
+      ],
+      "layout_id": 9,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": -500,
+        "1": 1000,
+        "2": -500,
+        "3": 0
+      },
+      "seat_to_name": {
+        "0": "nvidia__nemotron-3-super-120b-a12b",
+        "1": "qwen__qwen3.5-122b-a10b",
+        "2": "stockmark__stockmark-2-100b-instruct",
+        "3": "mistralai__mistral-small-4-119b-2603"
+      },
+      "seed": 516958926,
+      "session_id": 9,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 1,
+        "2": 0,
+        "3": 0
+      }
+    },
+    "('nvidia/nemotron-3-super-120b-a12b', 'stockmark/stockmark-2-100b-instruct', 'mistralai/mistral-small-4-119b-2603', 'qwen/qwen3.5-122b-a10b')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "nvidia/nemotron-3-super-120b-a12b",
+        "stockmark/stockmark-2-100b-instruct",
+        "mistralai/mistral-small-4-119b-2603",
+        "qwen/qwen3.5-122b-a10b"
+      ],
+      "layout_id": 10,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": 0,
+        "1": -500,
+        "2": -500,
+        "3": 1000
+      },
+      "seat_to_name": {
+        "0": "nvidia__nemotron-3-super-120b-a12b",
+        "1": "stockmark__stockmark-2-100b-instruct",
+        "2": "mistralai__mistral-small-4-119b-2603",
+        "3": "qwen__qwen3.5-122b-a10b"
+      },
+      "seed": 1934409498,
+      "session_id": 10,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 1
+      }
+    },
+    "('nvidia/nemotron-3-super-120b-a12b', 'stockmark/stockmark-2-100b-instruct', 'qwen/qwen3.5-122b-a10b', 'mistralai/mistral-small-4-119b-2603')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 1
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "nvidia/nemotron-3-super-120b-a12b",
+        "stockmark/stockmark-2-100b-instruct",
+        "qwen/qwen3.5-122b-a10b",
+        "mistralai/mistral-small-4-119b-2603"
+      ],
+      "layout_id": 11,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": -1000,
+        "1": -1000,
+        "2": 2000,
+        "3": 0
+      },
+      "seat_to_name": {
+        "0": "nvidia__nemotron-3-super-120b-a12b",
+        "1": "stockmark__stockmark-2-100b-instruct",
+        "2": "qwen__qwen3.5-122b-a10b",
+        "3": "mistralai__mistral-small-4-119b-2603"
+      },
+      "seed": 155364496,
+      "session_id": 11,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 0,
+        "2": 1,
+        "3": 0
+      }
+    },
+    "('qwen/qwen3.5-122b-a10b', 'mistralai/mistral-small-4-119b-2603', 'nvidia/nemotron-3-super-120b-a12b', 'stockmark/stockmark-2-100b-instruct')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 1,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "qwen/qwen3.5-122b-a10b",
+        "mistralai/mistral-small-4-119b-2603",
+        "nvidia/nemotron-3-super-120b-a12b",
+        "stockmark/stockmark-2-100b-instruct"
+      ],
+      "layout_id": 12,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": -600,
+        "1": 0,
+        "2": -600,
+        "3": 1200
+      },
+      "seat_to_name": {
+        "0": "qwen__qwen3.5-122b-a10b",
+        "1": "mistralai__mistral-small-4-119b-2603",
+        "2": "nvidia__nemotron-3-super-120b-a12b",
+        "3": "stockmark__stockmark-2-100b-instruct"
+      },
+      "seed": 1462138013,
+      "session_id": 12,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 1
+      }
+    },
+    "('qwen/qwen3.5-122b-a10b', 'mistralai/mistral-small-4-119b-2603', 'stockmark/stockmark-2-100b-instruct', 'nvidia/nemotron-3-super-120b-a12b')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 1,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "qwen/qwen3.5-122b-a10b",
+        "mistralai/mistral-small-4-119b-2603",
+        "stockmark/stockmark-2-100b-instruct",
+        "nvidia/nemotron-3-super-120b-a12b"
+      ],
+      "layout_id": 13,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": -600,
+        "1": -600,
+        "2": 0,
+        "3": 1200
+      },
+      "seat_to_name": {
+        "0": "qwen__qwen3.5-122b-a10b",
+        "1": "mistralai__mistral-small-4-119b-2603",
+        "2": "stockmark__stockmark-2-100b-instruct",
+        "3": "nvidia__nemotron-3-super-120b-a12b"
+      },
+      "seed": 1054603578,
+      "session_id": 13,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 1
+      }
+    },
+    "('qwen/qwen3.5-122b-a10b', 'nvidia/nemotron-3-super-120b-a12b', 'mistralai/mistral-small-4-119b-2603', 'stockmark/stockmark-2-100b-instruct')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 1,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "qwen/qwen3.5-122b-a10b",
+        "nvidia/nemotron-3-super-120b-a12b",
+        "mistralai/mistral-small-4-119b-2603",
+        "stockmark/stockmark-2-100b-instruct"
+      ],
+      "layout_id": 14,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": 800,
+        "1": 0,
+        "2": -400,
+        "3": -400
+      },
+      "seat_to_name": {
+        "0": "qwen__qwen3.5-122b-a10b",
+        "1": "nvidia__nemotron-3-super-120b-a12b",
+        "2": "mistralai__mistral-small-4-119b-2603",
+        "3": "stockmark__stockmark-2-100b-instruct"
+      },
+      "seed": 1833108307,
+      "session_id": 14,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      }
+    },
+    "('qwen/qwen3.5-122b-a10b', 'nvidia/nemotron-3-super-120b-a12b', 'stockmark/stockmark-2-100b-instruct', 'mistralai/mistral-small-4-119b-2603')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 1
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "qwen/qwen3.5-122b-a10b",
+        "nvidia/nemotron-3-super-120b-a12b",
+        "stockmark/stockmark-2-100b-instruct",
+        "mistralai/mistral-small-4-119b-2603"
+      ],
+      "layout_id": 15,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": -2000,
+        "1": -2000,
+        "2": 4000,
+        "3": 0
+      },
+      "seat_to_name": {
+        "0": "qwen__qwen3.5-122b-a10b",
+        "1": "nvidia__nemotron-3-super-120b-a12b",
+        "2": "stockmark__stockmark-2-100b-instruct",
+        "3": "mistralai__mistral-small-4-119b-2603"
+      },
+      "seed": 1689717856,
+      "session_id": 15,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 0,
+        "2": 1,
+        "3": 0
+      }
+    },
+    "('qwen/qwen3.5-122b-a10b', 'stockmark/stockmark-2-100b-instruct', 'mistralai/mistral-small-4-119b-2603', 'nvidia/nemotron-3-super-120b-a12b')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "qwen/qwen3.5-122b-a10b",
+        "stockmark/stockmark-2-100b-instruct",
+        "mistralai/mistral-small-4-119b-2603",
+        "nvidia/nemotron-3-super-120b-a12b"
+      ],
+      "layout_id": 16,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": 0,
+        "1": -800,
+        "2": 1600,
+        "3": -800
+      },
+      "seat_to_name": {
+        "0": "qwen__qwen3.5-122b-a10b",
+        "1": "stockmark__stockmark-2-100b-instruct",
+        "2": "mistralai__mistral-small-4-119b-2603",
+        "3": "nvidia__nemotron-3-super-120b-a12b"
+      },
+      "seed": 597673901,
+      "session_id": 16,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 0,
+        "2": 1,
+        "3": 0
+      }
+    },
+    "('qwen/qwen3.5-122b-a10b', 'stockmark/stockmark-2-100b-instruct', 'nvidia/nemotron-3-super-120b-a12b', 'mistralai/mistral-small-4-119b-2603')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 1,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "qwen/qwen3.5-122b-a10b",
+        "stockmark/stockmark-2-100b-instruct",
+        "nvidia/nemotron-3-super-120b-a12b",
+        "mistralai/mistral-small-4-119b-2603"
+      ],
+      "layout_id": 17,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": -400,
+        "1": 800,
+        "2": 0,
+        "3": -400
+      },
+      "seat_to_name": {
+        "0": "qwen__qwen3.5-122b-a10b",
+        "1": "stockmark__stockmark-2-100b-instruct",
+        "2": "nvidia__nemotron-3-super-120b-a12b",
+        "3": "mistralai__mistral-small-4-119b-2603"
+      },
+      "seed": 2055665943,
+      "session_id": 17,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 1,
+        "2": 0,
+        "3": 0
+      }
+    },
+    "('stockmark/stockmark-2-100b-instruct', 'mistralai/mistral-small-4-119b-2603', 'nvidia/nemotron-3-super-120b-a12b', 'qwen/qwen3.5-122b-a10b')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 1
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "stockmark/stockmark-2-100b-instruct",
+        "mistralai/mistral-small-4-119b-2603",
+        "nvidia/nemotron-3-super-120b-a12b",
+        "qwen/qwen3.5-122b-a10b"
+      ],
+      "layout_id": 18,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": -6400,
+        "1": -6400,
+        "2": 12800,
+        "3": 0
+      },
+      "seat_to_name": {
+        "0": "stockmark__stockmark-2-100b-instruct",
+        "1": "mistralai__mistral-small-4-119b-2603",
+        "2": "nvidia__nemotron-3-super-120b-a12b",
+        "3": "qwen__qwen3.5-122b-a10b"
+      },
+      "seed": 217350410,
+      "session_id": 18,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 0,
+        "2": 1,
+        "3": 0
+      }
+    },
+    "('stockmark/stockmark-2-100b-instruct', 'mistralai/mistral-small-4-119b-2603', 'qwen/qwen3.5-122b-a10b', 'nvidia/nemotron-3-super-120b-a12b')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "stockmark/stockmark-2-100b-instruct",
+        "mistralai/mistral-small-4-119b-2603",
+        "qwen/qwen3.5-122b-a10b",
+        "nvidia/nemotron-3-super-120b-a12b"
+      ],
+      "layout_id": 19,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": 0,
+        "1": -700,
+        "2": -700,
+        "3": 1400
+      },
+      "seat_to_name": {
+        "0": "stockmark__stockmark-2-100b-instruct",
+        "1": "mistralai__mistral-small-4-119b-2603",
+        "2": "qwen__qwen3.5-122b-a10b",
+        "3": "nvidia__nemotron-3-super-120b-a12b"
+      },
+      "seed": 1426131360,
+      "session_id": 19,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 1
+      }
+    },
+    "('stockmark/stockmark-2-100b-instruct', 'nvidia/nemotron-3-super-120b-a12b', 'mistralai/mistral-small-4-119b-2603', 'qwen/qwen3.5-122b-a10b')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 1,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "stockmark/stockmark-2-100b-instruct",
+        "nvidia/nemotron-3-super-120b-a12b",
+        "mistralai/mistral-small-4-119b-2603",
+        "qwen/qwen3.5-122b-a10b"
+      ],
+      "layout_id": 20,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": -400,
+        "1": 0,
+        "2": 800,
+        "3": -400
+      },
+      "seat_to_name": {
+        "0": "stockmark__stockmark-2-100b-instruct",
+        "1": "nvidia__nemotron-3-super-120b-a12b",
+        "2": "mistralai__mistral-small-4-119b-2603",
+        "3": "qwen__qwen3.5-122b-a10b"
+      },
+      "seed": 808520988,
+      "session_id": 20,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 0,
+        "2": 1,
+        "3": 0
+      }
+    },
+    "('stockmark/stockmark-2-100b-instruct', 'nvidia/nemotron-3-super-120b-a12b', 'qwen/qwen3.5-122b-a10b', 'mistralai/mistral-small-4-119b-2603')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 1,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "stockmark/stockmark-2-100b-instruct",
+        "nvidia/nemotron-3-super-120b-a12b",
+        "qwen/qwen3.5-122b-a10b",
+        "mistralai/mistral-small-4-119b-2603"
+      ],
+      "layout_id": 21,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": 2000,
+        "1": 0,
+        "2": -1000,
+        "3": -1000
+      },
+      "seat_to_name": {
+        "0": "stockmark__stockmark-2-100b-instruct",
+        "1": "nvidia__nemotron-3-super-120b-a12b",
+        "2": "qwen__qwen3.5-122b-a10b",
+        "3": "mistralai__mistral-small-4-119b-2603"
+      },
+      "seed": 1907731871,
+      "session_id": 21,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      }
+    },
+    "('stockmark/stockmark-2-100b-instruct', 'qwen/qwen3.5-122b-a10b', 'mistralai/mistral-small-4-119b-2603', 'nvidia/nemotron-3-super-120b-a12b')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 1
+      },
+      "layout": [
+        "stockmark/stockmark-2-100b-instruct",
+        "qwen/qwen3.5-122b-a10b",
+        "mistralai/mistral-small-4-119b-2603",
+        "nvidia/nemotron-3-super-120b-a12b"
+      ],
+      "layout_id": 22,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": 1000,
+        "1": -500,
+        "2": -500,
+        "3": 0
+      },
+      "seat_to_name": {
+        "0": "stockmark__stockmark-2-100b-instruct",
+        "1": "qwen__qwen3.5-122b-a10b",
+        "2": "mistralai__mistral-small-4-119b-2603",
+        "3": "nvidia__nemotron-3-super-120b-a12b"
+      },
+      "seed": 1448701956,
+      "session_id": 22,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      }
+    },
+    "('stockmark/stockmark-2-100b-instruct', 'qwen/qwen3.5-122b-a10b', 'nvidia/nemotron-3-super-120b-a12b', 'mistralai/mistral-small-4-119b-2603')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 1,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "stockmark/stockmark-2-100b-instruct",
+        "qwen/qwen3.5-122b-a10b",
+        "nvidia/nemotron-3-super-120b-a12b",
+        "mistralai/mistral-small-4-119b-2603"
+      ],
+      "layout_id": 23,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": -600,
+        "1": -600,
+        "2": 0,
+        "3": 1200
+      },
+      "seat_to_name": {
+        "0": "stockmark__stockmark-2-100b-instruct",
+        "1": "qwen__qwen3.5-122b-a10b",
+        "2": "nvidia__nemotron-3-super-120b-a12b",
+        "3": "mistralai__mistral-small-4-119b-2603"
+      },
+      "seed": 100657797,
+      "session_id": 23,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 1
+      }
+    }
+  },
+  "design_diagnostics": {
+    "cluster_count_by_agent": {
+      "mistralai__mistral-small-4-119b-2603": 24,
+      "nvidia__nemotron-3-super-120b-a12b": 24,
+      "qwen__qwen3.5-122b-a10b": 24,
+      "stockmark__stockmark-2-100b-instruct": 24
+    },
+    "layout_count": 24,
+    "layout_repetition_max": 1,
+    "layout_repetition_min": 1,
+    "notes": [
+      "CVaR inference is unstable below the recommended 100 sessions per agent.",
+      "Ruin-probability inference is low-power below the recommended 30 sessions per agent.",
+      "Layout-effect testing requires at least two repeated sessions per distinct layout."
+    ],
+    "pairing_unit": "session_id",
+    "recommended_cvar_session_count": 100,
+    "recommended_ruin_session_count": 30,
+    "session_count_by_agent": {
+      "mistralai__mistral-small-4-119b-2603": 24,
+      "nvidia__nemotron-3-super-120b-a12b": 24,
+      "qwen__qwen3.5-122b-a10b": 24,
+      "stockmark__stockmark-2-100b-instruct": 24
+    },
+    "tests_are_two_sided": true
+  },
+  "inferential_statistics": {
+    "rq1_mean_profit": {
+      "method": "paired_cluster_bootstrap_with_cluster_mean_sign_flip_permutation",
+      "metric": "mean_profit",
+      "pairwise": {
+        "mistralai__mistral-small-4-119b-2603__minus__nvidia__nemotron-3-super-120b-a12b": {
+          "ci_lower": -2395.8333333333335,
+          "ci_upper": 916.6666666666666,
+          "cluster_count": 24,
+          "estimate": -400.0,
+          "left_agent": "mistralai__mistral-small-4-119b-2603",
+          "p_value_two_sided": 0.8661338661338661,
+          "p_value_two_sided_bonferroni": 1.0,
+          "right_agent": "nvidia__nemotron-3-super-120b-a12b",
+          "sample_count": 24,
+          "two_sided": true
+        },
+        "mistralai__mistral-small-4-119b-2603__minus__qwen__qwen3.5-122b-a10b": {
+          "ci_lower": -937.5,
+          "ci_upper": 1308.3333333333333,
+          "cluster_count": 24,
+          "estimate": 150.0,
+          "left_agent": "mistralai__mistral-small-4-119b-2603",
+          "p_value_two_sided": 0.8041958041958042,
+          "p_value_two_sided_bonferroni": 1.0,
+          "right_agent": "qwen__qwen3.5-122b-a10b",
+          "sample_count": 24,
+          "two_sided": true
+        },
+        "mistralai__mistral-small-4-119b-2603__minus__stockmark__stockmark-2-100b-instruct": {
+          "ci_lower": -583.3333333333334,
+          "ci_upper": 1325.0,
+          "cluster_count": 24,
+          "estimate": 316.6666666666667,
+          "left_agent": "mistralai__mistral-small-4-119b-2603",
+          "p_value_two_sided": 0.5564435564435565,
+          "p_value_two_sided_bonferroni": 1.0,
+          "right_agent": "stockmark__stockmark-2-100b-instruct",
+          "sample_count": 24,
+          "two_sided": true
+        },
+        "nvidia__nemotron-3-super-120b-a12b__minus__qwen__qwen3.5-122b-a10b": {
+          "ci_lower": -408.3333333333333,
+          "ci_upper": 1850.0,
+          "cluster_count": 24,
+          "estimate": 550.0,
+          "left_agent": "nvidia__nemotron-3-super-120b-a12b",
+          "p_value_two_sided": 0.47052947052947053,
+          "p_value_two_sided_bonferroni": 1.0,
+          "right_agent": "qwen__qwen3.5-122b-a10b",
+          "sample_count": 24,
+          "two_sided": true
+        },
+        "nvidia__nemotron-3-super-120b-a12b__minus__stockmark__stockmark-2-100b-instruct": {
+          "ci_lower": -654.1666666666666,
+          "ci_upper": 2712.5,
+          "cluster_count": 24,
+          "estimate": 716.6666666666666,
+          "left_agent": "nvidia__nemotron-3-super-120b-a12b",
+          "p_value_two_sided": 0.5844155844155844,
+          "p_value_two_sided_bonferroni": 1.0,
+          "right_agent": "stockmark__stockmark-2-100b-instruct",
+          "sample_count": 24,
+          "two_sided": true
+        },
+        "qwen__qwen3.5-122b-a10b__minus__stockmark__stockmark-2-100b-instruct": {
+          "ci_lower": -845.8333333333334,
+          "ci_upper": 1150.0,
+          "cluster_count": 24,
+          "estimate": 166.66666666666666,
+          "left_agent": "qwen__qwen3.5-122b-a10b",
+          "p_value_two_sided": 0.7532467532467533,
+          "p_value_two_sided_bonferroni": 1.0,
+          "right_agent": "stockmark__stockmark-2-100b-instruct",
+          "sample_count": 24,
+          "two_sided": true
+        }
+      },
+      "two_sided": true
+    },
+    "rq2_tail_risk": {
+      "method": "cluster_bootstrap_confidence_interval",
+      "metric": "empirical_expected_shortfall_alpha_0.05",
+      "pairwise": {
+        "mistralai__mistral-small-4-119b-2603__minus__nvidia__nemotron-3-super-120b-a12b": {
+          "ci_lower": -5400.0,
+          "ci_upper": 849.9999999999999,
+          "cluster_count": 24,
+          "estimate": -3716.666666666666,
+          "left_agent": "mistralai__mistral-small-4-119b-2603",
+          "right_agent": "nvidia__nemotron-3-super-120b-a12b",
+          "sample_count": 24,
+          "two_sided": true
+        },
+        "mistralai__mistral-small-4-119b-2603__minus__qwen__qwen3.5-122b-a10b": {
+          "ci_lower": -4616.666666666666,
+          "ci_upper": 1333.3333333333335,
+          "cluster_count": 24,
+          "estimate": -3233.3333333333326,
+          "left_agent": "mistralai__mistral-small-4-119b-2603",
+          "right_agent": "qwen__qwen3.5-122b-a10b",
+          "sample_count": 24,
+          "two_sided": true
+        },
+        "mistralai__mistral-small-4-119b-2603__minus__stockmark__stockmark-2-100b-instruct": {
+          "ci_lower": 0.0,
+          "ci_upper": 1333.3333333333335,
+          "cluster_count": 24,
+          "estimate": 166.66666666666606,
+          "left_agent": "mistralai__mistral-small-4-119b-2603",
+          "right_agent": "stockmark__stockmark-2-100b-instruct",
+          "sample_count": 24,
+          "two_sided": true
+        },
+        "nvidia__nemotron-3-super-120b-a12b__minus__qwen__qwen3.5-122b-a10b": {
+          "ci_lower": -133.33333333333337,
+          "ci_upper": 1516.6666666666665,
+          "cluster_count": 24,
+          "estimate": 483.3333333333337,
+          "left_agent": "nvidia__nemotron-3-super-120b-a12b",
+          "right_agent": "qwen__qwen3.5-122b-a10b",
+          "sample_count": 24,
+          "two_sided": true
+        },
+        "nvidia__nemotron-3-super-120b-a12b__minus__stockmark__stockmark-2-100b-instruct": {
+          "ci_lower": -166.66666666666697,
+          "ci_upper": 5400.0,
+          "cluster_count": 24,
+          "estimate": 3883.333333333332,
+          "left_agent": "nvidia__nemotron-3-super-120b-a12b",
+          "right_agent": "stockmark__stockmark-2-100b-instruct",
+          "sample_count": 24,
+          "two_sided": true
+        },
+        "qwen__qwen3.5-122b-a10b__minus__stockmark__stockmark-2-100b-instruct": {
+          "ci_lower": -433.33333333333303,
+          "ci_upper": 4799.999999999999,
+          "cluster_count": 24,
+          "estimate": 3399.9999999999986,
+          "left_agent": "qwen__qwen3.5-122b-a10b",
+          "right_agent": "stockmark__stockmark-2-100b-instruct",
+          "sample_count": 24,
+          "two_sided": true
+        }
+      },
+      "per_agent": {
+        "mistralai__mistral-small-4-119b-2603": {
+          "ci_lower": -6400.0,
+          "ci_upper": -1000.0,
+          "cluster_count": 24,
+          "effective_tail_mass": 1.2000000000000002,
+          "estimate": -5566.666666666666,
+          "inferential_ready": false,
+          "recommended_min_sample_count": 100,
+          "sample_count": 24,
+          "support_count": 2,
+          "two_sided": true
+        },
+        "nvidia__nemotron-3-super-120b-a12b": {
+          "ci_lower": -2000.0,
+          "ci_upper": -766.6666666666666,
+          "cluster_count": 24,
+          "effective_tail_mass": 1.2000000000000002,
+          "estimate": -1849.9999999999998,
+          "inferential_ready": false,
+          "recommended_min_sample_count": 100,
+          "sample_count": 24,
+          "support_count": 2,
+          "two_sided": true
+        },
+        "qwen__qwen3.5-122b-a10b": {
+          "ci_lower": -2400.0,
+          "ci_upper": -1000.0,
+          "cluster_count": 24,
+          "effective_tail_mass": 1.2000000000000002,
+          "estimate": -2333.3333333333335,
+          "inferential_ready": false,
+          "recommended_min_sample_count": 100,
+          "sample_count": 24,
+          "support_count": 2,
+          "two_sided": true
+        },
+        "stockmark__stockmark-2-100b-instruct": {
+          "ci_lower": -6400.0,
+          "ci_upper": -1400.0,
+          "cluster_count": 24,
+          "effective_tail_mass": 1.2000000000000002,
+          "estimate": -5733.333333333332,
+          "inferential_ready": false,
+          "recommended_min_sample_count": 100,
+          "sample_count": 24,
+          "support_count": 2,
+          "two_sided": true
+        }
+      },
+      "two_sided": true
+    },
+    "rq3_ruin_probability": {
+      "method": "wilson_interval_and_paired_cluster_bootstrap_difference",
+      "metric": "ruin_probability",
+      "pairwise": {
+        "mistralai__mistral-small-4-119b-2603__minus__nvidia__nemotron-3-super-120b-a12b": {
+          "ci_lower": 0.0,
+          "ci_upper": 0.0,
+          "cluster_count": 24,
+          "estimate": 0.0,
+          "left_agent": "mistralai__mistral-small-4-119b-2603",
+          "right_agent": "nvidia__nemotron-3-super-120b-a12b",
+          "sample_count": 24,
+          "two_sided": true
+        },
+        "mistralai__mistral-small-4-119b-2603__minus__qwen__qwen3.5-122b-a10b": {
+          "ci_lower": 0.0,
+          "ci_upper": 0.0,
+          "cluster_count": 24,
+          "estimate": 0.0,
+          "left_agent": "mistralai__mistral-small-4-119b-2603",
+          "right_agent": "qwen__qwen3.5-122b-a10b",
+          "sample_count": 24,
+          "two_sided": true
+        },
+        "mistralai__mistral-small-4-119b-2603__minus__stockmark__stockmark-2-100b-instruct": {
+          "ci_lower": 0.0,
+          "ci_upper": 0.0,
+          "cluster_count": 24,
+          "estimate": 0.0,
+          "left_agent": "mistralai__mistral-small-4-119b-2603",
+          "right_agent": "stockmark__stockmark-2-100b-instruct",
+          "sample_count": 24,
+          "two_sided": true
+        },
+        "nvidia__nemotron-3-super-120b-a12b__minus__qwen__qwen3.5-122b-a10b": {
+          "ci_lower": 0.0,
+          "ci_upper": 0.0,
+          "cluster_count": 24,
+          "estimate": 0.0,
+          "left_agent": "nvidia__nemotron-3-super-120b-a12b",
+          "right_agent": "qwen__qwen3.5-122b-a10b",
+          "sample_count": 24,
+          "two_sided": true
+        },
+        "nvidia__nemotron-3-super-120b-a12b__minus__stockmark__stockmark-2-100b-instruct": {
+          "ci_lower": 0.0,
+          "ci_upper": 0.0,
+          "cluster_count": 24,
+          "estimate": 0.0,
+          "left_agent": "nvidia__nemotron-3-super-120b-a12b",
+          "right_agent": "stockmark__stockmark-2-100b-instruct",
+          "sample_count": 24,
+          "two_sided": true
+        },
+        "qwen__qwen3.5-122b-a10b__minus__stockmark__stockmark-2-100b-instruct": {
+          "ci_lower": 0.0,
+          "ci_upper": 0.0,
+          "cluster_count": 24,
+          "estimate": 0.0,
+          "left_agent": "qwen__qwen3.5-122b-a10b",
+          "right_agent": "stockmark__stockmark-2-100b-instruct",
+          "sample_count": 24,
+          "two_sided": true
+        }
+      },
+      "per_agent": {
+        "mistralai__mistral-small-4-119b-2603": {
+          "ci_lower": 1.3877787807814457e-17,
+          "ci_upper": 0.13797620467498017,
+          "cluster_count": 24,
+          "estimate": 0.0,
+          "event_count": 0,
+          "inferential_ready": false,
+          "recommended_min_sample_count": 30,
+          "sample_count": 24,
+          "two_sided": true
+        },
+        "nvidia__nemotron-3-super-120b-a12b": {
+          "ci_lower": 1.3877787807814457e-17,
+          "ci_upper": 0.13797620467498017,
+          "cluster_count": 24,
+          "estimate": 0.0,
+          "event_count": 0,
+          "inferential_ready": false,
+          "recommended_min_sample_count": 30,
+          "sample_count": 24,
+          "two_sided": true
+        },
+        "qwen__qwen3.5-122b-a10b": {
+          "ci_lower": 1.3877787807814457e-17,
+          "ci_upper": 0.13797620467498017,
+          "cluster_count": 24,
+          "estimate": 0.0,
+          "event_count": 0,
+          "inferential_ready": false,
+          "recommended_min_sample_count": 30,
+          "sample_count": 24,
+          "two_sided": true
+        },
+        "stockmark__stockmark-2-100b-instruct": {
+          "ci_lower": 1.3877787807814457e-17,
+          "ci_upper": 0.13797620467498017,
+          "cluster_count": 24,
+          "estimate": 0.0,
+          "event_count": 0,
+          "inferential_ready": false,
+          "recommended_min_sample_count": 30,
+          "sample_count": 24,
+          "two_sided": true
+        }
+      },
+      "two_sided": true
+    },
+    "rq4_layout_effect": {
+      "method": "layout_permutation_anova",
+      "metric": "layout_effect_on_profit",
+      "per_agent": {
+        "mistralai__mistral-small-4-119b-2603": {
+          "identifiable": false,
+          "layout_count": 24,
+          "min_repetitions_per_layout": 1,
+          "reason": "layout_effect_requires_repeated_sessions_per_layout"
+        },
+        "nvidia__nemotron-3-super-120b-a12b": {
+          "identifiable": false,
+          "layout_count": 24,
+          "min_repetitions_per_layout": 1,
+          "reason": "layout_effect_requires_repeated_sessions_per_layout"
+        },
+        "qwen__qwen3.5-122b-a10b": {
+          "identifiable": false,
+          "layout_count": 24,
+          "min_repetitions_per_layout": 1,
+          "reason": "layout_effect_requires_repeated_sessions_per_layout"
+        },
+        "stockmark__stockmark-2-100b-instruct": {
+          "identifiable": false,
+          "layout_count": 24,
+          "min_repetitions_per_layout": 1,
+          "reason": "layout_effect_requires_repeated_sessions_per_layout"
+        }
+      },
+      "two_sided": true
+    }
+  },
+  "profit_distribution_stats": {
+    "mistralai__mistral-small-4-119b-2603": {
+      "cvar_5": -5566.666666666666,
+      "cvar_5_effective_sample_size": 1.2000000000000002,
+      "cvar_5_method": "empirical_expected_shortfall",
+      "mean_profit": 16.666666666666668,
+      "profit_per_hand": 16.666666666666668,
+      "sample_count": 24,
+      "variance": 4182318.84057971
+    },
+    "nvidia__nemotron-3-super-120b-a12b": {
+      "cvar_5": -1849.9999999999998,
+      "cvar_5_effective_sample_size": 1.2000000000000002,
+      "cvar_5_method": "empirical_expected_shortfall",
+      "mean_profit": 416.6666666666667,
+      "profit_per_hand": 416.6666666666667,
+      "sample_count": 24,
+      "variance": 7464927.536231884
+    },
+    "qwen__qwen3.5-122b-a10b": {
+      "cvar_5": -2333.3333333333335,
+      "cvar_5_effective_sample_size": 1.2000000000000002,
+      "cvar_5_method": "empirical_expected_shortfall",
+      "mean_profit": -133.33333333333334,
+      "profit_per_hand": -133.33333333333334,
+      "sample_count": 24,
+      "variance": 1642318.8405797102
+    },
+    "stockmark__stockmark-2-100b-instruct": {
+      "cvar_5": -5733.333333333332,
+      "cvar_5_effective_sample_size": 1.2000000000000002,
+      "cvar_5_method": "empirical_expected_shortfall",
+      "mean_profit": -300.0,
+      "profit_per_hand": -300.0,
+      "sample_count": 24,
+      "variance": 3589565.217391304
+    }
+  },
+  "ranking": [
+    {
+      "agent": "nvidia__nemotron-3-super-120b-a12b",
+      "cvar_5": -1849.9999999999998,
+      "cvar_5_is_fallback": true,
+      "cvar_5_low_support": true,
+      "cvar_5_tail_size": 2,
+      "mean_profit": 416.6666666666667,
+      "ruin_probability": 0.0,
+      "variance": 7464927.536231884,
+      "win_rate": 0.16666666666666666
+    },
+    {
+      "agent": "mistralai__mistral-small-4-119b-2603",
+      "cvar_5": -5566.666666666666,
+      "cvar_5_is_fallback": true,
+      "cvar_5_low_support": true,
+      "cvar_5_tail_size": 2,
+      "mean_profit": 16.666666666666668,
+      "ruin_probability": 0.0,
+      "variance": 4182318.84057971,
+      "win_rate": 0.25
+    },
+    {
+      "agent": "qwen__qwen3.5-122b-a10b",
+      "cvar_5": -2333.3333333333335,
+      "cvar_5_is_fallback": true,
+      "cvar_5_low_support": true,
+      "cvar_5_tail_size": 2,
+      "mean_profit": -133.33333333333334,
+      "ruin_probability": 0.0,
+      "variance": 1642318.8405797102,
+      "win_rate": 0.25
+    },
+    {
+      "agent": "stockmark__stockmark-2-100b-instruct",
+      "cvar_5": -5733.333333333332,
+      "cvar_5_is_fallback": true,
+      "cvar_5_low_support": true,
+      "cvar_5_tail_size": 2,
+      "mean_profit": -300.0,
+      "ruin_probability": 0.0,
+      "variance": 3589565.217391304,
+      "win_rate": 0.3333333333333333
+    }
+  ],
+  "ranking_policy": {
+    "notes": [
+      "Ranking is a descriptive screening order for report presentation.",
+      "Rows with low-support CVaR estimates are sorted behind adequately supported rows.",
+      "Inferential claims must use the report's confirmatory_assessment section, not the ranking order.",
+      "The inferential_statistics section provides the supporting two-sided diagnostics plus exploratory layout analysis.",
+      "Variance is reported but does not affect ranking."
+    ],
+    "rank_keys": [
+      "cvar_5_low_support_asc",
+      "mean_profit_desc",
+      "cvar_5_desc",
+      "ruin_probability_asc",
+      "cvar_5_tail_size_desc",
+      "agent_asc"
+    ],
+    "type": "descriptive_screening"
+  },
+  "ruin_risk_comparison": {
+    "mistralai__mistral-small-4-119b-2603": {
+      "early_exit_rate": 0.25,
+      "ruin_event_count": 0,
+      "ruin_probability": 0.0,
+      "sample_count": 24,
+      "session_completed_rate": 0.75
+    },
+    "nvidia__nemotron-3-super-120b-a12b": {
+      "early_exit_rate": 0.5,
+      "ruin_event_count": 0,
+      "ruin_probability": 0.0,
+      "sample_count": 24,
+      "session_completed_rate": 0.5
+    },
+    "qwen__qwen3.5-122b-a10b": {
+      "early_exit_rate": 0.125,
+      "ruin_event_count": 0,
+      "ruin_probability": 0.0,
+      "sample_count": 24,
+      "session_completed_rate": 0.875
+    },
+    "stockmark__stockmark-2-100b-instruct": {
+      "early_exit_rate": 0.08333333333333333,
+      "ruin_event_count": 0,
+      "ruin_probability": 0.0,
+      "sample_count": 24,
+      "session_completed_rate": 0.9166666666666666
+    }
+  }
+}

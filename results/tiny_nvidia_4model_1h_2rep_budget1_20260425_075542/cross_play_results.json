@@ -1,0 +1,3554 @@
+{
+  "(('google/gemma-2-2b-it', 'ibm/granite-3.0-3b-a800m-instruct', 'meta/llama-3.2-1b-instruct', 'microsoft/phi-4-mini-instruct'), 0)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 1
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "google/gemma-2-2b-it",
+      "ibm/granite-3.0-3b-a800m-instruct",
+      "meta/llama-3.2-1b-instruct",
+      "microsoft/phi-4-mini-instruct"
+    ],
+    "layout_id": 0,
+    "layout_repeat": 0,
+    "profit_by_seat": {
+      "0": -400,
+      "1": 800,
+      "2": -400,
+      "3": 0
+    },
+    "seat_to_name": {
+      "0": "google__gemma-2-2b-it",
+      "1": "ibm__granite-3.0-3b-a800m-instruct",
+      "2": "meta__llama-3.2-1b-instruct",
+      "3": "microsoft__phi-4-mini-instruct"
+    },
+    "seed": 733872615,
+    "session_id": 0,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 0,
+      "1": 1,
+      "2": 0,
+      "3": 0
+    }
+  },
+  "(('google/gemma-2-2b-it', 'ibm/granite-3.0-3b-a800m-instruct', 'meta/llama-3.2-1b-instruct', 'microsoft/phi-4-mini-instruct'), 1)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 1,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "google/gemma-2-2b-it",
+      "ibm/granite-3.0-3b-a800m-instruct",
+      "meta/llama-3.2-1b-instruct",
+      "microsoft/phi-4-mini-instruct"
+    ],
+    "layout_id": 1,
+    "layout_repeat": 1,
+    "profit_by_seat": {
+      "0": 0,
+      "1": -900,
+      "2": -900,
+      "3": 1800
+    },
+    "seat_to_name": {
+      "0": "google__gemma-2-2b-it",
+      "1": "ibm__granite-3.0-3b-a800m-instruct",
+      "2": "meta__llama-3.2-1b-instruct",
+      "3": "microsoft__phi-4-mini-instruct"
+    },
+    "seed": 106966871,
+    "session_id": 1,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 1
+    }
+  },
+  "(('google/gemma-2-2b-it', 'ibm/granite-3.0-3b-a800m-instruct', 'microsoft/phi-4-mini-instruct', 'meta/llama-3.2-1b-instruct'), 0)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 1,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "google/gemma-2-2b-it",
+      "ibm/granite-3.0-3b-a800m-instruct",
+      "microsoft/phi-4-mini-instruct",
+      "meta/llama-3.2-1b-instruct"
+    ],
+    "layout_id": 2,
+    "layout_repeat": 0,
+    "profit_by_seat": {
+      "0": 0,
+      "1": -1200,
+      "2": -1200,
+      "3": 2400
+    },
+    "seat_to_name": {
+      "0": "google__gemma-2-2b-it",
+      "1": "ibm__granite-3.0-3b-a800m-instruct",
+      "2": "microsoft__phi-4-mini-instruct",
+      "3": "meta__llama-3.2-1b-instruct"
+    },
+    "seed": 686719991,
+    "session_id": 2,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 1
+    }
+  },
+  "(('google/gemma-2-2b-it', 'ibm/granite-3.0-3b-a800m-instruct', 'microsoft/phi-4-mini-instruct', 'meta/llama-3.2-1b-instruct'), 1)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 0,
+      "1": 1,
+      "2": 0,
+      "3": 0
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "google/gemma-2-2b-it",
+      "ibm/granite-3.0-3b-a800m-instruct",
+      "microsoft/phi-4-mini-instruct",
+      "meta/llama-3.2-1b-instruct"
+    ],
+    "layout_id": 3,
+    "layout_repeat": 1,
+    "profit_by_seat": {
+      "0": -700,
+      "1": 0,
+      "2": -700,
+      "3": 1400
+    },
+    "seat_to_name": {
+      "0": "google__gemma-2-2b-it",
+      "1": "ibm__granite-3.0-3b-a800m-instruct",
+      "2": "microsoft__phi-4-mini-instruct",
+      "3": "meta__llama-3.2-1b-instruct"
+    },
+    "seed": 1223015493,
+    "session_id": 3,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 1
+    }
+  },
+  "(('google/gemma-2-2b-it', 'meta/llama-3.2-1b-instruct', 'ibm/granite-3.0-3b-a800m-instruct', 'microsoft/phi-4-mini-instruct'), 0)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 0,
+      "1": 0,
+      "2": 1,
+      "3": 0
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "google/gemma-2-2b-it",
+      "meta/llama-3.2-1b-instruct",
+      "ibm/granite-3.0-3b-a800m-instruct",
+      "microsoft/phi-4-mini-instruct"
+    ],
+    "layout_id": 4,
+    "layout_repeat": 0,
+    "profit_by_seat": {
+      "0": -900,
+      "1": 1800,
+      "2": 0,
+      "3": -900
+    },
+    "seat_to_name": {
+      "0": "google__gemma-2-2b-it",
+      "1": "meta__llama-3.2-1b-instruct",
+      "2": "ibm__granite-3.0-3b-a800m-instruct",
+      "3": "microsoft__phi-4-mini-instruct"
+    },
+    "seed": 2014152619,
+    "session_id": 4,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 0,
+      "1": 1,
+      "2": 0,
+      "3": 0
+    }
+  },
+  "(('google/gemma-2-2b-it', 'meta/llama-3.2-1b-instruct', 'ibm/granite-3.0-3b-a800m-instruct', 'microsoft/phi-4-mini-instruct'), 1)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 1,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "google/gemma-2-2b-it",
+      "meta/llama-3.2-1b-instruct",
+      "ibm/granite-3.0-3b-a800m-instruct",
+      "microsoft/phi-4-mini-instruct"
+    ],
+    "layout_id": 5,
+    "layout_repeat": 1,
+    "profit_by_seat": {
+      "0": 0,
+      "1": -700,
+      "2": 1400,
+      "3": -700
+    },
+    "seat_to_name": {
+      "0": "google__gemma-2-2b-it",
+      "1": "meta__llama-3.2-1b-instruct",
+      "2": "ibm__granite-3.0-3b-a800m-instruct",
+      "3": "microsoft__phi-4-mini-instruct"
+    },
+    "seed": 1234781369,
+    "session_id": 5,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 0,
+      "1": 0,
+      "2": 1,
+      "3": 0
+    }
+  },
+  "(('google/gemma-2-2b-it', 'meta/llama-3.2-1b-instruct', 'microsoft/phi-4-mini-instruct', 'ibm/granite-3.0-3b-a800m-instruct'), 0)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 0,
+      "1": 0,
+      "2": 1,
+      "3": 0
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "google/gemma-2-2b-it",
+      "meta/llama-3.2-1b-instruct",
+      "microsoft/phi-4-mini-instruct",
+      "ibm/granite-3.0-3b-a800m-instruct"
+    ],
+    "layout_id": 6,
+    "layout_repeat": 0,
+    "profit_by_seat": {
+      "0": -200,
+      "1": -200,
+      "2": 0,
+      "3": 400
+    },
+    "seat_to_name": {
+      "0": "google__gemma-2-2b-it",
+      "1": "meta__llama-3.2-1b-instruct",
+      "2": "microsoft__phi-4-mini-instruct",
+      "3": "ibm__granite-3.0-3b-a800m-instruct"
+    },
+    "seed": 1355369957,
+    "session_id": 6,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 1
+    }
+  },
+  "(('google/gemma-2-2b-it', 'meta/llama-3.2-1b-instruct', 'microsoft/phi-4-mini-instruct', 'ibm/granite-3.0-3b-a800m-instruct'), 1)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 0,
+      "1": 1,
+      "2": 0,
+      "3": 0
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "google/gemma-2-2b-it",
+      "meta/llama-3.2-1b-instruct",
+      "microsoft/phi-4-mini-instruct",
+      "ibm/granite-3.0-3b-a800m-instruct"
+    ],
+    "layout_id": 7,
+    "layout_repeat": 1,
+    "profit_by_seat": {
+      "0": -600,
+      "1": 0,
+      "2": -600,
+      "3": 1200
+    },
+    "seat_to_name": {
+      "0": "google__gemma-2-2b-it",
+      "1": "meta__llama-3.2-1b-instruct",
+      "2": "microsoft__phi-4-mini-instruct",
+      "3": "ibm__granite-3.0-3b-a800m-instruct"
+    },
+    "seed": 336701815,
+    "session_id": 7,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 1
+    }
+  },
+  "(('google/gemma-2-2b-it', 'microsoft/phi-4-mini-instruct', 'ibm/granite-3.0-3b-a800m-instruct', 'meta/llama-3.2-1b-instruct'), 0)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 1,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "google/gemma-2-2b-it",
+      "microsoft/phi-4-mini-instruct",
+      "ibm/granite-3.0-3b-a800m-instruct",
+      "meta/llama-3.2-1b-instruct"
+    ],
+    "layout_id": 8,
+    "layout_repeat": 0,
+    "profit_by_seat": {
+      "0": 0,
+      "1": -500,
+      "2": 1000,
+      "3": -500
+    },
+    "seat_to_name": {
+      "0": "google__gemma-2-2b-it",
+      "1": "microsoft__phi-4-mini-instruct",
+      "2": "ibm__granite-3.0-3b-a800m-instruct",
+      "3": "meta__llama-3.2-1b-instruct"
+    },
+    "seed": 616947823,
+    "session_id": 8,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 0,
+      "1": 0,
+      "2": 1,
+      "3": 0
+    }
+  },
+  "(('google/gemma-2-2b-it', 'microsoft/phi-4-mini-instruct', 'ibm/granite-3.0-3b-a800m-instruct', 'meta/llama-3.2-1b-instruct'), 1)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 0,
+      "1": 0,
+      "2": 1,
+      "3": 0
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "google/gemma-2-2b-it",
+      "microsoft/phi-4-mini-instruct",
+      "ibm/granite-3.0-3b-a800m-instruct",
+      "meta/llama-3.2-1b-instruct"
+    ],
+    "layout_id": 9,
+    "layout_repeat": 1,
+    "profit_by_seat": {
+      "0": -700,
+      "1": 1400,
+      "2": 0,
+      "3": -700
+    },
+    "seat_to_name": {
+      "0": "google__gemma-2-2b-it",
+      "1": "microsoft__phi-4-mini-instruct",
+      "2": "ibm__granite-3.0-3b-a800m-instruct",
+      "3": "meta__llama-3.2-1b-instruct"
+    },
+    "seed": 169756814,
+    "session_id": 9,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 0,
+      "1": 1,
+      "2": 0,
+      "3": 0
+    }
+  },
+  "(('google/gemma-2-2b-it', 'microsoft/phi-4-mini-instruct', 'meta/llama-3.2-1b-instruct', 'ibm/granite-3.0-3b-a800m-instruct'), 0)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 0,
+      "1": 1,
+      "2": 0,
+      "3": 0
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "google/gemma-2-2b-it",
+      "microsoft/phi-4-mini-instruct",
+      "meta/llama-3.2-1b-instruct",
+      "ibm/granite-3.0-3b-a800m-instruct"
+    ],
+    "layout_id": 10,
+    "layout_repeat": 0,
+    "profit_by_seat": {
+      "0": 1400,
+      "1": 0,
+      "2": -700,
+      "3": -700
+    },
+    "seat_to_name": {
+      "0": "google__gemma-2-2b-it",
+      "1": "microsoft__phi-4-mini-instruct",
+      "2": "meta__llama-3.2-1b-instruct",
+      "3": "ibm__granite-3.0-3b-a800m-instruct"
+    },
+    "seed": 1103305783,
+    "session_id": 10,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 1,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    }
+  },
+  "(('google/gemma-2-2b-it', 'microsoft/phi-4-mini-instruct', 'meta/llama-3.2-1b-instruct', 'ibm/granite-3.0-3b-a800m-instruct'), 1)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 0,
+      "1": 0,
+      "2": 1,
+      "3": 0
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "google/gemma-2-2b-it",
+      "microsoft/phi-4-mini-instruct",
+      "meta/llama-3.2-1b-instruct",
+      "ibm/granite-3.0-3b-a800m-instruct"
+    ],
+    "layout_id": 11,
+    "layout_repeat": 1,
+    "profit_by_seat": {
+      "0": -600,
+      "1": -600,
+      "2": 0,
+      "3": 1200
+    },
+    "seat_to_name": {
+      "0": "google__gemma-2-2b-it",
+      "1": "microsoft__phi-4-mini-instruct",
+      "2": "meta__llama-3.2-1b-instruct",
+      "3": "ibm__granite-3.0-3b-a800m-instruct"
+    },
+    "seed": 947828670,
+    "session_id": 11,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 1
+    }
+  },
+  "(('ibm/granite-3.0-3b-a800m-instruct', 'google/gemma-2-2b-it', 'meta/llama-3.2-1b-instruct', 'microsoft/phi-4-mini-instruct'), 0)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 1
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "ibm/granite-3.0-3b-a800m-instruct",
+      "google/gemma-2-2b-it",
+      "meta/llama-3.2-1b-instruct",
+      "microsoft/phi-4-mini-instruct"
+    ],
+    "layout_id": 12,
+    "layout_repeat": 0,
+    "profit_by_seat": {
+      "0": -1100,
+      "1": -1100,
+      "2": 2200,
+      "3": 0
+    },
+    "seat_to_name": {
+      "0": "ibm__granite-3.0-3b-a800m-instruct",
+      "1": "google__gemma-2-2b-it",
+      "2": "meta__llama-3.2-1b-instruct",
+      "3": "microsoft__phi-4-mini-instruct"
+    },
+    "seed": 525193796,
+    "session_id": 12,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 0,
+      "1": 0,
+      "2": 1,
+      "3": 0
+    }
+  },
+  "(('ibm/granite-3.0-3b-a800m-instruct', 'google/gemma-2-2b-it', 'meta/llama-3.2-1b-instruct', 'microsoft/phi-4-mini-instruct'), 1)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 0,
+      "1": 1,
+      "2": 0,
+      "3": 0
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "ibm/granite-3.0-3b-a800m-instruct",
+      "google/gemma-2-2b-it",
+      "meta/llama-3.2-1b-instruct",
+      "microsoft/phi-4-mini-instruct"
+    ],
+    "layout_id": 13,
+    "layout_repeat": 1,
+    "profit_by_seat": {
+      "0": 3400,
+      "1": 0,
+      "2": -1700,
+      "3": -1700
+    },
+    "seat_to_name": {
+      "0": "ibm__granite-3.0-3b-a800m-instruct",
+      "1": "google__gemma-2-2b-it",
+      "2": "meta__llama-3.2-1b-instruct",
+      "3": "microsoft__phi-4-mini-instruct"
+    },
+    "seed": 1883896843,
+    "session_id": 13,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 1,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    }
+  },
+  "(('ibm/granite-3.0-3b-a800m-instruct', 'google/gemma-2-2b-it', 'microsoft/phi-4-mini-instruct', 'meta/llama-3.2-1b-instruct'), 0)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 1
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "ibm/granite-3.0-3b-a800m-instruct",
+      "google/gemma-2-2b-it",
+      "microsoft/phi-4-mini-instruct",
+      "meta/llama-3.2-1b-instruct"
+    ],
+    "layout_id": 14,
+    "layout_repeat": 0,
+    "profit_by_seat": {
+      "0": 12800,
+      "1": -6400,
+      "2": -6400,
+      "3": 0
+    },
+    "seat_to_name": {
+      "0": "ibm__granite-3.0-3b-a800m-instruct",
+      "1": "google__gemma-2-2b-it",
+      "2": "microsoft__phi-4-mini-instruct",
+      "3": "meta__llama-3.2-1b-instruct"
+    },
+    "seed": 2084900248,
+    "session_id": 14,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 1,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    }
+  },
+  "(('ibm/granite-3.0-3b-a800m-instruct', 'google/gemma-2-2b-it', 'microsoft/phi-4-mini-instruct', 'meta/llama-3.2-1b-instruct'), 1)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 0,
+      "1": 0,
+      "2": 1,
+      "3": 0
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "ibm/granite-3.0-3b-a800m-instruct",
+      "google/gemma-2-2b-it",
+      "microsoft/phi-4-mini-instruct",
+      "meta/llama-3.2-1b-instruct"
+    ],
+    "layout_id": 15,
+    "layout_repeat": 1,
+    "profit_by_seat": {
+      "0": -1800,
+      "1": 3600,
+      "2": 0,
+      "3": -1800
+    },
+    "seat_to_name": {
+      "0": "ibm__granite-3.0-3b-a800m-instruct",
+      "1": "google__gemma-2-2b-it",
+      "2": "microsoft__phi-4-mini-instruct",
+      "3": "meta__llama-3.2-1b-instruct"
+    },
+    "seed": 1902441279,
+    "session_id": 15,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 0,
+      "1": 1,
+      "2": 0,
+      "3": 0
+    }
+  },
+  "(('ibm/granite-3.0-3b-a800m-instruct', 'meta/llama-3.2-1b-instruct', 'google/gemma-2-2b-it', 'microsoft/phi-4-mini-instruct'), 0)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 1,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "ibm/granite-3.0-3b-a800m-instruct",
+      "meta/llama-3.2-1b-instruct",
+      "google/gemma-2-2b-it",
+      "microsoft/phi-4-mini-instruct"
+    ],
+    "layout_id": 16,
+    "layout_repeat": 0,
+    "profit_by_seat": {
+      "0": 0,
+      "1": 2000,
+      "2": -1000,
+      "3": -1000
+    },
+    "seat_to_name": {
+      "0": "ibm__granite-3.0-3b-a800m-instruct",
+      "1": "meta__llama-3.2-1b-instruct",
+      "2": "google__gemma-2-2b-it",
+      "3": "microsoft__phi-4-mini-instruct"
+    },
+    "seed": 1931358882,
+    "session_id": 16,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 0,
+      "1": 1,
+      "2": 0,
+      "3": 0
+    }
+  },
+  "(('ibm/granite-3.0-3b-a800m-instruct', 'meta/llama-3.2-1b-instruct', 'google/gemma-2-2b-it', 'microsoft/phi-4-mini-instruct'), 1)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 0,
+      "1": 1,
+      "2": 0,
+      "3": 0
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "ibm/granite-3.0-3b-a800m-instruct",
+      "meta/llama-3.2-1b-instruct",
+      "google/gemma-2-2b-it",
+      "microsoft/phi-4-mini-instruct"
+    ],
+    "layout_id": 17,
+    "layout_repeat": 1,
+    "profit_by_seat": {
+      "0": -500,
+      "1": 0,
+      "2": 1000,
+      "3": -500
+    },
+    "seat_to_name": {
+      "0": "ibm__granite-3.0-3b-a800m-instruct",
+      "1": "meta__llama-3.2-1b-instruct",
+      "2": "google__gemma-2-2b-it",
+      "3": "microsoft__phi-4-mini-instruct"
+    },
+    "seed": 1317804718,
+    "session_id": 17,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 0,
+      "1": 0,
+      "2": 1,
+      "3": 0
+    }
+  },
+  "(('ibm/granite-3.0-3b-a800m-instruct', 'meta/llama-3.2-1b-instruct', 'microsoft/phi-4-mini-instruct', 'google/gemma-2-2b-it'), 0)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 1,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "ibm/granite-3.0-3b-a800m-instruct",
+      "meta/llama-3.2-1b-instruct",
+      "microsoft/phi-4-mini-instruct",
+      "google/gemma-2-2b-it"
+    ],
+    "layout_id": 18,
+    "layout_repeat": 0,
+    "profit_by_seat": {
+      "0": 0,
+      "1": -2000,
+      "2": -2000,
+      "3": 4000
+    },
+    "seat_to_name": {
+      "0": "ibm__granite-3.0-3b-a800m-instruct",
+      "1": "meta__llama-3.2-1b-instruct",
+      "2": "microsoft__phi-4-mini-instruct",
+      "3": "google__gemma-2-2b-it"
+    },
+    "seed": 973559028,
+    "session_id": 18,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 1
+    }
+  },
+  "(('ibm/granite-3.0-3b-a800m-instruct', 'meta/llama-3.2-1b-instruct', 'microsoft/phi-4-mini-instruct', 'google/gemma-2-2b-it'), 1)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 1
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "ibm/granite-3.0-3b-a800m-instruct",
+      "meta/llama-3.2-1b-instruct",
+      "microsoft/phi-4-mini-instruct",
+      "google/gemma-2-2b-it"
+    ],
+    "layout_id": 19,
+    "layout_repeat": 1,
+    "profit_by_seat": {
+      "0": -800,
+      "1": 1600,
+      "2": -800,
+      "3": 0
+    },
+    "seat_to_name": {
+      "0": "ibm__granite-3.0-3b-a800m-instruct",
+      "1": "meta__llama-3.2-1b-instruct",
+      "2": "microsoft__phi-4-mini-instruct",
+      "3": "google__gemma-2-2b-it"
+    },
+    "seed": 187227534,
+    "session_id": 19,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 0,
+      "1": 1,
+      "2": 0,
+      "3": 0
+    }
+  },
+  "(('ibm/granite-3.0-3b-a800m-instruct', 'microsoft/phi-4-mini-instruct', 'google/gemma-2-2b-it', 'meta/llama-3.2-1b-instruct'), 0)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 0,
+      "1": 1,
+      "2": 0,
+      "3": 0
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "ibm/granite-3.0-3b-a800m-instruct",
+      "microsoft/phi-4-mini-instruct",
+      "google/gemma-2-2b-it",
+      "meta/llama-3.2-1b-instruct"
+    ],
+    "layout_id": 20,
+    "layout_repeat": 0,
+    "profit_by_seat": {
+      "0": -400,
+      "1": 0,
+      "2": 800,
+      "3": -400
+    },
+    "seat_to_name": {
+      "0": "ibm__granite-3.0-3b-a800m-instruct",
+      "1": "microsoft__phi-4-mini-instruct",
+      "2": "google__gemma-2-2b-it",
+      "3": "meta__llama-3.2-1b-instruct"
+    },
+    "seed": 778711092,
+    "session_id": 20,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 0,
+      "1": 0,
+      "2": 1,
+      "3": 0
+    }
+  },
+  "(('ibm/granite-3.0-3b-a800m-instruct', 'microsoft/phi-4-mini-instruct', 'google/gemma-2-2b-it', 'meta/llama-3.2-1b-instruct'), 1)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 0,
+      "1": 1,
+      "2": 0,
+      "3": 0
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "ibm/granite-3.0-3b-a800m-instruct",
+      "microsoft/phi-4-mini-instruct",
+      "google/gemma-2-2b-it",
+      "meta/llama-3.2-1b-instruct"
+    ],
+    "layout_id": 21,
+    "layout_repeat": 1,
+    "profit_by_seat": {
+      "0": -600,
+      "1": 0,
+      "2": 1200,
+      "3": -600
+    },
+    "seat_to_name": {
+      "0": "ibm__granite-3.0-3b-a800m-instruct",
+      "1": "microsoft__phi-4-mini-instruct",
+      "2": "google__gemma-2-2b-it",
+      "3": "meta__llama-3.2-1b-instruct"
+    },
+    "seed": 1022285184,
+    "session_id": 21,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 0,
+      "1": 0,
+      "2": 1,
+      "3": 0
+    }
+  },
+  "(('ibm/granite-3.0-3b-a800m-instruct', 'microsoft/phi-4-mini-instruct', 'meta/llama-3.2-1b-instruct', 'google/gemma-2-2b-it'), 0)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 0,
+      "1": 1,
+      "2": 0,
+      "3": 0
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "ibm/granite-3.0-3b-a800m-instruct",
+      "microsoft/phi-4-mini-instruct",
+      "meta/llama-3.2-1b-instruct",
+      "google/gemma-2-2b-it"
+    ],
+    "layout_id": 22,
+    "layout_repeat": 0,
+    "profit_by_seat": {
+      "0": 1800,
+      "1": 0,
+      "2": -900,
+      "3": -900
+    },
+    "seat_to_name": {
+      "0": "ibm__granite-3.0-3b-a800m-instruct",
+      "1": "microsoft__phi-4-mini-instruct",
+      "2": "meta__llama-3.2-1b-instruct",
+      "3": "google__gemma-2-2b-it"
+    },
+    "seed": 1295380454,
+    "session_id": 22,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 1,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    }
+  },
+  "(('ibm/granite-3.0-3b-a800m-instruct', 'microsoft/phi-4-mini-instruct', 'meta/llama-3.2-1b-instruct', 'google/gemma-2-2b-it'), 1)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 1,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "ibm/granite-3.0-3b-a800m-instruct",
+      "microsoft/phi-4-mini-instruct",
+      "meta/llama-3.2-1b-instruct",
+      "google/gemma-2-2b-it"
+    ],
+    "layout_id": 23,
+    "layout_repeat": 1,
+    "profit_by_seat": {
+      "0": 0,
+      "1": 800,
+      "2": -400,
+      "3": -400
+    },
+    "seat_to_name": {
+      "0": "ibm__granite-3.0-3b-a800m-instruct",
+      "1": "microsoft__phi-4-mini-instruct",
+      "2": "meta__llama-3.2-1b-instruct",
+      "3": "google__gemma-2-2b-it"
+    },
+    "seed": 256294147,
+    "session_id": 23,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 0,
+      "1": 1,
+      "2": 0,
+      "3": 0
+    }
+  },
+  "(('meta/llama-3.2-1b-instruct', 'google/gemma-2-2b-it', 'ibm/granite-3.0-3b-a800m-instruct', 'microsoft/phi-4-mini-instruct'), 0)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 0,
+      "1": 0,
+      "2": 1,
+      "3": 0
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "meta/llama-3.2-1b-instruct",
+      "google/gemma-2-2b-it",
+      "ibm/granite-3.0-3b-a800m-instruct",
+      "microsoft/phi-4-mini-instruct"
+    ],
+    "layout_id": 24,
+    "layout_repeat": 0,
+    "profit_by_seat": {
+      "0": -2200,
+      "1": 4400,
+      "2": 0,
+      "3": -2200
+    },
+    "seat_to_name": {
+      "0": "meta__llama-3.2-1b-instruct",
+      "1": "google__gemma-2-2b-it",
+      "2": "ibm__granite-3.0-3b-a800m-instruct",
+      "3": "microsoft__phi-4-mini-instruct"
+    },
+    "seed": 1475052887,
+    "session_id": 24,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 0,
+      "1": 1,
+      "2": 0,
+      "3": 0
+    }
+  },
+  "(('meta/llama-3.2-1b-instruct', 'google/gemma-2-2b-it', 'ibm/granite-3.0-3b-a800m-instruct', 'microsoft/phi-4-mini-instruct'), 1)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "meta/llama-3.2-1b-instruct",
+      "google/gemma-2-2b-it",
+      "ibm/granite-3.0-3b-a800m-instruct",
+      "microsoft/phi-4-mini-instruct"
+    ],
+    "layout_id": 25,
+    "layout_repeat": 1,
+    "profit_by_seat": {
+      "0": 3000,
+      "1": -1000,
+      "2": -1000,
+      "3": -1000
+    },
+    "seat_to_name": {
+      "0": "meta__llama-3.2-1b-instruct",
+      "1": "google__gemma-2-2b-it",
+      "2": "ibm__granite-3.0-3b-a800m-instruct",
+      "3": "microsoft__phi-4-mini-instruct"
+    },
+    "seed": 143557681,
+    "session_id": 25,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 1,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    }
+  },
+  "(('meta/llama-3.2-1b-instruct', 'google/gemma-2-2b-it', 'microsoft/phi-4-mini-instruct', 'ibm/granite-3.0-3b-a800m-instruct'), 0)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 0,
+      "1": 0,
+      "2": 1,
+      "3": 0
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "meta/llama-3.2-1b-instruct",
+      "google/gemma-2-2b-it",
+      "microsoft/phi-4-mini-instruct",
+      "ibm/granite-3.0-3b-a800m-instruct"
+    ],
+    "layout_id": 26,
+    "layout_repeat": 0,
+    "profit_by_seat": {
+      "0": -900,
+      "1": -900,
+      "2": 0,
+      "3": 1800
+    },
+    "seat_to_name": {
+      "0": "meta__llama-3.2-1b-instruct",
+      "1": "google__gemma-2-2b-it",
+      "2": "microsoft__phi-4-mini-instruct",
+      "3": "ibm__granite-3.0-3b-a800m-instruct"
+    },
+    "seed": 399865239,
+    "session_id": 26,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 1
+    }
+  },
+  "(('meta/llama-3.2-1b-instruct', 'google/gemma-2-2b-it', 'microsoft/phi-4-mini-instruct', 'ibm/granite-3.0-3b-a800m-instruct'), 1)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 1
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "meta/llama-3.2-1b-instruct",
+      "google/gemma-2-2b-it",
+      "microsoft/phi-4-mini-instruct",
+      "ibm/granite-3.0-3b-a800m-instruct"
+    ],
+    "layout_id": 27,
+    "layout_repeat": 1,
+    "profit_by_seat": {
+      "0": -1800,
+      "1": -1800,
+      "2": 3600,
+      "3": 0
+    },
+    "seat_to_name": {
+      "0": "meta__llama-3.2-1b-instruct",
+      "1": "google__gemma-2-2b-it",
+      "2": "microsoft__phi-4-mini-instruct",
+      "3": "ibm__granite-3.0-3b-a800m-instruct"
+    },
+    "seed": 1648438013,
+    "session_id": 27,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 0,
+      "1": 0,
+      "2": 1,
+      "3": 0
+    }
+  },
+  "(('meta/llama-3.2-1b-instruct', 'ibm/granite-3.0-3b-a800m-instruct', 'google/gemma-2-2b-it', 'microsoft/phi-4-mini-instruct'), 0)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 1
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "meta/llama-3.2-1b-instruct",
+      "ibm/granite-3.0-3b-a800m-instruct",
+      "google/gemma-2-2b-it",
+      "microsoft/phi-4-mini-instruct"
+    ],
+    "layout_id": 28,
+    "layout_repeat": 0,
+    "profit_by_seat": {
+      "0": 1000,
+      "1": -500,
+      "2": -500,
+      "3": 0
+    },
+    "seat_to_name": {
+      "0": "meta__llama-3.2-1b-instruct",
+      "1": "ibm__granite-3.0-3b-a800m-instruct",
+      "2": "google__gemma-2-2b-it",
+      "3": "microsoft__phi-4-mini-instruct"
+    },
+    "seed": 893826836,
+    "session_id": 28,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 1,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    }
+  },
+  "(('meta/llama-3.2-1b-instruct', 'ibm/granite-3.0-3b-a800m-instruct', 'google/gemma-2-2b-it', 'microsoft/phi-4-mini-instruct'), 1)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 1,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "meta/llama-3.2-1b-instruct",
+      "ibm/granite-3.0-3b-a800m-instruct",
+      "google/gemma-2-2b-it",
+      "microsoft/phi-4-mini-instruct"
+    ],
+    "layout_id": 29,
+    "layout_repeat": 1,
+    "profit_by_seat": {
+      "0": 0,
+      "1": -2000,
+      "2": -2000,
+      "3": 4000
+    },
+    "seat_to_name": {
+      "0": "meta__llama-3.2-1b-instruct",
+      "1": "ibm__granite-3.0-3b-a800m-instruct",
+      "2": "google__gemma-2-2b-it",
+      "3": "microsoft__phi-4-mini-instruct"
+    },
+    "seed": 882139558,
+    "session_id": 29,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 1
+    }
+  },
+  "(('meta/llama-3.2-1b-instruct', 'ibm/granite-3.0-3b-a800m-instruct', 'microsoft/phi-4-mini-instruct', 'google/gemma-2-2b-it'), 0)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 0,
+      "1": 0,
+      "2": 1,
+      "3": 0
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "meta/llama-3.2-1b-instruct",
+      "ibm/granite-3.0-3b-a800m-instruct",
+      "microsoft/phi-4-mini-instruct",
+      "google/gemma-2-2b-it"
+    ],
+    "layout_id": 30,
+    "layout_repeat": 0,
+    "profit_by_seat": {
+      "0": 800,
+      "1": -400,
+      "2": 0,
+      "3": -400
+    },
+    "seat_to_name": {
+      "0": "meta__llama-3.2-1b-instruct",
+      "1": "ibm__granite-3.0-3b-a800m-instruct",
+      "2": "microsoft__phi-4-mini-instruct",
+      "3": "google__gemma-2-2b-it"
+    },
+    "seed": 1689988606,
+    "session_id": 30,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 1,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    }
+  },
+  "(('meta/llama-3.2-1b-instruct', 'ibm/granite-3.0-3b-a800m-instruct', 'microsoft/phi-4-mini-instruct', 'google/gemma-2-2b-it'), 1)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 0,
+      "1": 0,
+      "2": 1,
+      "3": 0
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "meta/llama-3.2-1b-instruct",
+      "ibm/granite-3.0-3b-a800m-instruct",
+      "microsoft/phi-4-mini-instruct",
+      "google/gemma-2-2b-it"
+    ],
+    "layout_id": 31,
+    "layout_repeat": 1,
+    "profit_by_seat": {
+      "0": -700,
+      "1": -700,
+      "2": 0,
+      "3": 1400
+    },
+    "seat_to_name": {
+      "0": "meta__llama-3.2-1b-instruct",
+      "1": "ibm__granite-3.0-3b-a800m-instruct",
+      "2": "microsoft__phi-4-mini-instruct",
+      "3": "google__gemma-2-2b-it"
+    },
+    "seed": 836763901,
+    "session_id": 31,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 1
+    }
+  },
+  "(('meta/llama-3.2-1b-instruct', 'microsoft/phi-4-mini-instruct', 'google/gemma-2-2b-it', 'ibm/granite-3.0-3b-a800m-instruct'), 0)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 1,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "meta/llama-3.2-1b-instruct",
+      "microsoft/phi-4-mini-instruct",
+      "google/gemma-2-2b-it",
+      "ibm/granite-3.0-3b-a800m-instruct"
+    ],
+    "layout_id": 32,
+    "layout_repeat": 0,
+    "profit_by_seat": {
+      "0": 0,
+      "1": -1000,
+      "2": -1000,
+      "3": 2000
+    },
+    "seat_to_name": {
+      "0": "meta__llama-3.2-1b-instruct",
+      "1": "microsoft__phi-4-mini-instruct",
+      "2": "google__gemma-2-2b-it",
+      "3": "ibm__granite-3.0-3b-a800m-instruct"
+    },
+    "seed": 1379617260,
+    "session_id": 32,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 1
+    }
+  },
+  "(('meta/llama-3.2-1b-instruct', 'microsoft/phi-4-mini-instruct', 'google/gemma-2-2b-it', 'ibm/granite-3.0-3b-a800m-instruct'), 1)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 1,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "meta/llama-3.2-1b-instruct",
+      "microsoft/phi-4-mini-instruct",
+      "google/gemma-2-2b-it",
+      "ibm/granite-3.0-3b-a800m-instruct"
+    ],
+    "layout_id": 33,
+    "layout_repeat": 1,
+    "profit_by_seat": {
+      "0": 0,
+      "1": -2000,
+      "2": -2000,
+      "3": 4000
+    },
+    "seat_to_name": {
+      "0": "meta__llama-3.2-1b-instruct",
+      "1": "microsoft__phi-4-mini-instruct",
+      "2": "google__gemma-2-2b-it",
+      "3": "ibm__granite-3.0-3b-a800m-instruct"
+    },
+    "seed": 454247952,
+    "session_id": 33,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 1
+    }
+  },
+  "(('meta/llama-3.2-1b-instruct', 'microsoft/phi-4-mini-instruct', 'ibm/granite-3.0-3b-a800m-instruct', 'google/gemma-2-2b-it'), 0)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 0,
+      "1": 1,
+      "2": 0,
+      "3": 0
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "meta/llama-3.2-1b-instruct",
+      "microsoft/phi-4-mini-instruct",
+      "ibm/granite-3.0-3b-a800m-instruct",
+      "google/gemma-2-2b-it"
+    ],
+    "layout_id": 34,
+    "layout_repeat": 0,
+    "profit_by_seat": {
+      "0": 2400,
+      "1": 0,
+      "2": -1200,
+      "3": -1200
+    },
+    "seat_to_name": {
+      "0": "meta__llama-3.2-1b-instruct",
+      "1": "microsoft__phi-4-mini-instruct",
+      "2": "ibm__granite-3.0-3b-a800m-instruct",
+      "3": "google__gemma-2-2b-it"
+    },
+    "seed": 719367536,
+    "session_id": 34,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 1,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    }
+  },
+  "(('meta/llama-3.2-1b-instruct', 'microsoft/phi-4-mini-instruct', 'ibm/granite-3.0-3b-a800m-instruct', 'google/gemma-2-2b-it'), 1)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 1,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "meta/llama-3.2-1b-instruct",
+      "microsoft/phi-4-mini-instruct",
+      "ibm/granite-3.0-3b-a800m-instruct",
+      "google/gemma-2-2b-it"
+    ],
+    "layout_id": 35,
+    "layout_repeat": 1,
+    "profit_by_seat": {
+      "0": 0,
+      "1": -600,
+      "2": -600,
+      "3": 1200
+    },
+    "seat_to_name": {
+      "0": "meta__llama-3.2-1b-instruct",
+      "1": "microsoft__phi-4-mini-instruct",
+      "2": "ibm__granite-3.0-3b-a800m-instruct",
+      "3": "google__gemma-2-2b-it"
+    },
+    "seed": 1048005274,
+    "session_id": 35,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 1
+    }
+  },
+  "(('microsoft/phi-4-mini-instruct', 'google/gemma-2-2b-it', 'ibm/granite-3.0-3b-a800m-instruct', 'meta/llama-3.2-1b-instruct'), 0)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 0,
+      "1": 1,
+      "2": 0,
+      "3": 0
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "microsoft/phi-4-mini-instruct",
+      "google/gemma-2-2b-it",
+      "ibm/granite-3.0-3b-a800m-instruct",
+      "meta/llama-3.2-1b-instruct"
+    ],
+    "layout_id": 36,
+    "layout_repeat": 0,
+    "profit_by_seat": {
+      "0": 400,
+      "1": 0,
+      "2": -200,
+      "3": -200
+    },
+    "seat_to_name": {
+      "0": "microsoft__phi-4-mini-instruct",
+      "1": "google__gemma-2-2b-it",
+      "2": "ibm__granite-3.0-3b-a800m-instruct",
+      "3": "meta__llama-3.2-1b-instruct"
+    },
+    "seed": 1955949277,
+    "session_id": 36,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 1,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    }
+  },
+  "(('microsoft/phi-4-mini-instruct', 'google/gemma-2-2b-it', 'ibm/granite-3.0-3b-a800m-instruct', 'meta/llama-3.2-1b-instruct'), 1)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 1,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "microsoft/phi-4-mini-instruct",
+      "google/gemma-2-2b-it",
+      "ibm/granite-3.0-3b-a800m-instruct",
+      "meta/llama-3.2-1b-instruct"
+    ],
+    "layout_id": 37,
+    "layout_repeat": 1,
+    "profit_by_seat": {
+      "0": 0,
+      "1": -600,
+      "2": -600,
+      "3": 1200
+    },
+    "seat_to_name": {
+      "0": "microsoft__phi-4-mini-instruct",
+      "1": "google__gemma-2-2b-it",
+      "2": "ibm__granite-3.0-3b-a800m-instruct",
+      "3": "meta__llama-3.2-1b-instruct"
+    },
+    "seed": 21786000,
+    "session_id": 37,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 1
+    }
+  },
+  "(('microsoft/phi-4-mini-instruct', 'google/gemma-2-2b-it', 'meta/llama-3.2-1b-instruct', 'ibm/granite-3.0-3b-a800m-instruct'), 0)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 0,
+      "1": 0,
+      "2": 1,
+      "3": 0
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "microsoft/phi-4-mini-instruct",
+      "google/gemma-2-2b-it",
+      "meta/llama-3.2-1b-instruct",
+      "ibm/granite-3.0-3b-a800m-instruct"
+    ],
+    "layout_id": 38,
+    "layout_repeat": 0,
+    "profit_by_seat": {
+      "0": -1100,
+      "1": -1100,
+      "2": 0,
+      "3": 2200
+    },
+    "seat_to_name": {
+      "0": "microsoft__phi-4-mini-instruct",
+      "1": "google__gemma-2-2b-it",
+      "2": "meta__llama-3.2-1b-instruct",
+      "3": "ibm__granite-3.0-3b-a800m-instruct"
+    },
+    "seed": 573275216,
+    "session_id": 38,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 1
+    }
+  },
+  "(('microsoft/phi-4-mini-instruct', 'google/gemma-2-2b-it', 'meta/llama-3.2-1b-instruct', 'ibm/granite-3.0-3b-a800m-instruct'), 1)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 0,
+      "1": 0,
+      "2": 1,
+      "3": 0
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "microsoft/phi-4-mini-instruct",
+      "google/gemma-2-2b-it",
+      "meta/llama-3.2-1b-instruct",
+      "ibm/granite-3.0-3b-a800m-instruct"
+    ],
+    "layout_id": 39,
+    "layout_repeat": 1,
+    "profit_by_seat": {
+      "0": -900,
+      "1": 1800,
+      "2": 0,
+      "3": -900
+    },
+    "seat_to_name": {
+      "0": "microsoft__phi-4-mini-instruct",
+      "1": "google__gemma-2-2b-it",
+      "2": "meta__llama-3.2-1b-instruct",
+      "3": "ibm__granite-3.0-3b-a800m-instruct"
+    },
+    "seed": 1453309068,
+    "session_id": 39,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 0,
+      "1": 1,
+      "2": 0,
+      "3": 0
+    }
+  },
+  "(('microsoft/phi-4-mini-instruct', 'ibm/granite-3.0-3b-a800m-instruct', 'google/gemma-2-2b-it', 'meta/llama-3.2-1b-instruct'), 0)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 1
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "microsoft/phi-4-mini-instruct",
+      "ibm/granite-3.0-3b-a800m-instruct",
+      "google/gemma-2-2b-it",
+      "meta/llama-3.2-1b-instruct"
+    ],
+    "layout_id": 40,
+    "layout_repeat": 0,
+    "profit_by_seat": {
+      "0": 1600,
+      "1": -800,
+      "2": -800,
+      "3": 0
+    },
+    "seat_to_name": {
+      "0": "microsoft__phi-4-mini-instruct",
+      "1": "ibm__granite-3.0-3b-a800m-instruct",
+      "2": "google__gemma-2-2b-it",
+      "3": "meta__llama-3.2-1b-instruct"
+    },
+    "seed": 679221490,
+    "session_id": 40,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 1,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    }
+  },
+  "(('microsoft/phi-4-mini-instruct', 'ibm/granite-3.0-3b-a800m-instruct', 'google/gemma-2-2b-it', 'meta/llama-3.2-1b-instruct'), 1)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 0,
+      "1": 0,
+      "2": 1,
+      "3": 0
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "microsoft/phi-4-mini-instruct",
+      "ibm/granite-3.0-3b-a800m-instruct",
+      "google/gemma-2-2b-it",
+      "meta/llama-3.2-1b-instruct"
+    ],
+    "layout_id": 41,
+    "layout_repeat": 1,
+    "profit_by_seat": {
+      "0": -1000,
+      "1": 2000,
+      "2": 0,
+      "3": -1000
+    },
+    "seat_to_name": {
+      "0": "microsoft__phi-4-mini-instruct",
+      "1": "ibm__granite-3.0-3b-a800m-instruct",
+      "2": "google__gemma-2-2b-it",
+      "3": "meta__llama-3.2-1b-instruct"
+    },
+    "seed": 1993356118,
+    "session_id": 41,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 0,
+      "1": 1,
+      "2": 0,
+      "3": 0
+    }
+  },
+  "(('microsoft/phi-4-mini-instruct', 'ibm/granite-3.0-3b-a800m-instruct', 'meta/llama-3.2-1b-instruct', 'google/gemma-2-2b-it'), 0)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 0,
+      "1": 1,
+      "2": 0,
+      "3": 0
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "microsoft/phi-4-mini-instruct",
+      "ibm/granite-3.0-3b-a800m-instruct",
+      "meta/llama-3.2-1b-instruct",
+      "google/gemma-2-2b-it"
+    ],
+    "layout_id": 42,
+    "layout_repeat": 0,
+    "profit_by_seat": {
+      "0": -600,
+      "1": 0,
+      "2": 1200,
+      "3": -600
+    },
+    "seat_to_name": {
+      "0": "microsoft__phi-4-mini-instruct",
+      "1": "ibm__granite-3.0-3b-a800m-instruct",
+      "2": "meta__llama-3.2-1b-instruct",
+      "3": "google__gemma-2-2b-it"
+    },
+    "seed": 28794362,
+    "session_id": 42,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 0,
+      "1": 0,
+      "2": 1,
+      "3": 0
+    }
+  },
+  "(('microsoft/phi-4-mini-instruct', 'ibm/granite-3.0-3b-a800m-instruct', 'meta/llama-3.2-1b-instruct', 'google/gemma-2-2b-it'), 1)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 1,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "microsoft/phi-4-mini-instruct",
+      "ibm/granite-3.0-3b-a800m-instruct",
+      "meta/llama-3.2-1b-instruct",
+      "google/gemma-2-2b-it"
+    ],
+    "layout_id": 43,
+    "layout_repeat": 1,
+    "profit_by_seat": {
+      "0": 0,
+      "1": 2200,
+      "2": -1100,
+      "3": -1100
+    },
+    "seat_to_name": {
+      "0": "microsoft__phi-4-mini-instruct",
+      "1": "ibm__granite-3.0-3b-a800m-instruct",
+      "2": "meta__llama-3.2-1b-instruct",
+      "3": "google__gemma-2-2b-it"
+    },
+    "seed": 1248050689,
+    "session_id": 43,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 0,
+      "1": 1,
+      "2": 0,
+      "3": 0
+    }
+  },
+  "(('microsoft/phi-4-mini-instruct', 'meta/llama-3.2-1b-instruct', 'google/gemma-2-2b-it', 'ibm/granite-3.0-3b-a800m-instruct'), 0)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 0,
+      "1": 0,
+      "2": 1,
+      "3": 0
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "microsoft/phi-4-mini-instruct",
+      "meta/llama-3.2-1b-instruct",
+      "google/gemma-2-2b-it",
+      "ibm/granite-3.0-3b-a800m-instruct"
+    ],
+    "layout_id": 44,
+    "layout_repeat": 0,
+    "profit_by_seat": {
+      "0": 1200,
+      "1": -600,
+      "2": 0,
+      "3": -600
+    },
+    "seat_to_name": {
+      "0": "microsoft__phi-4-mini-instruct",
+      "1": "meta__llama-3.2-1b-instruct",
+      "2": "google__gemma-2-2b-it",
+      "3": "ibm__granite-3.0-3b-a800m-instruct"
+    },
+    "seed": 888212635,
+    "session_id": 44,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 1,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    }
+  },
+  "(('microsoft/phi-4-mini-instruct', 'meta/llama-3.2-1b-instruct', 'google/gemma-2-2b-it', 'ibm/granite-3.0-3b-a800m-instruct'), 1)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 1,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "microsoft/phi-4-mini-instruct",
+      "meta/llama-3.2-1b-instruct",
+      "google/gemma-2-2b-it",
+      "ibm/granite-3.0-3b-a800m-instruct"
+    ],
+    "layout_id": 45,
+    "layout_repeat": 1,
+    "profit_by_seat": {
+      "0": 0,
+      "1": -2000,
+      "2": 4000,
+      "3": -2000
+    },
+    "seat_to_name": {
+      "0": "microsoft__phi-4-mini-instruct",
+      "1": "meta__llama-3.2-1b-instruct",
+      "2": "google__gemma-2-2b-it",
+      "3": "ibm__granite-3.0-3b-a800m-instruct"
+    },
+    "seed": 1790526781,
+    "session_id": 45,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 0,
+      "1": 0,
+      "2": 1,
+      "3": 0
+    }
+  },
+  "(('microsoft/phi-4-mini-instruct', 'meta/llama-3.2-1b-instruct', 'ibm/granite-3.0-3b-a800m-instruct', 'google/gemma-2-2b-it'), 0)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 0,
+      "1": 0,
+      "2": 1,
+      "3": 0
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "microsoft/phi-4-mini-instruct",
+      "meta/llama-3.2-1b-instruct",
+      "ibm/granite-3.0-3b-a800m-instruct",
+      "google/gemma-2-2b-it"
+    ],
+    "layout_id": 46,
+    "layout_repeat": 0,
+    "profit_by_seat": {
+      "0": -400,
+      "1": -400,
+      "2": 0,
+      "3": 800
+    },
+    "seat_to_name": {
+      "0": "microsoft__phi-4-mini-instruct",
+      "1": "meta__llama-3.2-1b-instruct",
+      "2": "ibm__granite-3.0-3b-a800m-instruct",
+      "3": "google__gemma-2-2b-it"
+    },
+    "seed": 1980089203,
+    "session_id": 46,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 1
+    }
+  },
+  "(('microsoft/phi-4-mini-instruct', 'meta/llama-3.2-1b-instruct', 'ibm/granite-3.0-3b-a800m-instruct', 'google/gemma-2-2b-it'), 1)": {
+    "base_seed": null,
+    "early_exits": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 1
+    },
+    "forced_gwang_sell": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "layout": [
+      "microsoft/phi-4-mini-instruct",
+      "meta/llama-3.2-1b-instruct",
+      "ibm/granite-3.0-3b-a800m-instruct",
+      "google/gemma-2-2b-it"
+    ],
+    "layout_id": 47,
+    "layout_repeat": 1,
+    "profit_by_seat": {
+      "0": -400,
+      "1": 800,
+      "2": -400,
+      "3": 0
+    },
+    "seat_to_name": {
+      "0": "microsoft__phi-4-mini-instruct",
+      "1": "meta__llama-3.2-1b-instruct",
+      "2": "ibm__granite-3.0-3b-a800m-instruct",
+      "3": "google__gemma-2-2b-it"
+    },
+    "seed": 1980422280,
+    "session_id": 47,
+    "showdown_accepts": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_ev_gains": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_misplays": {
+      "0": [],
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "showdown_proposals": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_rejects": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "showdown_success_count": 0,
+    "win_by_seat": {
+      "0": 0,
+      "1": 1,
+      "2": 0,
+      "3": 0
+    }
+  }
+}

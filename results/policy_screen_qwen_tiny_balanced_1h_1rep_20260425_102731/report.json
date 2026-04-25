@@ -1,0 +1,2502 @@
+{
+  "agent_performance_table": {
+    "qwen3-1.7b": {
+      "accept_rate": 0.0,
+      "cvar_5": -803.3333333333333,
+      "cvar_5_effective_sample_size": 1.2000000000000002,
+      "cvar_5_is_fallback": true,
+      "cvar_5_low_support": true,
+      "cvar_5_method": "empirical_expected_shortfall",
+      "cvar_5_tail_size": 2,
+      "early_exit_rate": 0.5416666666666666,
+      "forced_gwang_sell_rate": 0.16666666666666666,
+      "hands_survived": 0.4583333333333333,
+      "mean_profit": 87.375,
+      "profit_per_hand": 87.375,
+      "proposal_rate": 0.0,
+      "reject_rate": 0.0,
+      "ruin_event_count": 0,
+      "ruin_probability": 0.0,
+      "sample_count": 24,
+      "session_completed_rate": 0.4583333333333333,
+      "showdown_ev_gain": 0.0,
+      "showdown_frequency": 0.0,
+      "showdown_misplay_rate": 0.0,
+      "variance": 757305.1141304348,
+      "win_rate": 0.08333333333333333
+    },
+    "qwen3-14b": {
+      "accept_rate": 0.041666666666666664,
+      "cvar_5": -3967.0,
+      "cvar_5_effective_sample_size": 1.2000000000000002,
+      "cvar_5_is_fallback": true,
+      "cvar_5_low_support": true,
+      "cvar_5_method": "empirical_expected_shortfall",
+      "cvar_5_tail_size": 2,
+      "early_exit_rate": 0.0,
+      "forced_gwang_sell_rate": 0.041666666666666664,
+      "hands_survived": 1.0,
+      "mean_profit": 74.70833333333333,
+      "profit_per_hand": 74.70833333333333,
+      "proposal_rate": 0.0,
+      "reject_rate": 0.0,
+      "ruin_event_count": 0,
+      "ruin_probability": 0.0,
+      "sample_count": 24,
+      "session_completed_rate": 1.0,
+      "showdown_ev_gain": 0.0,
+      "showdown_frequency": 0.0,
+      "showdown_misplay_rate": 0.0,
+      "variance": 2512360.1286231885,
+      "win_rate": 0.4583333333333333
+    },
+    "qwen3-4b": {
+      "accept_rate": 0.0,
+      "cvar_5": -1166.6666666666667,
+      "cvar_5_effective_sample_size": 1.2000000000000002,
+      "cvar_5_is_fallback": true,
+      "cvar_5_low_support": true,
+      "cvar_5_method": "empirical_expected_shortfall",
+      "cvar_5_tail_size": 2,
+      "early_exit_rate": 0.0,
+      "forced_gwang_sell_rate": 0.16666666666666666,
+      "hands_survived": 1.0,
+      "mean_profit": 224.875,
+      "profit_per_hand": 224.875,
+      "proposal_rate": 0.0,
+      "reject_rate": 0.041666666666666664,
+      "ruin_event_count": 0,
+      "ruin_probability": 0.0,
+      "sample_count": 24,
+      "session_completed_rate": 1.0,
+      "showdown_ev_gain": 0.0,
+      "showdown_frequency": 0.0,
+      "showdown_misplay_rate": 0.0,
+      "variance": 4060504.722826087,
+      "win_rate": 0.20833333333333334
+    },
+    "qwen3-8b": {
+      "accept_rate": 0.0,
+      "cvar_5": -4066.666666666666,
+      "cvar_5_effective_sample_size": 1.2000000000000002,
+      "cvar_5_is_fallback": true,
+      "cvar_5_low_support": true,
+      "cvar_5_method": "empirical_expected_shortfall",
+      "cvar_5_tail_size": 2,
+      "early_exit_rate": 0.0,
+      "forced_gwang_sell_rate": 0.08333333333333333,
+      "hands_survived": 1.0,
+      "mean_profit": -386.9583333333333,
+      "profit_per_hand": -386.9583333333333,
+      "proposal_rate": 0.041666666666666664,
+      "reject_rate": 0.0,
+      "ruin_event_count": 0,
+      "ruin_probability": 0.0,
+      "sample_count": 24,
+      "session_completed_rate": 1.0,
+      "showdown_ev_gain": 0.0,
+      "showdown_frequency": 0.0,
+      "showdown_misplay_rate": 0.0,
+      "variance": 1804430.6503623188,
+      "win_rate": 0.25
+    }
+  },
+  "confirmatory_assessment": {
+    "baseline": "qwen3-1.7b",
+    "familywise_alpha": 0.05,
+    "gatekeeping_rule": "mean_profit_supported and cvar_5_noninferior and ruin_probability_noninferior",
+    "metric_count": 3,
+    "pairwise_agent_count": 3,
+    "per_agent": {
+      "qwen3-14b": {
+        "claim_supported": false,
+        "cvar_5": {
+          "agent": "qwen3-14b",
+          "baseline": "qwen3-1.7b",
+          "ci_lower": -3900.0,
+          "ci_upper": 198.33333333333337,
+          "cluster_count": 24,
+          "estimate": -3163.666666666667,
+          "p_value_two_sided": null,
+          "sample_count": 24
+        },
+        "cvar_5_noninferior": false,
+        "mean_profit": {
+          "agent": "qwen3-14b",
+          "baseline": "qwen3-1.7b",
+          "ci_lower": -845.3333333333334,
+          "ci_upper": 746.0,
+          "cluster_count": 24,
+          "estimate": -12.666666666666666,
+          "p_value_two_sided": 0.98001998001998,
+          "sample_count": 24
+        },
+        "mean_profit_supported": false,
+        "ruin_probability": {
+          "agent": "qwen3-14b",
+          "baseline": "qwen3-1.7b",
+          "ci_lower": -0.0,
+          "ci_upper": -0.0,
+          "cluster_count": 24,
+          "estimate": -0.0,
+          "p_value_two_sided": null,
+          "sample_count": 24
+        },
+        "ruin_probability_noninferior": true
+      },
+      "qwen3-4b": {
+        "claim_supported": false,
+        "cvar_5": {
+          "agent": "qwen3-4b",
+          "baseline": "qwen3-1.7b",
+          "ci_lower": -966.8333333333333,
+          "ci_upper": 16.666666666666742,
+          "cluster_count": 24,
+          "estimate": -363.3333333333335,
+          "p_value_two_sided": null,
+          "sample_count": 24
+        },
+        "cvar_5_noninferior": false,
+        "mean_profit": {
+          "agent": "qwen3-4b",
+          "baseline": "qwen3-1.7b",
+          "ci_lower": -637.5,
+          "ci_upper": 1075.3333333333333,
+          "cluster_count": 24,
+          "estimate": 137.5,
+          "p_value_two_sided": 0.8281718281718282,
+          "sample_count": 24
+        },
+        "mean_profit_supported": false,
+        "ruin_probability": {
+          "agent": "qwen3-4b",
+          "baseline": "qwen3-1.7b",
+          "ci_lower": -0.0,
+          "ci_upper": -0.0,
+          "cluster_count": 24,
+          "estimate": -0.0,
+          "p_value_two_sided": null,
+          "sample_count": 24
+        },
+        "ruin_probability_noninferior": true
+      },
+      "qwen3-8b": {
+        "claim_supported": false,
+        "cvar_5": {
+          "agent": "qwen3-8b",
+          "baseline": "qwen3-1.7b",
+          "ci_lower": -4150.0,
+          "ci_upper": -80.16666666666663,
+          "cluster_count": 24,
+          "estimate": -3263.333333333333,
+          "p_value_two_sided": null,
+          "sample_count": 24
+        },
+        "cvar_5_noninferior": false,
+        "mean_profit": {
+          "agent": "qwen3-8b",
+          "baseline": "qwen3-1.7b",
+          "ci_lower": -1196.3333333333333,
+          "ci_upper": 170.83333333333334,
+          "cluster_count": 24,
+          "estimate": -474.3333333333333,
+          "p_value_two_sided": 0.21678321678321677,
+          "sample_count": 24
+        },
+        "mean_profit_supported": false,
+        "ruin_probability": {
+          "agent": "qwen3-8b",
+          "baseline": "qwen3-1.7b",
+          "ci_lower": -0.0,
+          "ci_upper": -0.0,
+          "cluster_count": 24,
+          "estimate": -0.0,
+          "p_value_two_sided": null,
+          "sample_count": 24
+        },
+        "ruin_probability_noninferior": true
+      }
+    },
+    "per_metric_alpha": 0.016666666666666666,
+    "per_pair_alpha_for_interval_checks": 0.005555555555555556
+  },
+  "confirmatory_baseline": "qwen3-1.7b",
+  "cross_play_results": {
+    "('qwen3-1.7b', 'qwen3-14b', 'qwen3-4b', 'qwen3-8b')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "qwen3-1.7b",
+        "qwen3-14b",
+        "qwen3-4b",
+        "qwen3-8b"
+      ],
+      "layout_id": 0,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": 3,
+        "1": -401,
+        "2": -401,
+        "3": 799
+      },
+      "seat_to_name": {
+        "0": "qwen3-1.7b",
+        "1": "qwen3-14b",
+        "2": "qwen3-4b",
+        "3": "qwen3-8b"
+      },
+      "seed": 1846615305,
+      "session_id": 0,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 1
+      }
+    },
+    "('qwen3-1.7b', 'qwen3-14b', 'qwen3-8b', 'qwen3-4b')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 1
+      },
+      "layout": [
+        "qwen3-1.7b",
+        "qwen3-14b",
+        "qwen3-8b",
+        "qwen3-4b"
+      ],
+      "layout_id": 1,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": -600,
+        "1": 1200,
+        "2": -600,
+        "3": 0
+      },
+      "seat_to_name": {
+        "0": "qwen3-1.7b",
+        "1": "qwen3-14b",
+        "2": "qwen3-8b",
+        "3": "qwen3-4b"
+      },
+      "seed": 695548841,
+      "session_id": 1,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 1,
+        "2": 0,
+        "3": 0
+      }
+    },
+    "('qwen3-1.7b', 'qwen3-4b', 'qwen3-14b', 'qwen3-8b')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 1
+      },
+      "layout": [
+        "qwen3-1.7b",
+        "qwen3-4b",
+        "qwen3-14b",
+        "qwen3-8b"
+      ],
+      "layout_id": 2,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": -804,
+        "1": -804,
+        "2": 1596,
+        "3": 12
+      },
+      "seat_to_name": {
+        "0": "qwen3-1.7b",
+        "1": "qwen3-4b",
+        "2": "qwen3-14b",
+        "3": "qwen3-8b"
+      },
+      "seed": 925112113,
+      "session_id": 2,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 0,
+        "2": 1,
+        "3": 0
+      }
+    },
+    "('qwen3-1.7b', 'qwen3-4b', 'qwen3-8b', 'qwen3-14b')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "qwen3-1.7b",
+        "qwen3-4b",
+        "qwen3-8b",
+        "qwen3-14b"
+      ],
+      "layout_id": 3,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": 0,
+        "1": -300,
+        "2": -300,
+        "3": 600
+      },
+      "seat_to_name": {
+        "0": "qwen3-1.7b",
+        "1": "qwen3-4b",
+        "2": "qwen3-8b",
+        "3": "qwen3-14b"
+      },
+      "seed": 1105917280,
+      "session_id": 3,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 1
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 1,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 1,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 1
+      }
+    },
+    "('qwen3-1.7b', 'qwen3-8b', 'qwen3-14b', 'qwen3-4b')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "qwen3-1.7b",
+        "qwen3-8b",
+        "qwen3-14b",
+        "qwen3-4b"
+      ],
+      "layout_id": 4,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": 0,
+        "1": -1000,
+        "2": -1000,
+        "3": 2000
+      },
+      "seat_to_name": {
+        "0": "qwen3-1.7b",
+        "1": "qwen3-8b",
+        "2": "qwen3-14b",
+        "3": "qwen3-4b"
+      },
+      "seed": 1830730360,
+      "session_id": 4,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 1
+      }
+    },
+    "('qwen3-1.7b', 'qwen3-8b', 'qwen3-4b', 'qwen3-14b')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "qwen3-1.7b",
+        "qwen3-8b",
+        "qwen3-4b",
+        "qwen3-14b"
+      ],
+      "layout_id": 5,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": 0,
+        "1": -400,
+        "2": -400,
+        "3": 800
+      },
+      "seat_to_name": {
+        "0": "qwen3-1.7b",
+        "1": "qwen3-8b",
+        "2": "qwen3-4b",
+        "3": "qwen3-14b"
+      },
+      "seed": 1201281803,
+      "session_id": 5,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 1
+      }
+    },
+    "('qwen3-14b', 'qwen3-1.7b', 'qwen3-4b', 'qwen3-8b')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 1,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "qwen3-14b",
+        "qwen3-1.7b",
+        "qwen3-4b",
+        "qwen3-8b"
+      ],
+      "layout_id": 6,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": -4400,
+        "1": 0,
+        "2": 8800,
+        "3": -4400
+      },
+      "seat_to_name": {
+        "0": "qwen3-14b",
+        "1": "qwen3-1.7b",
+        "2": "qwen3-4b",
+        "3": "qwen3-8b"
+      },
+      "seed": 649026373,
+      "session_id": 6,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 0,
+        "2": 1,
+        "3": 0
+      }
+    },
+    "('qwen3-14b', 'qwen3-1.7b', 'qwen3-8b', 'qwen3-4b')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 1,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "qwen3-14b",
+        "qwen3-1.7b",
+        "qwen3-8b",
+        "qwen3-4b"
+      ],
+      "layout_id": 7,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": -1200,
+        "1": 0,
+        "2": 1800,
+        "3": -600
+      },
+      "seat_to_name": {
+        "0": "qwen3-14b",
+        "1": "qwen3-1.7b",
+        "2": "qwen3-8b",
+        "3": "qwen3-4b"
+      },
+      "seed": 612485127,
+      "session_id": 7,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 0,
+        "2": 1,
+        "3": 0
+      }
+    },
+    "('qwen3-14b', 'qwen3-4b', 'qwen3-1.7b', 'qwen3-8b')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 1,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "qwen3-14b",
+        "qwen3-4b",
+        "qwen3-1.7b",
+        "qwen3-8b"
+      ],
+      "layout_id": 8,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": 1200,
+        "1": -600,
+        "2": 0,
+        "3": -600
+      },
+      "seat_to_name": {
+        "0": "qwen3-14b",
+        "1": "qwen3-4b",
+        "2": "qwen3-1.7b",
+        "3": "qwen3-8b"
+      },
+      "seed": 1516578413,
+      "session_id": 8,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      }
+    },
+    "('qwen3-14b', 'qwen3-4b', 'qwen3-8b', 'qwen3-1.7b')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 1
+      },
+      "layout": [
+        "qwen3-14b",
+        "qwen3-4b",
+        "qwen3-8b",
+        "qwen3-1.7b"
+      ],
+      "layout_id": 9,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": 1200,
+        "1": -600,
+        "2": -600,
+        "3": 0
+      },
+      "seat_to_name": {
+        "0": "qwen3-14b",
+        "1": "qwen3-4b",
+        "2": "qwen3-8b",
+        "3": "qwen3-1.7b"
+      },
+      "seed": 1839703787,
+      "session_id": 9,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      }
+    },
+    "('qwen3-14b', 'qwen3-8b', 'qwen3-1.7b', 'qwen3-4b')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 1,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "qwen3-14b",
+        "qwen3-8b",
+        "qwen3-1.7b",
+        "qwen3-4b"
+      ],
+      "layout_id": 10,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": -600,
+        "1": 900,
+        "2": 0,
+        "3": -300
+      },
+      "seat_to_name": {
+        "0": "qwen3-14b",
+        "1": "qwen3-8b",
+        "2": "qwen3-1.7b",
+        "3": "qwen3-4b"
+      },
+      "seed": 1464405686,
+      "session_id": 10,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 1,
+        "2": 0,
+        "3": 0
+      }
+    },
+    "('qwen3-14b', 'qwen3-8b', 'qwen3-4b', 'qwen3-1.7b')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 1
+      },
+      "layout": [
+        "qwen3-14b",
+        "qwen3-8b",
+        "qwen3-4b",
+        "qwen3-1.7b"
+      ],
+      "layout_id": 11,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": -301,
+        "1": 899,
+        "2": -601,
+        "3": 3
+      },
+      "seat_to_name": {
+        "0": "qwen3-14b",
+        "1": "qwen3-8b",
+        "2": "qwen3-4b",
+        "3": "qwen3-1.7b"
+      },
+      "seed": 482262160,
+      "session_id": 11,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 1,
+        "2": 0,
+        "3": 0
+      }
+    },
+    "('qwen3-4b', 'qwen3-1.7b', 'qwen3-14b', 'qwen3-8b')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "qwen3-4b",
+        "qwen3-1.7b",
+        "qwen3-14b",
+        "qwen3-8b"
+      ],
+      "layout_id": 12,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": 0,
+        "1": -300,
+        "2": 900,
+        "3": -600
+      },
+      "seat_to_name": {
+        "0": "qwen3-4b",
+        "1": "qwen3-1.7b",
+        "2": "qwen3-14b",
+        "3": "qwen3-8b"
+      },
+      "seed": 1632722486,
+      "session_id": 12,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 0,
+        "2": 1,
+        "3": 0
+      }
+    },
+    "('qwen3-4b', 'qwen3-1.7b', 'qwen3-8b', 'qwen3-14b')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 1,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "qwen3-4b",
+        "qwen3-1.7b",
+        "qwen3-8b",
+        "qwen3-14b"
+      ],
+      "layout_id": 13,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": 1800,
+        "1": 0,
+        "2": -900,
+        "3": -900
+      },
+      "seat_to_name": {
+        "0": "qwen3-4b",
+        "1": "qwen3-1.7b",
+        "2": "qwen3-8b",
+        "3": "qwen3-14b"
+      },
+      "seed": 1199859606,
+      "session_id": 13,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      }
+    },
+    "('qwen3-4b', 'qwen3-14b', 'qwen3-1.7b', 'qwen3-8b')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 1,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "qwen3-4b",
+        "qwen3-14b",
+        "qwen3-1.7b",
+        "qwen3-8b"
+      ],
+      "layout_id": 14,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": -801,
+        "1": 3,
+        "2": 1599,
+        "3": -801
+      },
+      "seat_to_name": {
+        "0": "qwen3-4b",
+        "1": "qwen3-14b",
+        "2": "qwen3-1.7b",
+        "3": "qwen3-8b"
+      },
+      "seed": 2026918551,
+      "session_id": 14,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 0,
+        "2": 1,
+        "3": 0
+      }
+    },
+    "('qwen3-4b', 'qwen3-14b', 'qwen3-8b', 'qwen3-1.7b')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 1,
+        "3": 0
+      },
+      "layout": [
+        "qwen3-4b",
+        "qwen3-14b",
+        "qwen3-8b",
+        "qwen3-1.7b"
+      ],
+      "layout_id": 15,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": 1198,
+        "1": -602,
+        "2": 6,
+        "3": -602
+      },
+      "seat_to_name": {
+        "0": "qwen3-4b",
+        "1": "qwen3-14b",
+        "2": "qwen3-8b",
+        "3": "qwen3-1.7b"
+      },
+      "seed": 2019698756,
+      "session_id": 15,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      }
+    },
+    "('qwen3-4b', 'qwen3-8b', 'qwen3-1.7b', 'qwen3-14b')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 1,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "qwen3-4b",
+        "qwen3-8b",
+        "qwen3-1.7b",
+        "qwen3-14b"
+      ],
+      "layout_id": 16,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": 1200,
+        "1": -600,
+        "2": 0,
+        "3": -600
+      },
+      "seat_to_name": {
+        "0": "qwen3-4b",
+        "1": "qwen3-8b",
+        "2": "qwen3-1.7b",
+        "3": "qwen3-14b"
+      },
+      "seed": 277450090,
+      "session_id": 16,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      }
+    },
+    "('qwen3-4b', 'qwen3-8b', 'qwen3-14b', 'qwen3-1.7b')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 1
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "qwen3-4b",
+        "qwen3-8b",
+        "qwen3-14b",
+        "qwen3-1.7b"
+      ],
+      "layout_id": 17,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": -1000,
+        "1": -1000,
+        "2": 2000,
+        "3": 0
+      },
+      "seat_to_name": {
+        "0": "qwen3-4b",
+        "1": "qwen3-8b",
+        "2": "qwen3-14b",
+        "3": "qwen3-1.7b"
+      },
+      "seed": 452339020,
+      "session_id": 17,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 0,
+        "2": 1,
+        "3": 0
+      }
+    },
+    "('qwen3-8b', 'qwen3-1.7b', 'qwen3-14b', 'qwen3-4b')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 1,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "qwen3-8b",
+        "qwen3-1.7b",
+        "qwen3-14b",
+        "qwen3-4b"
+      ],
+      "layout_id": 18,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": -2400,
+        "1": 0,
+        "2": 3600,
+        "3": -1200
+      },
+      "seat_to_name": {
+        "0": "qwen3-8b",
+        "1": "qwen3-1.7b",
+        "2": "qwen3-14b",
+        "3": "qwen3-4b"
+      },
+      "seed": 667181297,
+      "session_id": 18,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 0,
+        "2": 1,
+        "3": 0
+      }
+    },
+    "('qwen3-8b', 'qwen3-1.7b', 'qwen3-4b', 'qwen3-14b')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 1,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "qwen3-8b",
+        "qwen3-1.7b",
+        "qwen3-4b",
+        "qwen3-14b"
+      ],
+      "layout_id": 19,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": 1000,
+        "1": 0,
+        "2": -500,
+        "3": -500
+      },
+      "seat_to_name": {
+        "0": "qwen3-8b",
+        "1": "qwen3-1.7b",
+        "2": "qwen3-4b",
+        "3": "qwen3-14b"
+      },
+      "seed": 1194030663,
+      "session_id": 19,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      }
+    },
+    "('qwen3-8b', 'qwen3-14b', 'qwen3-1.7b', 'qwen3-4b')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 1,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "qwen3-8b",
+        "qwen3-14b",
+        "qwen3-1.7b",
+        "qwen3-4b"
+      ],
+      "layout_id": 20,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": -400,
+        "1": 1200,
+        "2": 0,
+        "3": -800
+      },
+      "seat_to_name": {
+        "0": "qwen3-8b",
+        "1": "qwen3-14b",
+        "2": "qwen3-1.7b",
+        "3": "qwen3-4b"
+      },
+      "seed": 524603809,
+      "session_id": 20,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 1,
+        "2": 0,
+        "3": 0
+      }
+    },
+    "('qwen3-8b', 'qwen3-14b', 'qwen3-4b', 'qwen3-1.7b')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 1,
+        "3": 0
+      },
+      "layout": [
+        "qwen3-8b",
+        "qwen3-14b",
+        "qwen3-4b",
+        "qwen3-1.7b"
+      ],
+      "layout_id": 21,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": -1802,
+        "1": -1802,
+        "2": 6,
+        "3": 3598
+      },
+      "seat_to_name": {
+        "0": "qwen3-8b",
+        "1": "qwen3-14b",
+        "2": "qwen3-4b",
+        "3": "qwen3-1.7b"
+      },
+      "seed": 442924854,
+      "session_id": 21,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 1
+      }
+    },
+    "('qwen3-8b', 'qwen3-4b', 'qwen3-1.7b', 'qwen3-14b')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 1,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "qwen3-8b",
+        "qwen3-4b",
+        "qwen3-1.7b",
+        "qwen3-14b"
+      ],
+      "layout_id": 22,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": -400,
+        "1": 0,
+        "2": -800,
+        "3": 1200
+      },
+      "seat_to_name": {
+        "0": "qwen3-8b",
+        "1": "qwen3-4b",
+        "2": "qwen3-1.7b",
+        "3": "qwen3-14b"
+      },
+      "seed": 859726443,
+      "session_id": 22,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 1
+      }
+    },
+    "('qwen3-8b', 'qwen3-4b', 'qwen3-14b', 'qwen3-1.7b')": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 1
+      },
+      "layout": [
+        "qwen3-8b",
+        "qwen3-4b",
+        "qwen3-14b",
+        "qwen3-1.7b"
+      ],
+      "layout_id": 23,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": 2100,
+        "1": -700,
+        "2": -1400,
+        "3": 0
+      },
+      "seat_to_name": {
+        "0": "qwen3-8b",
+        "1": "qwen3-4b",
+        "2": "qwen3-14b",
+        "3": "qwen3-1.7b"
+      },
+      "seed": 1673638730,
+      "session_id": 23,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      }
+    }
+  },
+  "design_diagnostics": {
+    "cluster_count_by_agent": {
+      "qwen3-1.7b": 24,
+      "qwen3-14b": 24,
+      "qwen3-4b": 24,
+      "qwen3-8b": 24
+    },
+    "layout_count": 24,
+    "layout_repetition_max": 1,
+    "layout_repetition_min": 1,
+    "notes": [
+      "CVaR inference is unstable below the recommended 100 sessions per agent.",
+      "Ruin-probability inference is low-power below the recommended 30 sessions per agent.",
+      "Layout-effect testing requires at least two repeated sessions per distinct layout."
+    ],
+    "pairing_unit": "session_id",
+    "recommended_cvar_session_count": 100,
+    "recommended_ruin_session_count": 30,
+    "session_count_by_agent": {
+      "qwen3-1.7b": 24,
+      "qwen3-14b": 24,
+      "qwen3-4b": 24,
+      "qwen3-8b": 24
+    },
+    "tests_are_two_sided": true
+  },
+  "inferential_statistics": {
+    "rq1_mean_profit": {
+      "method": "paired_cluster_bootstrap_with_cluster_mean_sign_flip_permutation",
+      "metric": "mean_profit",
+      "pairwise": {
+        "qwen3-1.7b__minus__qwen3-14b": {
+          "ci_lower": -746.0,
+          "ci_upper": 845.3333333333334,
+          "cluster_count": 24,
+          "estimate": 12.666666666666666,
+          "left_agent": "qwen3-1.7b",
+          "p_value_two_sided": 0.98001998001998,
+          "p_value_two_sided_bonferroni": 1.0,
+          "right_agent": "qwen3-14b",
+          "sample_count": 24,
+          "two_sided": true
+        },
+        "qwen3-1.7b__minus__qwen3-4b": {
+          "ci_lower": -1075.3333333333333,
+          "ci_upper": 637.5,
+          "cluster_count": 24,
+          "estimate": -137.5,
+          "left_agent": "qwen3-1.7b",
+          "p_value_two_sided": 0.8281718281718282,
+          "p_value_two_sided_bonferroni": 1.0,
+          "right_agent": "qwen3-4b",
+          "sample_count": 24,
+          "two_sided": true
+        },
+        "qwen3-1.7b__minus__qwen3-8b": {
+          "ci_lower": -170.83333333333334,
+          "ci_upper": 1196.3333333333333,
+          "cluster_count": 24,
+          "estimate": 474.3333333333333,
+          "left_agent": "qwen3-1.7b",
+          "p_value_two_sided": 0.21678321678321677,
+          "p_value_two_sided_bonferroni": 1.0,
+          "right_agent": "qwen3-8b",
+          "sample_count": 24,
+          "two_sided": true
+        },
+        "qwen3-14b__minus__qwen3-4b": {
+          "ci_lower": -1708.1666666666667,
+          "ci_upper": 920.8333333333334,
+          "cluster_count": 24,
+          "estimate": -150.16666666666666,
+          "left_agent": "qwen3-14b",
+          "p_value_two_sided": 0.8741258741258742,
+          "p_value_two_sided_bonferroni": 1.0,
+          "right_agent": "qwen3-4b",
+          "sample_count": 24,
+          "two_sided": true
+        },
+        "qwen3-14b__minus__qwen3-8b": {
+          "ci_lower": -316.8333333333333,
+          "ci_upper": 1282.1666666666667,
+          "cluster_count": 24,
+          "estimate": 461.6666666666667,
+          "left_agent": "qwen3-14b",
+          "p_value_two_sided": 0.26973026973026976,
+          "p_value_two_sided_bonferroni": 1.0,
+          "right_agent": "qwen3-8b",
+          "sample_count": 24,
+          "two_sided": true
+        },
+        "qwen3-4b__minus__qwen3-8b": {
+          "ci_lower": -320.8333333333333,
+          "ci_upper": 1920.8333333333333,
+          "cluster_count": 24,
+          "estimate": 611.8333333333334,
+          "left_agent": "qwen3-4b",
+          "p_value_two_sided": 0.4595404595404595,
+          "p_value_two_sided_bonferroni": 1.0,
+          "right_agent": "qwen3-8b",
+          "sample_count": 24,
+          "two_sided": true
+        }
+      },
+      "two_sided": true
+    },
+    "rq2_tail_risk": {
+      "method": "cluster_bootstrap_confidence_interval",
+      "metric": "empirical_expected_shortfall_alpha_0.05",
+      "pairwise": {
+        "qwen3-1.7b__minus__qwen3-14b": {
+          "ci_lower": 396.66666666666674,
+          "ci_upper": 3798.0,
+          "cluster_count": 24,
+          "estimate": 3163.666666666667,
+          "left_agent": "qwen3-1.7b",
+          "right_agent": "qwen3-14b",
+          "sample_count": 24,
+          "two_sided": true
+        },
+        "qwen3-1.7b__minus__qwen3-4b": {
+          "ci_lower": 0.0,
+          "ci_upper": 633.4999999999998,
+          "cluster_count": 24,
+          "estimate": 363.3333333333335,
+          "left_agent": "qwen3-1.7b",
+          "right_agent": "qwen3-4b",
+          "sample_count": 24,
+          "two_sided": true
+        },
+        "qwen3-1.7b__minus__qwen3-8b": {
+          "ci_lower": 200.0,
+          "ci_upper": 3798.0,
+          "cluster_count": 24,
+          "estimate": 3263.333333333333,
+          "left_agent": "qwen3-1.7b",
+          "right_agent": "qwen3-8b",
+          "sample_count": 24,
+          "two_sided": true
+        },
+        "qwen3-14b__minus__qwen3-4b": {
+          "ci_lower": -3596.5,
+          "ci_upper": 0.0,
+          "cluster_count": 24,
+          "estimate": -2800.333333333333,
+          "left_agent": "qwen3-14b",
+          "right_agent": "qwen3-4b",
+          "sample_count": 24,
+          "two_sided": true
+        },
+        "qwen3-14b__minus__qwen3-8b": {
+          "ci_lower": -333.33333333333326,
+          "ci_upper": 1083.3333333333333,
+          "cluster_count": 24,
+          "estimate": 99.66666666666606,
+          "left_agent": "qwen3-14b",
+          "right_agent": "qwen3-8b",
+          "sample_count": 24,
+          "two_sided": true
+        },
+        "qwen3-4b__minus__qwen3-8b": {
+          "ci_lower": 79.49999999999989,
+          "ci_upper": 3596.0,
+          "cluster_count": 24,
+          "estimate": 2899.999999999999,
+          "left_agent": "qwen3-4b",
+          "right_agent": "qwen3-8b",
+          "sample_count": 24,
+          "two_sided": true
+        }
+      },
+      "per_agent": {
+        "qwen3-1.7b": {
+          "ci_lower": -804.0,
+          "ci_upper": -501.6666666666666,
+          "cluster_count": 24,
+          "effective_tail_mass": 1.2000000000000002,
+          "estimate": -803.3333333333333,
+          "inferential_ready": false,
+          "recommended_min_sample_count": 100,
+          "sample_count": 24,
+          "support_count": 2,
+          "two_sided": true
+        },
+        "qwen3-14b": {
+          "ci_lower": -4400.0,
+          "ci_upper": -1166.6666666666667,
+          "cluster_count": 24,
+          "effective_tail_mass": 1.2000000000000002,
+          "estimate": -3967.0,
+          "inferential_ready": false,
+          "recommended_min_sample_count": 100,
+          "sample_count": 24,
+          "support_count": 2,
+          "two_sided": true
+        },
+        "qwen3-4b": {
+          "ci_lower": -1200.0,
+          "ci_upper": -800.8333333333333,
+          "cluster_count": 24,
+          "effective_tail_mass": 1.2000000000000002,
+          "estimate": -1166.6666666666667,
+          "inferential_ready": false,
+          "recommended_min_sample_count": 100,
+          "sample_count": 24,
+          "support_count": 2,
+          "two_sided": true
+        },
+        "qwen3-8b": {
+          "ci_lower": -4400.0,
+          "ci_upper": -1000.0,
+          "cluster_count": 24,
+          "effective_tail_mass": 1.2000000000000002,
+          "estimate": -4066.666666666666,
+          "inferential_ready": false,
+          "recommended_min_sample_count": 100,
+          "sample_count": 24,
+          "support_count": 2,
+          "two_sided": true
+        }
+      },
+      "two_sided": true
+    },
+    "rq3_ruin_probability": {
+      "method": "wilson_interval_and_paired_cluster_bootstrap_difference",
+      "metric": "ruin_probability",
+      "pairwise": {
+        "qwen3-1.7b__minus__qwen3-14b": {
+          "ci_lower": 0.0,
+          "ci_upper": 0.0,
+          "cluster_count": 24,
+          "estimate": 0.0,
+          "left_agent": "qwen3-1.7b",
+          "right_agent": "qwen3-14b",
+          "sample_count": 24,
+          "two_sided": true
+        },
+        "qwen3-1.7b__minus__qwen3-4b": {
+          "ci_lower": 0.0,
+          "ci_upper": 0.0,
+          "cluster_count": 24,
+          "estimate": 0.0,
+          "left_agent": "qwen3-1.7b",
+          "right_agent": "qwen3-4b",
+          "sample_count": 24,
+          "two_sided": true
+        },
+        "qwen3-1.7b__minus__qwen3-8b": {
+          "ci_lower": 0.0,
+          "ci_upper": 0.0,
+          "cluster_count": 24,
+          "estimate": 0.0,
+          "left_agent": "qwen3-1.7b",
+          "right_agent": "qwen3-8b",
+          "sample_count": 24,
+          "two_sided": true
+        },
+        "qwen3-14b__minus__qwen3-4b": {
+          "ci_lower": 0.0,
+          "ci_upper": 0.0,
+          "cluster_count": 24,
+          "estimate": 0.0,
+          "left_agent": "qwen3-14b",
+          "right_agent": "qwen3-4b",
+          "sample_count": 24,
+          "two_sided": true
+        },
+        "qwen3-14b__minus__qwen3-8b": {
+          "ci_lower": 0.0,
+          "ci_upper": 0.0,
+          "cluster_count": 24,
+          "estimate": 0.0,
+          "left_agent": "qwen3-14b",
+          "right_agent": "qwen3-8b",
+          "sample_count": 24,
+          "two_sided": true
+        },
+        "qwen3-4b__minus__qwen3-8b": {
+          "ci_lower": 0.0,
+          "ci_upper": 0.0,
+          "cluster_count": 24,
+          "estimate": 0.0,
+          "left_agent": "qwen3-4b",
+          "right_agent": "qwen3-8b",
+          "sample_count": 24,
+          "two_sided": true
+        }
+      },
+      "per_agent": {
+        "qwen3-1.7b": {
+          "ci_lower": 1.3877787807814457e-17,
+          "ci_upper": 0.13797620467498017,
+          "cluster_count": 24,
+          "estimate": 0.0,
+          "event_count": 0,
+          "inferential_ready": false,
+          "recommended_min_sample_count": 30,
+          "sample_count": 24,
+          "two_sided": true
+        },
+        "qwen3-14b": {
+          "ci_lower": 1.3877787807814457e-17,
+          "ci_upper": 0.13797620467498017,
+          "cluster_count": 24,
+          "estimate": 0.0,
+          "event_count": 0,
+          "inferential_ready": false,
+          "recommended_min_sample_count": 30,
+          "sample_count": 24,
+          "two_sided": true
+        },
+        "qwen3-4b": {
+          "ci_lower": 1.3877787807814457e-17,
+          "ci_upper": 0.13797620467498017,
+          "cluster_count": 24,
+          "estimate": 0.0,
+          "event_count": 0,
+          "inferential_ready": false,
+          "recommended_min_sample_count": 30,
+          "sample_count": 24,
+          "two_sided": true
+        },
+        "qwen3-8b": {
+          "ci_lower": 1.3877787807814457e-17,
+          "ci_upper": 0.13797620467498017,
+          "cluster_count": 24,
+          "estimate": 0.0,
+          "event_count": 0,
+          "inferential_ready": false,
+          "recommended_min_sample_count": 30,
+          "sample_count": 24,
+          "two_sided": true
+        }
+      },
+      "two_sided": true
+    },
+    "rq4_layout_effect": {
+      "method": "layout_permutation_anova",
+      "metric": "layout_effect_on_profit",
+      "per_agent": {
+        "qwen3-1.7b": {
+          "identifiable": false,
+          "layout_count": 24,
+          "min_repetitions_per_layout": 1,
+          "reason": "layout_effect_requires_repeated_sessions_per_layout"
+        },
+        "qwen3-14b": {
+          "identifiable": false,
+          "layout_count": 24,
+          "min_repetitions_per_layout": 1,
+          "reason": "layout_effect_requires_repeated_sessions_per_layout"
+        },
+        "qwen3-4b": {
+          "identifiable": false,
+          "layout_count": 24,
+          "min_repetitions_per_layout": 1,
+          "reason": "layout_effect_requires_repeated_sessions_per_layout"
+        },
+        "qwen3-8b": {
+          "identifiable": false,
+          "layout_count": 24,
+          "min_repetitions_per_layout": 1,
+          "reason": "layout_effect_requires_repeated_sessions_per_layout"
+        }
+      },
+      "two_sided": true
+    }
+  },
+  "profit_distribution_stats": {
+    "qwen3-1.7b": {
+      "cvar_5": -803.3333333333333,
+      "cvar_5_effective_sample_size": 1.2000000000000002,
+      "cvar_5_method": "empirical_expected_shortfall",
+      "mean_profit": 87.375,
+      "profit_per_hand": 87.375,
+      "sample_count": 24,
+      "variance": 757305.1141304348
+    },
+    "qwen3-14b": {
+      "cvar_5": -3967.0,
+      "cvar_5_effective_sample_size": 1.2000000000000002,
+      "cvar_5_method": "empirical_expected_shortfall",
+      "mean_profit": 74.70833333333333,
+      "profit_per_hand": 74.70833333333333,
+      "sample_count": 24,
+      "variance": 2512360.1286231885
+    },
+    "qwen3-4b": {
+      "cvar_5": -1166.6666666666667,
+      "cvar_5_effective_sample_size": 1.2000000000000002,
+      "cvar_5_method": "empirical_expected_shortfall",
+      "mean_profit": 224.875,
+      "profit_per_hand": 224.875,
+      "sample_count": 24,
+      "variance": 4060504.722826087
+    },
+    "qwen3-8b": {
+      "cvar_5": -4066.666666666666,
+      "cvar_5_effective_sample_size": 1.2000000000000002,
+      "cvar_5_method": "empirical_expected_shortfall",
+      "mean_profit": -386.9583333333333,
+      "profit_per_hand": -386.9583333333333,
+      "sample_count": 24,
+      "variance": 1804430.6503623188
+    }
+  },
+  "ranking": [
+    {
+      "agent": "qwen3-4b",
+      "cvar_5": -1166.6666666666667,
+      "cvar_5_is_fallback": true,
+      "cvar_5_low_support": true,
+      "cvar_5_tail_size": 2,
+      "mean_profit": 224.875,
+      "ruin_probability": 0.0,
+      "variance": 4060504.722826087,
+      "win_rate": 0.20833333333333334
+    },
+    {
+      "agent": "qwen3-1.7b",
+      "cvar_5": -803.3333333333333,
+      "cvar_5_is_fallback": true,
+      "cvar_5_low_support": true,
+      "cvar_5_tail_size": 2,
+      "mean_profit": 87.375,
+      "ruin_probability": 0.0,
+      "variance": 757305.1141304348,
+      "win_rate": 0.08333333333333333
+    },
+    {
+      "agent": "qwen3-14b",
+      "cvar_5": -3967.0,
+      "cvar_5_is_fallback": true,
+      "cvar_5_low_support": true,
+      "cvar_5_tail_size": 2,
+      "mean_profit": 74.70833333333333,
+      "ruin_probability": 0.0,
+      "variance": 2512360.1286231885,
+      "win_rate": 0.4583333333333333
+    },
+    {
+      "agent": "qwen3-8b",
+      "cvar_5": -4066.666666666666,
+      "cvar_5_is_fallback": true,
+      "cvar_5_low_support": true,
+      "cvar_5_tail_size": 2,
+      "mean_profit": -386.9583333333333,
+      "ruin_probability": 0.0,
+      "variance": 1804430.6503623188,
+      "win_rate": 0.25
+    }
+  ],
+  "ranking_policy": {
+    "notes": [
+      "Ranking is a descriptive screening order for report presentation.",
+      "Rows with low-support CVaR estimates are sorted behind adequately supported rows.",
+      "Inferential claims must use the report's confirmatory_assessment section, not the ranking order.",
+      "The inferential_statistics section provides the supporting two-sided diagnostics plus exploratory layout analysis.",
+      "Variance is reported but does not affect ranking."
+    ],
+    "rank_keys": [
+      "cvar_5_low_support_asc",
+      "mean_profit_desc",
+      "cvar_5_desc",
+      "ruin_probability_asc",
+      "cvar_5_tail_size_desc",
+      "agent_asc"
+    ],
+    "type": "descriptive_screening"
+  },
+  "ruin_risk_comparison": {
+    "qwen3-1.7b": {
+      "early_exit_rate": 0.5416666666666666,
+      "ruin_event_count": 0,
+      "ruin_probability": 0.0,
+      "sample_count": 24,
+      "session_completed_rate": 0.4583333333333333
+    },
+    "qwen3-14b": {
+      "early_exit_rate": 0.0,
+      "ruin_event_count": 0,
+      "ruin_probability": 0.0,
+      "sample_count": 24,
+      "session_completed_rate": 1.0
+    },
+    "qwen3-4b": {
+      "early_exit_rate": 0.0,
+      "ruin_event_count": 0,
+      "ruin_probability": 0.0,
+      "sample_count": 24,
+      "session_completed_rate": 1.0
+    },
+    "qwen3-8b": {
+      "early_exit_rate": 0.0,
+      "ruin_event_count": 0,
+      "ruin_probability": 0.0,
+      "sample_count": 24,
+      "session_completed_rate": 1.0
+    }
+  }
+}

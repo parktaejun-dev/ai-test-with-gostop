@@ -259,6 +259,10 @@ h3 {
   border-bottom: 1px solid var(--page-rule);
 }
 
+.table-scroll + .table-scroll {
+  margin-top: 12px;
+}
+
 .result-table {
   width: 100%;
   min-width: 760px;

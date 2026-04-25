@@ -1,0 +1,100 @@
+{
+  "agents": [
+    "google__gemma-2-2b-it",
+    "ibm__granite-3.0-3b-a800m-instruct",
+    "meta__llama-3.2-1b-instruct",
+    "microsoft__phi-4-mini-instruct"
+  ],
+  "artifacts": {
+    "agent_table_csv": {
+      "path": "results/tiny_nvidia_4model_1h_2rep_budget1_20260425_075542/agent_performance_table.csv",
+      "sha256": "68b3d5c621eb3e954f8cb22a123979cb401a662ea2650857e864092d8fcb9318"
+    },
+    "cross_play_json": {
+      "path": "results/tiny_nvidia_4model_1h_2rep_budget1_20260425_075542/cross_play_results.json",
+      "sha256": "2a483cc9ca95e5f7ae195587e0c0e121698694590676822aa8bbd38c40f34f03"
+    },
+    "manifest": {
+      "path": "results/tiny_nvidia_4model_1h_2rep_budget1_20260425_075542/manifest.json",
+      "sha256": null
+    },
+    "report": {
+      "path": "results/tiny_nvidia_4model_1h_2rep_budget1_20260425_075542/report.json",
+      "sha256": "2594c58d9fc55f96fe220176ce6f738bd6bbeb3a3db448edfb6e2721dbfd6e67"
+    },
+    "session_logs_jsonl": {
+      "path": "results/tiny_nvidia_4model_1h_2rep_budget1_20260425_075542/session_logs.jsonl",
+      "sha256": "9e15bcd1fbf87b17e485664d7e8294bb5405c2ced2c367391b1166ed8356f7fa"
+    },
+    "session_observations_csv": {
+      "path": "results/tiny_nvidia_4model_1h_2rep_budget1_20260425_075542/session_observations.csv",
+      "sha256": "74a248eb8ff590b268b88d27700fd6b784508883e74beb39624ee2accb34ad63"
+    }
+  },
+  "config": {
+    "base_seed": 7,
+    "bust_stop_count": 2,
+    "confirmatory_baseline": "meta/llama-3.2-1b-instruct",
+    "decoding": [
+      [
+        "max_tokens",
+        "64"
+      ],
+      [
+        "temperature",
+        "0"
+      ]
+    ],
+    "experiment": "nvidia_same_size_family_eval",
+    "gwang_sell_unit": 3,
+    "initial_bankroll": 100000,
+    "layout_repetitions": 2,
+    "max_carryover_multiplier": 64,
+    "max_remote_calls_per_agent": 1,
+    "max_session_hands": 10000,
+    "min_eval_hands": 10000,
+    "parameter_size_target_b": 120.0,
+    "prompt_signature": {
+      "length": "138",
+      "sha256": "936752d4b878f226f511b70d4a54c032f5462ce6c2674b560c0943e00332b2ad"
+    },
+    "remote_eval_hands": 1,
+    "resolved_model_metadata": [
+      {
+        "family": "meta",
+        "model_id": "meta/llama-3.2-1b-instruct",
+        "parameter_size_b": 1.0
+      },
+      {
+        "family": "google",
+        "model_id": "google/gemma-2-2b-it",
+        "parameter_size_b": 2.0
+      },
+      {
+        "family": "ibm",
+        "model_id": "ibm/granite-3.0-3b-a800m-instruct",
+        "parameter_size_b": 3.0
+      },
+      {
+        "family": "microsoft",
+        "model_id": "microsoft/phi-4-mini-instruct",
+        "parameter_size_b": 0.0
+      }
+    ],
+    "resolved_models": [
+      "meta/llama-3.2-1b-instruct",
+      "google/gemma-2-2b-it",
+      "ibm/granite-3.0-3b-a800m-instruct",
+      "microsoft/phi-4-mini-instruct"
+    ],
+    "session_hands": 1,
+    "showdown_requires_unanimous": true,
+    "stake_per_point": 100
+  },
+  "environment": {
+    "platform": "Linux-6.8.0-1047-oracle-aarch64-with-glibc2.35",
+    "python_version": "3.10.12 (main, Mar  3 2026, 11:56:32) [GCC 11.4.0]"
+  },
+  "lineup_count": 48,
+  "session_observation_count": 192
+}

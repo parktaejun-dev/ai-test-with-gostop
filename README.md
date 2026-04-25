@@ -9,6 +9,9 @@
 - 결과 요약: [`paper/remote_model_results.md`](paper/remote_model_results.md)
 - Qwen 결과 번들: [`results/paper_qwen_4model_param_2h_2rep`](results/paper_qwen_4model_param_2h_2rep)
 - NVIDIA 결과 번들: [`results/paper_nvidia_120b_4model_family_1h_2rep_budget1`](results/paper_nvidia_120b_4model_family_1h_2rep_budget1)
+- NVIDIA 초소형 보조 번들: [`results/tiny_nvidia_4model_1h_2rep_budget1_20260425_075542`](results/tiny_nvidia_4model_1h_2rep_budget1_20260425_075542)
+- Qwen 정책 보조 번들: `results/policy_screen_qwen_tiny_*_1h_1rep_20260425_102731`
+- NVIDIA 정책 보조 번들: `results/policy_screen_nvidia_*_1h_1rep_20260425_075542`
 
 ## 포함 범위
 - 4인 시작, 참여 결정 단계 후 3인 활성 본게임

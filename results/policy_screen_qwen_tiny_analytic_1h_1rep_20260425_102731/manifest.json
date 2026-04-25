@@ -1,0 +1,103 @@
+{
+  "agents": [
+    "qwen3-1.7b",
+    "qwen3-14b",
+    "qwen3-4b",
+    "qwen3-8b"
+  ],
+  "artifacts": {
+    "agent_table_csv": {
+      "path": "results/policy_screen_qwen_tiny_analytic_1h_1rep_20260425_102731/agent_performance_table.csv",
+      "sha256": "3200b29c3769d265ef93f534b21632646913a7bffde8c24e33c0bdecaf82eb50"
+    },
+    "cross_play_json": {
+      "path": "results/policy_screen_qwen_tiny_analytic_1h_1rep_20260425_102731/cross_play_results.json",
+      "sha256": "e162d5f66ae04096f283b8c0eaa6d5038d9231b4163ea6241923331a954a278b"
+    },
+    "manifest": {
+      "path": "results/policy_screen_qwen_tiny_analytic_1h_1rep_20260425_102731/manifest.json",
+      "sha256": null
+    },
+    "report": {
+      "path": "results/policy_screen_qwen_tiny_analytic_1h_1rep_20260425_102731/report.json",
+      "sha256": "7b14e5523789aa9001a06a945b1957c7d9d06700c76242cd728d0c948e381b60"
+    },
+    "session_logs_jsonl": {
+      "path": "results/policy_screen_qwen_tiny_analytic_1h_1rep_20260425_102731/session_logs.jsonl",
+      "sha256": "c16a73ac59efaef3e497eb0847142399b0292117892a3c6c82eb2af265a5c928"
+    },
+    "session_observations_csv": {
+      "path": "results/policy_screen_qwen_tiny_analytic_1h_1rep_20260425_102731/session_observations.csv",
+      "sha256": "32f0aa375c681499ea5adedad0aa8032b12f048e83f54f489652afabc22f4b7f"
+    }
+  },
+  "config": {
+    "base_seed": 7,
+    "bust_stop_count": 2,
+    "confirmatory_baseline": "qwen3-1.7b",
+    "decoding": [
+      [
+        "max_tokens",
+        "64"
+      ],
+      [
+        "temperature",
+        "0"
+      ],
+      [
+        "enable_thinking",
+        "false"
+      ]
+    ],
+    "experiment": "dashscope_qwen_parameter_sweep",
+    "family": "qwen",
+    "gwang_sell_unit": 3,
+    "initial_bankroll": 100000,
+    "layout_repetitions": 1,
+    "max_carryover_multiplier": 64,
+    "max_session_hands": 10000,
+    "min_eval_hands": 10000,
+    "prompt_signature": {
+      "length": "314",
+      "sha256": "8963a074e449d0df2cfba5d81ebeddb0881ebf426205c07157758eefd1deb00e"
+    },
+    "remote_eval_hands": 1,
+    "resolved_model_metadata": [
+      {
+        "active_parameter_size_b": 0.0,
+        "model_id": "qwen3-1.7b",
+        "parameter_size_b": 1.7
+      },
+      {
+        "active_parameter_size_b": 0.0,
+        "model_id": "qwen3-4b",
+        "parameter_size_b": 4.0
+      },
+      {
+        "active_parameter_size_b": 0.0,
+        "model_id": "qwen3-8b",
+        "parameter_size_b": 8.0
+      },
+      {
+        "active_parameter_size_b": 0.0,
+        "model_id": "qwen3-14b",
+        "parameter_size_b": 14.0
+      }
+    ],
+    "resolved_models": [
+      "qwen3-1.7b",
+      "qwen3-4b",
+      "qwen3-8b",
+      "qwen3-14b"
+    ],
+    "session_hands": 1,
+    "showdown_requires_unanimous": true,
+    "stake_per_point": 100
+  },
+  "environment": {
+    "platform": "Linux-6.8.0-1047-oracle-aarch64-with-glibc2.35",
+    "python_version": "3.10.12 (main, Mar  3 2026, 11:56:32) [GCC 11.4.0]"
+  },
+  "lineup_count": 24,
+  "session_observation_count": 96
+}

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>arXiv view | Go-Stop AI Evaluation</title>
+    <title>arXiv view | Risk-Sensitive Go-Stop LLM Evaluation</title>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23b31b1b'/%3E%3Cpath d='M3 8h10M8 3v10M4.5 4.5l7 7M11.5 4.5l-7 7' stroke='white' stroke-width='1.2'/%3E%3C/svg%3E" />
     <link rel="stylesheet" href="./paper.css" />
   </head>
@@ -37,22 +37,22 @@
       <article class="abs" aria-labelledby="paper-title">
         <div class="subject-line">Computer Science &gt; Artificial Intelligence</div>
 
-        <p class="dateline">[Submitted as local arXiv manuscript package; updated from completed remote-model runs]</p>
-        <h1 id="paper-title">Descriptive Qwen and NVIDIA Remote-Model Panels for Fixed-Policy LLM Play in Four-Player Go-Stop</h1>
+        <p class="dateline">[Public GitHub manuscript package; updated from completed remote-model and policy-screen runs]</p>
+        <h1 id="paper-title">Risk-Sensitive LLM Evaluation in Four-Player Go-Stop: Remote-Model Panels, Scale Effects, and Policy Sensitivity</h1>
         <p class="authors">
           <a href="../paper/arxiv_main.tex">Go-Stop AI Evaluation Harness</a>
         </p>
 
         <blockquote class="abstract">
           <span class="descriptor">Abstract:</span>
-          We evaluate fixed-policy large language model play in four-player Go-Stop, a Korean card game with stochastic deals, seat-order nuisance effects, multi-agent interaction, and risk-sensitive payoffs. The study asks whether observed performance across a Qwen-labeled remote-model panel is monotone in nominal parameter scale, and whether cross-family differences are visible in a rate-limited, roughly same-scale NVIDIA Build panel. The Qwen descriptive ranking is non-monotonic: the 397B Qwen3.5 model has the highest mean profit and least severe empirical CVaR, while the larger 480B Qwen Coder model ranks lower. In the constrained NVIDIA panel, Nemotron has the highest descriptive mean profit and least severe empirical CVaR. These results are descriptive, not universal model rankings.
+          We evaluate fixed-policy large language model play in four-player Go-Stop, a Korean card game that compresses hidden information, stochastic card draws, combinatorial scoring, multi-agent interaction, and risk-sensitive stop-or-continue decisions into short episodes. The main Qwen and NVIDIA panels show that performance is not explained by parameter scale alone. Supplementary screens further show positive small-model results under restricted settings and model-specific policy-framing effects. These results are descriptive, not universal model rankings.
         </blockquote>
 
         <table class="metadata" aria-label="paper metadata">
           <tbody>
             <tr>
               <th>Comments:</th>
-              <td>Manuscript source and reproducible result artifacts are stored in this repository. LaTeX PDF compilation was not locally verified because TeX tooling is unavailable on this machine.</td>
+              <td>Manuscript source, public PDF, and reproducible result artifacts are stored in this repository.</td>
             </tr>
             <tr>
               <th>Subjects:</th>
@@ -69,14 +69,26 @@
           </tbody>
         </table>
 
+        <section class="paper-section" aria-labelledby="gostop-title">
+          <h2 id="gostop-title">Why Go-Stop?</h2>
+          <p>
+            Go-Stop is a compact stochastic decision environment. Each action is chosen under hidden cards, uncertain future draws, opponent interaction, and settlement rules that create heavy lower-tail losses. The Go/Stop decision is a risk-sensitive stopping problem: continuing can increase payoff, but it can also amplify losses.
+          </p>
+          <p>
+            The evaluation therefore uses mean profit together with CVaR 5%, win rate, ruin probability, and sample count. This framing is also methodologically relevant to industrial decision systems such as real-time advertising bidding and campaign budget pacing, where agents repeatedly decide whether to spend, wait, or adjust bids under uncertain returns and downside risk.
+          </p>
+        </section>
+
         <section class="paper-section" aria-labelledby="rq-title">
           <h2 id="rq-title">Research Questions</h2>
           <ol class="rq-list">
-            <li><strong>RQ1.</strong> In a Qwen-labeled DashScope panel, is observed Go-Stop performance monotone in nominal parameter scale?</li>
-            <li><strong>RQ2.</strong> In a rate-limited NVIDIA Build panel of roughly same-scale models, are cross-family differences visible in descriptive profit and risk summaries?</li>
+            <li><strong>RQ1.</strong> Why is Go-Stop a plausible environment for evaluating risk-sensitive sequential decision making by LLM agents?</li>
+            <li><strong>RQ2.</strong> In a Qwen-labeled DashScope panel, is observed Go-Stop performance monotone in nominal parameter scale?</li>
+            <li><strong>RQ3.</strong> In a rate-limited NVIDIA Build panel of roughly same-scale models, are cross-family differences visible in descriptive profit and risk summaries?</li>
+            <li><strong>RQ4.</strong> In supplementary screens, do small models and prompt-policy variants show measurable but model-specific differences?</li>
           </ol>
           <p>
-            RQ1 is descriptively negative in this panel. RQ2 shows visible descriptive differences under the constrained NVIDIA panel. These are panel-specific findings under fixed prompts, fixed seat permutations, short horizons, and remote-API budget constraints.
+            RQ2 is descriptively negative in the Qwen panel. RQ3 shows visible descriptive differences under the constrained NVIDIA panel. RQ4 is exploratory: small-model and policy-framing screens show measurable differences, but not confirmatory universal rankings.
           </p>
         </section>
 
@@ -128,10 +140,67 @@
           </div>
         </section>
 
+        <section class="paper-section" aria-labelledby="tiny-title">
+          <h2 id="tiny-title">Supplementary Small-Model Screen</h2>
+          <p>
+            Provider: NVIDIA Build NIM. Path:
+            <a href="https://github.com/parktaejun-dev/ai-test-with-gostop/tree/main/results/tiny_nvidia_4model_1h_2rep_budget1_20260425_075542">results/tiny_nvidia_4model_1h_2rep_budget1_20260425_075542</a>.
+            Each model has 48 samples; <code>max_remote_calls_per_agent=1</code>.
+          </p>
+          <div class="table-scroll">
+            <table class="result-table" id="tiny-nvidia-table">
+              <thead>
+                <tr>
+                  <th>Model</th>
+                  <th>Scale</th>
+                  <th>Mean profit</th>
+                  <th>CVaR 5%</th>
+                  <th>Win rate</th>
+                  <th>Samples</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="paper-section" aria-labelledby="policy-title">
+          <h2 id="policy-title">Supplementary Policy Screens</h2>
+          <p>
+            Policy screens preserve layout and seed structure across balanced, analytic, conservative, and aggressive framings. Each model-policy cell has 24 samples, so these screens are exploratory.
+          </p>
+          <div class="table-scroll">
+            <table class="result-table" id="qwen-policy-table">
+              <thead>
+                <tr>
+                  <th>Policy</th>
+                  <th>Qwen top model</th>
+                  <th>Top mean profit</th>
+                  <th>Top CVaR 5%</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="table-scroll">
+            <table class="result-table" id="nvidia-policy-table">
+              <thead>
+                <tr>
+                  <th>Policy</th>
+                  <th>NVIDIA top model</th>
+                  <th>Top mean profit</th>
+                  <th>Top CVaR 5%</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
+
         <section class="paper-section" aria-labelledby="limits-title">
           <h2 id="limits-title">Limitations</h2>
           <p>
-            The model panels are convenience samples from available remote APIs. The Qwen comparison mixes Coder and Qwen3.5 variants, so parameter scale is partly confounded with specialization. The NVIDIA run measures constrained first-decision behavior more than full-game autonomous play because only one remote call per agent was permitted in each session.
+            The model panels are convenience samples from available remote APIs. The Qwen comparison mixes Coder and Qwen3.5 variants, so parameter scale is partly confounded with specialization. The NVIDIA run measures constrained first-decision behavior more than full-game autonomous play because only one remote call per agent was permitted in each session. Policy screens have 24 samples per model-policy cell and are supplementary.
           </p>
         </section>
 
@@ -169,13 +238,14 @@
             <li><a href="https://github.com/parktaejun-dev/ai-test-with-gostop/blob/main/results/paper_nvidia_120b_4model_family_1h_2rep_budget1/agent_performance_table.csv">NVIDIA CSV</a></li>
             <li><a href="https://github.com/parktaejun-dev/ai-test-with-gostop/blob/main/results/paper_qwen_4model_param_2h_2rep/manifest.json">Qwen manifest</a></li>
             <li><a href="https://github.com/parktaejun-dev/ai-test-with-gostop/blob/main/results/paper_nvidia_120b_4model_family_1h_2rep_budget1/manifest.json">NVIDIA manifest</a></li>
+            <li><a href="https://github.com/parktaejun-dev/ai-test-with-gostop/blob/main/results/tiny_nvidia_4model_1h_2rep_budget1_20260425_075542/agent_performance_table.csv">Small-model CSV</a></li>
           </ul>
         </section>
 
         <section class="citation">
           <h3>export BibTeX citation</h3>
           <pre id="bibtex">@misc{gostop_ai_eval_2026,
-  title = {Descriptive Qwen and NVIDIA Remote-Model Panels for Fixed-Policy LLM Play in Four-Player Go-Stop},
+  title = {Risk-Sensitive LLM Evaluation in Four-Player Go-Stop: Remote-Model Panels, Scale Effects, and Policy Sensitivity},
   year = {2026}
 }</pre>
         </section>

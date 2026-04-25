@@ -16,7 +16,6 @@ from reportlab.lib.pagesizes import letter
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import inch
 from reportlab.platypus import (
-    PageBreak,
     Paragraph,
     Preformatted,
     SimpleDocTemplate,
@@ -29,7 +28,7 @@ from reportlab.platypus import (
 REPO_URL = "https://github.com/parktaejun-dev/ai-test-with-gostop"
 WEB_URL = "https://godori.dahanda.dev/dashboard/paper.html"
 OUTPUT_PATH = Path("paper/gostop_ai_evaluation_paper.pdf")
-PAPER_TITLE = "Descriptive Qwen and NVIDIA Remote-Model Panels for Fixed-Policy LLM Play in Four-Player Go-Stop"
+PAPER_TITLE = "Risk-Sensitive LLM Evaluation in Four-Player Go-Stop: Remote-Model Panels, Scale Effects, and Policy Sensitivity"
 
 
 def paragraph(text: str, style: ParagraphStyle) -> Paragraph:
@@ -108,8 +107,8 @@ def build_pdf() -> Path:
         story,
         "Abstract",
         [
-            "We evaluate fixed-policy large language model play in four-player Go-Stop, a Korean card game with stochastic deals, seat-order nuisance effects, multi-agent interaction, and risk-sensitive payoffs. The study asks whether observed performance across a Qwen-labeled remote-model panel is monotone in nominal parameter scale, and whether cross-family differences are visible in a rate-limited, roughly same-scale NVIDIA Build panel.",
-            "The Qwen panel compares four DashScope models spanning 30B, 122B, 397B, and 480B total parameters. The NVIDIA Build panel compares four roughly 100B-122B models from Qwen, Mistral, Nemotron, and Stockmark. Each panel yields 48 session samples per model and 192 model-session observations. The results are descriptive, not universal model rankings.",
+            "We evaluate fixed-policy large language model play in four-player Go-Stop, a Korean card game that compresses hidden information, stochastic card draws, combinatorial scoring, multi-agent interaction, and risk-sensitive stop-or-continue decisions into short episodes. The study asks whether observed performance across a Qwen-labeled remote-model panel is monotone in nominal parameter scale, and whether cross-family differences are visible in a rate-limited, roughly same-scale NVIDIA Build panel.",
+            "The Qwen panel compares four DashScope models spanning 30B, 122B, 397B, and 480B total parameters. The NVIDIA Build panel compares four roughly 100B-122B models from Qwen, Mistral, Nemotron, and Stockmark. Each main panel yields 48 session samples per model and 192 model-session observations. Supplementary screens show that small models can achieve positive mean profit under restricted settings and that policy framing changes performance in model-specific ways.",
         ],
     )
 
@@ -118,27 +117,37 @@ def build_pdf() -> Path:
         "1. Introduction",
         [
             "This paper is about evaluation, not training. We study fixed language-model policies in four-player Go-Stop, where agents choose among legal game actions under partial information, stochastic deals, seat-order effects, and heavy-tailed settlements.",
-            "The motivating claim is simple: model scale is an incomplete proxy for game-playing policy quality. A multi-agent, risk-sensitive game can expose differences in action selection, risk tolerance, and instruction following that are not captured by parameter count alone.",
-            "RQ1: In a Qwen-labeled DashScope panel, is observed Go-Stop performance monotone in nominal parameter scale? RQ2: In a rate-limited NVIDIA Build panel of roughly same-scale models, are cross-family differences visible in descriptive profit and risk summaries?",
+            "Go-Stop is useful for this purpose because it is a compact stochastic decision problem. A player must infer value from visible cards while reasoning over hidden hands and the draw pile; choose local tactical actions that change future card availability; decide whether to continue after scoring; and manage the downside risk created by multipliers and opponent responses.",
+            "RQ1: Why is Go-Stop a plausible environment for evaluating risk-sensitive sequential decision making by LLM agents? RQ2: In a Qwen-labeled DashScope panel, is observed Go-Stop performance monotone in nominal parameter scale? RQ3: In a rate-limited NVIDIA Build panel of roughly same-scale models, are cross-family differences visible in descriptive profit and risk summaries? RQ4: In supplementary screens, do small models and prompt-policy variants show measurable but model-specific differences?",
+            "Beyond game AI, this evaluation logic is relevant to industrial decision systems that repeatedly act under uncertainty. Real-time advertising bidding and campaign budget pacing, for example, require agents to decide whether to spend, wait, or adjust bids under uncertain conversion probabilities and competitive market conditions.",
         ],
     )
 
     add_section(
         story,
-        "2. Methods",
+        "2. Go-Stop as a Stochastic Decision Environment",
+        [
+            "Go-Stop is a Korean fishing-style card game played with Hanafuda cards. In each turn, a player chooses from legal actions based on a public table state, a private hand, and uncertain future draws. Scoring depends on card categories and combinations, and the Go/Stop decision creates a risk-sensitive stopping problem.",
+            "A risk-neutral action can be represented as argmax over legal actions of expected terminal utility conditional on public state, hidden cards, and opponent policies. The practical policy problem is harder because hidden card distributions, future draws, and opponent responses are only partially observed.",
+            "The evaluation therefore reports mean profit together with CVaR_0.05, ruin probability, win rate, and sample count. CVaR is used as a descriptive lower-tail measure because a policy that wins often can still be weak if its losses concentrate in rare but severe outcomes.",
+        ],
+    )
+
+    add_section(
+        story,
+        "3. Methods",
         [
             "The harness evaluates fixed policies only. There is no online learning, self-play training, or log-based policy update. Each agent receives a public game-state serialization and must return one legal action index.",
             "Remote models are called through OpenAI-compatible chat-completion APIs. The fixed policy prompt asks the model to choose one legal action index only, optimize long-run profit with risk control, and avoid explanation. Invalid, unparsable, or out-of-range responses fall back to the first legal action.",
             "The Qwen study uses Alibaba DashScope with all 24 seat permutations repeated twice. Each session has a two-hand horizon. The NVIDIA study uses NVIDIA Build NIM with the same seat enumeration and repetition, but a one-hand horizon and max_remote_calls_per_agent=1 because rate limits were binding.",
-            "The primary metric is terminal session profit relative to initial bankroll. We also report empirical CVaR_0.05, win rate, ruin probability, and sample count. Each model has 48 session samples, so the effective 5% tail mass is 2.4 sessions and CVaR is descriptive.",
+            "Supplementary screens add a small-model NVIDIA panel and four policy framings - balanced, analytic, conservative, and aggressive - for Qwen small models and NVIDIA roughly same-scale models. These screens have 24 samples per model-policy cell and are exploratory.",
         ],
     )
 
-    story.append(PageBreak())
-    story.append(paragraph("3. Results", STYLES["section"]))
+    story.append(paragraph("4. Results", STYLES["section"]))
     story.append(
         paragraph(
-            "RQ1 is descriptively negative in this panel. The highest Qwen result is the 397B model, not the largest 480B model. Because the panel mixes Qwen3.5 and Qwen Coder variants, it does not isolate a pure scale effect.",
+            "RQ2 is descriptively negative in this panel. The highest Qwen result is the 397B model, not the largest 480B model. Because the panel mixes Qwen3.5 and Qwen Coder variants, it does not isolate a pure scale effect.",
             STYLES["body"],
         )
     )
@@ -158,7 +167,7 @@ def build_pdf() -> Path:
     story.append(Spacer(1, 0.18 * inch))
     story.append(
         paragraph(
-            "RQ2 shows visible descriptive differences under the constrained NVIDIA panel. Nemotron has the highest mean profit and least severe empirical CVaR among the roughly same-scale models.",
+            "RQ3 shows visible descriptive differences under the constrained NVIDIA panel. Nemotron has the highest mean profit and least severe empirical CVaR among the roughly same-scale models.",
             STYLES["body"],
         )
     )
@@ -177,31 +186,65 @@ def build_pdf() -> Path:
     )
     story.append(Spacer(1, 0.18 * inch))
 
+    story.append(
+        paragraph(
+            "RQ4 is supported as exploratory evidence. In the NVIDIA small-model screen, Granite 3B is the only model with clearly positive mean profit. In the Qwen small-model policy screen, the leading model changes with policy framing: qwen3-4b leads under balanced and analytic framings, qwen3-8b under conservative framing, and qwen3-14b under aggressive framing.",
+            STYLES["body"],
+        )
+    )
+    story.append(Spacer(1, 0.08 * inch))
+    story.append(
+        result_table(
+            ["Small NVIDIA model", "Scale", "Mean profit", "CVaR 5%", "Win rate"],
+            [
+                ["ibm/granite-3.0-3b-a800m-instruct", "3B/A800M", "381.25", "-1966.67", "0.3125"],
+                ["meta/llama-3.2-1b-instruct", "1B", "-20.83", "-2083.33", "0.2708"],
+                ["google/gemma-2-2b-it", "2B", "-68.75", "-3833.33", "0.2500"],
+                ["microsoft/phi-4-mini-instruct", "mini", "-291.67", "-3916.67", "0.1667"],
+            ],
+            [2.85 * inch, 0.7 * inch, 0.95 * inch, 0.95 * inch, 0.75 * inch],
+        )
+    )
+    story.append(Spacer(1, 0.16 * inch))
+    story.append(
+        result_table(
+            ["Qwen policy", "Top model", "Top mean", "Top CVaR 5%"],
+            [
+                ["Balanced", "qwen3-4b", "224.88", "-1166.67"],
+                ["Analytic", "qwen3-4b", "412.33", "-2566.83"],
+                ["Conservative", "qwen3-8b", "238.08", "-1301.67"],
+                ["Aggressive", "qwen3-14b", "254.08", "-1284.33"],
+            ],
+            [1.0 * inch, 2.1 * inch, 0.95 * inch, 0.95 * inch],
+        )
+    )
+    story.append(Spacer(1, 0.18 * inch))
+
     add_section(
         story,
-        "4. Discussion",
+        "5. Discussion",
         [
-            "The two panels agree on a bounded point: fixed-policy Go-Stop performance in this harness is not fully summarized by nominal parameter count. In the Qwen panel, the highest descriptive result comes from the 397B model rather than the 480B model. In the NVIDIA panel, roughly same-scale models separate in descriptive profit and empirical tail summaries, with Nemotron ranking first.",
-            "These outcomes fit the game domain. Go-Stop requires local tactical choices, risk control, settlement awareness, and disciplined JSON action selection. General language-model scale can help, but the observed policy is also shaped by model specialization, instruction following, decoding behavior, provider-level serving constraints, and fallback behavior.",
+            "The main panels and supplementary screens agree on a bounded point: fixed-policy Go-Stop performance in this harness is not fully summarized by nominal parameter count. Model family, prompt-policy framing, serving constraints, and tail-risk behavior jointly shape the observed results.",
+            "These outcomes fit the game domain. Go-Stop requires local tactical choices, risk control, settlement awareness, and disciplined JSON action selection. General language-model scale can help, but the observed policy is also shaped by model specialization, instruction following, decoding behavior, provider-level serving constraints, fallback behavior, and policy framing.",
         ],
     )
 
     add_section(
         story,
-        "5. Limitations",
+        "6. Limitations",
         [
             "The model panels are convenience samples from currently callable remote APIs. The Qwen scale panel mixes Qwen3.5 and Qwen Coder variants, so parameter scale is confounded with model specialization.",
             "The NVIDIA panel is constrained by rate limits and uses max_remote_calls_per_agent=1. It measures constrained first-decision-policy behavior more than full-game autonomous play. The horizons are short: two hands for Qwen and one hand for NVIDIA.",
-            "Each model has 48 session samples, below the repository's 100-session threshold for stable CVaR inference. The exported tables do not report invalid-response, API-error, cache-hit, or fallback-action rates. The sample count is enough to compute descriptive summaries, but not enough for universal model ranking claims.",
+            "Each main-panel model has 48 session samples, below the repository's 100-session threshold for stable CVaR inference. Supplementary policy screens have 24 samples per model-policy cell and one layout repetition. These runs are enough for descriptive summaries, but not for universal model ranking claims.",
         ],
     )
 
     add_section(
         story,
-        "6. Conclusion",
+        "7. Conclusion",
         [
-            "In a reproducible four-player Go-Stop evaluation harness, the observed Qwen panel is not monotone in nominal parameter scale, and the constrained NVIDIA Build panel shows visible cross-family differences in descriptive profit and empirical tail summaries. The highest Qwen result comes from qwen3.5-397b-a17b; the highest NVIDIA result comes from nvidia/nemotron-3-super-120b-a12b.",
-            "The main implication is methodological: multi-agent, risk-sensitive card-game evaluation should report model identity, parameter scale, family, serving constraints, fallback policy, and tail-risk metrics together rather than reducing model quality to size alone.",
+            "In a reproducible four-player Go-Stop evaluation harness, the observed Qwen panel is not monotone in nominal parameter scale, and the constrained NVIDIA Build panel shows visible cross-family differences in descriptive profit and empirical tail summaries. Supplementary screens show that selected small models can achieve positive mean profit under restricted settings and that prompt-policy effects are model-specific.",
+            "The main implication is methodological: multi-agent, risk-sensitive card-game evaluation should report model identity, parameter scale, family, policy framing, serving constraints, fallback policy, and tail-risk metrics together rather than reducing model quality to size alone.",
         ],
     )
 
@@ -214,6 +257,8 @@ def build_pdf() -> Path:
             "Manuscript source: paper/arxiv_main.tex",
             "Qwen result bundle: results/paper_qwen_4model_param_2h_2rep",
             "NVIDIA result bundle: results/paper_nvidia_120b_4model_family_1h_2rep_budget1",
+            "NVIDIA small-model bundle: results/tiny_nvidia_4model_1h_2rep_budget1_20260425_075542",
+            "Policy screens: results/policy_screen_qwen_tiny_*_20260425_102731 and results/policy_screen_nvidia_*_20260425_075542",
             "Compact result summary: paper/remote_model_results.md",
         ],
     )

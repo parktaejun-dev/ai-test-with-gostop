@@ -1,0 +1,100 @@
+{
+  "agents": [
+    "mistralai__mistral-small-4-119b-2603",
+    "nvidia__nemotron-3-super-120b-a12b",
+    "qwen__qwen3.5-122b-a10b",
+    "stockmark__stockmark-2-100b-instruct"
+  ],
+  "artifacts": {
+    "agent_table_csv": {
+      "path": "results/policy_screen_nvidia_conservative_1h_1rep_20260425_075542/agent_performance_table.csv",
+      "sha256": "93c1b3690bf5c23ff7914d1dc7013cdd54c623f7a461110571cd3f29d613591c"
+    },
+    "cross_play_json": {
+      "path": "results/policy_screen_nvidia_conservative_1h_1rep_20260425_075542/cross_play_results.json",
+      "sha256": "94fb5816cd0aabe1169cb2e708ae3b3fd8bbc8340dd40915f68336b48ae4488d"
+    },
+    "manifest": {
+      "path": "results/policy_screen_nvidia_conservative_1h_1rep_20260425_075542/manifest.json",
+      "sha256": null
+    },
+    "report": {
+      "path": "results/policy_screen_nvidia_conservative_1h_1rep_20260425_075542/report.json",
+      "sha256": "027f827d3e1a60a8cd1b887341fb50340bfd789267b60a788a1de2415039e453"
+    },
+    "session_logs_jsonl": {
+      "path": "results/policy_screen_nvidia_conservative_1h_1rep_20260425_075542/session_logs.jsonl",
+      "sha256": "3effb0940715657eda906e2a86fd81a72031da6ef607c57474f76ccfd33de14a"
+    },
+    "session_observations_csv": {
+      "path": "results/policy_screen_nvidia_conservative_1h_1rep_20260425_075542/session_observations.csv",
+      "sha256": "d5e077df56e4788c9b8bbe79e8a7f7e9d544b35f901c05cbe4af753fa979101f"
+    }
+  },
+  "config": {
+    "base_seed": 7,
+    "bust_stop_count": 2,
+    "confirmatory_baseline": "qwen/qwen3.5-122b-a10b",
+    "decoding": [
+      [
+        "max_tokens",
+        "64"
+      ],
+      [
+        "temperature",
+        "0"
+      ]
+    ],
+    "experiment": "nvidia_same_size_family_eval",
+    "gwang_sell_unit": 3,
+    "initial_bankroll": 100000,
+    "layout_repetitions": 1,
+    "max_carryover_multiplier": 64,
+    "max_remote_calls_per_agent": 1,
+    "max_session_hands": 10000,
+    "min_eval_hands": 10000,
+    "parameter_size_target_b": 120.0,
+    "prompt_signature": {
+      "length": "257",
+      "sha256": "ad4c48ffe051c2f6e865c89e83f1cddc7f1a02ed2d972b68912c3eb5a39758b1"
+    },
+    "remote_eval_hands": 1,
+    "resolved_model_metadata": [
+      {
+        "family": "qwen",
+        "model_id": "qwen/qwen3.5-122b-a10b",
+        "parameter_size_b": 122.0
+      },
+      {
+        "family": "mistralai",
+        "model_id": "mistralai/mistral-small-4-119b-2603",
+        "parameter_size_b": 119.0
+      },
+      {
+        "family": "nvidia",
+        "model_id": "nvidia/nemotron-3-super-120b-a12b",
+        "parameter_size_b": 120.0
+      },
+      {
+        "family": "stockmark",
+        "model_id": "stockmark/stockmark-2-100b-instruct",
+        "parameter_size_b": 100.0
+      }
+    ],
+    "resolved_models": [
+      "qwen/qwen3.5-122b-a10b",
+      "mistralai/mistral-small-4-119b-2603",
+      "nvidia/nemotron-3-super-120b-a12b",
+      "stockmark/stockmark-2-100b-instruct"
+    ],
+    "session_hands": 1,
+    "showdown_requires_unanimous": true,
+    "stake_per_point": 100
+  },
+  "environment": {
+    "platform": "Linux-6.8.0-1047-oracle-aarch64-with-glibc2.35",
+    "python_version": "3.10.12 (main, Mar  3 2026, 11:56:32) [GCC 11.4.0]"
+  },
+  "lineup_count": 24,
+  "session_observation_count": 96
+}
