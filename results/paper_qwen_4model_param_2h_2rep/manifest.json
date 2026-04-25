@@ -1,0 +1,103 @@
+{
+  "agents": [
+    "qwen3-coder-30b-a3b-instruct",
+    "qwen3-coder-480b-a35b-instruct",
+    "qwen3.5-122b-a10b",
+    "qwen3.5-397b-a17b"
+  ],
+  "artifacts": {
+    "agent_table_csv": {
+      "path": "results/paper_qwen_4model_param_2h_2rep/agent_performance_table.csv",
+      "sha256": "e612df798fc0865aa6ed425790f5ca6c68470c4676c12f2670674cf8101ab913"
+    },
+    "cross_play_json": {
+      "path": "results/paper_qwen_4model_param_2h_2rep/cross_play_results.json",
+      "sha256": "1b52a7f17187020d0bc19028d1371630586cff98a5bd43a65a4b5f922940749f"
+    },
+    "manifest": {
+      "path": "results/paper_qwen_4model_param_2h_2rep/manifest.json",
+      "sha256": null
+    },
+    "report": {
+      "path": "results/paper_qwen_4model_param_2h_2rep/report.json",
+      "sha256": "7d320f9b7d870db61e143d4675fee3bd41a25fca2da0935d663a81a231293b24"
+    },
+    "session_logs_jsonl": {
+      "path": "results/paper_qwen_4model_param_2h_2rep/session_logs.jsonl",
+      "sha256": "3d949a1fdce202a018fb68727c02feb5b2e213883198b54429659455cc219da1"
+    },
+    "session_observations_csv": {
+      "path": "results/paper_qwen_4model_param_2h_2rep/session_observations.csv",
+      "sha256": "f3079132e140e77b5faace9198dadbb76aba960145cceb674e9b4d61a4ce61eb"
+    }
+  },
+  "config": {
+    "base_seed": 7,
+    "bust_stop_count": 2,
+    "confirmatory_baseline": "qwen3-coder-30b-a3b-instruct",
+    "decoding": [
+      [
+        "max_tokens",
+        "64"
+      ],
+      [
+        "temperature",
+        "0"
+      ],
+      [
+        "enable_thinking",
+        "false"
+      ]
+    ],
+    "experiment": "dashscope_qwen_parameter_sweep",
+    "family": "qwen",
+    "gwang_sell_unit": 3,
+    "initial_bankroll": 100000,
+    "layout_repetitions": 2,
+    "max_carryover_multiplier": 64,
+    "max_session_hands": 10000,
+    "min_eval_hands": 10000,
+    "prompt_signature": {
+      "length": "138",
+      "sha256": "936752d4b878f226f511b70d4a54c032f5462ce6c2674b560c0943e00332b2ad"
+    },
+    "remote_eval_hands": 2,
+    "resolved_model_metadata": [
+      {
+        "active_parameter_size_b": 3.0,
+        "model_id": "qwen3-coder-30b-a3b-instruct",
+        "parameter_size_b": 30.0
+      },
+      {
+        "active_parameter_size_b": 10.0,
+        "model_id": "qwen3.5-122b-a10b",
+        "parameter_size_b": 122.0
+      },
+      {
+        "active_parameter_size_b": 17.0,
+        "model_id": "qwen3.5-397b-a17b",
+        "parameter_size_b": 397.0
+      },
+      {
+        "active_parameter_size_b": 35.0,
+        "model_id": "qwen3-coder-480b-a35b-instruct",
+        "parameter_size_b": 480.0
+      }
+    ],
+    "resolved_models": [
+      "qwen3-coder-30b-a3b-instruct",
+      "qwen3.5-122b-a10b",
+      "qwen3.5-397b-a17b",
+      "qwen3-coder-480b-a35b-instruct"
+    ],
+    "session_hands": 2,
+    "showdown_requires_unanimous": true,
+    "stake_per_point": 100
+  },
+  "environment": {
+    "platform": "macOS-26.3.1-arm64-arm-64bit-Mach-O",
+    "python_version": "3.13.5 (v3.13.5:6cb20a219a8, Jun 11 2025, 12:23:45) [Clang 16.0.0 (clang-1600.0.26.6)]"
+  },
+  "lineup_count": 48,
+  "session_observation_count": 192
+}

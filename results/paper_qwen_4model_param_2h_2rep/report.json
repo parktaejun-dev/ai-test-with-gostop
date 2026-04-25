@@ -1,0 +1,4292 @@
+{
+  "agent_performance_table": {
+    "qwen3-coder-30b-a3b-instruct": {
+      "accept_rate": 0.0,
+      "cvar_5": -5269.249999999999,
+      "cvar_5_effective_sample_size": 2.4000000000000004,
+      "cvar_5_is_fallback": false,
+      "cvar_5_low_support": false,
+      "cvar_5_method": "empirical_expected_shortfall",
+      "cvar_5_tail_size": 3,
+      "early_exit_rate": 0.0,
+      "forced_gwang_sell_rate": 0.2916666666666667,
+      "hands_survived": 2.0,
+      "mean_profit": -745.5833333333334,
+      "profit_per_hand": -372.7916666666667,
+      "proposal_rate": 0.0,
+      "reject_rate": 0.0,
+      "ruin_event_count": 0,
+      "ruin_probability": 0.0,
+      "sample_count": 48,
+      "session_completed_rate": 1.0,
+      "showdown_ev_gain": 0.0,
+      "showdown_frequency": 0.0,
+      "showdown_misplay_rate": 0.0,
+      "variance": 2102883.9929078016,
+      "win_rate": 0.10416666666666667
+    },
+    "qwen3-coder-480b-a35b-instruct": {
+      "accept_rate": 0.0,
+      "cvar_5": -5084.75,
+      "cvar_5_effective_sample_size": 2.4000000000000004,
+      "cvar_5_is_fallback": false,
+      "cvar_5_low_support": false,
+      "cvar_5_method": "empirical_expected_shortfall",
+      "cvar_5_tail_size": 3,
+      "early_exit_rate": 0.0,
+      "forced_gwang_sell_rate": 0.1875,
+      "hands_survived": 2.0,
+      "mean_profit": -198.91666666666666,
+      "profit_per_hand": -99.45833333333333,
+      "proposal_rate": 0.0,
+      "reject_rate": 0.0,
+      "ruin_event_count": 0,
+      "ruin_probability": 0.0,
+      "sample_count": 48,
+      "session_completed_rate": 1.0,
+      "showdown_ev_gain": 0.0,
+      "showdown_frequency": 0.0,
+      "showdown_misplay_rate": 0.0,
+      "variance": 4190880.0780141843,
+      "win_rate": 0.23958333333333334
+    },
+    "qwen3.5-122b-a10b": {
+      "accept_rate": 0.0,
+      "cvar_5": -4145.333333333333,
+      "cvar_5_effective_sample_size": 2.4000000000000004,
+      "cvar_5_is_fallback": false,
+      "cvar_5_low_support": false,
+      "cvar_5_method": "empirical_expected_shortfall",
+      "cvar_5_tail_size": 3,
+      "early_exit_rate": 0.010416666666666666,
+      "forced_gwang_sell_rate": 0.21875,
+      "hands_survived": 1.9791666666666667,
+      "mean_profit": -51.75,
+      "profit_per_hand": -26.14736842105263,
+      "proposal_rate": 0.0,
+      "reject_rate": 0.0,
+      "ruin_event_count": 0,
+      "ruin_probability": 0.0,
+      "sample_count": 48,
+      "session_completed_rate": 0.9791666666666666,
+      "showdown_ev_gain": 0.0,
+      "showdown_frequency": 0.0,
+      "showdown_misplay_rate": 0.0,
+      "variance": 2928295.85106383,
+      "win_rate": 0.3541666666666667
+    },
+    "qwen3.5-397b-a17b": {
+      "accept_rate": 0.0,
+      "cvar_5": -1850.0833333333333,
+      "cvar_5_effective_sample_size": 2.4000000000000004,
+      "cvar_5_is_fallback": false,
+      "cvar_5_low_support": false,
+      "cvar_5_method": "empirical_expected_shortfall",
+      "cvar_5_tail_size": 3,
+      "early_exit_rate": 0.0,
+      "forced_gwang_sell_rate": 0.2916666666666667,
+      "hands_survived": 2.0,
+      "mean_profit": 996.25,
+      "profit_per_hand": 498.125,
+      "proposal_rate": 0.0,
+      "reject_rate": 0.0,
+      "ruin_event_count": 0,
+      "ruin_probability": 0.0,
+      "sample_count": 48,
+      "session_completed_rate": 1.0,
+      "showdown_ev_gain": 0.0,
+      "showdown_frequency": 0.0,
+      "showdown_misplay_rate": 0.0,
+      "variance": 9504587.085106382,
+      "win_rate": 0.3020833333333333
+    }
+  },
+  "confirmatory_assessment": {
+    "baseline": "qwen3-coder-30b-a3b-instruct",
+    "familywise_alpha": 0.05,
+    "gatekeeping_rule": "mean_profit_supported and cvar_5_noninferior and ruin_probability_noninferior",
+    "metric_count": 3,
+    "pairwise_agent_count": 3,
+    "per_agent": {
+      "qwen3-coder-480b-a35b-instruct": {
+        "claim_supported": false,
+        "cvar_5": {
+          "agent": "qwen3-coder-480b-a35b-instruct",
+          "baseline": "qwen3-coder-30b-a3b-instruct",
+          "ci_lower": -2151.3333333333326,
+          "ci_upper": 3849.833333333333,
+          "cluster_count": 24,
+          "estimate": 184.4999999999991,
+          "p_value_two_sided": null,
+          "sample_count": 48
+        },
+        "cvar_5_noninferior": false,
+        "mean_profit": {
+          "agent": "qwen3-coder-480b-a35b-instruct",
+          "baseline": "qwen3-coder-30b-a3b-instruct",
+          "ci_lower": -227.41666666666666,
+          "ci_upper": 1409.0833333333333,
+          "cluster_count": 24,
+          "estimate": 546.6666666666666,
+          "p_value_two_sided": 0.22777222777222778,
+          "sample_count": 48
+        },
+        "mean_profit_supported": false,
+        "ruin_probability": {
+          "agent": "qwen3-coder-480b-a35b-instruct",
+          "baseline": "qwen3-coder-30b-a3b-instruct",
+          "ci_lower": -0.0,
+          "ci_upper": -0.0,
+          "cluster_count": 24,
+          "estimate": -0.0,
+          "p_value_two_sided": null,
+          "sample_count": 48
+        },
+        "ruin_probability_noninferior": true
+      },
+      "qwen3.5-122b-a10b": {
+        "claim_supported": false,
+        "cvar_5": {
+          "agent": "qwen3.5-122b-a10b",
+          "baseline": "qwen3-coder-30b-a3b-instruct",
+          "ci_lower": -1051.7499999999998,
+          "ci_upper": 2874.333333333333,
+          "cluster_count": 24,
+          "estimate": 1123.916666666666,
+          "p_value_two_sided": null,
+          "sample_count": 48
+        },
+        "cvar_5_noninferior": false,
+        "mean_profit": {
+          "agent": "qwen3.5-122b-a10b",
+          "baseline": "qwen3-coder-30b-a3b-instruct",
+          "ci_lower": 117.5,
+          "ci_upper": 1313.25,
+          "cluster_count": 24,
+          "estimate": 693.8333333333334,
+          "p_value_two_sided": 0.027972027972027972,
+          "sample_count": 48
+        },
+        "mean_profit_supported": false,
+        "ruin_probability": {
+          "agent": "qwen3.5-122b-a10b",
+          "baseline": "qwen3-coder-30b-a3b-instruct",
+          "ci_lower": -0.0,
+          "ci_upper": -0.0,
+          "cluster_count": 24,
+          "estimate": -0.0,
+          "p_value_two_sided": null,
+          "sample_count": 48
+        },
+        "ruin_probability_noninferior": true
+      },
+      "qwen3.5-397b-a17b": {
+        "claim_supported": false,
+        "cvar_5": {
+          "agent": "qwen3.5-397b-a17b",
+          "baseline": "qwen3-coder-30b-a3b-instruct",
+          "ci_lower": -417.58333333333326,
+          "ci_upper": 5004.166666666667,
+          "cluster_count": 24,
+          "estimate": 3419.166666666666,
+          "p_value_two_sided": null,
+          "sample_count": 48
+        },
+        "cvar_5_noninferior": false,
+        "mean_profit": {
+          "agent": "qwen3.5-397b-a17b",
+          "baseline": "qwen3-coder-30b-a3b-instruct",
+          "ci_lower": 717.3333333333334,
+          "ci_upper": 2966.25,
+          "cluster_count": 24,
+          "estimate": 1741.8333333333333,
+          "p_value_two_sided": 0.002997002997002997,
+          "sample_count": 48
+        },
+        "mean_profit_supported": true,
+        "ruin_probability": {
+          "agent": "qwen3.5-397b-a17b",
+          "baseline": "qwen3-coder-30b-a3b-instruct",
+          "ci_lower": -0.0,
+          "ci_upper": -0.0,
+          "cluster_count": 24,
+          "estimate": -0.0,
+          "p_value_two_sided": null,
+          "sample_count": 48
+        },
+        "ruin_probability_noninferior": true
+      }
+    },
+    "per_metric_alpha": 0.016666666666666666,
+    "per_pair_alpha_for_interval_checks": 0.005555555555555556
+  },
+  "confirmatory_baseline": "qwen3-coder-30b-a3b-instruct",
+  "cross_play_results": {
+    "(('qwen3-coder-30b-a3b-instruct', 'qwen3-coder-480b-a35b-instruct', 'qwen3.5-122b-a10b', 'qwen3.5-397b-a17b'), 0)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 1,
+        "2": 0,
+        "3": 1
+      },
+      "layout": [
+        "qwen3-coder-30b-a3b-instruct",
+        "qwen3-coder-480b-a35b-instruct",
+        "qwen3.5-122b-a10b",
+        "qwen3.5-397b-a17b"
+      ],
+      "layout_id": 0,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": -902,
+        "1": -594,
+        "2": -302,
+        "3": 1798
+      },
+      "seat_to_name": {
+        "0": "qwen3-coder-30b-a3b-instruct",
+        "1": "qwen3-coder-480b-a35b-instruct",
+        "2": "qwen3.5-122b-a10b",
+        "3": "qwen3.5-397b-a17b"
+      },
+      "seed": 310387934,
+      "session_id": 0,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 0,
+        "2": 1,
+        "3": 1
+      }
+    },
+    "(('qwen3-coder-30b-a3b-instruct', 'qwen3-coder-480b-a35b-instruct', 'qwen3.5-122b-a10b', 'qwen3.5-397b-a17b'), 1)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 1,
+        "2": 0,
+        "3": 1
+      },
+      "layout": [
+        "qwen3-coder-30b-a3b-instruct",
+        "qwen3-coder-480b-a35b-instruct",
+        "qwen3.5-122b-a10b",
+        "qwen3.5-397b-a17b"
+      ],
+      "layout_id": 1,
+      "layout_repeat": 1,
+      "profit_by_seat": {
+        "0": -700,
+        "1": -300,
+        "2": 1400,
+        "3": -400
+      },
+      "seat_to_name": {
+        "0": "qwen3-coder-30b-a3b-instruct",
+        "1": "qwen3-coder-480b-a35b-instruct",
+        "2": "qwen3.5-122b-a10b",
+        "3": "qwen3.5-397b-a17b"
+      },
+      "seed": 1082648106,
+      "session_id": 1,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 0,
+        "2": 2,
+        "3": 0
+      }
+    },
+    "(('qwen3-coder-30b-a3b-instruct', 'qwen3-coder-480b-a35b-instruct', 'qwen3.5-397b-a17b', 'qwen3.5-122b-a10b'), 0)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 1
+      },
+      "layout": [
+        "qwen3-coder-30b-a3b-instruct",
+        "qwen3-coder-480b-a35b-instruct",
+        "qwen3.5-397b-a17b",
+        "qwen3.5-122b-a10b"
+      ],
+      "layout_id": 2,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": -600,
+        "1": 1300,
+        "2": 300,
+        "3": -1000
+      },
+      "seat_to_name": {
+        "0": "qwen3-coder-30b-a3b-instruct",
+        "1": "qwen3-coder-480b-a35b-instruct",
+        "2": "qwen3.5-397b-a17b",
+        "3": "qwen3.5-122b-a10b"
+      },
+      "seed": 443420472,
+      "session_id": 2,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 1,
+        "2": 1,
+        "3": 0
+      }
+    },
+    "(('qwen3-coder-30b-a3b-instruct', 'qwen3-coder-480b-a35b-instruct', 'qwen3.5-397b-a17b', 'qwen3.5-122b-a10b'), 1)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 1
+      },
+      "layout": [
+        "qwen3-coder-30b-a3b-instruct",
+        "qwen3-coder-480b-a35b-instruct",
+        "qwen3.5-397b-a17b",
+        "qwen3.5-122b-a10b"
+      ],
+      "layout_id": 3,
+      "layout_repeat": 1,
+      "profit_by_seat": {
+        "0": -300,
+        "1": 500,
+        "2": -1400,
+        "3": 1200
+      },
+      "seat_to_name": {
+        "0": "qwen3-coder-30b-a3b-instruct",
+        "1": "qwen3-coder-480b-a35b-instruct",
+        "2": "qwen3.5-397b-a17b",
+        "3": "qwen3.5-122b-a10b"
+      },
+      "seed": 519757770,
+      "session_id": 3,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 1,
+        "2": 0,
+        "3": 1
+      }
+    },
+    "(('qwen3-coder-30b-a3b-instruct', 'qwen3.5-122b-a10b', 'qwen3-coder-480b-a35b-instruct', 'qwen3.5-397b-a17b'), 0)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 2,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "qwen3-coder-30b-a3b-instruct",
+        "qwen3.5-122b-a10b",
+        "qwen3-coder-480b-a35b-instruct",
+        "qwen3.5-397b-a17b"
+      ],
+      "layout_id": 4,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": 9,
+        "1": 1997,
+        "2": -1203,
+        "3": -803
+      },
+      "seat_to_name": {
+        "0": "qwen3-coder-30b-a3b-instruct",
+        "1": "qwen3.5-122b-a10b",
+        "2": "qwen3-coder-480b-a35b-instruct",
+        "3": "qwen3.5-397b-a17b"
+      },
+      "seed": 1824846161,
+      "session_id": 4,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 2,
+        "2": 0,
+        "3": 0
+      }
+    },
+    "(('qwen3-coder-30b-a3b-instruct', 'qwen3.5-122b-a10b', 'qwen3-coder-480b-a35b-instruct', 'qwen3.5-397b-a17b'), 1)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 2,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "qwen3-coder-30b-a3b-instruct",
+        "qwen3.5-122b-a10b",
+        "qwen3-coder-480b-a35b-instruct",
+        "qwen3.5-397b-a17b"
+      ],
+      "layout_id": 5,
+      "layout_repeat": 1,
+      "profit_by_seat": {
+        "0": 24,
+        "1": -2008,
+        "2": -1808,
+        "3": 3792
+      },
+      "seat_to_name": {
+        "0": "qwen3-coder-30b-a3b-instruct",
+        "1": "qwen3.5-122b-a10b",
+        "2": "qwen3-coder-480b-a35b-instruct",
+        "3": "qwen3.5-397b-a17b"
+      },
+      "seed": 1782464683,
+      "session_id": 5,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 1,
+        "2": 0,
+        "3": 1
+      }
+    },
+    "(('qwen3-coder-30b-a3b-instruct', 'qwen3.5-122b-a10b', 'qwen3.5-397b-a17b', 'qwen3-coder-480b-a35b-instruct'), 0)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 1,
+        "1": 1,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "qwen3-coder-30b-a3b-instruct",
+        "qwen3.5-122b-a10b",
+        "qwen3.5-397b-a17b",
+        "qwen3-coder-480b-a35b-instruct"
+      ],
+      "layout_id": 6,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": -303,
+        "1": -291,
+        "2": 1497,
+        "3": -903
+      },
+      "seat_to_name": {
+        "0": "qwen3-coder-30b-a3b-instruct",
+        "1": "qwen3.5-122b-a10b",
+        "2": "qwen3.5-397b-a17b",
+        "3": "qwen3-coder-480b-a35b-instruct"
+      },
+      "seed": 2069178213,
+      "session_id": 6,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 0,
+        "2": 2,
+        "3": 0
+      }
+    },
+    "(('qwen3-coder-30b-a3b-instruct', 'qwen3.5-122b-a10b', 'qwen3.5-397b-a17b', 'qwen3-coder-480b-a35b-instruct'), 1)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 1,
+        "2": 0,
+        "3": 1
+      },
+      "layout": [
+        "qwen3-coder-30b-a3b-instruct",
+        "qwen3.5-122b-a10b",
+        "qwen3.5-397b-a17b",
+        "qwen3-coder-480b-a35b-instruct"
+      ],
+      "layout_id": 7,
+      "layout_repeat": 1,
+      "profit_by_seat": {
+        "0": -603,
+        "1": -291,
+        "2": 297,
+        "3": 597
+      },
+      "seat_to_name": {
+        "0": "qwen3-coder-30b-a3b-instruct",
+        "1": "qwen3.5-122b-a10b",
+        "2": "qwen3.5-397b-a17b",
+        "3": "qwen3-coder-480b-a35b-instruct"
+      },
+      "seed": 1429299963,
+      "session_id": 7,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 0,
+        "2": 1,
+        "3": 1
+      }
+    },
+    "(('qwen3-coder-30b-a3b-instruct', 'qwen3.5-397b-a17b', 'qwen3-coder-480b-a35b-instruct', 'qwen3.5-122b-a10b'), 0)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 1
+      },
+      "layout": [
+        "qwen3-coder-30b-a3b-instruct",
+        "qwen3.5-397b-a17b",
+        "qwen3-coder-480b-a35b-instruct",
+        "qwen3.5-122b-a10b"
+      ],
+      "layout_id": 8,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": -2600,
+        "1": 3500,
+        "2": -1700,
+        "3": 800
+      },
+      "seat_to_name": {
+        "0": "qwen3-coder-30b-a3b-instruct",
+        "1": "qwen3.5-397b-a17b",
+        "2": "qwen3-coder-480b-a35b-instruct",
+        "3": "qwen3.5-122b-a10b"
+      },
+      "seed": 47942026,
+      "session_id": 8,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 1,
+        "2": 0,
+        "3": 1
+      }
+    },
+    "(('qwen3-coder-30b-a3b-instruct', 'qwen3.5-397b-a17b', 'qwen3-coder-480b-a35b-instruct', 'qwen3.5-122b-a10b'), 1)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 2,
+        "3": 0
+      },
+      "layout": [
+        "qwen3-coder-30b-a3b-instruct",
+        "qwen3.5-397b-a17b",
+        "qwen3-coder-480b-a35b-instruct",
+        "qwen3.5-122b-a10b"
+      ],
+      "layout_id": 9,
+      "layout_repeat": 1,
+      "profit_by_seat": {
+        "0": -1802,
+        "1": 1998,
+        "2": 6,
+        "3": -202
+      },
+      "seat_to_name": {
+        "0": "qwen3-coder-30b-a3b-instruct",
+        "1": "qwen3.5-397b-a17b",
+        "2": "qwen3-coder-480b-a35b-instruct",
+        "3": "qwen3.5-122b-a10b"
+      },
+      "seed": 1040927496,
+      "session_id": 9,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 1,
+        "2": 0,
+        "3": 1
+      }
+    },
+    "(('qwen3-coder-30b-a3b-instruct', 'qwen3.5-397b-a17b', 'qwen3.5-122b-a10b', 'qwen3-coder-480b-a35b-instruct'), 0)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 2,
+        "3": 0
+      },
+      "layout": [
+        "qwen3-coder-30b-a3b-instruct",
+        "qwen3.5-397b-a17b",
+        "qwen3.5-122b-a10b",
+        "qwen3-coder-480b-a35b-instruct"
+      ],
+      "layout_id": 10,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": -603,
+        "1": -903,
+        "2": 9,
+        "3": 1497
+      },
+      "seat_to_name": {
+        "0": "qwen3-coder-30b-a3b-instruct",
+        "1": "qwen3.5-397b-a17b",
+        "2": "qwen3.5-122b-a10b",
+        "3": "qwen3-coder-480b-a35b-instruct"
+      },
+      "seed": 1020834272,
+      "session_id": 10,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 2
+      }
+    },
+    "(('qwen3-coder-30b-a3b-instruct', 'qwen3.5-397b-a17b', 'qwen3.5-122b-a10b', 'qwen3-coder-480b-a35b-instruct'), 1)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 2,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "qwen3-coder-30b-a3b-instruct",
+        "qwen3.5-397b-a17b",
+        "qwen3.5-122b-a10b",
+        "qwen3-coder-480b-a35b-instruct"
+      ],
+      "layout_id": 11,
+      "layout_repeat": 1,
+      "profit_by_seat": {
+        "0": 9,
+        "1": 7097,
+        "2": -3103,
+        "3": -4003
+      },
+      "seat_to_name": {
+        "0": "qwen3-coder-30b-a3b-instruct",
+        "1": "qwen3.5-397b-a17b",
+        "2": "qwen3.5-122b-a10b",
+        "3": "qwen3-coder-480b-a35b-instruct"
+      },
+      "seed": 1227162321,
+      "session_id": 11,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 2,
+        "2": 0,
+        "3": 0
+      }
+    },
+    "(('qwen3-coder-480b-a35b-instruct', 'qwen3-coder-30b-a3b-instruct', 'qwen3.5-122b-a10b', 'qwen3.5-397b-a17b'), 0)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 1,
+        "2": 0,
+        "3": 1
+      },
+      "layout": [
+        "qwen3-coder-480b-a35b-instruct",
+        "qwen3-coder-30b-a3b-instruct",
+        "qwen3.5-122b-a10b",
+        "qwen3.5-397b-a17b"
+      ],
+      "layout_id": 12,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": 293,
+        "1": -591,
+        "2": 593,
+        "3": -295
+      },
+      "seat_to_name": {
+        "0": "qwen3-coder-480b-a35b-instruct",
+        "1": "qwen3-coder-30b-a3b-instruct",
+        "2": "qwen3.5-122b-a10b",
+        "3": "qwen3.5-397b-a17b"
+      },
+      "seed": 1087027310,
+      "session_id": 12,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 1,
+        "1": 0,
+        "2": 1,
+        "3": 0
+      }
+    },
+    "(('qwen3-coder-480b-a35b-instruct', 'qwen3-coder-30b-a3b-instruct', 'qwen3.5-122b-a10b', 'qwen3.5-397b-a17b'), 1)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 2
+      },
+      "layout": [
+        "qwen3-coder-480b-a35b-instruct",
+        "qwen3-coder-30b-a3b-instruct",
+        "qwen3.5-122b-a10b",
+        "qwen3.5-397b-a17b"
+      ],
+      "layout_id": 13,
+      "layout_repeat": 1,
+      "profit_by_seat": {
+        "0": 1395,
+        "1": -705,
+        "2": -705,
+        "3": 15
+      },
+      "seat_to_name": {
+        "0": "qwen3-coder-480b-a35b-instruct",
+        "1": "qwen3-coder-30b-a3b-instruct",
+        "2": "qwen3.5-122b-a10b",
+        "3": "qwen3.5-397b-a17b"
+      },
+      "seed": 347977514,
+      "session_id": 13,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 2,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      }
+    },
+    "(('qwen3-coder-480b-a35b-instruct', 'qwen3-coder-30b-a3b-instruct', 'qwen3.5-397b-a17b', 'qwen3.5-122b-a10b'), 0)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 1,
+        "2": 0,
+        "3": 1
+      },
+      "layout": [
+        "qwen3-coder-480b-a35b-instruct",
+        "qwen3-coder-30b-a3b-instruct",
+        "qwen3.5-397b-a17b",
+        "qwen3.5-122b-a10b"
+      ],
+      "layout_id": 14,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": 1197,
+        "1": -799,
+        "2": 397,
+        "3": -795
+      },
+      "seat_to_name": {
+        "0": "qwen3-coder-480b-a35b-instruct",
+        "1": "qwen3-coder-30b-a3b-instruct",
+        "2": "qwen3.5-397b-a17b",
+        "3": "qwen3.5-122b-a10b"
+      },
+      "seed": 1831224160,
+      "session_id": 14,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 1,
+        "1": 0,
+        "2": 1,
+        "3": 0
+      }
+    },
+    "(('qwen3-coder-480b-a35b-instruct', 'qwen3-coder-30b-a3b-instruct', 'qwen3.5-397b-a17b', 'qwen3.5-122b-a10b'), 1)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 2,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "qwen3-coder-480b-a35b-instruct",
+        "qwen3-coder-30b-a3b-instruct",
+        "qwen3.5-397b-a17b",
+        "qwen3.5-122b-a10b"
+      ],
+      "layout_id": 15,
+      "layout_repeat": 1,
+      "profit_by_seat": {
+        "0": -3501,
+        "1": 3,
+        "2": 4599,
+        "3": -1101
+      },
+      "seat_to_name": {
+        "0": "qwen3-coder-480b-a35b-instruct",
+        "1": "qwen3-coder-30b-a3b-instruct",
+        "2": "qwen3.5-397b-a17b",
+        "3": "qwen3.5-122b-a10b"
+      },
+      "seed": 1563463693,
+      "session_id": 15,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 0,
+        "2": 2,
+        "3": 0
+      }
+    },
+    "(('qwen3-coder-480b-a35b-instruct', 'qwen3.5-122b-a10b', 'qwen3-coder-30b-a3b-instruct', 'qwen3.5-397b-a17b'), 0)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 2,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "qwen3-coder-480b-a35b-instruct",
+        "qwen3.5-122b-a10b",
+        "qwen3-coder-30b-a3b-instruct",
+        "qwen3.5-397b-a17b"
+      ],
+      "layout_id": 16,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": -1203,
+        "1": 9,
+        "2": 897,
+        "3": 297
+      },
+      "seat_to_name": {
+        "0": "qwen3-coder-480b-a35b-instruct",
+        "1": "qwen3.5-122b-a10b",
+        "2": "qwen3-coder-30b-a3b-instruct",
+        "3": "qwen3.5-397b-a17b"
+      },
+      "seed": 1001207382,
+      "session_id": 16,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 0,
+        "2": 1,
+        "3": 1
+      }
+    },
+    "(('qwen3-coder-480b-a35b-instruct', 'qwen3.5-122b-a10b', 'qwen3-coder-30b-a3b-instruct', 'qwen3.5-397b-a17b'), 1)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 2,
+        "3": 0
+      },
+      "layout": [
+        "qwen3-coder-480b-a35b-instruct",
+        "qwen3.5-122b-a10b",
+        "qwen3-coder-30b-a3b-instruct",
+        "qwen3.5-397b-a17b"
+      ],
+      "layout_id": 17,
+      "layout_repeat": 1,
+      "profit_by_seat": {
+        "0": -2802,
+        "1": -2102,
+        "2": 6,
+        "3": 4898
+      },
+      "seat_to_name": {
+        "0": "qwen3-coder-480b-a35b-instruct",
+        "1": "qwen3.5-122b-a10b",
+        "2": "qwen3-coder-30b-a3b-instruct",
+        "3": "qwen3.5-397b-a17b"
+      },
+      "seed": 2049704132,
+      "session_id": 17,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 2
+      }
+    },
+    "(('qwen3-coder-480b-a35b-instruct', 'qwen3.5-122b-a10b', 'qwen3.5-397b-a17b', 'qwen3-coder-30b-a3b-instruct'), 0)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 1,
+        "1": 1,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "qwen3-coder-480b-a35b-instruct",
+        "qwen3.5-122b-a10b",
+        "qwen3.5-397b-a17b",
+        "qwen3-coder-30b-a3b-instruct"
+      ],
+      "layout_id": 18,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": -600,
+        "1": -500,
+        "2": 400,
+        "3": 700
+      },
+      "seat_to_name": {
+        "0": "qwen3-coder-480b-a35b-instruct",
+        "1": "qwen3.5-122b-a10b",
+        "2": "qwen3.5-397b-a17b",
+        "3": "qwen3-coder-30b-a3b-instruct"
+      },
+      "seed": 463984305,
+      "session_id": 18,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 0,
+        "2": 1,
+        "3": 1
+      }
+    },
+    "(('qwen3-coder-480b-a35b-instruct', 'qwen3.5-122b-a10b', 'qwen3.5-397b-a17b', 'qwen3-coder-30b-a3b-instruct'), 1)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 1
+      },
+      "layout": [
+        "qwen3-coder-480b-a35b-instruct",
+        "qwen3.5-122b-a10b",
+        "qwen3.5-397b-a17b",
+        "qwen3-coder-30b-a3b-instruct"
+      ],
+      "layout_id": 19,
+      "layout_repeat": 1,
+      "profit_by_seat": {
+        "0": -1200,
+        "1": 2000,
+        "2": -400,
+        "3": -400
+      },
+      "seat_to_name": {
+        "0": "qwen3-coder-480b-a35b-instruct",
+        "1": "qwen3.5-122b-a10b",
+        "2": "qwen3.5-397b-a17b",
+        "3": "qwen3-coder-30b-a3b-instruct"
+      },
+      "seed": 1609461039,
+      "session_id": 19,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 2,
+        "2": 0,
+        "3": 0
+      }
+    },
+    "(('qwen3-coder-480b-a35b-instruct', 'qwen3.5-397b-a17b', 'qwen3-coder-30b-a3b-instruct', 'qwen3.5-122b-a10b'), 0)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 1,
+        "2": 0,
+        "3": 1
+      },
+      "layout": [
+        "qwen3-coder-480b-a35b-instruct",
+        "qwen3.5-397b-a17b",
+        "qwen3-coder-30b-a3b-instruct",
+        "qwen3.5-122b-a10b"
+      ],
+      "layout_id": 20,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": 3194,
+        "1": -790,
+        "2": -1606,
+        "3": -798
+      },
+      "seat_to_name": {
+        "0": "qwen3-coder-480b-a35b-instruct",
+        "1": "qwen3.5-397b-a17b",
+        "2": "qwen3-coder-30b-a3b-instruct",
+        "3": "qwen3.5-122b-a10b"
+      },
+      "seed": 1337504074,
+      "session_id": 20,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 2,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      }
+    },
+    "(('qwen3-coder-480b-a35b-instruct', 'qwen3.5-397b-a17b', 'qwen3-coder-30b-a3b-instruct', 'qwen3.5-122b-a10b'), 1)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 2
+      },
+      "layout": [
+        "qwen3-coder-480b-a35b-instruct",
+        "qwen3.5-397b-a17b",
+        "qwen3-coder-30b-a3b-instruct",
+        "qwen3.5-122b-a10b"
+      ],
+      "layout_id": 21,
+      "layout_repeat": 1,
+      "profit_by_seat": {
+        "0": 1196,
+        "1": 896,
+        "2": -2104,
+        "3": 12
+      },
+      "seat_to_name": {
+        "0": "qwen3-coder-480b-a35b-instruct",
+        "1": "qwen3.5-397b-a17b",
+        "2": "qwen3-coder-30b-a3b-instruct",
+        "3": "qwen3.5-122b-a10b"
+      },
+      "seed": 866385952,
+      "session_id": 21,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 1,
+        "1": 1,
+        "2": 0,
+        "3": 0
+      }
+    },
+    "(('qwen3-coder-480b-a35b-instruct', 'qwen3.5-397b-a17b', 'qwen3.5-122b-a10b', 'qwen3-coder-30b-a3b-instruct'), 0)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 1,
+        "2": 0,
+        "3": 1
+      },
+      "layout": [
+        "qwen3-coder-480b-a35b-instruct",
+        "qwen3.5-397b-a17b",
+        "qwen3.5-122b-a10b",
+        "qwen3-coder-30b-a3b-instruct"
+      ],
+      "layout_id": 22,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": 1000,
+        "1": -300,
+        "2": 100,
+        "3": -800
+      },
+      "seat_to_name": {
+        "0": "qwen3-coder-480b-a35b-instruct",
+        "1": "qwen3.5-397b-a17b",
+        "2": "qwen3.5-122b-a10b",
+        "3": "qwen3-coder-30b-a3b-instruct"
+      },
+      "seed": 1772179807,
+      "session_id": 22,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 1,
+        "1": 0,
+        "2": 1,
+        "3": 0
+      }
+    },
+    "(('qwen3-coder-480b-a35b-instruct', 'qwen3.5-397b-a17b', 'qwen3.5-122b-a10b', 'qwen3-coder-30b-a3b-instruct'), 1)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 2,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "qwen3-coder-480b-a35b-instruct",
+        "qwen3.5-397b-a17b",
+        "qwen3.5-122b-a10b",
+        "qwen3-coder-30b-a3b-instruct"
+      ],
+      "layout_id": 23,
+      "layout_repeat": 1,
+      "profit_by_seat": {
+        "0": 15,
+        "1": 11995,
+        "2": -6005,
+        "3": -6005
+      },
+      "seat_to_name": {
+        "0": "qwen3-coder-480b-a35b-instruct",
+        "1": "qwen3.5-397b-a17b",
+        "2": "qwen3.5-122b-a10b",
+        "3": "qwen3-coder-30b-a3b-instruct"
+      },
+      "seed": 2083804960,
+      "session_id": 23,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 2,
+        "2": 0,
+        "3": 0
+      }
+    },
+    "(('qwen3.5-122b-a10b', 'qwen3-coder-30b-a3b-instruct', 'qwen3-coder-480b-a35b-instruct', 'qwen3.5-397b-a17b'), 0)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 1,
+        "2": 1,
+        "3": 0
+      },
+      "layout": [
+        "qwen3.5-122b-a10b",
+        "qwen3-coder-30b-a3b-instruct",
+        "qwen3-coder-480b-a35b-instruct",
+        "qwen3.5-397b-a17b"
+      ],
+      "layout_id": 24,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": -1503,
+        "1": -595,
+        "2": -299,
+        "3": 2397
+      },
+      "seat_to_name": {
+        "0": "qwen3.5-122b-a10b",
+        "1": "qwen3-coder-30b-a3b-instruct",
+        "2": "qwen3-coder-480b-a35b-instruct",
+        "3": "qwen3.5-397b-a17b"
+      },
+      "seed": 1920760965,
+      "session_id": 24,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 2
+      }
+    },
+    "(('qwen3.5-122b-a10b', 'qwen3-coder-30b-a3b-instruct', 'qwen3-coder-480b-a35b-instruct', 'qwen3.5-397b-a17b'), 1)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 2
+      },
+      "layout": [
+        "qwen3.5-122b-a10b",
+        "qwen3-coder-30b-a3b-instruct",
+        "qwen3-coder-480b-a35b-instruct",
+        "qwen3.5-397b-a17b"
+      ],
+      "layout_id": 25,
+      "layout_repeat": 1,
+      "profit_by_seat": {
+        "0": 2100,
+        "1": -1200,
+        "2": -900,
+        "3": 0
+      },
+      "seat_to_name": {
+        "0": "qwen3.5-122b-a10b",
+        "1": "qwen3-coder-30b-a3b-instruct",
+        "2": "qwen3-coder-480b-a35b-instruct",
+        "3": "qwen3.5-397b-a17b"
+      },
+      "seed": 136237904,
+      "session_id": 25,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 2,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      }
+    },
+    "(('qwen3.5-122b-a10b', 'qwen3-coder-30b-a3b-instruct', 'qwen3.5-397b-a17b', 'qwen3-coder-480b-a35b-instruct'), 0)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 1,
+        "1": 0,
+        "2": 1,
+        "3": 0
+      },
+      "layout": [
+        "qwen3.5-122b-a10b",
+        "qwen3-coder-30b-a3b-instruct",
+        "qwen3.5-397b-a17b",
+        "qwen3-coder-480b-a35b-instruct"
+      ],
+      "layout_id": 26,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": -1191,
+        "1": 397,
+        "2": 2097,
+        "3": -1303
+      },
+      "seat_to_name": {
+        "0": "qwen3.5-122b-a10b",
+        "1": "qwen3-coder-30b-a3b-instruct",
+        "2": "qwen3.5-397b-a17b",
+        "3": "qwen3-coder-480b-a35b-instruct"
+      },
+      "seed": 958254287,
+      "session_id": 26,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 1,
+        "2": 1,
+        "3": 0
+      }
+    },
+    "(('qwen3.5-122b-a10b', 'qwen3-coder-30b-a3b-instruct', 'qwen3.5-397b-a17b', 'qwen3-coder-480b-a35b-instruct'), 1)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 1,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "qwen3.5-122b-a10b",
+        "qwen3-coder-30b-a3b-instruct",
+        "qwen3.5-397b-a17b",
+        "qwen3-coder-480b-a35b-instruct"
+      ],
+      "layout_id": 27,
+      "layout_repeat": 1,
+      "profit_by_seat": {
+        "0": -2000,
+        "1": -4800,
+        "2": 13600,
+        "3": -6800
+      },
+      "seat_to_name": {
+        "0": "qwen3.5-122b-a10b",
+        "1": "qwen3-coder-30b-a3b-instruct",
+        "2": "qwen3.5-397b-a17b",
+        "3": "qwen3-coder-480b-a35b-instruct"
+      },
+      "seed": 531107990,
+      "session_id": 27,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 0,
+        "2": 2,
+        "3": 0
+      }
+    },
+    "(('qwen3.5-122b-a10b', 'qwen3-coder-480b-a35b-instruct', 'qwen3-coder-30b-a3b-instruct', 'qwen3.5-397b-a17b'), 0)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 2
+      },
+      "layout": [
+        "qwen3.5-122b-a10b",
+        "qwen3-coder-480b-a35b-instruct",
+        "qwen3-coder-30b-a3b-instruct",
+        "qwen3.5-397b-a17b"
+      ],
+      "layout_id": 28,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": 599,
+        "1": 1199,
+        "2": -1801,
+        "3": 3
+      },
+      "seat_to_name": {
+        "0": "qwen3.5-122b-a10b",
+        "1": "qwen3-coder-480b-a35b-instruct",
+        "2": "qwen3-coder-30b-a3b-instruct",
+        "3": "qwen3.5-397b-a17b"
+      },
+      "seed": 975850607,
+      "session_id": 28,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 1,
+        "1": 1,
+        "2": 0,
+        "3": 0
+      }
+    },
+    "(('qwen3.5-122b-a10b', 'qwen3-coder-480b-a35b-instruct', 'qwen3-coder-30b-a3b-instruct', 'qwen3.5-397b-a17b'), 1)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 1,
+        "2": 0,
+        "3": 1
+      },
+      "layout": [
+        "qwen3.5-122b-a10b",
+        "qwen3-coder-480b-a35b-instruct",
+        "qwen3-coder-30b-a3b-instruct",
+        "qwen3.5-397b-a17b"
+      ],
+      "layout_id": 29,
+      "layout_repeat": 1,
+      "profit_by_seat": {
+        "0": 1100,
+        "1": 1200,
+        "2": -1300,
+        "3": -1000
+      },
+      "seat_to_name": {
+        "0": "qwen3.5-122b-a10b",
+        "1": "qwen3-coder-480b-a35b-instruct",
+        "2": "qwen3-coder-30b-a3b-instruct",
+        "3": "qwen3.5-397b-a17b"
+      },
+      "seed": 923803593,
+      "session_id": 29,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 1,
+        "1": 1,
+        "2": 0,
+        "3": 0
+      }
+    },
+    "(('qwen3.5-122b-a10b', 'qwen3-coder-480b-a35b-instruct', 'qwen3.5-397b-a17b', 'qwen3-coder-30b-a3b-instruct'), 0)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 1,
+        "3": 1
+      },
+      "layout": [
+        "qwen3.5-122b-a10b",
+        "qwen3-coder-480b-a35b-instruct",
+        "qwen3.5-397b-a17b",
+        "qwen3-coder-30b-a3b-instruct"
+      ],
+      "layout_id": 30,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": -1502,
+        "1": 2398,
+        "2": -594,
+        "3": -302
+      },
+      "seat_to_name": {
+        "0": "qwen3.5-122b-a10b",
+        "1": "qwen3-coder-480b-a35b-instruct",
+        "2": "qwen3.5-397b-a17b",
+        "3": "qwen3-coder-30b-a3b-instruct"
+      },
+      "seed": 1762282338,
+      "session_id": 30,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 1,
+        "1": 1,
+        "2": 0,
+        "3": 0
+      }
+    },
+    "(('qwen3.5-122b-a10b', 'qwen3-coder-480b-a35b-instruct', 'qwen3.5-397b-a17b', 'qwen3-coder-30b-a3b-instruct'), 1)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 2,
+        "3": 0
+      },
+      "layout": [
+        "qwen3.5-122b-a10b",
+        "qwen3-coder-480b-a35b-instruct",
+        "qwen3.5-397b-a17b",
+        "qwen3-coder-30b-a3b-instruct"
+      ],
+      "layout_id": 31,
+      "layout_repeat": 1,
+      "profit_by_seat": {
+        "0": 700,
+        "1": -1100,
+        "2": 0,
+        "3": 400
+      },
+      "seat_to_name": {
+        "0": "qwen3.5-122b-a10b",
+        "1": "qwen3-coder-480b-a35b-instruct",
+        "2": "qwen3.5-397b-a17b",
+        "3": "qwen3-coder-30b-a3b-instruct"
+      },
+      "seed": 1124366028,
+      "session_id": 31,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 1
+      }
+    },
+    "(('qwen3.5-122b-a10b', 'qwen3.5-397b-a17b', 'qwen3-coder-30b-a3b-instruct', 'qwen3-coder-480b-a35b-instruct'), 0)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 1,
+        "2": 0,
+        "3": 1
+      },
+      "layout": [
+        "qwen3.5-122b-a10b",
+        "qwen3.5-397b-a17b",
+        "qwen3-coder-30b-a3b-instruct",
+        "qwen3-coder-480b-a35b-instruct"
+      ],
+      "layout_id": 32,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": -4,
+        "1": -596,
+        "2": 896,
+        "3": -296
+      },
+      "seat_to_name": {
+        "0": "qwen3.5-122b-a10b",
+        "1": "qwen3.5-397b-a17b",
+        "2": "qwen3-coder-30b-a3b-instruct",
+        "3": "qwen3-coder-480b-a35b-instruct"
+      },
+      "seed": 1798358690,
+      "session_id": 32,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 1,
+        "1": 0,
+        "2": 1,
+        "3": 0
+      }
+    },
+    "(('qwen3.5-122b-a10b', 'qwen3.5-397b-a17b', 'qwen3-coder-30b-a3b-instruct', 'qwen3-coder-480b-a35b-instruct'), 1)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 2
+      },
+      "layout": [
+        "qwen3.5-122b-a10b",
+        "qwen3.5-397b-a17b",
+        "qwen3-coder-30b-a3b-instruct",
+        "qwen3-coder-480b-a35b-instruct"
+      ],
+      "layout_id": 33,
+      "layout_repeat": 1,
+      "profit_by_seat": {
+        "0": 3200,
+        "1": -1600,
+        "2": -1600,
+        "3": 0
+      },
+      "seat_to_name": {
+        "0": "qwen3.5-122b-a10b",
+        "1": "qwen3.5-397b-a17b",
+        "2": "qwen3-coder-30b-a3b-instruct",
+        "3": "qwen3-coder-480b-a35b-instruct"
+      },
+      "seed": 581703726,
+      "session_id": 33,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 2,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      }
+    },
+    "(('qwen3.5-122b-a10b', 'qwen3.5-397b-a17b', 'qwen3-coder-480b-a35b-instruct', 'qwen3-coder-30b-a3b-instruct'), 0)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 2,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "qwen3.5-122b-a10b",
+        "qwen3.5-397b-a17b",
+        "qwen3-coder-480b-a35b-instruct",
+        "qwen3-coder-30b-a3b-instruct"
+      ],
+      "layout_id": 34,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": 9,
+        "1": -803,
+        "2": 5397,
+        "3": -4603
+      },
+      "seat_to_name": {
+        "0": "qwen3.5-122b-a10b",
+        "1": "qwen3.5-397b-a17b",
+        "2": "qwen3-coder-480b-a35b-instruct",
+        "3": "qwen3-coder-30b-a3b-instruct"
+      },
+      "seed": 1763348078,
+      "session_id": 34,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 1,
+        "2": 1,
+        "3": 0
+      }
+    },
+    "(('qwen3.5-122b-a10b', 'qwen3.5-397b-a17b', 'qwen3-coder-480b-a35b-instruct', 'qwen3-coder-30b-a3b-instruct'), 1)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 1,
+        "1": 1,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "qwen3.5-122b-a10b",
+        "qwen3.5-397b-a17b",
+        "qwen3-coder-480b-a35b-instruct",
+        "qwen3-coder-30b-a3b-instruct"
+      ],
+      "layout_id": 35,
+      "layout_repeat": 1,
+      "profit_by_seat": {
+        "0": 903,
+        "1": -301,
+        "2": 299,
+        "3": -901
+      },
+      "seat_to_name": {
+        "0": "qwen3.5-122b-a10b",
+        "1": "qwen3.5-397b-a17b",
+        "2": "qwen3-coder-480b-a35b-instruct",
+        "3": "qwen3-coder-30b-a3b-instruct"
+      },
+      "seed": 385945516,
+      "session_id": 35,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 1,
+        "1": 0,
+        "2": 1,
+        "3": 0
+      }
+    },
+    "(('qwen3.5-397b-a17b', 'qwen3-coder-30b-a3b-instruct', 'qwen3-coder-480b-a35b-instruct', 'qwen3.5-122b-a10b'), 0)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 1
+      },
+      "layout": [
+        "qwen3.5-397b-a17b",
+        "qwen3-coder-30b-a3b-instruct",
+        "qwen3-coder-480b-a35b-instruct",
+        "qwen3.5-122b-a10b"
+      ],
+      "layout_id": 36,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": -600,
+        "1": 1592,
+        "2": -1408,
+        "3": 416
+      },
+      "seat_to_name": {
+        "0": "qwen3.5-397b-a17b",
+        "1": "qwen3-coder-30b-a3b-instruct",
+        "2": "qwen3-coder-480b-a35b-instruct",
+        "3": "qwen3.5-122b-a10b"
+      },
+      "seed": 646666610,
+      "session_id": 36,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 1,
+        "2": 0,
+        "3": 1
+      }
+    },
+    "(('qwen3.5-397b-a17b', 'qwen3-coder-30b-a3b-instruct', 'qwen3-coder-480b-a35b-instruct', 'qwen3.5-122b-a10b'), 1)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 1,
+        "1": 0,
+        "2": 1,
+        "3": 0
+      },
+      "layout": [
+        "qwen3.5-397b-a17b",
+        "qwen3-coder-30b-a3b-instruct",
+        "qwen3-coder-480b-a35b-instruct",
+        "qwen3.5-122b-a10b"
+      ],
+      "layout_id": 37,
+      "layout_repeat": 1,
+      "profit_by_seat": {
+        "0": -493,
+        "1": 295,
+        "2": 1403,
+        "3": -1205
+      },
+      "seat_to_name": {
+        "0": "qwen3.5-397b-a17b",
+        "1": "qwen3-coder-30b-a3b-instruct",
+        "2": "qwen3-coder-480b-a35b-instruct",
+        "3": "qwen3.5-122b-a10b"
+      },
+      "seed": 837104008,
+      "session_id": 37,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 1,
+        "2": 1,
+        "3": 0
+      }
+    },
+    "(('qwen3.5-397b-a17b', 'qwen3-coder-30b-a3b-instruct', 'qwen3.5-122b-a10b', 'qwen3-coder-480b-a35b-instruct'), 0)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 2,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "qwen3.5-397b-a17b",
+        "qwen3-coder-30b-a3b-instruct",
+        "qwen3.5-122b-a10b",
+        "qwen3-coder-480b-a35b-instruct"
+      ],
+      "layout_id": 38,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": 6,
+        "1": 898,
+        "2": 1298,
+        "3": -2202
+      },
+      "seat_to_name": {
+        "0": "qwen3.5-397b-a17b",
+        "1": "qwen3-coder-30b-a3b-instruct",
+        "2": "qwen3.5-122b-a10b",
+        "3": "qwen3-coder-480b-a35b-instruct"
+      },
+      "seed": 1443939692,
+      "session_id": 38,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 1,
+        "2": 1,
+        "3": 0
+      }
+    },
+    "(('qwen3.5-397b-a17b', 'qwen3-coder-30b-a3b-instruct', 'qwen3.5-122b-a10b', 'qwen3-coder-480b-a35b-instruct'), 1)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 1
+      },
+      "layout": [
+        "qwen3.5-397b-a17b",
+        "qwen3-coder-30b-a3b-instruct",
+        "qwen3.5-122b-a10b",
+        "qwen3-coder-480b-a35b-instruct"
+      ],
+      "layout_id": 39,
+      "layout_repeat": 1,
+      "profit_by_seat": {
+        "0": -600,
+        "1": 800,
+        "2": 600,
+        "3": -800
+      },
+      "seat_to_name": {
+        "0": "qwen3.5-397b-a17b",
+        "1": "qwen3-coder-30b-a3b-instruct",
+        "2": "qwen3.5-122b-a10b",
+        "3": "qwen3-coder-480b-a35b-instruct"
+      },
+      "seed": 990845545,
+      "session_id": 39,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 1,
+        "2": 1,
+        "3": 0
+      }
+    },
+    "(('qwen3.5-397b-a17b', 'qwen3-coder-480b-a35b-instruct', 'qwen3-coder-30b-a3b-instruct', 'qwen3.5-122b-a10b'), 0)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 2,
+        "3": 0
+      },
+      "layout": [
+        "qwen3.5-397b-a17b",
+        "qwen3-coder-480b-a35b-instruct",
+        "qwen3-coder-30b-a3b-instruct",
+        "qwen3.5-122b-a10b"
+      ],
+      "layout_id": 40,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": -1002,
+        "1": -1002,
+        "2": 6,
+        "3": 1998
+      },
+      "seat_to_name": {
+        "0": "qwen3.5-397b-a17b",
+        "1": "qwen3-coder-480b-a35b-instruct",
+        "2": "qwen3-coder-30b-a3b-instruct",
+        "3": "qwen3.5-122b-a10b"
+      },
+      "seed": 1671837875,
+      "session_id": 40,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 2
+      }
+    },
+    "(('qwen3.5-397b-a17b', 'qwen3-coder-480b-a35b-instruct', 'qwen3-coder-30b-a3b-instruct', 'qwen3.5-122b-a10b'), 1)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 1,
+        "2": 1,
+        "3": 0
+      },
+      "layout": [
+        "qwen3.5-397b-a17b",
+        "qwen3-coder-480b-a35b-instruct",
+        "qwen3-coder-30b-a3b-instruct",
+        "qwen3.5-122b-a10b"
+      ],
+      "layout_id": 41,
+      "layout_repeat": 1,
+      "profit_by_seat": {
+        "0": 399,
+        "1": -501,
+        "2": -597,
+        "3": 699
+      },
+      "seat_to_name": {
+        "0": "qwen3.5-397b-a17b",
+        "1": "qwen3-coder-480b-a35b-instruct",
+        "2": "qwen3-coder-30b-a3b-instruct",
+        "3": "qwen3.5-122b-a10b"
+      },
+      "seed": 531471001,
+      "session_id": 41,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 1
+      }
+    },
+    "(('qwen3.5-397b-a17b', 'qwen3-coder-480b-a35b-instruct', 'qwen3.5-122b-a10b', 'qwen3-coder-30b-a3b-instruct'), 0)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 1,
+        "1": 0,
+        "2": 1,
+        "3": 0
+      },
+      "layout": [
+        "qwen3.5-397b-a17b",
+        "qwen3-coder-480b-a35b-instruct",
+        "qwen3.5-122b-a10b",
+        "qwen3-coder-30b-a3b-instruct"
+      ],
+      "layout_id": 42,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": -294,
+        "1": 3298,
+        "2": -1602,
+        "3": -1402
+      },
+      "seat_to_name": {
+        "0": "qwen3.5-397b-a17b",
+        "1": "qwen3-coder-480b-a35b-instruct",
+        "2": "qwen3.5-122b-a10b",
+        "3": "qwen3-coder-30b-a3b-instruct"
+      },
+      "seed": 385074872,
+      "session_id": 42,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 2,
+        "2": 0,
+        "3": 0
+      }
+    },
+    "(('qwen3.5-397b-a17b', 'qwen3-coder-480b-a35b-instruct', 'qwen3.5-122b-a10b', 'qwen3-coder-30b-a3b-instruct'), 1)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 1,
+        "1": 0,
+        "2": 1,
+        "3": 0
+      },
+      "layout": [
+        "qwen3.5-397b-a17b",
+        "qwen3-coder-480b-a35b-instruct",
+        "qwen3.5-122b-a10b",
+        "qwen3-coder-30b-a3b-instruct"
+      ],
+      "layout_id": 43,
+      "layout_repeat": 1,
+      "profit_by_seat": {
+        "0": 1000,
+        "1": -1200,
+        "2": -700,
+        "3": 900
+      },
+      "seat_to_name": {
+        "0": "qwen3.5-397b-a17b",
+        "1": "qwen3-coder-480b-a35b-instruct",
+        "2": "qwen3.5-122b-a10b",
+        "3": "qwen3-coder-30b-a3b-instruct"
+      },
+      "seed": 826203289,
+      "session_id": 43,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 1
+      }
+    },
+    "(('qwen3.5-397b-a17b', 'qwen3.5-122b-a10b', 'qwen3-coder-30b-a3b-instruct', 'qwen3-coder-480b-a35b-instruct'), 0)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 1,
+        "3": 1
+      },
+      "layout": [
+        "qwen3.5-397b-a17b",
+        "qwen3.5-122b-a10b",
+        "qwen3-coder-30b-a3b-instruct",
+        "qwen3-coder-480b-a35b-instruct"
+      ],
+      "layout_id": 44,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": 1497,
+        "1": -303,
+        "2": -603,
+        "3": -591
+      },
+      "seat_to_name": {
+        "0": "qwen3.5-397b-a17b",
+        "1": "qwen3.5-122b-a10b",
+        "2": "qwen3-coder-30b-a3b-instruct",
+        "3": "qwen3-coder-480b-a35b-instruct"
+      },
+      "seed": 1591715061,
+      "session_id": 44,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 1,
+        "1": 1,
+        "2": 0,
+        "3": 0
+      }
+    },
+    "(('qwen3.5-397b-a17b', 'qwen3.5-122b-a10b', 'qwen3-coder-30b-a3b-instruct', 'qwen3-coder-480b-a35b-instruct'), 1)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 0,
+        "1": 0,
+        "2": 2,
+        "3": 0
+      },
+      "layout": [
+        "qwen3.5-397b-a17b",
+        "qwen3.5-122b-a10b",
+        "qwen3-coder-30b-a3b-instruct",
+        "qwen3-coder-480b-a35b-instruct"
+      ],
+      "layout_id": 45,
+      "layout_repeat": 1,
+      "profit_by_seat": {
+        "0": -2205,
+        "1": -1705,
+        "2": 15,
+        "3": 3895
+      },
+      "seat_to_name": {
+        "0": "qwen3.5-397b-a17b",
+        "1": "qwen3.5-122b-a10b",
+        "2": "qwen3-coder-30b-a3b-instruct",
+        "3": "qwen3-coder-480b-a35b-instruct"
+      },
+      "seed": 1120495432,
+      "session_id": 45,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 2
+      }
+    },
+    "(('qwen3.5-397b-a17b', 'qwen3.5-122b-a10b', 'qwen3-coder-480b-a35b-instruct', 'qwen3-coder-30b-a3b-instruct'), 0)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 2,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "layout": [
+        "qwen3.5-397b-a17b",
+        "qwen3.5-122b-a10b",
+        "qwen3-coder-480b-a35b-instruct",
+        "qwen3-coder-30b-a3b-instruct"
+      ],
+      "layout_id": 46,
+      "layout_repeat": 0,
+      "profit_by_seat": {
+        "0": 12,
+        "1": 2196,
+        "2": -1104,
+        "3": -1104
+      },
+      "seat_to_name": {
+        "0": "qwen3.5-397b-a17b",
+        "1": "qwen3.5-122b-a10b",
+        "2": "qwen3-coder-480b-a35b-instruct",
+        "3": "qwen3-coder-30b-a3b-instruct"
+      },
+      "seed": 1636837724,
+      "session_id": 46,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 2,
+        "2": 0,
+        "3": 0
+      }
+    },
+    "(('qwen3.5-397b-a17b', 'qwen3.5-122b-a10b', 'qwen3-coder-480b-a35b-instruct', 'qwen3-coder-30b-a3b-instruct'), 1)": {
+      "base_seed": null,
+      "early_exits": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "forced_gwang_sell": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 1
+      },
+      "layout": [
+        "qwen3.5-397b-a17b",
+        "qwen3.5-122b-a10b",
+        "qwen3-coder-480b-a35b-instruct",
+        "qwen3-coder-30b-a3b-instruct"
+      ],
+      "layout_id": 47,
+      "layout_repeat": 1,
+      "profit_by_seat": {
+        "0": -1588,
+        "1": 4496,
+        "2": -1504,
+        "3": -1404
+      },
+      "seat_to_name": {
+        "0": "qwen3.5-397b-a17b",
+        "1": "qwen3.5-122b-a10b",
+        "2": "qwen3-coder-480b-a35b-instruct",
+        "3": "qwen3-coder-30b-a3b-instruct"
+      },
+      "seed": 2068548241,
+      "session_id": 47,
+      "showdown_accepts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_ev_gains": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_misplays": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "showdown_proposals": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_rejects": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "showdown_success_count": 0,
+      "win_by_seat": {
+        "0": 0,
+        "1": 2,
+        "2": 0,
+        "3": 0
+      }
+    }
+  },
+  "design_diagnostics": {
+    "cluster_count_by_agent": {
+      "qwen3-coder-30b-a3b-instruct": 24,
+      "qwen3-coder-480b-a35b-instruct": 24,
+      "qwen3.5-122b-a10b": 24,
+      "qwen3.5-397b-a17b": 24
+    },
+    "layout_count": 24,
+    "layout_repetition_max": 2,
+    "layout_repetition_min": 2,
+    "notes": [
+      "CVaR inference is unstable below the recommended 100 sessions per agent."
+    ],
+    "pairing_unit": "session_id",
+    "recommended_cvar_session_count": 100,
+    "recommended_ruin_session_count": 30,
+    "session_count_by_agent": {
+      "qwen3-coder-30b-a3b-instruct": 48,
+      "qwen3-coder-480b-a35b-instruct": 48,
+      "qwen3.5-122b-a10b": 48,
+      "qwen3.5-397b-a17b": 48
+    },
+    "tests_are_two_sided": true
+  },
+  "inferential_statistics": {
+    "rq1_mean_profit": {
+      "method": "paired_cluster_bootstrap_with_cluster_mean_sign_flip_permutation",
+      "metric": "mean_profit",
+      "pairwise": {
+        "qwen3-coder-30b-a3b-instruct__minus__qwen3-coder-480b-a35b-instruct": {
+          "ci_lower": -1409.0833333333333,
+          "ci_upper": 227.41666666666666,
+          "cluster_count": 24,
+          "estimate": -546.6666666666666,
+          "left_agent": "qwen3-coder-30b-a3b-instruct",
+          "p_value_two_sided": 0.22777222777222778,
+          "p_value_two_sided_bonferroni": 1.0,
+          "right_agent": "qwen3-coder-480b-a35b-instruct",
+          "sample_count": 48,
+          "two_sided": true
+        },
+        "qwen3-coder-30b-a3b-instruct__minus__qwen3.5-122b-a10b": {
+          "ci_lower": -1313.25,
+          "ci_upper": -117.5,
+          "cluster_count": 24,
+          "estimate": -693.8333333333334,
+          "left_agent": "qwen3-coder-30b-a3b-instruct",
+          "p_value_two_sided": 0.027972027972027972,
+          "p_value_two_sided_bonferroni": 0.16783216783216784,
+          "right_agent": "qwen3.5-122b-a10b",
+          "sample_count": 48,
+          "two_sided": true
+        },
+        "qwen3-coder-30b-a3b-instruct__minus__qwen3.5-397b-a17b": {
+          "ci_lower": -2966.25,
+          "ci_upper": -717.3333333333334,
+          "cluster_count": 24,
+          "estimate": -1741.8333333333333,
+          "left_agent": "qwen3-coder-30b-a3b-instruct",
+          "p_value_two_sided": 0.002997002997002997,
+          "p_value_two_sided_bonferroni": 0.017982017982017984,
+          "right_agent": "qwen3.5-397b-a17b",
+          "sample_count": 48,
+          "two_sided": true
+        },
+        "qwen3-coder-480b-a35b-instruct__minus__qwen3.5-122b-a10b": {
+          "ci_lower": -872.75,
+          "ci_upper": 595.9166666666666,
+          "cluster_count": 24,
+          "estimate": -147.16666666666666,
+          "left_agent": "qwen3-coder-480b-a35b-instruct",
+          "p_value_two_sided": 0.7192807192807192,
+          "p_value_two_sided_bonferroni": 1.0,
+          "right_agent": "qwen3.5-122b-a10b",
+          "sample_count": 48,
+          "two_sided": true
+        },
+        "qwen3-coder-480b-a35b-instruct__minus__qwen3.5-397b-a17b": {
+          "ci_lower": -2575.6666666666665,
+          "ci_upper": 83.16666666666667,
+          "cluster_count": 24,
+          "estimate": -1195.1666666666667,
+          "left_agent": "qwen3-coder-480b-a35b-instruct",
+          "p_value_two_sided": 0.08191808191808192,
+          "p_value_two_sided_bonferroni": 0.4915084915084915,
+          "right_agent": "qwen3.5-397b-a17b",
+          "sample_count": 48,
+          "two_sided": true
+        },
+        "qwen3.5-122b-a10b__minus__qwen3.5-397b-a17b": {
+          "ci_lower": -2318.0833333333335,
+          "ci_upper": 115.16666666666667,
+          "cluster_count": 24,
+          "estimate": -1048.0,
+          "left_agent": "qwen3.5-122b-a10b",
+          "p_value_two_sided": 0.12287712287712288,
+          "p_value_two_sided_bonferroni": 0.7372627372627373,
+          "right_agent": "qwen3.5-397b-a17b",
+          "sample_count": 48,
+          "two_sided": true
+        }
+      },
+      "two_sided": true
+    },
+    "rq2_tail_risk": {
+      "method": "cluster_bootstrap_confidence_interval",
+      "metric": "empirical_expected_shortfall_alpha_0.05",
+      "pairwise": {
+        "qwen3-coder-30b-a3b-instruct__minus__qwen3-coder-480b-a35b-instruct": {
+          "ci_lower": -2911.75,
+          "ci_upper": 2000.0,
+          "cluster_count": 24,
+          "estimate": -184.4999999999991,
+          "left_agent": "qwen3-coder-30b-a3b-instruct",
+          "right_agent": "qwen3-coder-480b-a35b-instruct",
+          "sample_count": 48,
+          "two_sided": true
+        },
+        "qwen3-coder-30b-a3b-instruct__minus__qwen3.5-122b-a10b": {
+          "ci_lower": -2698.0,
+          "ci_upper": 426.41666666666606,
+          "cluster_count": 24,
+          "estimate": -1123.916666666666,
+          "left_agent": "qwen3-coder-30b-a3b-instruct",
+          "right_agent": "qwen3.5-122b-a10b",
+          "sample_count": 48,
+          "two_sided": true
+        },
+        "qwen3-coder-30b-a3b-instruct__minus__qwen3.5-397b-a17b": {
+          "ci_lower": -4515.0,
+          "ci_upper": -441.5833333333337,
+          "cluster_count": 24,
+          "estimate": -3419.166666666666,
+          "left_agent": "qwen3-coder-30b-a3b-instruct",
+          "right_agent": "qwen3.5-397b-a17b",
+          "sample_count": 48,
+          "two_sided": true
+        },
+        "qwen3-coder-480b-a35b-instruct__minus__qwen3.5-122b-a10b": {
+          "ci_lower": -4280.916666666666,
+          "ci_upper": 2504.0,
+          "cluster_count": 24,
+          "estimate": -939.416666666667,
+          "left_agent": "qwen3-coder-480b-a35b-instruct",
+          "right_agent": "qwen3.5-122b-a10b",
+          "sample_count": 48,
+          "two_sided": true
+        },
+        "qwen3-coder-480b-a35b-instruct__minus__qwen3.5-397b-a17b": {
+          "ci_lower": -5212.0,
+          "ci_upper": -555.416666666667,
+          "cluster_count": 24,
+          "estimate": -3234.666666666667,
+          "left_agent": "qwen3-coder-480b-a35b-instruct",
+          "right_agent": "qwen3.5-397b-a17b",
+          "sample_count": 48,
+          "two_sided": true
+        },
+        "qwen3.5-122b-a10b__minus__qwen3.5-397b-a17b": {
+          "ci_lower": -4407.0,
+          "ci_upper": 118.66666666666652,
+          "cluster_count": 24,
+          "estimate": -2295.25,
+          "left_agent": "qwen3.5-122b-a10b",
+          "right_agent": "qwen3.5-397b-a17b",
+          "sample_count": 48,
+          "two_sided": true
+        }
+      },
+      "per_agent": {
+        "qwen3-coder-30b-a3b-instruct": {
+          "ci_lower": -6005.0,
+          "ci_upper": -2467.0,
+          "cluster_count": 24,
+          "effective_tail_mass": 2.4000000000000004,
+          "estimate": -5269.249999999999,
+          "inferential_ready": false,
+          "recommended_min_sample_count": 100,
+          "sample_count": 48,
+          "support_count": 3,
+          "two_sided": true
+        },
+        "qwen3-coder-480b-a35b-instruct": {
+          "ci_lower": -6800.0,
+          "ci_upper": -2462.75,
+          "cluster_count": 24,
+          "effective_tail_mass": 2.4000000000000004,
+          "estimate": -5084.75,
+          "inferential_ready": false,
+          "recommended_min_sample_count": 100,
+          "sample_count": 48,
+          "support_count": 3,
+          "two_sided": true
+        },
+        "qwen3.5-122b-a10b": {
+          "ci_lower": -6005.0,
+          "ci_upper": -1962.833333333333,
+          "cluster_count": 24,
+          "effective_tail_mass": 2.4000000000000004,
+          "estimate": -4145.333333333333,
+          "inferential_ready": false,
+          "recommended_min_sample_count": 100,
+          "sample_count": 48,
+          "support_count": 3,
+          "two_sided": true
+        },
+        "qwen3.5-397b-a17b": {
+          "ci_lower": -2205.0,
+          "ci_upper": -1166.6666666666667,
+          "cluster_count": 24,
+          "effective_tail_mass": 2.4000000000000004,
+          "estimate": -1850.0833333333333,
+          "inferential_ready": false,
+          "recommended_min_sample_count": 100,
+          "sample_count": 48,
+          "support_count": 3,
+          "two_sided": true
+        }
+      },
+      "two_sided": true
+    },
+    "rq3_ruin_probability": {
+      "method": "wilson_interval_and_paired_cluster_bootstrap_difference",
+      "metric": "ruin_probability",
+      "pairwise": {
+        "qwen3-coder-30b-a3b-instruct__minus__qwen3-coder-480b-a35b-instruct": {
+          "ci_lower": 0.0,
+          "ci_upper": 0.0,
+          "cluster_count": 24,
+          "estimate": 0.0,
+          "left_agent": "qwen3-coder-30b-a3b-instruct",
+          "right_agent": "qwen3-coder-480b-a35b-instruct",
+          "sample_count": 48,
+          "two_sided": true
+        },
+        "qwen3-coder-30b-a3b-instruct__minus__qwen3.5-122b-a10b": {
+          "ci_lower": 0.0,
+          "ci_upper": 0.0,
+          "cluster_count": 24,
+          "estimate": 0.0,
+          "left_agent": "qwen3-coder-30b-a3b-instruct",
+          "right_agent": "qwen3.5-122b-a10b",
+          "sample_count": 48,
+          "two_sided": true
+        },
+        "qwen3-coder-30b-a3b-instruct__minus__qwen3.5-397b-a17b": {
+          "ci_lower": 0.0,
+          "ci_upper": 0.0,
+          "cluster_count": 24,
+          "estimate": 0.0,
+          "left_agent": "qwen3-coder-30b-a3b-instruct",
+          "right_agent": "qwen3.5-397b-a17b",
+          "sample_count": 48,
+          "two_sided": true
+        },
+        "qwen3-coder-480b-a35b-instruct__minus__qwen3.5-122b-a10b": {
+          "ci_lower": 0.0,
+          "ci_upper": 0.0,
+          "cluster_count": 24,
+          "estimate": 0.0,
+          "left_agent": "qwen3-coder-480b-a35b-instruct",
+          "right_agent": "qwen3.5-122b-a10b",
+          "sample_count": 48,
+          "two_sided": true
+        },
+        "qwen3-coder-480b-a35b-instruct__minus__qwen3.5-397b-a17b": {
+          "ci_lower": 0.0,
+          "ci_upper": 0.0,
+          "cluster_count": 24,
+          "estimate": 0.0,
+          "left_agent": "qwen3-coder-480b-a35b-instruct",
+          "right_agent": "qwen3.5-397b-a17b",
+          "sample_count": 48,
+          "two_sided": true
+        },
+        "qwen3.5-122b-a10b__minus__qwen3.5-397b-a17b": {
+          "ci_lower": 0.0,
+          "ci_upper": 0.0,
+          "cluster_count": 24,
+          "estimate": 0.0,
+          "left_agent": "qwen3.5-122b-a10b",
+          "right_agent": "qwen3.5-397b-a17b",
+          "sample_count": 48,
+          "two_sided": true
+        }
+      },
+      "per_agent": {
+        "qwen3-coder-30b-a3b-instruct": {
+          "ci_lower": 6.938893903907228e-18,
+          "ci_upper": 0.07410012966611748,
+          "cluster_count": 24,
+          "estimate": 0.0,
+          "event_count": 0,
+          "inferential_ready": true,
+          "recommended_min_sample_count": 30,
+          "sample_count": 48,
+          "two_sided": true
+        },
+        "qwen3-coder-480b-a35b-instruct": {
+          "ci_lower": 6.938893903907228e-18,
+          "ci_upper": 0.07410012966611748,
+          "cluster_count": 24,
+          "estimate": 0.0,
+          "event_count": 0,
+          "inferential_ready": true,
+          "recommended_min_sample_count": 30,
+          "sample_count": 48,
+          "two_sided": true
+        },
+        "qwen3.5-122b-a10b": {
+          "ci_lower": 6.938893903907228e-18,
+          "ci_upper": 0.07410012966611748,
+          "cluster_count": 24,
+          "estimate": 0.0,
+          "event_count": 0,
+          "inferential_ready": true,
+          "recommended_min_sample_count": 30,
+          "sample_count": 48,
+          "two_sided": true
+        },
+        "qwen3.5-397b-a17b": {
+          "ci_lower": 6.938893903907228e-18,
+          "ci_upper": 0.07410012966611748,
+          "cluster_count": 24,
+          "estimate": 0.0,
+          "event_count": 0,
+          "inferential_ready": true,
+          "recommended_min_sample_count": 30,
+          "sample_count": 48,
+          "two_sided": true
+        }
+      },
+      "two_sided": true
+    },
+    "rq4_layout_effect": {
+      "method": "layout_permutation_anova",
+      "metric": "layout_effect_on_profit",
+      "per_agent": {
+        "qwen3-coder-30b-a3b-instruct": {
+          "eta_squared": 0.5593058466484341,
+          "f_statistic": 1.3243277400353874,
+          "identifiable": true,
+          "layout_count": 24,
+          "max_repetitions_per_layout": 2,
+          "method": "layout_permutation_anova",
+          "min_repetitions_per_layout": 2,
+          "p_value_two_sided": 0.20679320679320679
+        },
+        "qwen3-coder-480b-a35b-instruct": {
+          "eta_squared": 0.5248205309763041,
+          "f_statistic": 1.1524883767747258,
+          "identifiable": true,
+          "layout_count": 24,
+          "max_repetitions_per_layout": 2,
+          "method": "layout_permutation_anova",
+          "min_repetitions_per_layout": 2,
+          "p_value_two_sided": 0.36863136863136864
+        },
+        "qwen3.5-122b-a10b": {
+          "eta_squared": 0.5366215503818011,
+          "f_statistic": 1.2084138194145744,
+          "identifiable": true,
+          "layout_count": 24,
+          "max_repetitions_per_layout": 2,
+          "method": "layout_permutation_anova",
+          "min_repetitions_per_layout": 2,
+          "p_value_two_sided": 0.3246753246753247
+        },
+        "qwen3.5-397b-a17b": {
+          "eta_squared": 0.4951293674675914,
+          "f_statistic": 1.0233447896919712,
+          "identifiable": true,
+          "layout_count": 24,
+          "max_repetitions_per_layout": 2,
+          "method": "layout_permutation_anova",
+          "min_repetitions_per_layout": 2,
+          "p_value_two_sided": 0.36863136863136864
+        }
+      },
+      "two_sided": true
+    }
+  },
+  "profit_distribution_stats": {
+    "qwen3-coder-30b-a3b-instruct": {
+      "cvar_5": -5269.249999999999,
+      "cvar_5_effective_sample_size": 2.4000000000000004,
+      "cvar_5_method": "empirical_expected_shortfall",
+      "mean_profit": -745.5833333333334,
+      "profit_per_hand": -372.7916666666667,
+      "sample_count": 48,
+      "variance": 2102883.9929078016
+    },
+    "qwen3-coder-480b-a35b-instruct": {
+      "cvar_5": -5084.75,
+      "cvar_5_effective_sample_size": 2.4000000000000004,
+      "cvar_5_method": "empirical_expected_shortfall",
+      "mean_profit": -198.91666666666666,
+      "profit_per_hand": -99.45833333333333,
+      "sample_count": 48,
+      "variance": 4190880.0780141843
+    },
+    "qwen3.5-122b-a10b": {
+      "cvar_5": -4145.333333333333,
+      "cvar_5_effective_sample_size": 2.4000000000000004,
+      "cvar_5_method": "empirical_expected_shortfall",
+      "mean_profit": -51.75,
+      "profit_per_hand": -26.14736842105263,
+      "sample_count": 48,
+      "variance": 2928295.85106383
+    },
+    "qwen3.5-397b-a17b": {
+      "cvar_5": -1850.0833333333333,
+      "cvar_5_effective_sample_size": 2.4000000000000004,
+      "cvar_5_method": "empirical_expected_shortfall",
+      "mean_profit": 996.25,
+      "profit_per_hand": 498.125,
+      "sample_count": 48,
+      "variance": 9504587.085106382
+    }
+  },
+  "ranking": [
+    {
+      "agent": "qwen3.5-397b-a17b",
+      "cvar_5": -1850.0833333333333,
+      "cvar_5_is_fallback": false,
+      "cvar_5_low_support": false,
+      "cvar_5_tail_size": 3,
+      "mean_profit": 996.25,
+      "ruin_probability": 0.0,
+      "variance": 9504587.085106382,
+      "win_rate": 0.3020833333333333
+    },
+    {
+      "agent": "qwen3.5-122b-a10b",
+      "cvar_5": -4145.333333333333,
+      "cvar_5_is_fallback": false,
+      "cvar_5_low_support": false,
+      "cvar_5_tail_size": 3,
+      "mean_profit": -51.75,
+      "ruin_probability": 0.0,
+      "variance": 2928295.85106383,
+      "win_rate": 0.3541666666666667
+    },
+    {
+      "agent": "qwen3-coder-480b-a35b-instruct",
+      "cvar_5": -5084.75,
+      "cvar_5_is_fallback": false,
+      "cvar_5_low_support": false,
+      "cvar_5_tail_size": 3,
+      "mean_profit": -198.91666666666666,
+      "ruin_probability": 0.0,
+      "variance": 4190880.0780141843,
+      "win_rate": 0.23958333333333334
+    },
+    {
+      "agent": "qwen3-coder-30b-a3b-instruct",
+      "cvar_5": -5269.249999999999,
+      "cvar_5_is_fallback": false,
+      "cvar_5_low_support": false,
+      "cvar_5_tail_size": 3,
+      "mean_profit": -745.5833333333334,
+      "ruin_probability": 0.0,
+      "variance": 2102883.9929078016,
+      "win_rate": 0.10416666666666667
+    }
+  ],
+  "ranking_policy": {
+    "notes": [
+      "Ranking is a descriptive screening order for report presentation.",
+      "Rows with low-support CVaR estimates are sorted behind adequately supported rows.",
+      "Inferential claims must use the report's confirmatory_assessment section, not the ranking order.",
+      "The inferential_statistics section provides the supporting two-sided diagnostics plus exploratory layout analysis.",
+      "Variance is reported but does not affect ranking."
+    ],
+    "rank_keys": [
+      "cvar_5_low_support_asc",
+      "mean_profit_desc",
+      "cvar_5_desc",
+      "ruin_probability_asc",
+      "cvar_5_tail_size_desc",
+      "agent_asc"
+    ],
+    "type": "descriptive_screening"
+  },
+  "ruin_risk_comparison": {
+    "qwen3-coder-30b-a3b-instruct": {
+      "early_exit_rate": 0.0,
+      "ruin_event_count": 0,
+      "ruin_probability": 0.0,
+      "sample_count": 48,
+      "session_completed_rate": 1.0
+    },
+    "qwen3-coder-480b-a35b-instruct": {
+      "early_exit_rate": 0.0,
+      "ruin_event_count": 0,
+      "ruin_probability": 0.0,
+      "sample_count": 48,
+      "session_completed_rate": 1.0
+    },
+    "qwen3.5-122b-a10b": {
+      "early_exit_rate": 0.010416666666666666,
+      "ruin_event_count": 0,
+      "ruin_probability": 0.0,
+      "sample_count": 48,
+      "session_completed_rate": 0.9791666666666666
+    },
+    "qwen3.5-397b-a17b": {
+      "early_exit_rate": 0.0,
+      "ruin_event_count": 0,
+      "ruin_probability": 0.0,
+      "sample_count": 48,
+      "session_completed_rate": 1.0
+    }
+  }
+}
