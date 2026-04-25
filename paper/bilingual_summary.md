@@ -24,6 +24,21 @@
 - ROAS: 광고비 대비 매출이다.
 - Budget pacing: 캠페인 예산을 기간 전체에 맞게 쓰도록 지출 속도를 조절하는 과정이다.
 
+### 네 가지 정책 framing
+
+- Balanced: 수익과 위험을 같이 보라는 기본형이다. 너무 무리하지도, 너무 겁먹지도 않는다.
+- Analytic: 패의 조합, 기대값, 상대 위험을 더 따져 보라는 분석형이다.
+- Conservative: 큰 손실을 피하는 것을 우선하는 보수형이다. 애매하면 멈추고 자본을 지키는 쪽이다.
+- Aggressive: 수익 기회를 더 강하게 잡는 공격형이다. 이길 가능성이 보이면 더 밀어붙이는 쪽이다.
+
+### 이 연구가 의미 있는가?
+
+의미는 있다. 하지만 “어떤 모델이 세계적으로 제일 고스톱을 잘한다”는 논문은 아니다. 이 연구는 고스톱을 이용해 LLM의 순차 의사결정, 위험 관리, 모델 규모 효과, 모델 family 차이, prompt-policy 민감도를 한 번에 볼 수 있는 평가 하네스를 만든 연구다.
+
+논문으로 쓸 수 있는 지점은 세 가지다. 첫째, 고스톱이 숨은 정보와 하방 위험을 함께 가진 짧은 평가 환경이라는 점이다. 둘째, Qwen 패널에서 성능이 파라미터 규모에 따라 단순히 증가하지 않았다는 점이다. 셋째, 같은 규모대 NVIDIA 패널과 정책 framing 실험에서 모델별 차이가 실제로 관찰됐다는 점이다.
+
+약한 지점도 분명하다. 표본 수가 크지 않고, NVIDIA 실험은 호출 1회 제약이 있으며, Qwen 규모 비교는 Coder와 Qwen3.5 변형이 섞여 있다. 따라서 결론은 확정적 모델 순위가 아니라 재현 가능한 탐색적 평가와 방법론적 근거로 써야 한다.
+
 ### 읽기 규칙
 
 - RQ1: 고스톱을 위험 민감적 순차 의사결정 평가 환경으로 볼 수 있는가.
@@ -70,6 +85,21 @@ Advertising bidding is not the same domain as Go-Stop, but the decision structur
 - Policy framing: the decision-making instruction style given to the model.
 - ROAS: Return on Ad Spend.
 - Budget pacing: controlling campaign spend rate across the intended time window.
+
+### Four Policy Framings
+
+- Balanced: the default frame. Consider profit and risk together; neither strongly cautious nor strongly risk-seeking.
+- Analytic: the evidence-focused frame. Reason more about combinations, expected value, and opponent risk.
+- Conservative: the loss-avoidance frame. Avoid large downside outcomes, stop earlier when uncertain, and preserve capital.
+- Aggressive: the upside-seeking frame. Push harder when a profitable chance appears and accept more risk for higher payoff.
+
+### Is This Study Meaningful?
+
+Yes, but its meaning is specific. This is not a paper claiming that one model is universally the best Go-Stop player. It is better framed as an evaluation-harness and exploratory remote-model comparison study for sequential decision making, risk control, scale effects, family differences, and prompt-policy sensitivity.
+
+The publishable contribution has three parts. First, Go-Stop is a compact benchmark with hidden information and lower-tail risk. Second, the Qwen panel is not monotone in nominal parameter scale. Third, the NVIDIA same-scale panel and policy screens show observable model-specific differences.
+
+The weak points are also clear: sample counts are modest, the NVIDIA run uses a one-call constraint, and the Qwen scale comparison mixes Coder and Qwen3.5 variants. The claim should therefore be reproducible exploratory evaluation and methodological evidence, not definitive model ranking.
 
 ### Reading Rule
 
