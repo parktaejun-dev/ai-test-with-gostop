@@ -203,6 +203,18 @@ h3 {
   font-size: 16px;
 }
 
+.language-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0 0 18px;
+  padding: 8px 0;
+  border-top: 1px solid var(--page-rule);
+  border-bottom: 1px solid var(--page-rule);
+  font-size: 14px;
+  font-weight: 700;
+}
+
 .abstract {
   max-width: 980px;
   margin: 0 0 24px 18px;
@@ -248,6 +260,19 @@ h3 {
   padding-top: 2px;
 }
 
+.language-section {
+  max-width: 1030px;
+  margin: 0 0 36px;
+  padding-top: 8px;
+}
+
+.language-section > h2 {
+  margin: 0 0 16px;
+  padding-bottom: 7px;
+  border-bottom: 2px solid var(--ink);
+  font-size: 24px;
+}
+
 .paper-section p {
   margin-bottom: 10px;
 }
@@ -265,6 +290,21 @@ h3 {
 
 .rq-list li {
   margin-bottom: 4px;
+}
+
+.glossary-list {
+  display: grid;
+  grid-template-columns: minmax(140px, 220px) minmax(0, 1fr);
+  gap: 6px 14px;
+  margin: 0;
+}
+
+.glossary-list dt {
+  font-weight: 700;
+}
+
+.glossary-list dd {
+  margin: 0;
 }
 
 .table-scroll {
@@ -430,5 +470,13 @@ h3 {
 
   h1 {
     font-size: 22px;
+  }
+
+  .glossary-list {
+    display: block;
+  }
+
+  .glossary-list dt {
+    margin-top: 8px;
   }
 }

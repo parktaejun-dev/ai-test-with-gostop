@@ -10,7 +10,7 @@
   <body>
     <header class="site-note" aria-label="repository notice">
       <a href="index.html" class="cornell-mark">Go-Stop AI Evaluation</a>
-      <a href="../paper/ARTIFACTS.md">산출물 안내 / artifact guide</a>
+      <a href="../paper/ARTIFACTS.md">산출물 안내</a>
     </header>
 
     <header class="arxiv-bar" aria-label="arXiv style navigation">
@@ -22,12 +22,12 @@
         <span>arXiv:gostop-ai-eval</span>
       </div>
       <form class="search" action="./paper.html" role="search">
-        <input type="search" name="q" placeholder="검색 / Search..." aria-label="Search term" />
+        <input type="search" name="q" placeholder="검색" aria-label="Search term" />
         <select aria-label="Search field">
-          <option>전체 / All fields</option>
-          <option>제목 / Title</option>
-          <option>저자 / Author</option>
-          <option>초록 / Abstract</option>
+          <option>전체</option>
+          <option>제목</option>
+          <option>저자</option>
+          <option>초록</option>
         </select>
         <button type="submit">검색</button>
       </form>
@@ -38,187 +38,400 @@
         <div class="subject-line">Computer Science &gt; Artificial Intelligence</div>
 
         <p class="dateline">[공개 GitHub 원고 패키지; 완료된 원격 모델 및 정책 스크린 결과 반영]</p>
-        <h1 id="paper-title">4인 고스톱에서의 위험 민감 LLM 평가: 원격 모델 패널, 규모 효과, 정책 민감도</h1>
-        <p class="english-title">Risk-Sensitive LLM Evaluation in Four-Player Go-Stop: Remote-Model Panels, Scale Effects, and Policy Sensitivity</p>
-        <p class="authors">
-          <a href="../paper/arxiv_main.tex">Go-Stop AI Evaluation Harness</a>
-        </p>
+        <h1 id="paper-title">4인 고스톱에서의 위험 민감 LLM 평가</h1>
+        <p class="english-title">Risk-Sensitive LLM Evaluation in Four-Player Go-Stop</p>
+        <p class="authors"><a href="../paper/arxiv_main.tex">Go-Stop AI Evaluation Harness</a></p>
 
-        <blockquote class="abstract">
-          <span class="descriptor">초록:</span>
-          이 원고는 재현 가능한 4인 고스톱 하네스에서 고정 원격 LLM 정책을 평가한다. 고스톱은 숨은 정보, 확률적 드로우, 조합적 점수 계산, 다중 에이전트 상호작용, 고/스톱 위험 결정을 짧은 에피소드 안에 압축한다. 주 실험인 Qwen 패널과 NVIDIA 패널은 관측 성능이 파라미터 규모만으로 설명되지 않음을 보인다. 보조 실험은 제한된 조건에서 소형 모델도 양의 평균 수익을 낼 수 있고, 정책 framing 효과가 모델별로 다르게 나타남을 보여준다. 모든 결과는 기술통계이며 보편적 모델 순위가 아니다.
-          <span class="abstract-en"><span class="descriptor">Abstract:</span> We evaluate fixed-policy LLM play in a reproducible four-player Go-Stop harness. The main Qwen and NVIDIA panels show that observed performance is not explained by parameter scale alone. Supplementary screens show positive small-model results under restricted settings and model-specific policy-framing effects. The results are descriptive, not universal model rankings.</span>
-        </blockquote>
+        <nav class="language-nav" aria-label="language sections">
+          <a href="#korean-paper">한국어</a>
+          <a href="#english-paper">English</a>
+        </nav>
 
         <table class="metadata" aria-label="paper metadata">
           <tbody>
             <tr>
-              <th>비고:</th>
-              <td>원고 소스, 공개 PDF, 재현 가능한 결과 산출물은 이 저장소에 보관된다. Manuscript source, public PDF, and reproducible artifacts are stored in this repository.</td>
+              <th>비고</th>
+              <td>원고 소스, 공개 PDF, 재현 가능한 결과 산출물은 이 저장소에 보관된다.</td>
             </tr>
             <tr>
-              <th>분야:</th>
+              <th>분야</th>
               <td>Artificial Intelligence (cs.AI); Machine Learning (cs.LG); Multiagent Systems</td>
             </tr>
             <tr>
-              <th>Cite as:</th>
-              <td><a href="../paper/arxiv_main.tex">arXiv:gostop-ai-eval [cs.AI]</a></td>
-            </tr>
-            <tr>
-              <th>코드:</th>
-              <td><a href="../paper/ARTIFACTS.md">산출물 안내 / artifact guide</a>, <a href="../paper/remote_model_results.md">결과 요약 / result note</a>, <a href="index.html">실험 대시보드 / experiment dashboard</a></td>
+              <th>Code</th>
+              <td><a href="../paper/ARTIFACTS.md">산출물 안내</a>, <a href="../paper/remote_model_results.md">결과 요약</a>, <a href="index.html">실험 대시보드</a></td>
             </tr>
           </tbody>
         </table>
 
-        <section class="paper-section" aria-labelledby="gostop-title">
-          <h2 id="gostop-title">왜 고스톱인가? / Why Go-Stop?</h2>
-          <p>
-            고스톱은 작은 확률적 의사결정 환경이다. 각 행동은 숨은 패, 불확실한 미래 드로우, 상대 행동, 큰 하방 손실을 만들 수 있는 정산 규칙 아래에서 선택된다. 고/스톱 결정은 위험 민감적 stopping problem이다. 계속하면 보상이 커질 수 있지만 손실도 함께 증폭될 수 있다.
-          </p>
-          <p>
-            따라서 이 평가는 평균 수익과 함께 CVaR 5%, 승률, 파산 확률, 표본 수를 같이 본다. 이 구조는 실시간 광고 입찰이나 캠페인 예산 pacing처럼 불확실한 수익과 하방 위험 아래에서 지출, 대기, 입찰 조정을 반복 결정하는 산업적 의사결정에도 방법론적으로 연결된다.
-          </p>
-          <p class="english-copy">
-            Go-Stop is a compact stochastic decision environment with hidden information, uncertain draws, opponent interaction, and risk-sensitive stop-or-continue choices. The evaluation therefore reports mean profit together with CVaR 5%, win rate, ruin probability, and sample count. This is methodologically relevant to industrial decision systems such as real-time advertising bidding and campaign budget pacing.
-          </p>
+        <section id="korean-paper" class="language-section" aria-labelledby="korean-title">
+          <h2 id="korean-title">한국어</h2>
+
+          <section class="paper-section" aria-labelledby="ko-abstract-title">
+            <h3 id="ko-abstract-title">초록</h3>
+            <p>
+              이 원고는 재현 가능한 4인 고스톱 하네스에서 고정 원격 LLM 정책을 평가한다. 고스톱은 숨은 정보, 확률적 드로우, 조합적 점수 계산, 다중 에이전트 상호작용, 고/스톱 위험 결정을 짧은 에피소드 안에 압축한다. 주 실험인 Qwen 패널과 NVIDIA 패널은 관측 성능이 파라미터 규모만으로 설명되지 않음을 보인다. 보조 실험은 제한된 조건에서 소형 모델도 양의 평균 수익을 낼 수 있고, 정책 framing 효과가 모델별로 다르게 나타남을 보여준다. 모든 결과는 기술통계이며 보편적 모델 순위가 아니다.
+            </p>
+          </section>
+
+          <section class="paper-section" aria-labelledby="ko-why-title">
+            <h3 id="ko-why-title">왜 고스톱인가?</h3>
+            <p>
+              고스톱은 작은 확률적 의사결정 환경이다. 각 행동은 숨은 패, 불확실한 미래 드로우, 상대 행동, 큰 하방 손실을 만들 수 있는 정산 규칙 아래에서 선택된다. 고/스톱 결정은 위험 민감적 stopping problem이다. 계속하면 보상이 커질 수 있지만 손실도 함께 증폭될 수 있다.
+            </p>
+            <p>
+              따라서 이 평가는 평균 수익과 함께 CVaR 5%, 승률, 파산 확률, 표본 수를 같이 본다. 이 구조는 실시간 광고 입찰이나 캠페인 예산 pacing처럼 불확실한 수익과 하방 위험 아래에서 지출, 대기, 입찰 조정을 반복 결정하는 산업적 의사결정에도 방법론적으로 연결된다.
+            </p>
+          </section>
+
+          <section class="paper-section" aria-labelledby="ko-ad-title">
+            <h3 id="ko-ad-title">산업적 연결: 광고 입찰</h3>
+            <p>
+              광고 입찰은 고스톱과 같은 게임이 아니지만, 평가해야 하는 의사결정 구조가 닮아 있다. 광고 시스템은 제한된 예산 안에서 매 노출마다 입찰할지, 낮출지, 기다릴지를 결정한다. 이때 전환 확률, 경쟁 입찰가, 빈도 피로, 잔여 예산, 캠페인 pacing은 모두 불확실하다.
+            </p>
+            <p>
+              그래서 평균 성과만 보면 위험하다. 어떤 정책은 평균 ROAS가 좋아 보여도 특정 구간에서 예산을 너무 빨리 태우거나, 낮은 품질 inventory에 과도하게 노출되거나, 드문 큰 손실을 만들 수 있다. 본 논문의 고스톱 평가는 이런 생산 시스템을 직접 모사한다기보다, 순차 행동 선택, 불확실성, 예산/위험 trade-off, 하방 위험 관리가 함께 나타나는 정책 평가 프레임으로 연결된다.
+            </p>
+          </section>
+
+          <section class="paper-section" aria-labelledby="ko-rq-title">
+            <h3 id="ko-rq-title">연구문제</h3>
+            <ol class="rq-list">
+              <li><strong>RQ1.</strong> 고스톱은 LLM 에이전트의 위험 민감적 순차 의사결정을 평가하기에 타당한 환경인가?</li>
+              <li><strong>RQ2.</strong> Qwen/DashScope 패널에서 관측 성능은 명목 파라미터 규모에 대해 단조적인가?</li>
+              <li><strong>RQ3.</strong> 비슷한 규모의 NVIDIA Build 패널에서 모델 family별 기술통계 차이가 보이는가?</li>
+              <li><strong>RQ4.</strong> 보조 실험에서 소형 모델과 prompt-policy 변형은 측정 가능한 모델별 차이를 보이는가?</li>
+            </ol>
+            <p>
+              답은 다음과 같다. RQ1은 방법론적으로 긍정이다. RQ2는 Qwen 패널에서 기술적으로 부정이다. RQ3는 제한된 NVIDIA 패널에서 family별 차이가 관찰된다. RQ4는 탐색적이다.
+            </p>
+          </section>
+
+          <section class="paper-section" aria-labelledby="ko-glossary-title">
+            <h3 id="ko-glossary-title">용어 정의</h3>
+            <dl class="glossary-list">
+              <dt>Mean profit</dt>
+              <dd>세션 종료 후 모델이 얻은 평균 수익이다. 높을수록 좋지만, 평균만으로는 큰 손실 위험을 설명하지 못한다.</dd>
+              <dt>CVaR 5%</dt>
+              <dd>가장 나쁜 하위 5% 결과의 평균 손실을 요약하는 하방 위험 지표다. 이 논문에서는 표본 수가 작으므로 확증 지표가 아니라 기술통계로 사용한다.</dd>
+              <dt>Win rate</dt>
+              <dd>세션에서 양의 수익을 낸 비율이다. 승률이 높아도 큰 손실이 있으면 좋은 정책이라고 보기 어렵다.</dd>
+              <dt>Ruin probability</dt>
+              <dd>자본이 소진되거나 사실상 파산 상태에 도달할 확률이다.</dd>
+              <dt>Parameter scale</dt>
+              <dd>모델의 명목 파라미터 규모다. MoE 모델에서는 전체 파라미터와 active parameter가 다를 수 있다.</dd>
+              <dt>Model family</dt>
+              <dd>Qwen, Mistral, Nemotron처럼 모델 계열 또는 개발 계통을 뜻한다.</dd>
+              <dt>Policy framing</dt>
+              <dd>같은 게임 상태에서 모델에 제시하는 의사결정 지침의 성향이다. 이 실험에서는 balanced, analytic, conservative, aggressive를 비교했다.</dd>
+              <dt>max_remote_calls_per_agent</dt>
+              <dd>한 세션에서 에이전트가 원격 모델 API를 호출할 수 있는 최대 횟수다. NVIDIA 주 실험에서는 rate limit 때문에 1로 제한했다.</dd>
+              <dt>ROAS</dt>
+              <dd>광고비 대비 매출(Return on Ad Spend)이다. 평균 ROAS가 좋아도 예산 소진 속도나 하방 손실을 따로 봐야 한다.</dd>
+              <dt>Budget pacing</dt>
+              <dd>캠페인 예산을 기간 전체에 맞게 쓰도록 지출 속도를 조절하는 과정이다.</dd>
+            </dl>
+          </section>
+
+          <section class="paper-section" aria-labelledby="ko-qwen-title">
+            <h3 id="ko-qwen-title">Qwen 파라미터 규모 패널</h3>
+            <p>
+              제공자: Alibaba DashScope. 경로:
+              <a href="https://github.com/parktaejun-dev/ai-test-with-gostop/tree/main/results/paper_qwen_4model_param_2h_2rep">results/paper_qwen_4model_param_2h_2rep</a>.
+              모델당 48 표본이다. CVaR low-support flag는 false지만 5% tail mass가 모델당 2.4 세션이므로 CVaR은 기술통계로만 읽어야 한다.
+            </p>
+            <div class="table-scroll">
+              <table class="result-table" id="qwen-table-ko">
+                <thead>
+                  <tr>
+                    <th>모델</th>
+                    <th>규모</th>
+                    <th>평균 수익</th>
+                    <th>CVaR 5%</th>
+                    <th>승률</th>
+                    <th>표본</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="paper-section" aria-labelledby="ko-nvidia-title">
+            <h3 id="ko-nvidia-title">NVIDIA 제한 동일 규모 family 패널</h3>
+            <p>
+              제공자: NVIDIA Build NIM. 경로:
+              <a href="https://github.com/parktaejun-dev/ai-test-with-gostop/tree/main/results/paper_nvidia_120b_4model_family_1h_2rep_budget1">results/paper_nvidia_120b_4model_family_1h_2rep_budget1</a>.
+              모델당 48 표본이며 <code>max_remote_calls_per_agent=1</code> 제약이 있다.
+            </p>
+            <div class="table-scroll">
+              <table class="result-table" id="nvidia-table-ko">
+                <thead>
+                  <tr>
+                    <th>모델</th>
+                    <th>규모</th>
+                    <th>평균 수익</th>
+                    <th>CVaR 5%</th>
+                    <th>승률</th>
+                    <th>표본</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="paper-section" aria-labelledby="ko-tiny-title">
+            <h3 id="ko-tiny-title">보조 소형 모델 스크린</h3>
+            <p>
+              제공자: NVIDIA Build NIM. 경로:
+              <a href="https://github.com/parktaejun-dev/ai-test-with-gostop/tree/main/results/tiny_nvidia_4model_1h_2rep_budget1_20260425_075542">results/tiny_nvidia_4model_1h_2rep_budget1_20260425_075542</a>.
+              모델당 48 표본이며 <code>max_remote_calls_per_agent=1</code> 제약이 있다.
+            </p>
+            <div class="table-scroll">
+              <table class="result-table" id="tiny-nvidia-table-ko">
+                <thead>
+                  <tr>
+                    <th>모델</th>
+                    <th>규모</th>
+                    <th>평균 수익</th>
+                    <th>CVaR 5%</th>
+                    <th>승률</th>
+                    <th>표본</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="paper-section" aria-labelledby="ko-policy-title">
+            <h3 id="ko-policy-title">보조 정책 스크린</h3>
+            <p>
+              정책 스크린은 balanced, analytic, conservative, aggressive framing에서 layout과 seed 구조를 유지한다. 각 model-policy cell은 24 표본이므로 탐색적 결과다.
+            </p>
+            <div class="table-scroll">
+              <table class="result-table" id="qwen-policy-table-ko">
+                <thead>
+                  <tr>
+                    <th>정책</th>
+                    <th>Qwen 1위 모델</th>
+                    <th>1위 평균 수익</th>
+                    <th>1위 CVaR 5%</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+            <div class="table-scroll">
+              <table class="result-table" id="nvidia-policy-table-ko">
+                <thead>
+                  <tr>
+                    <th>정책</th>
+                    <th>NVIDIA 1위 모델</th>
+                    <th>1위 평균 수익</th>
+                    <th>1위 CVaR 5%</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="paper-section" aria-labelledby="ko-limit-title">
+            <h3 id="ko-limit-title">한계</h3>
+            <p>
+              모델 패널은 사용 가능한 원격 API에서 구성한 convenience sample이다. Qwen 비교는 Coder와 Qwen3.5 변형을 함께 포함하므로 파라미터 규모와 특화 목적이 부분적으로 얽혀 있다. NVIDIA 실행은 세션당 에이전트별 원격 호출 1회 제약 때문에 full-game autonomous play보다 제한된 first-decision behavior에 가깝다. 정책 스크린은 model-policy cell당 24 표본이므로 보조 결과다.
+            </p>
+          </section>
         </section>
 
-        <section class="paper-section" aria-labelledby="rq-title">
-          <h2 id="rq-title">연구문제 / Research Questions</h2>
-          <ol class="rq-list">
-            <li><strong>RQ1.</strong> 고스톱은 LLM 에이전트의 위험 민감적 순차 의사결정을 평가하기에 타당한 환경인가? / Is Go-Stop a plausible environment for evaluating risk-sensitive sequential decision making by LLM agents?</li>
-            <li><strong>RQ2.</strong> Qwen/DashScope 패널에서 관측 성능은 명목 파라미터 규모에 대해 단조적인가? / Is observed Go-Stop performance monotone in nominal parameter scale in a Qwen-labeled DashScope panel?</li>
-            <li><strong>RQ3.</strong> 비슷한 규모의 NVIDIA Build 패널에서 모델 family별 기술통계 차이가 보이는가? / Are cross-family differences visible in a rate-limited, roughly same-scale NVIDIA Build panel?</li>
-            <li><strong>RQ4.</strong> 보조 실험에서 소형 모델과 prompt-policy 변형은 측정 가능한 모델별 차이를 보이는가? / Do small models and prompt-policy variants show measurable but model-specific differences?</li>
-          </ol>
-          <p>
-            답은 다음과 같다. RQ1은 방법론적으로 긍정이다. RQ2는 Qwen 패널에서 기술적으로 부정이다. RQ3는 제한된 NVIDIA 패널에서 family별 차이가 관찰된다. RQ4는 탐색적이다. 소형 모델과 정책 framing 차이는 보이지만 보편적 순위로 확증할 수는 없다.
-          </p>
-          <p class="english-copy">
-            RQ1 is methodologically positive. RQ2 is descriptively negative in the Qwen panel. RQ3 shows visible descriptive cross-family differences under the constrained NVIDIA panel. RQ4 remains exploratory.
-          </p>
-        </section>
+        <section id="english-paper" class="language-section" lang="en" aria-labelledby="english-title">
+          <h2 id="english-title">English</h2>
 
-        <section class="paper-section" aria-labelledby="qwen-title">
-          <h2 id="qwen-title">Qwen 파라미터 규모 패널 / Qwen Parameter-Scale Panel</h2>
-          <p>
-            제공자: Alibaba DashScope. 경로:
-            <a href="https://github.com/parktaejun-dev/ai-test-with-gostop/tree/main/results/paper_qwen_4model_param_2h_2rep">results/paper_qwen_4model_param_2h_2rep</a>.
-            모델당 48 표본이다. CVaR low-support flag는 false지만 5% tail mass가 모델당 2.4 세션이므로 CVaR은 기술통계로만 읽어야 한다. Provider: Alibaba DashScope. Each model has 48 samples.
-          </p>
-          <div class="table-scroll">
-            <table class="result-table" id="qwen-table">
-              <thead>
-                <tr>
-                  <th>Model</th>
-                  <th>규모 / Params</th>
-                  <th>평균 수익 / Mean profit</th>
-                  <th>CVaR 5%</th>
-                  <th>승률 / Win rate</th>
-                  <th>표본 / Samples</th>
-                </tr>
-              </thead>
-              <tbody></tbody>
-            </table>
-          </div>
-        </section>
+          <section class="paper-section" aria-labelledby="en-abstract-title">
+            <h3 id="en-abstract-title">Abstract</h3>
+            <p>
+              We evaluate fixed-policy LLM play in a reproducible four-player Go-Stop harness. Go-Stop compresses hidden information, stochastic draws, combinatorial scoring, multi-agent interaction, and risk-sensitive stop-or-continue decisions into short episodes. The main Qwen and NVIDIA panels show that observed performance is not explained by parameter scale alone. Supplementary screens show positive small-model results under restricted settings and model-specific policy-framing effects. The results are descriptive, not universal model rankings.
+            </p>
+          </section>
 
-        <section class="paper-section" aria-labelledby="nvidia-title">
-          <h2 id="nvidia-title">NVIDIA 제한 동일 규모 family 패널 / NVIDIA Constrained Same-Scale Family Panel</h2>
-          <p>
-            제공자: NVIDIA Build NIM. 경로:
-            <a href="https://github.com/parktaejun-dev/ai-test-with-gostop/tree/main/results/paper_nvidia_120b_4model_family_1h_2rep_budget1">results/paper_nvidia_120b_4model_family_1h_2rep_budget1</a>.
-            모델당 48 표본이며 <code>max_remote_calls_per_agent=1</code> 제약이 있다. CVaR low-support flag는 false지만 5% tail mass는 2.4 세션이다. Provider: NVIDIA Build NIM. Each model has 48 samples.
-          </p>
-          <div class="table-scroll">
-            <table class="result-table" id="nvidia-table">
-              <thead>
-                <tr>
-                  <th>Model</th>
-                  <th>규모 / Scale</th>
-                  <th>평균 수익 / Mean profit</th>
-                  <th>CVaR 5%</th>
-                  <th>승률 / Win rate</th>
-                  <th>표본 / Samples</th>
-                </tr>
-              </thead>
-              <tbody></tbody>
-            </table>
-          </div>
-        </section>
+          <section class="paper-section" aria-labelledby="en-why-title">
+            <h3 id="en-why-title">Why Go-Stop?</h3>
+            <p>
+              Go-Stop is a compact stochastic decision environment. Each action is chosen under hidden cards, uncertain future draws, opponent interaction, and settlement rules that can create heavy lower-tail losses. The Go/Stop decision is a risk-sensitive stopping problem: continuing can increase payoff, but it can also amplify losses.
+            </p>
+            <p>
+              The evaluation therefore reports mean profit together with CVaR 5%, win rate, ruin probability, and sample count. This framing is methodologically relevant to industrial decision systems such as real-time advertising bidding and campaign budget pacing.
+            </p>
+          </section>
 
-        <section class="paper-section" aria-labelledby="tiny-title">
-          <h2 id="tiny-title">보조 소형 모델 스크린 / Supplementary Small-Model Screen</h2>
-          <p>
-            제공자: NVIDIA Build NIM. 경로:
-            <a href="https://github.com/parktaejun-dev/ai-test-with-gostop/tree/main/results/tiny_nvidia_4model_1h_2rep_budget1_20260425_075542">results/tiny_nvidia_4model_1h_2rep_budget1_20260425_075542</a>.
-            모델당 48 표본이며 <code>max_remote_calls_per_agent=1</code> 제약이 있다. Each model has 48 samples.
-          </p>
-          <div class="table-scroll">
-            <table class="result-table" id="tiny-nvidia-table">
-              <thead>
-                <tr>
-                  <th>Model</th>
-                  <th>규모 / Scale</th>
-                  <th>평균 수익 / Mean profit</th>
-                  <th>CVaR 5%</th>
-                  <th>승률 / Win rate</th>
-                  <th>표본 / Samples</th>
-                </tr>
-              </thead>
-              <tbody></tbody>
-            </table>
-          </div>
-        </section>
+          <section class="paper-section" aria-labelledby="en-ad-title">
+            <h3 id="en-ad-title">Industrial Link: Advertising Bidding</h3>
+            <p>
+              Advertising bidding is not the same domain as Go-Stop, but the decision structure is similar enough to motivate the evaluation frame. An ad system repeatedly decides whether to bid, lower a bid, or wait under a finite budget. Conversion probability, competing bids, frequency fatigue, remaining budget, and campaign pacing are all uncertain.
+            </p>
+            <p>
+              Mean performance alone can be misleading. A policy may show attractive average ROAS while spending too fast in specific segments, over-exposing low-quality inventory, or creating rare but severe losses. The Go-Stop harness does not simulate advertising directly; it supplies a compact stress test for sequential action selection, uncertainty, budget-risk trade-offs, and lower-tail risk control.
+            </p>
+          </section>
 
-        <section class="paper-section" aria-labelledby="policy-title">
-          <h2 id="policy-title">보조 정책 스크린 / Supplementary Policy Screens</h2>
-          <p>
-            정책 스크린은 balanced, analytic, conservative, aggressive framing에서 layout과 seed 구조를 유지한다. 각 model-policy cell은 24 표본이므로 탐색적 결과다. Policy screens preserve layout and seed structure across four framings; each model-policy cell has 24 samples.
-          </p>
-          <div class="table-scroll">
-            <table class="result-table" id="qwen-policy-table">
-              <thead>
-                <tr>
-                  <th>정책 / Policy</th>
-                  <th>Qwen 1위 모델 / Top model</th>
-                  <th>1위 평균 수익 / Top mean</th>
-                  <th>1위 CVaR 5% / Top CVaR</th>
-                </tr>
-              </thead>
-              <tbody></tbody>
-            </table>
-          </div>
-          <div class="table-scroll">
-            <table class="result-table" id="nvidia-policy-table">
-              <thead>
-                <tr>
-                  <th>정책 / Policy</th>
-                  <th>NVIDIA 1위 모델 / Top model</th>
-                  <th>1위 평균 수익 / Top mean</th>
-                  <th>1위 CVaR 5% / Top CVaR</th>
-                </tr>
-              </thead>
-              <tbody></tbody>
-            </table>
-          </div>
-        </section>
+          <section class="paper-section" aria-labelledby="en-rq-title">
+            <h3 id="en-rq-title">Research Questions</h3>
+            <ol class="rq-list">
+              <li><strong>RQ1.</strong> Is Go-Stop a plausible environment for evaluating risk-sensitive sequential decision making by LLM agents?</li>
+              <li><strong>RQ2.</strong> Is observed Go-Stop performance monotone in nominal parameter scale in a Qwen-labeled DashScope panel?</li>
+              <li><strong>RQ3.</strong> Are cross-family differences visible in a rate-limited, roughly same-scale NVIDIA Build panel?</li>
+              <li><strong>RQ4.</strong> Do small models and prompt-policy variants show measurable but model-specific differences?</li>
+            </ol>
+            <p>
+              RQ1 is methodologically positive. RQ2 is descriptively negative in the Qwen panel. RQ3 shows visible descriptive cross-family differences under the constrained NVIDIA panel. RQ4 remains exploratory.
+            </p>
+          </section>
 
-        <section class="paper-section" aria-labelledby="limits-title">
-          <h2 id="limits-title">한계 / Limitations</h2>
-          <p>
-            모델 패널은 사용 가능한 원격 API에서 구성한 convenience sample이다. Qwen 비교는 Coder와 Qwen3.5 변형을 함께 포함하므로 파라미터 규모와 특화 목적이 부분적으로 얽혀 있다. NVIDIA 실행은 세션당 에이전트별 원격 호출 1회 제약 때문에 full-game autonomous play보다 제한된 first-decision behavior에 가깝다. 정책 스크린은 model-policy cell당 24 표본이므로 보조 결과다.
-          </p>
-          <p class="english-copy">
-            The panels are convenience samples from available remote APIs. The Qwen comparison mixes Coder and Qwen3.5 variants. The NVIDIA run is constrained by one remote call per agent per session. Policy screens have 24 samples per model-policy cell and are supplementary.
-          </p>
+          <section class="paper-section" aria-labelledby="en-glossary-title">
+            <h3 id="en-glossary-title">Glossary</h3>
+            <dl class="glossary-list">
+              <dt>Mean profit</dt>
+              <dd>The average session-ending profit for a model. Higher is better, but the mean alone does not capture severe downside risk.</dd>
+              <dt>CVaR 5%</dt>
+              <dd>A lower-tail risk summary: the average of the worst 5% outcomes. In this paper it is descriptive, not confirmatory, because sample counts are small.</dd>
+              <dt>Win rate</dt>
+              <dd>The share of sessions with positive profit. A high win rate can still hide rare but severe losses.</dd>
+              <dt>Ruin probability</dt>
+              <dd>The probability that a player exhausts capital or reaches an effectively bankrupt state.</dd>
+              <dt>Parameter scale</dt>
+              <dd>The nominal parameter size of a model. For MoE models, total parameters and active parameters can differ.</dd>
+              <dt>Model family</dt>
+              <dd>The model lineage or family, such as Qwen, Mistral, or Nemotron.</dd>
+              <dt>Policy framing</dt>
+              <dd>The decision-making instruction style given to the model. This study compares balanced, analytic, conservative, and aggressive framings.</dd>
+              <dt>max_remote_calls_per_agent</dt>
+              <dd>The maximum number of remote model API calls an agent can make in one session. The NVIDIA main panel uses 1 because of rate limits.</dd>
+              <dt>ROAS</dt>
+              <dd>Return on Ad Spend. A strong average ROAS can still hide budget burn or lower-tail loss risk.</dd>
+              <dt>Budget pacing</dt>
+              <dd>The process of controlling campaign spend rate so the budget lasts across the intended time window.</dd>
+            </dl>
+          </section>
+
+          <section class="paper-section" aria-labelledby="en-qwen-title">
+            <h3 id="en-qwen-title">Qwen Parameter-Scale Panel</h3>
+            <p>
+              Provider: Alibaba DashScope. Path:
+              <a href="https://github.com/parktaejun-dev/ai-test-with-gostop/tree/main/results/paper_qwen_4model_param_2h_2rep">results/paper_qwen_4model_param_2h_2rep</a>.
+              Each model has 48 samples. The CVaR low-support flag is false, but the effective 5% tail mass is 2.4 sessions per model, so CVaR is descriptive.
+            </p>
+            <div class="table-scroll">
+              <table class="result-table" id="qwen-table-en">
+                <thead>
+                  <tr>
+                    <th>Model</th>
+                    <th>Params</th>
+                    <th>Mean profit</th>
+                    <th>CVaR 5%</th>
+                    <th>Win rate</th>
+                    <th>Samples</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="paper-section" aria-labelledby="en-nvidia-title">
+            <h3 id="en-nvidia-title">NVIDIA Constrained Same-Scale Family Panel</h3>
+            <p>
+              Provider: NVIDIA Build NIM. Path:
+              <a href="https://github.com/parktaejun-dev/ai-test-with-gostop/tree/main/results/paper_nvidia_120b_4model_family_1h_2rep_budget1">results/paper_nvidia_120b_4model_family_1h_2rep_budget1</a>.
+              Each model has 48 samples; <code>max_remote_calls_per_agent=1</code>.
+            </p>
+            <div class="table-scroll">
+              <table class="result-table" id="nvidia-table-en">
+                <thead>
+                  <tr>
+                    <th>Model</th>
+                    <th>Scale</th>
+                    <th>Mean profit</th>
+                    <th>CVaR 5%</th>
+                    <th>Win rate</th>
+                    <th>Samples</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="paper-section" aria-labelledby="en-tiny-title">
+            <h3 id="en-tiny-title">Supplementary Small-Model Screen</h3>
+            <p>
+              Provider: NVIDIA Build NIM. Path:
+              <a href="https://github.com/parktaejun-dev/ai-test-with-gostop/tree/main/results/tiny_nvidia_4model_1h_2rep_budget1_20260425_075542">results/tiny_nvidia_4model_1h_2rep_budget1_20260425_075542</a>.
+              Each model has 48 samples; <code>max_remote_calls_per_agent=1</code>.
+            </p>
+            <div class="table-scroll">
+              <table class="result-table" id="tiny-nvidia-table-en">
+                <thead>
+                  <tr>
+                    <th>Model</th>
+                    <th>Scale</th>
+                    <th>Mean profit</th>
+                    <th>CVaR 5%</th>
+                    <th>Win rate</th>
+                    <th>Samples</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="paper-section" aria-labelledby="en-policy-title">
+            <h3 id="en-policy-title">Supplementary Policy Screens</h3>
+            <p>
+              Policy screens preserve layout and seed structure across balanced, analytic, conservative, and aggressive framings. Each model-policy cell has 24 samples, so these screens are exploratory.
+            </p>
+            <div class="table-scroll">
+              <table class="result-table" id="qwen-policy-table-en">
+                <thead>
+                  <tr>
+                    <th>Policy</th>
+                    <th>Qwen top model</th>
+                    <th>Top mean profit</th>
+                    <th>Top CVaR 5%</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+            <div class="table-scroll">
+              <table class="result-table" id="nvidia-policy-table-en">
+                <thead>
+                  <tr>
+                    <th>Policy</th>
+                    <th>NVIDIA top model</th>
+                    <th>Top mean profit</th>
+                    <th>Top CVaR 5%</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="paper-section" aria-labelledby="en-limit-title">
+            <h3 id="en-limit-title">Limitations</h3>
+            <p>
+              The model panels are convenience samples from available remote APIs. The Qwen comparison mixes Coder and Qwen3.5 variants, so parameter scale is partly confounded with specialization. The NVIDIA run is constrained by one remote call per agent per session, so it measures constrained first-decision behavior more than full-game autonomous play. Policy screens have 24 samples per model-policy cell and are supplementary.
+            </p>
+          </section>
         </section>
 
         <section class="paper-section" aria-labelledby="history-title">
-          <h2 id="history-title">공개 이력 / Submission History</h2>
+          <h2 id="history-title">공개 이력</h2>
           <p>
-            <strong>[v2]</strong> 한국어 우선, 영어 보조 공개 버전. 완료된 Qwen, NVIDIA, 소형 모델, 정책 스크린 결과 번들을 반영했다. Korean-first bilingual public version generated from completed result bundles. Last page render:
+            <strong>[v3]</strong> 한국어 본문과 영어 본문을 별도 섹션으로 분리했다. Last page render:
             <span id="render-date">local</span>.
           </p>
         </section>
@@ -226,38 +439,31 @@
 
       <aside class="side-panel" aria-label="paper access links">
         <section>
-          <h2>논문 접근 / Access Paper:</h2>
+          <h2>논문 접근</h2>
           <ul>
+            <li><a href="#korean-paper">한국어</a></li>
+            <li><a href="#english-paper">English</a></li>
             <li><a href="../paper/gostop_ai_evaluation_paper.pdf">PDF</a></li>
             <li><a href="../paper/arxiv_main.tex">TeX Source</a></li>
-            <li><a href="../paper/remote_model_results.md">결과 요약 / Results</a></li>
-            <li><a href="../paper/bilingual_summary.md">이중언어 요약 / Bilingual summary</a></li>
-            <li><a href="../paper/refs.bib">참고문헌 / References</a></li>
+            <li><a href="../paper/remote_model_results.md">결과 요약</a></li>
+            <li><a href="../paper/bilingual_summary.md">이중언어 요약</a></li>
           </ul>
         </section>
 
         <section>
-          <h3>현재 문맥 / Current browse context:</h3>
-          <p><strong>cs.AI</strong></p>
-          <p><a href="#qwen-title">&lt; Qwen</a> | <a href="#nvidia-title">NVIDIA &gt;</a></p>
-        </section>
-
-        <section>
-          <h3>참조 및 데이터 / References &amp; Data</h3>
+          <h3>참조 및 데이터</h3>
           <ul>
-            <li><a href="../paper/ARTIFACTS.md">산출물 안내 / Artifact guide</a></li>
+            <li><a href="../paper/ARTIFACTS.md">산출물 안내</a></li>
             <li><a href="https://github.com/parktaejun-dev/ai-test-with-gostop/blob/main/results/paper_qwen_4model_param_2h_2rep/agent_performance_table.csv">Qwen CSV</a></li>
             <li><a href="https://github.com/parktaejun-dev/ai-test-with-gostop/blob/main/results/paper_nvidia_120b_4model_family_1h_2rep_budget1/agent_performance_table.csv">NVIDIA CSV</a></li>
-            <li><a href="https://github.com/parktaejun-dev/ai-test-with-gostop/blob/main/results/paper_qwen_4model_param_2h_2rep/manifest.json">Qwen manifest</a></li>
-            <li><a href="https://github.com/parktaejun-dev/ai-test-with-gostop/blob/main/results/paper_nvidia_120b_4model_family_1h_2rep_budget1/manifest.json">NVIDIA manifest</a></li>
             <li><a href="https://github.com/parktaejun-dev/ai-test-with-gostop/blob/main/results/tiny_nvidia_4model_1h_2rep_budget1_20260425_075542/agent_performance_table.csv">Small-model CSV</a></li>
           </ul>
         </section>
 
         <section class="citation">
-          <h3>BibTeX 내보내기 / export BibTeX citation</h3>
+          <h3>BibTeX</h3>
           <pre id="bibtex">@misc{gostop_ai_eval_2026,
-  title = {Risk-Sensitive LLM Evaluation in Four-Player Go-Stop: Remote-Model Panels, Scale Effects, and Policy Sensitivity},
+  title = {Risk-Sensitive LLM Evaluation in Four-Player Go-Stop},
   year = {2026}
 }</pre>
         </section>
@@ -265,11 +471,12 @@
     </main>
 
     <footer class="arxiv-footer">
-      <a href="index.html">대시보드 / Dashboard</a>
+      <a href="#korean-paper">한국어</a>
+      <a href="#english-paper">English</a>
+      <a href="index.html">대시보드</a>
       <a href="../paper/gostop_ai_evaluation_paper.pdf">PDF</a>
-      <a href="../paper/ARTIFACTS.md">산출물 / Artifacts</a>
-      <a href="../paper/arxiv_main.tex">LaTeX</a>
-      <a href="../paper/remote_model_results.md">결과 / Results</a>
+      <a href="../paper/ARTIFACTS.md">산출물</a>
+      <a href="../paper/remote_model_results.md">결과</a>
     </footer>
 
     <script src="./paper.js" defer></script>

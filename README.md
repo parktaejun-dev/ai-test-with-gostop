@@ -1,11 +1,10 @@
-# 4인 고스톱 AI 평가 하네스 v1.1 | Four-Player Go-Stop AI Evaluation Harness
+# 4인 고스톱 AI 평가 하네스 v1.1
+
+## 한국어
 
 이 저장소는 고스톱 게임 서비스가 아니라, **고정 AI 정책의 장기 수익성과 리스크를 비교하는 평가 하네스**다.
 
-English:
-This repository is not a Go-Stop game service. It is an evaluation harness for comparing the long-run profit and downside risk of fixed AI policies in four-player Go-Stop.
-
-## 공개 논문 링크 / Public Paper Links
+## 공개 논문 링크
 - 웹 논문 페이지: https://godori.dahanda.dev/dashboard/paper.html
 - PDF 논문 파일: [`paper/gostop_ai_evaluation_paper.pdf`](paper/gostop_ai_evaluation_paper.pdf)
 - LaTeX 원문: [`paper/arxiv_main.tex`](paper/arxiv_main.tex)
@@ -17,21 +16,14 @@ This repository is not a Go-Stop game service. It is an evaluation harness for c
 - Qwen 정책 보조 번들: `results/policy_screen_qwen_tiny_*_1h_1rep_20260425_102731`
 - NVIDIA 정책 보조 번들: `results/policy_screen_nvidia_*_1h_1rep_20260425_075542`
 
-## 포함 범위 / Implemented Scope
+## 포함 범위
 - 4인 시작, 참여 결정 단계 후 3인 활성 본게임
 - 죽기, 연사 금지, 광팔이
 - 총통, 총통 숨기기, 흔들기, 중간 폭탄, 자폭
 - 일반 나가리, 쇼당, 국진 이동
 - 수익/리스크 중심 메트릭과 재현 가능한 시드 계층
 
-English:
-- Four-player start, followed by a three-active-player main game after participation decisions.
-- Exit, no chained double strike, forced gwang sell.
-- Chongtong, hidden chongtong, shake, middle bomb, self-bomb.
-- Standard nagari, showdown, and Gukjin movement.
-- Profit/risk metrics with reproducible seed layers.
-
-## 빠른 실행 / Quick Start
+## 빠른 실행
 ```bash
 python3 main.py --output-dir results/paper_run
 ```
@@ -39,14 +31,14 @@ python3 main.py --output-dir results/paper_run
 기본 자본은 플레이어당 `100,000원`, 기본 판돈은 `점당 100원`이다.
 세션은 2명 오링될 때까지 진행한다.
 
-생성 산출물 / Generated outputs:
+생성 산출물:
 - `report.json`
 - `manifest.json`
 - `agent_performance_table.csv`
 - `cross_play_results.json`
 - `session_logs.jsonl`
 
-## 현재 논문 실험셋 / Current Paper Experiment Set
+## 현재 논문 실험셋
 
 공개 논문은 아래 5개 실험군을 기준으로 한다.
 
@@ -65,14 +57,20 @@ python3 main.py --output-dir results/paper_run
 - `cvar_5`는 표본 수가 작으므로 확증 지표가 아니라 하방 위험 요약이다.
 - 키, 서버 주소, 비공개 배포 정보는 공개 문서에 기록하지 않는다.
 
-English reading rule:
-- Main panels are the evidence base for the manuscript body.
-- Policy screens are exploratory supplementary evidence.
-- All rankings are descriptive statistics under this harness and its call constraints.
-- `cvar_5` is a lower-tail summary, not a confirmatory inference statistic, because sample counts are small.
-- Keys, server addresses, and private deployment details are not recorded in public documents.
+## 용어 정의
 
-## 논문용 재현 명령 / Reproduction Commands
+- `mean_profit`: 세션 종료 후 모델이 얻은 평균 수익.
+- `cvar_5`: 가장 나쁜 하위 5% 결과의 평균 손실을 요약하는 하방 위험 지표.
+- `win_rate`: 세션에서 양의 수익을 낸 비율.
+- `ruin_probability`: 자본이 소진되거나 사실상 파산 상태에 도달할 확률.
+- parameter scale: 모델의 명목 파라미터 규모.
+- model family: Qwen, Mistral, Nemotron처럼 모델 계열 또는 개발 계통.
+- policy framing: 모델에 제시하는 의사결정 지침의 성향.
+- `max_remote_calls_per_agent`: 한 세션에서 에이전트가 원격 모델 API를 호출할 수 있는 최대 횟수.
+- ROAS: 광고비 대비 매출.
+- budget pacing: 캠페인 예산을 기간 전체에 맞게 쓰도록 지출 속도를 조절하는 과정.
+
+## 논문용 재현 명령
 
 동일 Python 버전에서 실행한다. 현재 확인 버전은 `Python 3.13.5`다.
 
@@ -149,7 +147,7 @@ python3 scripts/run_nvidia_same_size_family_eval.py \
 
 논문 표는 `agent_performance_table.csv`를 기준으로 작성한다. 사건 분석은 `session_logs.jsonl`, 전체 집계는 `report.json`, 실행 규칙 검증은 `manifest.json`을 기준으로 한다.
 
-## 핵심 지표 / Core Metrics
+## 핵심 지표
 - `mean_profit`
 - `cvar_5`
 - `ruin_probability`
@@ -164,7 +162,7 @@ python3 scripts/run_nvidia_same_size_family_eval.py \
 - `showdown_ev_gain`
 - `showdown_misplay_rate`
 
-## 원격 모델 평가 / Remote Model Evaluation
+## 원격 모델 평가
 OpenAI 전용 `RemoteModelAgent`는 Responses API를 직접 호출한다.
 
 필수 환경 변수:
@@ -320,10 +318,56 @@ python3 -m http.server 8000
 # http://127.0.0.1:8000/dashboard/
 ```
 
-## 서버 배포 규칙 / Server Deployment Rules
+## English
+
+This repository is not a Go-Stop game service. It is an evaluation harness for comparing the long-run profit and downside risk of fixed AI policies in four-player Go-Stop.
+
+### Public Paper Links
+
+- Web paper page: https://godori.dahanda.dev/dashboard/paper.html
+- Public PDF: [`paper/gostop_ai_evaluation_paper.pdf`](paper/gostop_ai_evaluation_paper.pdf)
+- English LaTeX source: [`paper/arxiv_main.tex`](paper/arxiv_main.tex)
+- Result summary: [`paper/remote_model_results.md`](paper/remote_model_results.md)
+- Bilingual summary: [`paper/bilingual_summary.md`](paper/bilingual_summary.md)
+
+### Current Paper Experiment Set
+
+| Group | Path | Samples per model | Rules |
+|---|---|---:|---|
+| Qwen parameter-scale main panel | `results/paper_qwen_4model_param_2h_2rep` | 48 | `session_hands=2`, `layout_repetitions=2`, `remote_eval_hands=2` |
+| NVIDIA 120B-class cross-family main panel | `results/paper_nvidia_120b_4model_family_1h_2rep_budget1` | 48 | `session_hands=1`, `layout_repetitions=2`, `remote_eval_hands=1`, `max_remote_calls_per_agent=1` |
+| NVIDIA small-model supplementary panel | `results/tiny_nvidia_4model_1h_2rep_budget1_20260425_075542` | 48 | `session_hands=1`, `layout_repetitions=2`, `remote_eval_hands=1`, `max_remote_calls_per_agent=1` |
+| Qwen small-model policy screen | `results/policy_screen_qwen_tiny_*_1h_1rep_20260425_102731` | 24 | `session_hands=1`, `layout_repetitions=1`, `remote_eval_hands=1` |
+| NVIDIA policy screen | `results/policy_screen_nvidia_*_1h_1rep_20260425_075542` | 24 | `session_hands=1`, `layout_repetitions=1`, `remote_eval_hands=1`, `max_remote_calls_per_agent=1` |
+
+Interpretation rules:
+- Main panels are the evidence base for the manuscript body.
+- Policy screens are exploratory supplementary evidence.
+- All rankings are descriptive statistics under this harness and its call constraints.
+- `cvar_5` is a lower-tail summary, not a confirmatory inference statistic, because sample counts are small.
+- Keys, server addresses, and private deployment details are not recorded in public documents.
+
+### Glossary
+
+- `mean_profit`: average session-ending profit.
+- `cvar_5`: lower-tail risk summary based on the worst 5% outcomes.
+- `win_rate`: share of sessions with positive profit.
+- `ruin_probability`: probability of exhausting capital or reaching an effectively bankrupt state.
+- parameter scale: nominal model parameter size.
+- model family: model lineage or family, such as Qwen, Mistral, or Nemotron.
+- policy framing: decision-making instruction style given to the model.
+- `max_remote_calls_per_agent`: maximum number of remote model API calls an agent can make in one session.
+- ROAS: Return on Ad Spend.
+- budget pacing: controlling campaign spend rate across the intended time window.
+
+### Advertising Bidding Link
+
+Advertising bidding is not the same domain as Go-Stop, but the decision structure is similar enough to motivate the evaluation frame. An ad system repeatedly decides whether to bid, lower a bid, or wait under a finite budget. Conversion probability, competing bids, frequency fatigue, remaining budget, and campaign pacing are all uncertain. The Go-Stop harness does not simulate advertising directly; it connects as a compact evaluation frame for sequential action selection, uncertainty, budget-risk trade-offs, and lower-tail risk control.
+
+## 서버 배포 규칙
 
 배포 절차는 `AGENTS.md`의 배포 규칙을 따른다.
-## 주의 / Notes
+## 주의
 - baseline 4종은 sanity check용이다.
 - 메인 비교 대상은 외부 고정 정책, 원격 모델, 재생 정책이다.
 - 설명 로그는 저장만 하며 정책 개선에 사용하지 않는다.
