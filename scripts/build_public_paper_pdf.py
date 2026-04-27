@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the public Korean/English sectioned PDF for the Go-Stop paper."""
+"""Build the public Korean/English sectioned PDF report for Go-Stop evaluation."""
 
 from __future__ import annotations
 
@@ -28,8 +28,8 @@ from reportlab.platypus import (
 REPO_URL = "https://github.com/parktaejun-dev/ai-test-with-gostop"
 WEB_URL = "https://godori.dahanda.dev/dashboard/paper.html"
 OUTPUT_PATH = Path("paper/gostop_ai_evaluation_paper.pdf")
-PAPER_TITLE_KO = "4인 고스톱에서의 위험 민감 LLM 평가"
-PAPER_TITLE_EN = "Risk-Sensitive LLM Evaluation in Four-Player Go-Stop"
+PAPER_TITLE_KO = "4인 고스톱 LLM 평가 실험 결과"
+PAPER_TITLE_EN = "Go-Stop LLM Evaluation Result Report"
 KOREAN_FONT = "PublicKorean"
 
 
@@ -90,7 +90,7 @@ def footer(canvas, doc) -> None:
     canvas.saveState()
     canvas.setFont("Helvetica", 8)
     canvas.setFillColor(colors.HexColor("#555555"))
-    canvas.drawString(doc.leftMargin, 0.45 * inch, "Go-Stop AI Evaluation Paper")
+    canvas.drawString(doc.leftMargin, 0.45 * inch, "Go-Stop AI Evaluation Report")
     canvas.drawRightString(letter[0] - doc.rightMargin, 0.45 * inch, f"Page {doc.page}")
     canvas.restoreState()
 
@@ -151,7 +151,7 @@ def add_korean(story: list) -> None:
         story,
         "초록",
         [
-            "이 원고는 재현 가능한 4인 고스톱 하네스에서 고정 원격 LLM 정책을 평가한다. 고스톱은 숨은 정보, 확률적 드로우, 조합적 점수 계산, 다중 에이전트 상호작용, 고/스톱 위험 결정을 짧은 에피소드 안에 압축한다. 주 실험인 Qwen 패널과 NVIDIA 패널은 관측 성능이 파라미터 규모만으로 설명되지 않음을 보인다. 보조 실험은 제한된 조건에서 소형 모델도 양의 평균 수익을 낼 수 있고, 정책 framing 효과가 모델별로 다르게 나타남을 보여준다. 모든 결과는 기술통계이며 보편적 모델 순위가 아니다.",
+            "고정된 원격 LLM 정책을 같은 4인 고스톱 환경에서 비교했다. 고스톱은 숨은 패, 다음 패의 운, 조합 점수, 상대 행동, 고/스톱 위험이 짧은 판 안에 들어 있다. Qwen과 NVIDIA 실험에서는 성능이 모델 크기만으로 정해지지 않았다. 보조 실험에서는 제한된 조건에서 작은 모델도 플러스 수익을 냈고, 지시 성향에 따라 결과가 달라졌다. 이 결과는 실험 조건 안에서만 읽어야 한다.",
         ],
         "ko",
     )
@@ -159,8 +159,8 @@ def add_korean(story: list) -> None:
         story,
         "왜 고스톱인가?",
         [
-            "고스톱은 작은 확률적 의사결정 환경이다. 각 행동은 숨은 패, 불확실한 미래 드로우, 상대 행동, 큰 하방 손실을 만들 수 있는 정산 규칙 아래에서 선택된다. 고/스톱 결정은 위험 민감적 stopping problem이다.",
-            "평균 수익만 보면 위험하다. 이 평가는 CVaR 5%, 승률, 파산 확률, 표본 수를 함께 본다.",
+            "고스톱은 작은 확률 게임이지만 판단은 가볍지 않다. 각 행동은 숨은 패, 불확실한 다음 패, 상대 행동, 큰 손실을 만들 수 있는 정산 규칙 아래에서 선택된다. 고/스톱은 멈출지 더 갈지의 위험 판단이다.",
+            "평균 수익만 보면 위험하다. 이 평가는 CVaR 5%, 승률, 파산 확률, 표본 수를 함께 본다. 광고 입찰도 매 노출마다 돈을 쓸지, 아낄지, 입찰가를 조정할지 정해야 하므로 같은 관점에서 볼 수 있다.",
         ],
         "ko",
     )
@@ -169,18 +169,18 @@ def add_korean(story: list) -> None:
         "산업적 연결: 광고 입찰",
         [
             "광고 입찰은 고스톱과 같은 게임이 아니지만, 평가해야 하는 의사결정 구조가 닮아 있다. 광고 시스템은 제한된 예산 안에서 매 노출마다 입찰할지, 낮출지, 기다릴지를 결정한다. 전환 확률, 경쟁 입찰가, 빈도 피로, 잔여 예산, 캠페인 pacing은 모두 불확실하다.",
-            "어떤 정책은 평균 ROAS가 좋아 보여도 특정 구간에서 예산을 너무 빨리 태우거나, 낮은 품질 inventory에 과도하게 노출되거나, 드문 큰 손실을 만들 수 있다. 본 논문의 고스톱 평가는 광고 시스템을 직접 모사하지 않는다. 대신 순차 행동 선택, 불확실성, 예산/위험 trade-off, 하방 위험 관리가 함께 나타나는 정책 평가 프레임으로 연결된다.",
+            "어떤 정책은 평균 ROAS가 좋아 보여도 특정 구간에서 예산을 너무 빨리 태우거나, 낮은 품질 inventory에 과도하게 노출되거나, 드문 큰 손실을 만들 수 있다. 이 고스톱 평가는 광고 시스템을 직접 모사하지 않는다. 대신 순차 행동 선택, 불확실성, 예산/위험 trade-off, 하방 위험 관리가 함께 나타나는 정책 평가 프레임으로 연결된다.",
         ],
         "ko",
     )
     add_section(
         story,
-        "연구문제와 답",
+        "확인 질문과 답",
         [
-            "RQ1: 고스톱은 LLM 에이전트의 위험 민감적 순차 의사결정을 평가하기에 타당한 환경인가? 답은 방법론적으로 긍정이다.",
-            "RQ2: Qwen/DashScope 패널에서 관측 성능은 명목 파라미터 규모에 대해 단조적인가? 답은 기술적으로 부정이다.",
-            "RQ3: 비슷한 규모의 NVIDIA Build 패널에서 모델 family별 기술통계 차이가 보이는가? 제한된 패널 안에서 차이가 관찰된다.",
-            "RQ4: 보조 실험에서 소형 모델과 prompt-policy 변형은 측정 가능한 모델별 차이를 보이는가? 탐색적으로 그렇다.",
+            "RQ1: 고스톱은 LLM 에이전트의 위험 판단 평가에 쓸 수 있는가? 쓸 수 있다.",
+            "RQ2: Qwen/DashScope 패널에서 모델이 클수록 성능이 좋아졌는가? 그렇지 않았다.",
+            "RQ3: 비슷한 규모의 NVIDIA Build 패널에서 모델 계열별 차이가 보이는가? 제한된 조건 안에서 차이가 보였다.",
+            "RQ4: 소형 모델과 prompt-policy 변형은 모델별 차이를 보이는가? 참고 결과로 차이가 보였다.",
         ],
         "ko",
     )
@@ -189,7 +189,7 @@ def add_korean(story: list) -> None:
         "용어 정의",
         [
             "Mean profit: 세션 종료 후 모델이 얻은 평균 수익이다. 평균만으로는 큰 손실 위험을 설명하지 못한다.",
-            "CVaR 5%: 가장 나쁜 하위 5% 결과의 평균 손실을 요약하는 하방 위험 지표다. 이 논문에서는 표본 수가 작으므로 확증 지표가 아니라 기술통계로 사용한다.",
+            "CVaR 5%: 가장 나쁜 하위 5% 결과의 평균 손실을 요약하는 지표다. 표본 수가 작으므로 참고 지표로만 사용한다.",
             "Win rate: 세션에서 양의 수익을 낸 비율이다. 승률이 높아도 큰 손실이 있으면 좋은 정책이라고 보기 어렵다.",
             "Ruin probability: 자본이 소진되거나 사실상 파산 상태에 도달할 확률이다.",
             "Parameter scale: 모델의 명목 파라미터 규모다. MoE 모델에서는 전체 파라미터와 active parameter가 다를 수 있다.",
@@ -223,11 +223,11 @@ def add_korean(story: list) -> None:
     story.append(Spacer(1, 0.16 * inch))
     add_section(
         story,
-        "이 연구가 의미 있는가?",
+        "해석 범위",
         [
-            "의미는 있다. 하지만 어떤 모델이 세계적으로 제일 고스톱을 잘한다는 논문은 아니다. 더 정확히는, 고스톱을 이용해 LLM의 순차 의사결정, 위험 관리, 모델 규모 효과, 모델 family 차이, prompt-policy 민감도를 한 번에 볼 수 있는 평가 하네스를 만든 연구다.",
-            "논문으로 쓸 수 있는 지점은 세 가지다. 첫째, 고스톱이 숨은 정보와 하방 위험을 함께 가진 짧은 평가 환경이라는 점이다. 둘째, Qwen 패널에서 성능이 파라미터 규모에 따라 단순히 증가하지 않았다는 점이다. 셋째, 같은 규모대 NVIDIA 패널과 정책 framing 실험에서 모델별 차이가 실제로 관찰됐다는 점이다.",
-            "약한 지점도 분명하다. 표본 수가 크지 않고, NVIDIA 실험은 호출 1회 제약이 있으며, Qwen 규모 비교는 Coder와 Qwen3.5 변형이 섞여 있다. 따라서 결론은 확정적 모델 순위가 아니라 재현 가능한 탐색적 평가와 방법론적 근거로 써야 한다.",
+            "이 결과 보고서는 모델 순위를 확정하려는 작업이 아니다. 고스톱을 짧은 위험 판단 환경으로 두고, 원격 LLM이 규모, 계열, 지시 성향에 따라 어떻게 달라지는지 비교한다.",
+            "핵심 결과는 세 가지다. 첫째, 고스톱은 숨은 정보와 큰 손실 위험을 함께 가진 짧은 평가 환경이다. 둘째, Qwen 패널에서는 파라미터가 클수록 성능이 좋아지는 흐름이 나오지 않았다. 셋째, 같은 규모대 NVIDIA 패널과 정책 실험에서는 모델별 차이가 보였다.",
+            "한계도 있다. 표본 수가 작고, NVIDIA 실험은 호출 1회 제약이 있으며, Qwen 비교에는 Coder와 Qwen3.5 변형이 섞여 있다. 결론은 확정 순위가 아니라 재현 가능한 비교 결과로 읽어야 한다.",
         ],
         "ko",
     )
@@ -248,7 +248,7 @@ def add_english(story: list) -> None:
         story,
         "Abstract",
         [
-            "We evaluate fixed-policy LLM play in a reproducible four-player Go-Stop harness. Go-Stop compresses hidden information, stochastic draws, combinatorial scoring, multi-agent interaction, and risk-sensitive stop-or-continue decisions into short episodes. The main Qwen and NVIDIA panels show that observed performance is not explained by parameter scale alone. Supplementary screens show positive small-model results under restricted settings and model-specific policy-framing effects. The results are descriptive, not universal model rankings.",
+            "We compare fixed remote LLM policies in the same four-player Go-Stop environment. Go-Stop puts hidden cards, uncertain draws, scoring combinations, opponent interaction, and Go/Stop risk into short games. The Qwen and NVIDIA runs show that performance is not explained by model size alone. Supplementary runs show that a small model can make positive mean profit under restricted settings, and that prompt framing changes results by model. The results apply only to these run conditions.",
         ],
         "en",
     )
@@ -272,12 +272,12 @@ def add_english(story: list) -> None:
     )
     add_section(
         story,
-        "Research Questions and Answers",
+        "Questions and Answers",
         [
-            "RQ1: Is Go-Stop a plausible environment for evaluating risk-sensitive sequential decision making by LLM agents? The answer is methodologically positive.",
-            "RQ2: Is observed performance monotone in nominal parameter scale in the Qwen-labeled DashScope panel? The answer is descriptively negative.",
+            "RQ1: Can Go-Stop be used to evaluate risk-sensitive decisions by LLM agents? Yes.",
+            "RQ2: Does observed performance increase monotonically with nominal parameter scale in the Qwen-labeled DashScope panel? No.",
             "RQ3: Are cross-family differences visible in a rate-limited, roughly same-scale NVIDIA Build panel? They are visible under the constrained panel.",
-            "RQ4: Do small models and prompt-policy variants show measurable but model-specific differences? Exploratorily, yes.",
+            "RQ4: Do small models and prompt-policy variants show measurable but model-specific differences? They do in the supporting runs.",
         ],
         "en",
     )
@@ -286,7 +286,7 @@ def add_english(story: list) -> None:
         "Glossary",
         [
             "Mean profit: the average session-ending profit for a model. The mean alone does not capture severe downside risk.",
-            "CVaR 5%: the average of the worst 5% outcomes. In this paper it is descriptive, not confirmatory, because sample counts are small.",
+            "CVaR 5%: the average of the worst 5% outcomes. In this report it is a support metric because sample counts are small.",
             "Win rate: the share of sessions with positive profit. A high win rate can still hide rare but severe losses.",
             "Ruin probability: the probability that a player exhausts capital or reaches an effectively bankrupt state.",
             "Parameter scale: the nominal parameter size of a model. For MoE models, total parameters and active parameters can differ.",
@@ -320,11 +320,11 @@ def add_english(story: list) -> None:
     story.append(Spacer(1, 0.16 * inch))
     add_section(
         story,
-        "Is This Study Meaningful?",
+        "Interpretation Scope",
         [
-            "Yes, but its meaning is specific. This is not a paper claiming that one model is universally the best Go-Stop player. It is better framed as an evaluation-harness and exploratory remote-model comparison study for sequential decision making, risk control, scale effects, family differences, and prompt-policy sensitivity.",
-            "The publishable contribution has three parts. First, Go-Stop is a compact benchmark with hidden information and lower-tail risk. Second, the Qwen panel is not monotone in nominal parameter scale. Third, the NVIDIA same-scale panel and policy screens show observable model-specific differences.",
-            "The weak points are also clear: sample counts are modest, the NVIDIA run uses a one-call constraint, and the Qwen scale comparison mixes Coder and Qwen3.5 variants. The claim should therefore be reproducible exploratory evaluation and methodological evidence, not definitive model ranking.",
+            "This report does not rank Go-Stop players globally. It uses Go-Stop as a short risk-heavy decision setting to compare remote LLM policies across scale, model family, and prompt framing.",
+            "The main results are simple. Go-Stop provides hidden information and large-loss risk in short runs. The Qwen panel does not improve monotonically with parameter count. The NVIDIA same-scale panel and policy screens show model-specific differences.",
+            "The limits are also clear. Sample counts are modest, the NVIDIA run uses a one-call constraint, and the Qwen scale comparison mixes Coder and Qwen3.5 variants. Read the results as reproducible comparisons, not definitive rankings.",
         ],
         "en",
     )

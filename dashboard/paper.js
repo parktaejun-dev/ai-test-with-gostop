@@ -70,92 +70,10 @@ const nvidiaRows = [
   },
 ];
 
-const tinyNvidiaRows = [
-  {
-    model: "ibm/granite-3.0-3b-a800m-instruct",
-    scale: "3B / A800M",
-    meanProfit: 381.25,
-    cvar5: -1966.67,
-    winRate: 0.3125,
-    samples: 48,
-    leader: true,
-  },
-  {
-    model: "meta/llama-3.2-1b-instruct",
-    scale: "1B",
-    meanProfit: -20.83,
-    cvar5: -2083.33,
-    winRate: 0.2708,
-    samples: 48,
-  },
-  {
-    model: "google/gemma-2-2b-it",
-    scale: "2B",
-    meanProfit: -68.75,
-    cvar5: -3833.33,
-    winRate: 0.25,
-    samples: 48,
-  },
-  {
-    model: "microsoft/phi-4-mini-instruct",
-    scale: "mini",
-    meanProfit: -291.67,
-    cvar5: -3916.67,
-    winRate: 0.1667,
-    samples: 48,
-  },
-];
-
-const qwenPolicyRows = [
-  { policyKo: "균형", policyEn: "Balanced", model: "qwen3-4b", meanProfit: 224.88, cvar5: -1166.67 },
-  { policyKo: "분석", policyEn: "Analytic", model: "qwen3-4b", meanProfit: 412.33, cvar5: -2566.83 },
-  { policyKo: "보수", policyEn: "Conservative", model: "qwen3-8b", meanProfit: 238.08, cvar5: -1301.67 },
-  { policyKo: "공격", policyEn: "Aggressive", model: "qwen3-14b", meanProfit: 254.08, cvar5: -1284.33 },
-];
-
-const nvidiaPolicyRows = [
-  {
-    policyKo: "균형",
-    policyEn: "Balanced",
-    model: "nvidia/nemotron-3-super-120b-a12b",
-    meanProfit: 645.17,
-    cvar5: -2067.0,
-  },
-  {
-    policyKo: "분석",
-    policyEn: "Analytic",
-    model: "nvidia/nemotron-3-super-120b-a12b",
-    meanProfit: 598.92,
-    cvar5: -2067.0,
-  },
-  {
-    policyKo: "보수",
-    policyEn: "Conservative",
-    model: "nvidia/nemotron-3-super-120b-a12b",
-    meanProfit: 416.67,
-    cvar5: -1850.0,
-  },
-  {
-    policyKo: "공격",
-    policyEn: "Aggressive",
-    model: "nvidia/nemotron-3-super-120b-a12b",
-    meanProfit: 598.83,
-    cvar5: -3701.67,
-  },
-];
-
 document.addEventListener("DOMContentLoaded", () => {
-  renderRows("qwen-table-ko", qwenRows, "params");
-  renderRows("qwen-table-en", qwenRows, "params");
-  renderRows("nvidia-table-ko", nvidiaRows, "scale");
-  renderRows("nvidia-table-en", nvidiaRows, "scale");
-  renderRows("tiny-nvidia-table-ko", tinyNvidiaRows, "scale");
-  renderRows("tiny-nvidia-table-en", tinyNvidiaRows, "scale");
-  renderPolicyRows("qwen-policy-table-ko", qwenPolicyRows, "ko");
-  renderPolicyRows("qwen-policy-table-en", qwenPolicyRows, "en");
-  renderPolicyRows("nvidia-policy-table-ko", nvidiaPolicyRows, "ko");
-  renderPolicyRows("nvidia-policy-table-en", nvidiaPolicyRows, "en");
-  document.querySelector("#render-date").textContent = new Intl.DateTimeFormat("ko-KR", {
+  renderRows("qwen-table", qwenRows, "params");
+  renderRows("nvidia-table", nvidiaRows, "scale");
+  document.querySelector("#render-date").textContent = new Intl.DateTimeFormat("en", {
     year: "numeric",
     month: "short",
     day: "2-digit",
@@ -176,23 +94,6 @@ function renderRows(tableId, rows, scaleKey) {
           <td>${formatNumber(row.cvar5)}</td>
           <td>${formatRate(row.winRate)}</td>
           <td>${row.samples}</td>
-        </tr>
-      `
-    )
-    .join("");
-}
-
-function renderPolicyRows(tableId, rows, locale) {
-  const tbody = document.querySelector(`#${tableId} tbody`);
-  const policyKey = locale === "ko" ? "policyKo" : "policyEn";
-  tbody.innerHTML = rows
-    .map(
-      (row) => `
-        <tr>
-          <td>${escapeHtml(row[policyKey])}</td>
-          <td class="model-name">${escapeHtml(row.model)}</td>
-          <td>${formatNumber(row.meanProfit)}</td>
-          <td>${formatNumber(row.cvar5)}</td>
         </tr>
       `
     )

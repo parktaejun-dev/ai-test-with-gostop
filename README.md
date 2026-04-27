@@ -1,20 +1,6 @@
 # 4인 고스톱 AI 평가 하네스 v1.1
 
-## 한국어
-
 이 저장소는 고스톱 게임 서비스가 아니라, **고정 AI 정책의 장기 수익성과 리스크를 비교하는 평가 하네스**다.
-
-## 공개 논문 링크
-- 웹 논문 페이지: https://godori.dahanda.dev/dashboard/paper.html
-- PDF 논문 파일: [`paper/gostop_ai_evaluation_paper.pdf`](paper/gostop_ai_evaluation_paper.pdf)
-- LaTeX 원문: [`paper/arxiv_main.tex`](paper/arxiv_main.tex)
-- 결과 요약: [`paper/remote_model_results.md`](paper/remote_model_results.md)
-- 이중언어 요약: [`paper/bilingual_summary.md`](paper/bilingual_summary.md)
-- Qwen 결과 번들: [`results/paper_qwen_4model_param_2h_2rep`](results/paper_qwen_4model_param_2h_2rep)
-- NVIDIA 결과 번들: [`results/paper_nvidia_120b_4model_family_1h_2rep_budget1`](results/paper_nvidia_120b_4model_family_1h_2rep_budget1)
-- NVIDIA 초소형 보조 번들: [`results/tiny_nvidia_4model_1h_2rep_budget1_20260425_075542`](results/tiny_nvidia_4model_1h_2rep_budget1_20260425_075542)
-- Qwen 정책 보조 번들: `results/policy_screen_qwen_tiny_*_1h_1rep_20260425_102731`
-- NVIDIA 정책 보조 번들: `results/policy_screen_nvidia_*_1h_1rep_20260425_075542`
 
 ## 포함 범위
 - 4인 시작, 참여 결정 단계 후 3인 활성 본게임
@@ -38,129 +24,12 @@ python3 main.py --output-dir results/paper_run
 - `cross_play_results.json`
 - `session_logs.jsonl`
 
-## 현재 논문 실험셋
-
-공개 논문은 아래 5개 실험군을 기준으로 한다.
-
-| 구분 | 경로 | 모델당 표본 | 규칙 |
-|---|---|---:|---|
-| Qwen 파라미터 규모 주 실험 | `results/paper_qwen_4model_param_2h_2rep` | 48 | `session_hands=2`, `layout_repetitions=2`, `remote_eval_hands=2` |
-| NVIDIA 120B급 계열 주 실험 | `results/paper_nvidia_120b_4model_family_1h_2rep_budget1` | 48 | `session_hands=1`, `layout_repetitions=2`, `remote_eval_hands=1`, `max_remote_calls_per_agent=1` |
-| NVIDIA 초소형 보조 실험 | `results/tiny_nvidia_4model_1h_2rep_budget1_20260425_075542` | 48 | `session_hands=1`, `layout_repetitions=2`, `remote_eval_hands=1`, `max_remote_calls_per_agent=1` |
-| Qwen 소형 정책 보조 실험 | `results/policy_screen_qwen_tiny_*_1h_1rep_20260425_102731` | 24 | `session_hands=1`, `layout_repetitions=1`, `remote_eval_hands=1` |
-| NVIDIA 정책 보조 실험 | `results/policy_screen_nvidia_*_1h_1rep_20260425_075542` | 24 | `session_hands=1`, `layout_repetitions=1`, `remote_eval_hands=1`, `max_remote_calls_per_agent=1` |
-
-해석 규칙:
-- 주 실험은 논문 본문 근거다.
-- 정책 보조 실험은 탐색적 근거다.
-- 모든 순위는 해당 하네스와 호출 제약 안의 기술통계다.
-- `cvar_5`는 표본 수가 작으므로 확증 지표가 아니라 하방 위험 요약이다.
-- 키, 서버 주소, 비공개 배포 정보는 공개 문서에 기록하지 않는다.
-
-## 용어 정의
-
-- `mean_profit`: 세션 종료 후 모델이 얻은 평균 수익.
-- `cvar_5`: 가장 나쁜 하위 5% 결과의 평균 손실을 요약하는 하방 위험 지표.
-- `win_rate`: 세션에서 양의 수익을 낸 비율.
-- `ruin_probability`: 자본이 소진되거나 사실상 파산 상태에 도달할 확률.
-- parameter scale: 모델의 명목 파라미터 규모.
-- model family: Qwen, Mistral, Nemotron처럼 모델 계열 또는 개발 계통.
-- policy framing: 모델에 제시하는 의사결정 지침의 성향.
-- `max_remote_calls_per_agent`: 한 세션에서 에이전트가 원격 모델 API를 호출할 수 있는 최대 횟수.
-- ROAS: 광고비 대비 매출.
-- budget pacing: 캠페인 예산을 기간 전체에 맞게 쓰도록 지출 속도를 조절하는 과정.
-
-## 네 가지 정책 framing
-
-- Balanced: 수익과 위험을 같이 보라는 기본형이다. 너무 무리하지도, 너무 겁먹지도 않는다.
-- Analytic: 패의 조합, 기대값, 상대 위험을 더 따져 보라는 분석형이다.
-- Conservative: 큰 손실을 피하는 것을 우선하는 보수형이다. 애매하면 멈추고 자본을 지키는 쪽이다.
-- Aggressive: 수익 기회를 더 강하게 잡는 공격형이다. 이길 가능성이 보이면 더 밀어붙이는 쪽이다.
-
-## 연구 의미
-
-의미는 있다. 하지만 “어떤 모델이 세계적으로 제일 고스톱을 잘한다”는 논문은 아니다. 이 연구는 고스톱을 이용해 LLM의 순차 의사결정, 위험 관리, 모델 규모 효과, 모델 family 차이, prompt-policy 민감도를 한 번에 볼 수 있는 평가 하네스를 만든 연구다.
-
-논문으로 쓸 수 있는 지점은 세 가지다. 첫째, 고스톱이 숨은 정보와 하방 위험을 함께 가진 짧은 평가 환경이라는 점이다. 둘째, Qwen 패널에서 성능이 파라미터 규모에 따라 단순히 증가하지 않았다는 점이다. 셋째, 같은 규모대 NVIDIA 패널과 정책 framing 실험에서 모델별 차이가 실제로 관찰됐다는 점이다.
-
-약한 지점도 분명하다. 표본 수가 크지 않고, NVIDIA 실험은 호출 1회 제약이 있으며, Qwen 규모 비교는 Coder와 Qwen3.5 변형이 섞여 있다. 따라서 결론은 확정적 모델 순위가 아니라 재현 가능한 탐색적 평가와 방법론적 근거로 써야 한다.
-
-## 논문용 재현 명령
-
-동일 Python 버전에서 실행한다. 현재 확인 버전은 `Python 3.13.5`다.
-
-Qwen 파라미터 규모 주 실험:
-```bash
-export DASHSCOPE_API_KEY=...
-python3 scripts/run_dashscope_qwen_parameter_sweep.py \
-  --session-hands 2 \
-  --layout-repetitions 2 \
-  --remote-eval-hands 2 \
-  --decoding max_tokens=64 \
-  --decoding temperature=0 \
-  --decoding enable_thinking=false \
-  --output-dir results/paper_qwen_4model_param_2h_2rep
-```
-
-NVIDIA 120B급 계열 주 실험:
-```bash
-export NVIDIA_API_KEY=...
-python3 scripts/run_nvidia_same_size_family_eval.py \
-  --session-hands 1 \
-  --layout-repetitions 2 \
-  --remote-eval-hands 1 \
-  --max-remote-calls-per-agent 1 \
-  --decoding max_tokens=64 \
-  --decoding temperature=0 \
-  --output-dir results/paper_nvidia_120b_4model_family_1h_2rep_budget1
-```
-
-NVIDIA 초소형 보조 실험:
-```bash
-export NVIDIA_API_KEY=...
-python3 scripts/run_nvidia_same_size_family_eval.py \
-  --models meta/llama-3.2-1b-instruct,google/gemma-2-2b-it,ibm/granite-3.0-3b-a800m-instruct,microsoft/phi-4-mini-instruct \
-  --session-hands 1 \
-  --layout-repetitions 2 \
-  --remote-eval-hands 1 \
-  --max-remote-calls-per-agent 1 \
-  --decoding max_tokens=64 \
-  --decoding temperature=0 \
-  --output-dir results/tiny_nvidia_4model_1h_2rep_budget1_20260425_075542
-```
-
-Qwen 소형 정책 보조 실험은 정책별 prompt 파일을 바꿔 실행한다.
-```bash
-export DASHSCOPE_API_KEY=...
-python3 scripts/run_dashscope_qwen_parameter_sweep.py \
-  --models qwen3-1.7b,qwen3-4b,qwen3-8b,qwen3-14b \
-  --session-hands 1 \
-  --layout-repetitions 1 \
-  --remote-eval-hands 1 \
-  --prompt-file experiments/prompts/factorial/balanced.txt \
-  --decoding max_tokens=64 \
-  --decoding temperature=0 \
-  --decoding enable_thinking=false \
-  --output-dir results/policy_screen_qwen_tiny_balanced_1h_1rep_20260425_102731
-```
-
-NVIDIA 정책 보조 실험도 정책별 prompt 파일을 바꿔 실행한다.
-```bash
-export NVIDIA_API_KEY=...
-python3 scripts/run_nvidia_same_size_family_eval.py \
-  --session-hands 1 \
-  --layout-repetitions 1 \
-  --remote-eval-hands 1 \
-  --max-remote-calls-per-agent 1 \
-  --prompt-file experiments/prompts/factorial/balanced.txt \
-  --decoding max_tokens=64 \
-  --decoding temperature=0 \
-  --output-dir results/policy_screen_nvidia_balanced_1h_1rep_20260425_075542
-```
-
-`balanced.txt` 대신 `analytic.txt`, `conservative.txt`, `aggressive.txt`를 쓰면 각 정책 보조 실험을 재현한다.
-
-논문 표는 `agent_performance_table.csv`를 기준으로 작성한다. 사건 분석은 `session_logs.jsonl`, 전체 집계는 `report.json`, 실행 규칙 검증은 `manifest.json`을 기준으로 한다.
+## 논문용 재현 절차
+1. 동일 Python 버전에서 실행한다. 현재 확인 버전은 `Python 3.13.5`.
+2. 동일 seed와 동일 결과 폴더를 사용한다.
+3. `results/<run_name>/manifest.json`을 방법론 부록에 첨부한다.
+4. 논문 표는 `agent_performance_table.csv`를 기준으로 작성한다.
+5. 사건 분석은 `session_logs.jsonl`을 기준으로 수행한다.
 
 ## 핵심 지표
 - `mean_profit`
@@ -178,7 +47,7 @@ python3 scripts/run_nvidia_same_size_family_eval.py \
 - `showdown_misplay_rate`
 
 ## 원격 모델 평가
-OpenAI 전용 `RemoteModelAgent`는 Responses API를 직접 호출한다.
+`RemoteModelAgent`는 OpenAI Responses API를 직접 호출한다.
 
 필수 환경 변수:
 ```bash
@@ -268,7 +137,7 @@ python3 scripts/run_dashscope_player_eval.py \
 - https://www.alibabacloud.com/help/en/model-studio/qwen-api-via-openai-chat-completions
 
 동일 Qwen 패밀리 안에서 파라미터 규모 차이를 보려면 30B/122B/397B/480B Qwen 패널을 쓴다.
-논문 본문 재현 명령은 위 `논문용 재현 명령` 절을 따른다. 아래는 새 실험용 예시다.
+기본 실행량은 무료 쿼터 점검용으로 작게 잡혀 있다.
 ```bash
 export DASHSCOPE_API_KEY=...
 python3 scripts/run_dashscope_qwen_parameter_sweep.py \
@@ -297,7 +166,6 @@ export NVIDIA_BASE_URL=https://integrate.api.nvidia.com/v1
 동일 120B 전후 파라미터 규모에서 패밀리 차이를 보려면 NVIDIA 120B cross-family 패널을 쓴다.
 기본 모델은 `qwen/qwen3.5-122b-a10b`, `mistralai/mistral-small-4-119b-2603`,
 `nvidia/nemotron-3-super-120b-a12b`, `stockmark/stockmark-2-100b-instruct`이다.
-논문 본문 재현 명령은 위 `논문용 재현 명령` 절을 따른다. 아래는 새 실험용 예시다.
 ```bash
 export NVIDIA_API_KEY=...
 python3 scripts/run_nvidia_same_size_family_eval.py \
@@ -332,67 +200,6 @@ python3 scripts/build_dashboard_data.py \
 python3 -m http.server 8000
 # http://127.0.0.1:8000/dashboard/
 ```
-
-## English
-
-This repository is not a Go-Stop game service. It is an evaluation harness for comparing the long-run profit and downside risk of fixed AI policies in four-player Go-Stop.
-
-### Public Paper Links
-
-- Web paper page: https://godori.dahanda.dev/dashboard/paper.html
-- Public PDF: [`paper/gostop_ai_evaluation_paper.pdf`](paper/gostop_ai_evaluation_paper.pdf)
-- English LaTeX source: [`paper/arxiv_main.tex`](paper/arxiv_main.tex)
-- Result summary: [`paper/remote_model_results.md`](paper/remote_model_results.md)
-- Bilingual summary: [`paper/bilingual_summary.md`](paper/bilingual_summary.md)
-
-### Current Paper Experiment Set
-
-| Group | Path | Samples per model | Rules |
-|---|---|---:|---|
-| Qwen parameter-scale main panel | `results/paper_qwen_4model_param_2h_2rep` | 48 | `session_hands=2`, `layout_repetitions=2`, `remote_eval_hands=2` |
-| NVIDIA 120B-class cross-family main panel | `results/paper_nvidia_120b_4model_family_1h_2rep_budget1` | 48 | `session_hands=1`, `layout_repetitions=2`, `remote_eval_hands=1`, `max_remote_calls_per_agent=1` |
-| NVIDIA small-model supplementary panel | `results/tiny_nvidia_4model_1h_2rep_budget1_20260425_075542` | 48 | `session_hands=1`, `layout_repetitions=2`, `remote_eval_hands=1`, `max_remote_calls_per_agent=1` |
-| Qwen small-model policy screen | `results/policy_screen_qwen_tiny_*_1h_1rep_20260425_102731` | 24 | `session_hands=1`, `layout_repetitions=1`, `remote_eval_hands=1` |
-| NVIDIA policy screen | `results/policy_screen_nvidia_*_1h_1rep_20260425_075542` | 24 | `session_hands=1`, `layout_repetitions=1`, `remote_eval_hands=1`, `max_remote_calls_per_agent=1` |
-
-Interpretation rules:
-- Main panels are the evidence base for the manuscript body.
-- Policy screens are exploratory supplementary evidence.
-- All rankings are descriptive statistics under this harness and its call constraints.
-- `cvar_5` is a lower-tail summary, not a confirmatory inference statistic, because sample counts are small.
-- Keys, server addresses, and private deployment details are not recorded in public documents.
-
-### Glossary
-
-- `mean_profit`: average session-ending profit.
-- `cvar_5`: lower-tail risk summary based on the worst 5% outcomes.
-- `win_rate`: share of sessions with positive profit.
-- `ruin_probability`: probability of exhausting capital or reaching an effectively bankrupt state.
-- parameter scale: nominal model parameter size.
-- model family: model lineage or family, such as Qwen, Mistral, or Nemotron.
-- policy framing: decision-making instruction style given to the model.
-- `max_remote_calls_per_agent`: maximum number of remote model API calls an agent can make in one session.
-- ROAS: Return on Ad Spend.
-- budget pacing: controlling campaign spend rate across the intended time window.
-
-### Four Policy Framings
-
-- Balanced: the default frame. Consider profit and risk together; neither strongly cautious nor strongly risk-seeking.
-- Analytic: the evidence-focused frame. Reason more about combinations, expected value, and opponent risk.
-- Conservative: the loss-avoidance frame. Avoid large downside outcomes, stop earlier when uncertain, and preserve capital.
-- Aggressive: the upside-seeking frame. Push harder when a profitable chance appears and accept more risk for higher payoff.
-
-### Research Meaning
-
-Yes, but its meaning is specific. This is not a paper claiming that one model is universally the best Go-Stop player. It is better framed as an evaluation-harness and exploratory remote-model comparison study for sequential decision making, risk control, scale effects, family differences, and prompt-policy sensitivity.
-
-The publishable contribution has three parts. First, Go-Stop is a compact benchmark with hidden information and lower-tail risk. Second, the Qwen panel is not monotone in nominal parameter scale. Third, the NVIDIA same-scale panel and policy screens show observable model-specific differences.
-
-The weak points are also clear: sample counts are modest, the NVIDIA run uses a one-call constraint, and the Qwen scale comparison mixes Coder and Qwen3.5 variants. The claim should therefore be reproducible exploratory evaluation and methodological evidence, not definitive model ranking.
-
-### Advertising Bidding Link
-
-Advertising bidding is not the same domain as Go-Stop, but the decision structure is similar enough to motivate the evaluation frame. An ad system repeatedly decides whether to bid, lower a bid, or wait under a finite budget. Conversion probability, competing bids, frequency fatigue, remaining budget, and campaign pacing are all uncertain. The Go-Stop harness does not simulate advertising directly; it connects as a compact evaluation frame for sequential action selection, uncertainty, budget-risk trade-offs, and lower-tail risk control.
 
 ## 서버 배포 규칙
 

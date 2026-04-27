@@ -1,125 +1,41 @@
-# 이중언어 요약 | Bilingual Summary
+# Bilingual Summary | 이중언어 요약
 
-## 한국어
+This paper package now centers a blocked factorial LLM study rather than a heuristic-only benchmark note.
 
-### 초록
+이 논문 패키지는 이제 휴리스틱 4종 벤치마크가 아니라, `모델 정체성 vs 프롬프트 전략`을 비교하는 blocked factorial LLM study를 중심에 둔다.
 
-원고는 재현 가능한 4인 고스톱 하네스에서 고정 원격 LLM 정책을 평가한다. 고스톱은 숨은 정보, 불확실한 드로우, 조합적 점수 계산, 고/스톱 위험, 다중 에이전트 상호작용이 짧은 에피소드 안에 들어 있는 확률적 의사결정 환경으로 사용된다. 첫 번째 주 패널은 DashScope의 Qwen 계열 모델 4개를 30B, 122B, 397B, 480B 명목 총 파라미터 규모로 비교한다. 두 번째 주 패널은 NVIDIA Build의 Qwen, Mistral, Nemotron, Stockmark 모델 4개를 100B-122B 전후 규모에서 비교하되, 한 세션 한 손과 에이전트당 원격 호출 1회 제약을 둔다. 보조 실험은 NVIDIA 소형 모델과 네 가지 prompt-policy framing을 비교한다.
+## Abstract | 초록
 
-결과는 기술통계다. Qwen 패널은 명목 파라미터 규모에 대해 단조적이지 않았고, 제한된 NVIDIA 패널에서는 Nemotron이 mean profit과 empirical CVaR 기준으로 가장 높았으며, 정책 효과는 모델별로 다르게 나타났다.
+English:
+The repository now frames four-player Go-Stop evaluation as a blocked factorial LLM study. The main question is whether model identity or prompt strategy explains more variance in long-run Go-Stop performance. The fixed study design uses a pinned four-model OpenRouter panel and four canonical English prompt strategies (`Balanced`, `Analytic`, `Conservative`, `Aggressive`). The primary analysis reports partial eta-squared on mean session profit, while `CVaR_5` and ruin probability remain secondary robustness metrics. The previously checked-in four-heuristic study is retained as appendix calibration rather than the main result.
 
-### 광고 입찰과의 연결
+Korean:
+이 저장소는 이제 4인 고스톱 평가를 blocked factorial LLM study로 정식화한다. 핵심 질문은 장기 성과의 분산을 더 크게 설명하는 요인이 `모델 자체`인지 `전략 프롬프트`인지다. 메인 설계는 고정된 OpenRouter 4개 모델 패널과 네 가지 영문 전략 프롬프트(`Balanced`, `Analytic`, `Conservative`, `Aggressive`)를 사용한다. 1차 분석은 mean session profit에 대한 partial eta-squared 비교이고, `CVaR_5`와 ruin probability는 2차 robustness 지표로 둔다. 기존 4개 휴리스틱 연구는 이제 메인 결과가 아니라 appendix calibration으로 남는다.
 
-광고 입찰은 고스톱과 같은 게임이 아니지만, 평가해야 하는 의사결정 구조가 닮아 있다. 광고 시스템은 제한된 예산 안에서 매 노출마다 입찰할지, 낮출지, 기다릴지를 결정한다. 전환 확률, 경쟁 입찰가, 빈도 피로, 잔여 예산, 캠페인 pacing은 모두 불확실하다. 따라서 평균 ROAS만 보지 않고 하방 위험, 예산 소진 위험, 드문 큰 손실을 함께 봐야 한다. 본 논문의 고스톱 평가는 광고 시스템을 직접 모사하지 않고, 순차 행동 선택과 위험 통제 평가 프레임으로 연결된다.
+## Main Reading Rule | 메인 읽기 규칙
 
-### 용어 정의
+English:
+- Main paper question: `model vs strategy`
+- Main result bundle: output of `scripts/run_openrouter_factorial_study.py`
+- Main figures: interaction, effect-size comparison, secondary risk summary
+- Heuristic baseline bundle: appendix-only calibration
 
-- Mean profit: 세션 종료 후 모델이 얻은 평균 수익이다.
-- CVaR 5%: 가장 나쁜 하위 5% 결과의 평균 손실을 요약하는 하방 위험 지표다.
-- Win rate: 세션에서 양의 수익을 낸 비율이다.
-- Ruin probability: 자본이 소진되거나 사실상 파산 상태에 도달할 확률이다.
-- Parameter scale: 모델의 명목 파라미터 규모다.
-- Model family: Qwen, Mistral, Nemotron처럼 모델 계열 또는 개발 계통을 뜻한다.
-- Policy framing: 모델에 제시하는 의사결정 지침의 성향이다.
-- ROAS: 광고비 대비 매출이다.
-- Budget pacing: 캠페인 예산을 기간 전체에 맞게 쓰도록 지출 속도를 조절하는 과정이다.
+Korean:
+- 본문 질문: `모델 vs 전략`
+- 본문 결과 번들: `scripts/run_openrouter_factorial_study.py` 산출물
+- 본문 그림: interaction plot, effect-size 비교, secondary risk summary
+- 휴리스틱 baseline 번들: appendix calibration 전용
 
-### 네 가지 정책 framing
+## Artifact Reminder | 아티팩트 안내
 
-- Balanced: 수익과 위험을 같이 보라는 기본형이다. 너무 무리하지도, 너무 겁먹지도 않는다.
-- Analytic: 패의 조합, 기대값, 상대 위험을 더 따져 보라는 분석형이다.
-- Conservative: 큰 손실을 피하는 것을 우선하는 보수형이다. 애매하면 멈추고 자본을 지키는 쪽이다.
-- Aggressive: 수익 기회를 더 강하게 잡는 공격형이다. 이길 가능성이 보이면 더 밀어붙이는 쪽이다.
+English:
+- `paper/arxiv_main.tex`: manuscript source
+- `paper/ARTIFACTS.md`: figure/table provenance
+- `paper/artifacts/`: baseline appendix calibration bundle currently checked in
+- future factorial bundles: generated under `results/openrouter_factorial_study*`
 
-### 이 연구가 의미 있는가?
-
-의미는 있다. 하지만 “어떤 모델이 세계적으로 제일 고스톱을 잘한다”는 논문은 아니다. 이 연구는 고스톱을 이용해 LLM의 순차 의사결정, 위험 관리, 모델 규모 효과, 모델 family 차이, prompt-policy 민감도를 한 번에 볼 수 있는 평가 하네스를 만든 연구다.
-
-논문으로 쓸 수 있는 지점은 세 가지다. 첫째, 고스톱이 숨은 정보와 하방 위험을 함께 가진 짧은 평가 환경이라는 점이다. 둘째, Qwen 패널에서 성능이 파라미터 규모에 따라 단순히 증가하지 않았다는 점이다. 셋째, 같은 규모대 NVIDIA 패널과 정책 framing 실험에서 모델별 차이가 실제로 관찰됐다는 점이다.
-
-약한 지점도 분명하다. 표본 수가 크지 않고, NVIDIA 실험은 호출 1회 제약이 있으며, Qwen 규모 비교는 Coder와 Qwen3.5 변형이 섞여 있다. 따라서 결론은 확정적 모델 순위가 아니라 재현 가능한 탐색적 평가와 방법론적 근거로 써야 한다.
-
-### 읽기 규칙
-
-- RQ1: 고스톱을 위험 민감적 순차 의사결정 평가 환경으로 볼 수 있는가.
-- RQ2: Qwen/DashScope 패널에서 관측 성능이 파라미터 규모에 대해 단조적인가.
-- RQ3: 제한된 NVIDIA Build 패널에서 family별 기술통계 차이가 보이는가.
-- RQ4: 소형 모델과 정책 framing 효과가 탐색적으로 관찰되는가.
-- 본문 결과 번들:
-  - `results/paper_qwen_4model_param_2h_2rep`
-  - `results/paper_nvidia_120b_4model_family_1h_2rep_budget1`
-- 보조 결과 번들:
-  - `results/tiny_nvidia_4model_1h_2rep_budget1_20260425_075542`
-  - `results/policy_screen_qwen_tiny_*_1h_1rep_20260425_102731`
-  - `results/policy_screen_nvidia_*_1h_1rep_20260425_075542`
-- 휴리스틱 baseline 산출물은 appendix calibration 전용이다.
-
-### 산출물
-
-- `paper/arxiv_main.tex`: 영어 학술 원고 소스.
-- `paper/gostop_ai_evaluation_paper.pdf`: 한국어 섹션과 영어 섹션을 분리한 공개 PDF.
-- `dashboard/paper.html`: 한국어 섹션과 영어 섹션을 분리한 웹 논문 페이지.
-- `paper/remote_model_results.md`: 한국어 섹션과 영어 섹션을 분리한 결과 요약.
-- `paper/ARTIFACTS.md`: 산출물 안내.
-
-## English
-
-### Abstract
-
-The manuscript evaluates fixed remote LLM policies in a reproducible four-player Go-Stop harness. Go-Stop is used as a compact stochastic decision environment with hidden information, uncertain draws, combinatorial scoring, stop-or-continue risk, and multi-agent interaction. The first main panel compares four Qwen-labeled DashScope models at 30B, 122B, 397B, and 480B nominal total parameters. The second main panel compares four roughly 100B-122B NVIDIA Build models from Qwen, Mistral, Nemotron, and Stockmark under a one-call, one-hand constraint. Supplementary screens compare small NVIDIA models and four prompt-policy framings.
-
-The results are descriptive: the Qwen panel is not monotone in nominal parameter scale, the constrained NVIDIA panel ranks Nemotron highest on mean profit and empirical CVaR, and policy effects are model-specific.
-
-### Link to Advertising Bidding
-
-Advertising bidding is not the same domain as Go-Stop, but the decision structure is similar enough to motivate the evaluation frame. An ad system repeatedly decides whether to bid, lower a bid, or wait under a finite budget. Conversion probability, competing bids, frequency fatigue, remaining budget, and campaign pacing are all uncertain. Mean ROAS alone can therefore be misleading; downside risk, budget burn risk, and rare severe losses also matter. The Go-Stop harness does not simulate advertising directly. It connects as a compact evaluation frame for sequential action selection and risk control.
-
-### Glossary
-
-- Mean profit: the average session-ending profit for a model.
-- CVaR 5%: the average of the worst 5% outcomes.
-- Win rate: the share of sessions with positive profit.
-- Ruin probability: the probability that a player exhausts capital or reaches an effectively bankrupt state.
-- Parameter scale: the nominal parameter size of a model.
-- Model family: the model lineage or family, such as Qwen, Mistral, or Nemotron.
-- Policy framing: the decision-making instruction style given to the model.
-- ROAS: Return on Ad Spend.
-- Budget pacing: controlling campaign spend rate across the intended time window.
-
-### Four Policy Framings
-
-- Balanced: the default frame. Consider profit and risk together; neither strongly cautious nor strongly risk-seeking.
-- Analytic: the evidence-focused frame. Reason more about combinations, expected value, and opponent risk.
-- Conservative: the loss-avoidance frame. Avoid large downside outcomes, stop earlier when uncertain, and preserve capital.
-- Aggressive: the upside-seeking frame. Push harder when a profitable chance appears and accept more risk for higher payoff.
-
-### Is This Study Meaningful?
-
-Yes, but its meaning is specific. This is not a paper claiming that one model is universally the best Go-Stop player. It is better framed as an evaluation-harness and exploratory remote-model comparison study for sequential decision making, risk control, scale effects, family differences, and prompt-policy sensitivity.
-
-The publishable contribution has three parts. First, Go-Stop is a compact benchmark with hidden information and lower-tail risk. Second, the Qwen panel is not monotone in nominal parameter scale. Third, the NVIDIA same-scale panel and policy screens show observable model-specific differences.
-
-The weak points are also clear: sample counts are modest, the NVIDIA run uses a one-call constraint, and the Qwen scale comparison mixes Coder and Qwen3.5 variants. The claim should therefore be reproducible exploratory evaluation and methodological evidence, not definitive model ranking.
-
-### Reading Rule
-
-- RQ1: Go-Stop as a compact risk-sensitive sequential decision environment.
-- RQ2: observed monotonicity in the Qwen-labeled DashScope panel.
-- RQ3: descriptive cross-family differences in the constrained NVIDIA Build panel.
-- RQ4: exploratory small-model and policy-framing effects.
-- Main result bundles:
-  - `results/paper_qwen_4model_param_2h_2rep`
-  - `results/paper_nvidia_120b_4model_family_1h_2rep_budget1`
-- Supplementary result bundles:
-  - `results/tiny_nvidia_4model_1h_2rep_budget1_20260425_075542`
-  - `results/policy_screen_qwen_tiny_*_1h_1rep_20260425_102731`
-  - `results/policy_screen_nvidia_*_1h_1rep_20260425_075542`
-- Heuristic baseline artifacts are appendix calibration only.
-
-### Artifacts
-
-- `paper/arxiv_main.tex`: English academic manuscript source.
-- `paper/gostop_ai_evaluation_paper.pdf`: public PDF with separated Korean and English sections.
-- `dashboard/paper.html`: web paper page with separated Korean and English sections.
-- `paper/remote_model_results.md`: result summary with separated Korean and English sections.
-- `paper/ARTIFACTS.md`: artifact guide.
+Korean:
+- `paper/arxiv_main.tex`: 본문 소스
+- `paper/ARTIFACTS.md`: 그림/표 provenance
+- `paper/artifacts/`: 현재 체크인된 appendix calibration 번들
+- 향후 factorial 번들: `results/openrouter_factorial_study*` 아래 생성
